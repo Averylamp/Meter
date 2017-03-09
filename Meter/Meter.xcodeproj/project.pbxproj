@@ -1,0 +1,535 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		BBFD9B721E713370009DDD20 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBFD9B711E713370009DDD20 /* AppDelegate.swift */; };
+		BBFD9B741E713370009DDD20 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBFD9B731E713370009DDD20 /* ViewController.swift */; };
+		BBFD9B771E713370009DDD20 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BBFD9B751E713370009DDD20 /* Main.storyboard */; };
+		BBFD9B791E713370009DDD20 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BBFD9B781E713370009DDD20 /* Assets.xcassets */; };
+		BBFD9B7C1E713370009DDD20 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BBFD9B7A1E713370009DDD20 /* LaunchScreen.storyboard */; };
+		BBFD9B871E713371009DDD20 /* MeterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBFD9B861E713371009DDD20 /* MeterTests.swift */; };
+		BBFD9B921E713371009DDD20 /* MeterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBFD9B911E713371009DDD20 /* MeterUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BBFD9B831E713371009DDD20 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BBFD9B661E713370009DDD20 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BBFD9B6D1E713370009DDD20;
+			remoteInfo = Meter;
+		};
+		BBFD9B8E1E713371009DDD20 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BBFD9B661E713370009DDD20 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BBFD9B6D1E713370009DDD20;
+			remoteInfo = Meter;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		BBFD9B6E1E713370009DDD20 /* Meter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Meter.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BBFD9B711E713370009DDD20 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		BBFD9B731E713370009DDD20 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		BBFD9B761E713370009DDD20 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		BBFD9B781E713370009DDD20 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BBFD9B7B1E713370009DDD20 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		BBFD9B7D1E713370009DDD20 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BBFD9B821E713371009DDD20 /* MeterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MeterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BBFD9B861E713371009DDD20 /* MeterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeterTests.swift; sourceTree = "<group>"; };
+		BBFD9B881E713371009DDD20 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BBFD9B8D1E713371009DDD20 /* MeterUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MeterUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BBFD9B911E713371009DDD20 /* MeterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeterUITests.swift; sourceTree = "<group>"; };
+		BBFD9B931E713371009DDD20 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BBFD9B6B1E713370009DDD20 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BBFD9B7F1E713371009DDD20 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BBFD9B8A1E713371009DDD20 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		BBFD9B651E713370009DDD20 = {
+			isa = PBXGroup;
+			children = (
+				BBFD9B701E713370009DDD20 /* Meter */,
+				BBFD9B851E713371009DDD20 /* MeterTests */,
+				BBFD9B901E713371009DDD20 /* MeterUITests */,
+				BBFD9B6F1E713370009DDD20 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		BBFD9B6F1E713370009DDD20 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BBFD9B6E1E713370009DDD20 /* Meter.app */,
+				BBFD9B821E713371009DDD20 /* MeterTests.xctest */,
+				BBFD9B8D1E713371009DDD20 /* MeterUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BBFD9B701E713370009DDD20 /* Meter */ = {
+			isa = PBXGroup;
+			children = (
+				BBFD9B711E713370009DDD20 /* AppDelegate.swift */,
+				BBFD9B731E713370009DDD20 /* ViewController.swift */,
+				BBFD9B751E713370009DDD20 /* Main.storyboard */,
+				BBFD9B781E713370009DDD20 /* Assets.xcassets */,
+				BBFD9B7A1E713370009DDD20 /* LaunchScreen.storyboard */,
+				BBFD9B7D1E713370009DDD20 /* Info.plist */,
+			);
+			path = Meter;
+			sourceTree = "<group>";
+		};
+		BBFD9B851E713371009DDD20 /* MeterTests */ = {
+			isa = PBXGroup;
+			children = (
+				BBFD9B861E713371009DDD20 /* MeterTests.swift */,
+				BBFD9B881E713371009DDD20 /* Info.plist */,
+			);
+			path = MeterTests;
+			sourceTree = "<group>";
+		};
+		BBFD9B901E713371009DDD20 /* MeterUITests */ = {
+			isa = PBXGroup;
+			children = (
+				BBFD9B911E713371009DDD20 /* MeterUITests.swift */,
+				BBFD9B931E713371009DDD20 /* Info.plist */,
+			);
+			path = MeterUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BBFD9B6D1E713370009DDD20 /* Meter */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BBFD9B961E713371009DDD20 /* Build configuration list for PBXNativeTarget "Meter" */;
+			buildPhases = (
+				BBFD9B6A1E713370009DDD20 /* Sources */,
+				BBFD9B6B1E713370009DDD20 /* Frameworks */,
+				BBFD9B6C1E713370009DDD20 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Meter;
+			productName = Meter;
+			productReference = BBFD9B6E1E713370009DDD20 /* Meter.app */;
+			productType = "com.apple.product-type.application";
+		};
+		BBFD9B811E713371009DDD20 /* MeterTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BBFD9B991E713371009DDD20 /* Build configuration list for PBXNativeTarget "MeterTests" */;
+			buildPhases = (
+				BBFD9B7E1E713371009DDD20 /* Sources */,
+				BBFD9B7F1E713371009DDD20 /* Frameworks */,
+				BBFD9B801E713371009DDD20 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BBFD9B841E713371009DDD20 /* PBXTargetDependency */,
+			);
+			name = MeterTests;
+			productName = MeterTests;
+			productReference = BBFD9B821E713371009DDD20 /* MeterTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		BBFD9B8C1E713371009DDD20 /* MeterUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BBFD9B9C1E713371009DDD20 /* Build configuration list for PBXNativeTarget "MeterUITests" */;
+			buildPhases = (
+				BBFD9B891E713371009DDD20 /* Sources */,
+				BBFD9B8A1E713371009DDD20 /* Frameworks */,
+				BBFD9B8B1E713371009DDD20 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BBFD9B8F1E713371009DDD20 /* PBXTargetDependency */,
+			);
+			name = MeterUITests;
+			productName = MeterUITests;
+			productReference = BBFD9B8D1E713371009DDD20 /* MeterUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BBFD9B661E713370009DDD20 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0820;
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = "Avery Lamp";
+				TargetAttributes = {
+					BBFD9B6D1E713370009DDD20 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = R4DQ2L3FBV;
+						ProvisioningStyle = Automatic;
+					};
+					BBFD9B811E713371009DDD20 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = R4DQ2L3FBV;
+						ProvisioningStyle = Automatic;
+						TestTargetID = BBFD9B6D1E713370009DDD20;
+					};
+					BBFD9B8C1E713371009DDD20 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = R4DQ2L3FBV;
+						ProvisioningStyle = Automatic;
+						TestTargetID = BBFD9B6D1E713370009DDD20;
+					};
+				};
+			};
+			buildConfigurationList = BBFD9B691E713370009DDD20 /* Build configuration list for PBXProject "Meter" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = BBFD9B651E713370009DDD20;
+			productRefGroup = BBFD9B6F1E713370009DDD20 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BBFD9B6D1E713370009DDD20 /* Meter */,
+				BBFD9B811E713371009DDD20 /* MeterTests */,
+				BBFD9B8C1E713371009DDD20 /* MeterUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BBFD9B6C1E713370009DDD20 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BBFD9B7C1E713370009DDD20 /* LaunchScreen.storyboard in Resources */,
+				BBFD9B791E713370009DDD20 /* Assets.xcassets in Resources */,
+				BBFD9B771E713370009DDD20 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BBFD9B801E713371009DDD20 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BBFD9B8B1E713371009DDD20 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BBFD9B6A1E713370009DDD20 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BBFD9B741E713370009DDD20 /* ViewController.swift in Sources */,
+				BBFD9B721E713370009DDD20 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BBFD9B7E1E713371009DDD20 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BBFD9B871E713371009DDD20 /* MeterTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BBFD9B891E713371009DDD20 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BBFD9B921E713371009DDD20 /* MeterUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BBFD9B841E713371009DDD20 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BBFD9B6D1E713370009DDD20 /* Meter */;
+			targetProxy = BBFD9B831E713371009DDD20 /* PBXContainerItemProxy */;
+		};
+		BBFD9B8F1E713371009DDD20 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BBFD9B6D1E713370009DDD20 /* Meter */;
+			targetProxy = BBFD9B8E1E713371009DDD20 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		BBFD9B751E713370009DDD20 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BBFD9B761E713370009DDD20 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		BBFD9B7A1E713370009DDD20 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BBFD9B7B1E713370009DDD20 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		BBFD9B941E713371009DDD20 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		BBFD9B951E713371009DDD20 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BBFD9B971E713371009DDD20 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = R4DQ2L3FBV;
+				INFOPLIST_FILE = Meter/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Isometric.Meter;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		BBFD9B981E713371009DDD20 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = R4DQ2L3FBV;
+				INFOPLIST_FILE = Meter/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Isometric.Meter;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		BBFD9B9A1E713371009DDD20 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = R4DQ2L3FBV;
+				INFOPLIST_FILE = MeterTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Isometric.MeterTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Meter.app/Meter";
+			};
+			name = Debug;
+		};
+		BBFD9B9B1E713371009DDD20 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = R4DQ2L3FBV;
+				INFOPLIST_FILE = MeterTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Isometric.MeterTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Meter.app/Meter";
+			};
+			name = Release;
+		};
+		BBFD9B9D1E713371009DDD20 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = R4DQ2L3FBV;
+				INFOPLIST_FILE = MeterUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Isometric.MeterUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = Meter;
+			};
+			name = Debug;
+		};
+		BBFD9B9E1E713371009DDD20 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = R4DQ2L3FBV;
+				INFOPLIST_FILE = MeterUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Isometric.MeterUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = Meter;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BBFD9B691E713370009DDD20 /* Build configuration list for PBXProject "Meter" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BBFD9B941E713371009DDD20 /* Debug */,
+				BBFD9B951E713371009DDD20 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BBFD9B961E713371009DDD20 /* Build configuration list for PBXNativeTarget "Meter" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BBFD9B971E713371009DDD20 /* Debug */,
+				BBFD9B981E713371009DDD20 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		BBFD9B991E713371009DDD20 /* Build configuration list for PBXNativeTarget "MeterTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BBFD9B9A1E713371009DDD20 /* Debug */,
+				BBFD9B9B1E713371009DDD20 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		BBFD9B9C1E713371009DDD20 /* Build configuration list for PBXNativeTarget "MeterUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BBFD9B9D1E713371009DDD20 /* Debug */,
+				BBFD9B9E1E713371009DDD20 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BBFD9B661E713370009DDD20 /* Project object */;
+}
