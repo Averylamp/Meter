@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		54DDB4AC54F23FC1E67B9BE0 /* Pods_MeterUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B6F212543D75A4D588CBE08 /* Pods_MeterUITests.framework */; };
+		833DF25B6F8476292621C743 /* Pods_Meter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75B6130149CC426A45315A3D /* Pods_Meter.framework */; };
+		A3BDB869BA3F1DCFDD6CDBDB /* Pods_MeterTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32087B325328DC44E45E0D17 /* Pods_MeterTests.framework */; };
+		BB4BBAC11EA40D7C00EBD13D /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB4BBAC01EA40D7C00EBD13D /* SplashViewController.swift */; };
+		BB4BBAC31EA4159A00EBD13D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB4BBAC21EA4159A00EBD13D /* Constants.swift */; };
+		BBC9640B1E7DCF3300E99617 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BBC9640A1E7DCF3300E99617 /* GoogleService-Info.plist */; };
+		BBC9640D1E7DCFCE00E99617 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC9640C1E7DCFCE00E99617 /* LoginViewController.swift */; };
+		BBC9640F1E7DCFED00E99617 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC9640E1E7DCFED00E99617 /* SignUpViewController.swift */; };
 		BBFD9B721E713370009DDD20 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBFD9B711E713370009DDD20 /* AppDelegate.swift */; };
 		BBFD9B741E713370009DDD20 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBFD9B731E713370009DDD20 /* ViewController.swift */; };
 		BBFD9B771E713370009DDD20 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BBFD9B751E713370009DDD20 /* Main.storyboard */; };
@@ -34,6 +42,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0B6F212543D75A4D588CBE08 /* Pods_MeterUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MeterUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0CA0CC2F875E25850593C026 /* Pods-MeterUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MeterUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MeterUITests/Pods-MeterUITests.release.xcconfig"; sourceTree = "<group>"; };
+		32087B325328DC44E45E0D17 /* Pods_MeterTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MeterTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3230D60F90063967FFD38B9F /* Pods-Meter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Meter.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Meter/Pods-Meter.debug.xcconfig"; sourceTree = "<group>"; };
+		58E704C1885348BD8AAC8665 /* Pods-MeterTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MeterTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MeterTests/Pods-MeterTests.debug.xcconfig"; sourceTree = "<group>"; };
+		7095FFA58E850DE1BAB146E3 /* Pods-MeterTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MeterTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MeterTests/Pods-MeterTests.release.xcconfig"; sourceTree = "<group>"; };
+		75B6130149CC426A45315A3D /* Pods_Meter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Meter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BB4BBAC01EA40D7C00EBD13D /* SplashViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
+		BB4BBAC21EA4159A00EBD13D /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		BBC9640A1E7DCF3300E99617 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		BBC9640C1E7DCFCE00E99617 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		BBC9640E1E7DCFED00E99617 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		BBFD9B6E1E713370009DDD20 /* Meter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Meter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBFD9B711E713370009DDD20 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BBFD9B731E713370009DDD20 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -47,6 +67,8 @@
 		BBFD9B8D1E713371009DDD20 /* MeterUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MeterUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBFD9B911E713371009DDD20 /* MeterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeterUITests.swift; sourceTree = "<group>"; };
 		BBFD9B931E713371009DDD20 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C8C0F3AAF39DE486BBA4D6C5 /* Pods-Meter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Meter.release.xcconfig"; path = "Pods/Target Support Files/Pods-Meter/Pods-Meter.release.xcconfig"; sourceTree = "<group>"; };
+		CBF576B5F5F1664C3979DEBE /* Pods-MeterUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MeterUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MeterUITests/Pods-MeterUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				833DF25B6F8476292621C743 /* Pods_Meter.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,6 +84,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A3BDB869BA3F1DCFDD6CDBDB /* Pods_MeterTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,12 +92,36 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				54DDB4AC54F23FC1E67B9BE0 /* Pods_MeterUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5216A98415B5FB79A9205301 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				75B6130149CC426A45315A3D /* Pods_Meter.framework */,
+				32087B325328DC44E45E0D17 /* Pods_MeterTests.framework */,
+				0B6F212543D75A4D588CBE08 /* Pods_MeterUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B3FFE1FAA2784B4995C4ECE3 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3230D60F90063967FFD38B9F /* Pods-Meter.debug.xcconfig */,
+				C8C0F3AAF39DE486BBA4D6C5 /* Pods-Meter.release.xcconfig */,
+				58E704C1885348BD8AAC8665 /* Pods-MeterTests.debug.xcconfig */,
+				7095FFA58E850DE1BAB146E3 /* Pods-MeterTests.release.xcconfig */,
+				CBF576B5F5F1664C3979DEBE /* Pods-MeterUITests.debug.xcconfig */,
+				0CA0CC2F875E25850593C026 /* Pods-MeterUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		BBFD9B651E713370009DDD20 = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +129,8 @@
 				BBFD9B851E713371009DDD20 /* MeterTests */,
 				BBFD9B901E713371009DDD20 /* MeterUITests */,
 				BBFD9B6F1E713370009DDD20 /* Products */,
+				B3FFE1FAA2784B4995C4ECE3 /* Pods */,
+				5216A98415B5FB79A9205301 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -100,9 +150,14 @@
 				BBFD9B711E713370009DDD20 /* AppDelegate.swift */,
 				BBFD9B731E713370009DDD20 /* ViewController.swift */,
 				BBFD9B751E713370009DDD20 /* Main.storyboard */,
+				BB4BBAC21EA4159A00EBD13D /* Constants.swift */,
+				BB4BBAC01EA40D7C00EBD13D /* SplashViewController.swift */,
+				BBC9640E1E7DCFED00E99617 /* SignUpViewController.swift */,
+				BBC9640C1E7DCFCE00E99617 /* LoginViewController.swift */,
 				BBFD9B781E713370009DDD20 /* Assets.xcassets */,
 				BBFD9B7A1E713370009DDD20 /* LaunchScreen.storyboard */,
 				BBFD9B7D1E713370009DDD20 /* Info.plist */,
+				BBC9640A1E7DCF3300E99617 /* GoogleService-Info.plist */,
 			);
 			path = Meter;
 			sourceTree = "<group>";
@@ -132,9 +187,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BBFD9B961E713371009DDD20 /* Build configuration list for PBXNativeTarget "Meter" */;
 			buildPhases = (
+				E31243278248844A250FD820 /* [CP] Check Pods Manifest.lock */,
 				BBFD9B6A1E713370009DDD20 /* Sources */,
 				BBFD9B6B1E713370009DDD20 /* Frameworks */,
 				BBFD9B6C1E713370009DDD20 /* Resources */,
+				F9F3D6BB1D5A7BDBFFD57FCA /* [CP] Embed Pods Frameworks */,
+				5037D7441EB1AF544A034DBF /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -149,9 +207,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BBFD9B991E713371009DDD20 /* Build configuration list for PBXNativeTarget "MeterTests" */;
 			buildPhases = (
+				C98AD39DB7FFF3CF1FA2F2EE /* [CP] Check Pods Manifest.lock */,
 				BBFD9B7E1E713371009DDD20 /* Sources */,
 				BBFD9B7F1E713371009DDD20 /* Frameworks */,
 				BBFD9B801E713371009DDD20 /* Resources */,
+				050C4BBC0C903D7C3864B4B8 /* [CP] Embed Pods Frameworks */,
+				01961891AB0A034666524880 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -167,9 +228,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BBFD9B9C1E713371009DDD20 /* Build configuration list for PBXNativeTarget "MeterUITests" */;
 			buildPhases = (
+				014DEE9689CD878D1F38BDB7 /* [CP] Check Pods Manifest.lock */,
 				BBFD9B891E713371009DDD20 /* Sources */,
 				BBFD9B8A1E713371009DDD20 /* Frameworks */,
 				BBFD9B8B1E713371009DDD20 /* Resources */,
+				DFEE36E4D8A972634524A5B9 /* [CP] Embed Pods Frameworks */,
+				E5B2D435ED01581A574C0978 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -236,6 +300,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BBFD9B7C1E713370009DDD20 /* LaunchScreen.storyboard in Resources */,
+				BBC9640B1E7DCF3300E99617 /* GoogleService-Info.plist in Resources */,
 				BBFD9B791E713370009DDD20 /* Assets.xcassets in Resources */,
 				BBFD9B771E713370009DDD20 /* Main.storyboard in Resources */,
 			);
@@ -257,13 +322,155 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		014DEE9689CD878D1F38BDB7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		01961891AB0A034666524880 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MeterTests/Pods-MeterTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		050C4BBC0C903D7C3864B4B8 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MeterTests/Pods-MeterTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5037D7441EB1AF544A034DBF /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Meter/Pods-Meter-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C98AD39DB7FFF3CF1FA2F2EE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		DFEE36E4D8A972634524A5B9 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MeterUITests/Pods-MeterUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E31243278248844A250FD820 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		E5B2D435ED01581A574C0978 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MeterUITests/Pods-MeterUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F9F3D6BB1D5A7BDBFFD57FCA /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Meter/Pods-Meter-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		BBFD9B6A1E713370009DDD20 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BBC9640D1E7DCFCE00E99617 /* LoginViewController.swift in Sources */,
 				BBFD9B741E713370009DDD20 /* ViewController.swift in Sources */,
+				BBC9640F1E7DCFED00E99617 /* SignUpViewController.swift in Sources */,
 				BBFD9B721E713370009DDD20 /* AppDelegate.swift in Sources */,
+				BB4BBAC11EA40D7C00EBD13D /* SplashViewController.swift in Sources */,
+				BB4BBAC31EA4159A00EBD13D /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -411,12 +618,13 @@
 		};
 		BBFD9B971E713371009DDD20 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3230D60F90063967FFD38B9F /* Pods-Meter.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = R4DQ2L3FBV;
 				INFOPLIST_FILE = Meter/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Isometric.Meter;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Isometric.Meter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -424,12 +632,13 @@
 		};
 		BBFD9B981E713371009DDD20 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C8C0F3AAF39DE486BBA4D6C5 /* Pods-Meter.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = R4DQ2L3FBV;
 				INFOPLIST_FILE = Meter/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Isometric.Meter;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Isometric.Meter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -437,6 +646,7 @@
 		};
 		BBFD9B9A1E713371009DDD20 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 58E704C1885348BD8AAC8665 /* Pods-MeterTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -452,6 +662,7 @@
 		};
 		BBFD9B9B1E713371009DDD20 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7095FFA58E850DE1BAB146E3 /* Pods-MeterTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -467,6 +678,7 @@
 		};
 		BBFD9B9D1E713371009DDD20 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CBF576B5F5F1664C3979DEBE /* Pods-MeterUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = R4DQ2L3FBV;
@@ -481,6 +693,7 @@
 		};
 		BBFD9B9E1E713371009DDD20 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0CA0CC2F875E25850593C026 /* Pods-MeterUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = R4DQ2L3FBV;
@@ -512,6 +725,7 @@
 				BBFD9B981E713371009DDD20 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		BBFD9B991E713371009DDD20 /* Build configuration list for PBXNativeTarget "MeterTests" */ = {
 			isa = XCConfigurationList;
@@ -520,6 +734,7 @@
 				BBFD9B9B1E713371009DDD20 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		BBFD9B9C1E713371009DDD20 /* Build configuration list for PBXNativeTarget "MeterUITests" */ = {
 			isa = XCConfigurationList;
@@ -528,6 +743,7 @@
 				BBFD9B9E1E713371009DDD20 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
