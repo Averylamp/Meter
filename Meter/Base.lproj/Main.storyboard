@@ -359,6 +359,10 @@
                             <constraint firstItem="pLm-dm-6rj" firstAttribute="leading" secondItem="D9x-jA-O0U" secondAttribute="leading" id="ug0-1u-laO"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="emailTextField" destination="RTe-VD-SIK" id="pzN-f4-ZDo"/>
+                        <outlet property="passwordTextField" destination="OqW-Qn-KEg" id="2cm-C1-uSO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DtF-lj-fqd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
