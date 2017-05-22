@@ -12,6 +12,16 @@
 		A3BDB869BA3F1DCFDD6CDBDB /* Pods_MeterTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32087B325328DC44E45E0D17 /* Pods_MeterTests.framework */; };
 		BB4BBAC11EA40D7C00EBD13D /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB4BBAC01EA40D7C00EBD13D /* SplashViewController.swift */; };
 		BB4BBAC31EA4159A00EBD13D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB4BBAC21EA4159A00EBD13D /* Constants.swift */; };
+		BB4BBADF1EA45E4600EBD13D /* GeoFire.m in Sources */ = {isa = PBXBuildFile; fileRef = BB4BBAD61EA45E4600EBD13D /* GeoFire.m */; };
+		BB4BBAE01EA45E4600EBD13D /* GFBase32Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = BB4BBAD81EA45E4600EBD13D /* GFBase32Utils.m */; };
+		BB4BBAE11EA45E4600EBD13D /* GFGeoHash.m in Sources */ = {isa = PBXBuildFile; fileRef = BB4BBADA1EA45E4600EBD13D /* GFGeoHash.m */; };
+		BB4BBAE21EA45E4600EBD13D /* GFGeoHashQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = BB4BBADC1EA45E4600EBD13D /* GFGeoHashQuery.m */; };
+		BB4BBAE31EA45E4600EBD13D /* GFQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = BB4BBADE1EA45E4600EBD13D /* GFQuery.m */; };
+		BB78A9831ED029BA004DFC4A /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB78A97E1ED029BA004DFC4A /* ContainerViewController.swift */; };
+		BB78A9841ED029BA004DFC4A /* ActiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB78A97F1ED029BA004DFC4A /* ActiveViewController.swift */; };
+		BB78A9851ED029BA004DFC4A /* MainNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB78A9801ED029BA004DFC4A /* MainNavigationViewController.swift */; };
+		BB78A9861ED029BA004DFC4A /* SidePanelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB78A9811ED029BA004DFC4A /* SidePanelViewController.swift */; };
+		BB78A9871ED029BA004DFC4A /* Navigation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB78A9821ED029BA004DFC4A /* Navigation.storyboard */; };
 		BBC9640B1E7DCF3300E99617 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BBC9640A1E7DCF3300E99617 /* GoogleService-Info.plist */; };
 		BBC9640D1E7DCFCE00E99617 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC9640C1E7DCFCE00E99617 /* LoginViewController.swift */; };
 		BBC9640F1E7DCFED00E99617 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC9640E1E7DCFED00E99617 /* SignUpViewController.swift */; };
@@ -22,6 +32,10 @@
 		BBFD9B7C1E713370009DDD20 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BBFD9B7A1E713370009DDD20 /* LaunchScreen.storyboard */; };
 		BBFD9B871E713371009DDD20 /* MeterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBFD9B861E713371009DDD20 /* MeterTests.swift */; };
 		BBFD9B921E713371009DDD20 /* MeterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBFD9B911E713371009DDD20 /* MeterUITests.swift */; };
+		BBFE91AD1ED24DD700F04F05 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBFE91AC1ED24DD700F04F05 /* MapKit.framework */; };
+		BBFE91AF1ED24E4F00F04F05 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBFE91AE1ED24E4F00F04F05 /* MapViewController.swift */; };
+		BBFE91B11ED24FCB00F04F05 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBFE91B01ED24FCB00F04F05 /* MainViewController.swift */; };
+		BBFE91B31ED260DB00F04F05 /* SpotAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBFE91B21ED260DB00F04F05 /* SpotAnnotation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +65,27 @@
 		75B6130149CC426A45315A3D /* Pods_Meter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Meter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB4BBAC01EA40D7C00EBD13D /* SplashViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		BB4BBAC21EA4159A00EBD13D /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		BB4BBAC91EA45D6300EBD13D /* Meter-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Meter-Bridging-Header.h"; sourceTree = "<group>"; };
+		BB4BBACF1EA45E4600EBD13D /* GeoFire.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeoFire.h; sourceTree = "<group>"; };
+		BB4BBAD01EA45E4600EBD13D /* GFCircleQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFCircleQuery.h; sourceTree = "<group>"; };
+		BB4BBAD11EA45E4600EBD13D /* GFQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFQuery.h; sourceTree = "<group>"; };
+		BB4BBAD21EA45E4600EBD13D /* GFRegionQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFRegionQuery.h; sourceTree = "<group>"; };
+		BB4BBAD31EA45E4600EBD13D /* GeoFire-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GeoFire-Prefix.pch"; sourceTree = "<group>"; };
+		BB4BBAD51EA45E4600EBD13D /* GeoFire+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GeoFire+Private.h"; sourceTree = "<group>"; };
+		BB4BBAD61EA45E4600EBD13D /* GeoFire.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeoFire.m; sourceTree = "<group>"; };
+		BB4BBAD71EA45E4600EBD13D /* GFBase32Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFBase32Utils.h; sourceTree = "<group>"; };
+		BB4BBAD81EA45E4600EBD13D /* GFBase32Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFBase32Utils.m; sourceTree = "<group>"; };
+		BB4BBAD91EA45E4600EBD13D /* GFGeoHash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFGeoHash.h; sourceTree = "<group>"; };
+		BB4BBADA1EA45E4600EBD13D /* GFGeoHash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFGeoHash.m; sourceTree = "<group>"; };
+		BB4BBADB1EA45E4600EBD13D /* GFGeoHashQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFGeoHashQuery.h; sourceTree = "<group>"; };
+		BB4BBADC1EA45E4600EBD13D /* GFGeoHashQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFGeoHashQuery.m; sourceTree = "<group>"; };
+		BB4BBADD1EA45E4600EBD13D /* GFQuery+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GFQuery+Private.h"; sourceTree = "<group>"; };
+		BB4BBADE1EA45E4600EBD13D /* GFQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFQuery.m; sourceTree = "<group>"; };
+		BB78A97E1ED029BA004DFC4A /* ContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
+		BB78A97F1ED029BA004DFC4A /* ActiveViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActiveViewController.swift; sourceTree = "<group>"; };
+		BB78A9801ED029BA004DFC4A /* MainNavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainNavigationViewController.swift; sourceTree = "<group>"; };
+		BB78A9811ED029BA004DFC4A /* SidePanelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SidePanelViewController.swift; sourceTree = "<group>"; };
+		BB78A9821ED029BA004DFC4A /* Navigation.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Navigation.storyboard; sourceTree = "<group>"; };
 		BBC9640A1E7DCF3300E99617 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BBC9640C1E7DCFCE00E99617 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		BBC9640E1E7DCFED00E99617 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
@@ -67,6 +102,10 @@
 		BBFD9B8D1E713371009DDD20 /* MeterUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MeterUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBFD9B911E713371009DDD20 /* MeterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeterUITests.swift; sourceTree = "<group>"; };
 		BBFD9B931E713371009DDD20 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BBFE91AC1ED24DD700F04F05 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		BBFE91AE1ED24E4F00F04F05 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		BBFE91B01ED24FCB00F04F05 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		BBFE91B21ED260DB00F04F05 /* SpotAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotAnnotation.swift; sourceTree = "<group>"; };
 		C8C0F3AAF39DE486BBA4D6C5 /* Pods-Meter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Meter.release.xcconfig"; path = "Pods/Target Support Files/Pods-Meter/Pods-Meter.release.xcconfig"; sourceTree = "<group>"; };
 		CBF576B5F5F1664C3979DEBE /* Pods-MeterUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MeterUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MeterUITests/Pods-MeterUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -76,6 +115,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BBFE91AD1ED24DD700F04F05 /* MapKit.framework in Frameworks */,
 				833DF25B6F8476292621C743 /* Pods_Meter.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -102,6 +142,7 @@
 		5216A98415B5FB79A9205301 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BBFE91AC1ED24DD700F04F05 /* MapKit.framework */,
 				75B6130149CC426A45315A3D /* Pods_Meter.framework */,
 				32087B325328DC44E45E0D17 /* Pods_MeterTests.framework */,
 				0B6F212543D75A4D588CBE08 /* Pods_MeterUITests.framework */,
@@ -120,6 +161,56 @@
 				0CA0CC2F875E25850593C026 /* Pods-MeterUITests.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		BB4BBACD1EA45E4600EBD13D /* GeoFire */ = {
+			isa = PBXGroup;
+			children = (
+				BB4BBACE1EA45E4600EBD13D /* API */,
+				BB4BBAD31EA45E4600EBD13D /* GeoFire-Prefix.pch */,
+				BB4BBAD41EA45E4600EBD13D /* Implementation */,
+			);
+			path = GeoFire;
+			sourceTree = "<group>";
+		};
+		BB4BBACE1EA45E4600EBD13D /* API */ = {
+			isa = PBXGroup;
+			children = (
+				BB4BBACF1EA45E4600EBD13D /* GeoFire.h */,
+				BB4BBAD01EA45E4600EBD13D /* GFCircleQuery.h */,
+				BB4BBAD11EA45E4600EBD13D /* GFQuery.h */,
+				BB4BBAD21EA45E4600EBD13D /* GFRegionQuery.h */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		BB4BBAD41EA45E4600EBD13D /* Implementation */ = {
+			isa = PBXGroup;
+			children = (
+				BB4BBAD51EA45E4600EBD13D /* GeoFire+Private.h */,
+				BB4BBAD61EA45E4600EBD13D /* GeoFire.m */,
+				BB4BBAD71EA45E4600EBD13D /* GFBase32Utils.h */,
+				BB4BBAD81EA45E4600EBD13D /* GFBase32Utils.m */,
+				BB4BBAD91EA45E4600EBD13D /* GFGeoHash.h */,
+				BB4BBADA1EA45E4600EBD13D /* GFGeoHash.m */,
+				BB4BBADB1EA45E4600EBD13D /* GFGeoHashQuery.h */,
+				BB4BBADC1EA45E4600EBD13D /* GFGeoHashQuery.m */,
+				BB4BBADD1EA45E4600EBD13D /* GFQuery+Private.h */,
+				BB4BBADE1EA45E4600EBD13D /* GFQuery.m */,
+			);
+			path = Implementation;
+			sourceTree = "<group>";
+		};
+		BB4BBAEE1EA4B21C00EBD13D /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				BB78A97E1ED029BA004DFC4A /* ContainerViewController.swift */,
+				BB78A97F1ED029BA004DFC4A /* ActiveViewController.swift */,
+				BB78A9801ED029BA004DFC4A /* MainNavigationViewController.swift */,
+				BB78A9811ED029BA004DFC4A /* SidePanelViewController.swift */,
+				BB78A9821ED029BA004DFC4A /* Navigation.storyboard */,
+			);
+			name = Navigation;
 			sourceTree = "<group>";
 		};
 		BBFD9B651E713370009DDD20 = {
@@ -150,14 +241,20 @@
 				BBFD9B711E713370009DDD20 /* AppDelegate.swift */,
 				BBFD9B731E713370009DDD20 /* ViewController.swift */,
 				BBFD9B751E713370009DDD20 /* Main.storyboard */,
+				BBFE91B01ED24FCB00F04F05 /* MainViewController.swift */,
+				BBFE91AE1ED24E4F00F04F05 /* MapViewController.swift */,
+				BBFE91B21ED260DB00F04F05 /* SpotAnnotation.swift */,
 				BB4BBAC21EA4159A00EBD13D /* Constants.swift */,
 				BB4BBAC01EA40D7C00EBD13D /* SplashViewController.swift */,
 				BBC9640E1E7DCFED00E99617 /* SignUpViewController.swift */,
 				BBC9640C1E7DCFCE00E99617 /* LoginViewController.swift */,
+				BB4BBAEE1EA4B21C00EBD13D /* Navigation */,
 				BBFD9B781E713370009DDD20 /* Assets.xcassets */,
 				BBFD9B7A1E713370009DDD20 /* LaunchScreen.storyboard */,
 				BBFD9B7D1E713370009DDD20 /* Info.plist */,
 				BBC9640A1E7DCF3300E99617 /* GoogleService-Info.plist */,
+				BB4BBACD1EA45E4600EBD13D /* GeoFire */,
+				BB4BBAC91EA45D6300EBD13D /* Meter-Bridging-Header.h */,
 			);
 			path = Meter;
 			sourceTree = "<group>";
@@ -258,7 +355,13 @@
 					BBFD9B6D1E713370009DDD20 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = R4DQ2L3FBV;
+						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					BBFD9B811E713371009DDD20 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -301,6 +404,7 @@
 			files = (
 				BBFD9B7C1E713370009DDD20 /* LaunchScreen.storyboard in Resources */,
 				BBC9640B1E7DCF3300E99617 /* GoogleService-Info.plist in Resources */,
+				BB78A9871ED029BA004DFC4A /* Navigation.storyboard in Resources */,
 				BBFD9B791E713370009DDD20 /* Assets.xcassets in Resources */,
 				BBFD9B771E713370009DDD20 /* Main.storyboard in Resources */,
 			);
@@ -465,12 +569,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BB4BBAE01EA45E4600EBD13D /* GFBase32Utils.m in Sources */,
+				BB4BBAE11EA45E4600EBD13D /* GFGeoHash.m in Sources */,
+				BBFE91B31ED260DB00F04F05 /* SpotAnnotation.swift in Sources */,
+				BB78A9841ED029BA004DFC4A /* ActiveViewController.swift in Sources */,
 				BBC9640D1E7DCFCE00E99617 /* LoginViewController.swift in Sources */,
+				BB4BBAE21EA45E4600EBD13D /* GFGeoHashQuery.m in Sources */,
 				BBFD9B741E713370009DDD20 /* ViewController.swift in Sources */,
 				BBC9640F1E7DCFED00E99617 /* SignUpViewController.swift in Sources */,
+				BBFE91B11ED24FCB00F04F05 /* MainViewController.swift in Sources */,
+				BB78A9851ED029BA004DFC4A /* MainNavigationViewController.swift in Sources */,
+				BB4BBADF1EA45E4600EBD13D /* GeoFire.m in Sources */,
 				BBFD9B721E713370009DDD20 /* AppDelegate.swift in Sources */,
 				BB4BBAC11EA40D7C00EBD13D /* SplashViewController.swift in Sources */,
 				BB4BBAC31EA4159A00EBD13D /* Constants.swift in Sources */,
+				BB78A9861ED029BA004DFC4A /* SidePanelViewController.swift in Sources */,
+				BB78A9831ED029BA004DFC4A /* ContainerViewController.swift in Sources */,
+				BB4BBAE31EA45E4600EBD13D /* GFQuery.m in Sources */,
+				BBFE91AF1ED24E4F00F04F05 /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -621,11 +737,14 @@
 			baseConfigurationReference = 3230D60F90063967FFD38B9F /* Pods-Meter.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = R4DQ2L3FBV;
 				INFOPLIST_FILE = Meter/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Isometric.Meter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Meter/Meter-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -635,11 +754,13 @@
 			baseConfigurationReference = C8C0F3AAF39DE486BBA4D6C5 /* Pods-Meter.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = R4DQ2L3FBV;
 				INFOPLIST_FILE = Meter/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Isometric.Meter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Meter/Meter-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="9Oz-zk-71A">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Main Navigation View Controller-->
+        <scene sceneID="Rwb-BY-Dpt">
+            <objects>
+                <navigationController storyboardIdentifier="NavigationViewController" navigationBarHidden="YES" id="1QY-Pt-frM" customClass="MainNavigationViewController" customModule="Meter" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" opaque="NO" contentMode="scaleToFill" id="ead-sK-PeM">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="wRr-0r-nkT">
+                        <rect key="frame" x="0.0" y="524" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
+                    <connections>
+                        <segue destination="Bog-en-t2P" kind="relationship" relationship="rootViewController" id="Zzx-kd-Iah"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XSc-00-4vt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="90" y="124"/>
+        </scene>
+        <!--SplashVC-->
+        <scene sceneID="3De-kL-c3L">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="SplashVC" storyboardName="Main" referencedIdentifier="SplashVC" id="zF3-d2-gmY" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="2Na-WV-WnG"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="K0B-WS-QKz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="749" y="-253"/>
+        </scene>
+        <!--Container View Controller-->
+        <scene sceneID="rbk-vE-b7S">
+            <objects>
+                <viewController storyboardIdentifier="NavContainerViewController" id="9Oz-zk-71A" customClass="ContainerViewController" customModule="Meter" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="dpK-9e-dwE"/>
+                        <viewControllerLayoutGuide type="bottom" id="ZHy-BA-SJa"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ede-Pg-b3z">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vRA-kj-Yqv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-266" y="114"/>
+        </scene>
+        <!--Active View Controller-->
+        <scene sceneID="Uqq-cx-hbg">
+            <objects>
+                <viewController storyboardIdentifier="ActiveViewController" id="Bog-en-t2P" customClass="ActiveViewController" customModule="Meter" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="c0J-u4-zAX"/>
+                        <viewControllerLayoutGuide type="bottom" id="bdZ-Kb-p6y"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="SnE-MQ-dZM">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="BUI-l7-qto"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BYm-ZS-UaU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="449" y="124"/>
+        </scene>
+        <!--Side Panel View Controller-->
+        <scene sceneID="5SZ-sz-G50">
+            <objects>
+                <viewController storyboardIdentifier="LeftPanelViewController" id="ck7-L5-tIF" customClass="SidePanelViewController" customModule="Meter" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="qzs-98-QMB"/>
+                        <viewControllerLayoutGuide type="bottom" id="0nu-AF-h0s"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="yNK-6j-vaO">
+                        <rect key="frame" x="0.0" y="0.0" width="300" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="81" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="yyC-tL-Rzz">
+                                <rect key="frame" x="0.0" y="100" width="300" height="468"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </tableView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gSG-5S-dRH">
+                                <rect key="frame" x="0.0" y="0.0" width="300" height="100"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.shadowOpacity">
+                                        <real key="value" value="0.59999999999999998"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.shadowRadius">
+                                        <integer key="value" value="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="size" keyPath="layer.shadowOffset">
+                                        <size key="value" width="0.0" height="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BlankProfilePicture" translatesAutoresizingMaskIntoConstraints="NO" id="rJD-wE-oDx">
+                                <rect key="frame" x="16" y="20" width="60" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="rJD-wE-oDx" secondAttribute="height" multiplier="1:1" id="kpm-Y4-rGU"/>
+                                    <constraint firstAttribute="width" constant="60" id="ohe-rs-jMs"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="30"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.shadowOpacity">
+                                        <real key="value" value="0.59999999999999998"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.shadowRadius">
+                                        <integer key="value" value="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="size" keyPath="layer.shadowOffset">
+                                        <size key="value" width="0.0" height="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Avery Lamp" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MeS-nJ-1Kv">
+                                <rect key="frame" x="84" y="40" width="200" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="yJM-X7-WUf"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="15"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.shadowOpacity">
+                                        <real key="value" value="0.59999999999999998"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.shadowRadius">
+                                        <integer key="value" value="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="size" keyPath="layer.shadowOffset">
+                                        <size key="value" width="0.0" height="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="averylamp@gmail.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gkS-wF-rkY">
+                                <rect key="frame" x="84" y="60" width="200" height="15"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="15" id="etd-x9-ma4"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="12"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.shadowOpacity">
+                                        <real key="value" value="0.59999999999999998"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.shadowRadius">
+                                        <integer key="value" value="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="size" keyPath="layer.shadowOffset">
+                                        <size key="value" width="0.0" height="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="MeS-nJ-1Kv" firstAttribute="leading" secondItem="rJD-wE-oDx" secondAttribute="trailing" constant="8" id="1pF-bm-G3I"/>
+                            <constraint firstItem="yyC-tL-Rzz" firstAttribute="centerX" secondItem="yNK-6j-vaO" secondAttribute="centerX" id="6gF-9v-Xmq"/>
+                            <constraint firstItem="gSG-5S-dRH" firstAttribute="width" secondItem="yNK-6j-vaO" secondAttribute="width" id="9su-Hc-1t7"/>
+                            <constraint firstItem="0nu-AF-h0s" firstAttribute="top" secondItem="yyC-tL-Rzz" secondAttribute="bottom" id="AQ4-Dz-YxS"/>
+                            <constraint firstItem="MeS-nJ-1Kv" firstAttribute="centerY" secondItem="rJD-wE-oDx" secondAttribute="centerY" id="H0O-XU-l6c"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="gkS-wF-rkY" secondAttribute="trailing" id="Hjn-zt-rIz"/>
+                            <constraint firstItem="gSG-5S-dRH" firstAttribute="top" secondItem="yNK-6j-vaO" secondAttribute="topMargin" id="LNu-6F-yOv"/>
+                            <constraint firstItem="MeS-nJ-1Kv" firstAttribute="trailing" secondItem="yNK-6j-vaO" secondAttribute="trailingMargin" id="Q7E-5v-w5h"/>
+                            <constraint firstItem="yyC-tL-Rzz" firstAttribute="width" secondItem="yNK-6j-vaO" secondAttribute="width" id="aVC-Sz-IzU"/>
+                            <constraint firstItem="yyC-tL-Rzz" firstAttribute="top" secondItem="gSG-5S-dRH" secondAttribute="bottom" id="aej-HK-TVT"/>
+                            <constraint firstItem="rJD-wE-oDx" firstAttribute="leading" secondItem="yNK-6j-vaO" secondAttribute="leadingMargin" id="cnn-ip-XNm"/>
+                            <constraint firstItem="gkS-wF-rkY" firstAttribute="leading" secondItem="rJD-wE-oDx" secondAttribute="trailing" constant="8" id="fhp-Ow-byD"/>
+                            <constraint firstItem="gkS-wF-rkY" firstAttribute="top" secondItem="MeS-nJ-1Kv" secondAttribute="bottom" id="lvM-wk-G6q"/>
+                            <constraint firstItem="rJD-wE-oDx" firstAttribute="top" secondItem="qzs-98-QMB" secondAttribute="bottom" id="qQv-iY-DG1"/>
+                            <constraint firstItem="gSG-5S-dRH" firstAttribute="centerX" secondItem="yNK-6j-vaO" secondAttribute="centerX" id="rHz-8O-a9D"/>
+                            <constraint firstItem="gSG-5S-dRH" firstAttribute="height" secondItem="rJD-wE-oDx" secondAttribute="height" constant="40" id="xtx-6V-8Kj"/>
+                        </constraints>
+                    </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="300" height="568"/>
+                    <connections>
+                        <outlet property="backgroundGradientImage" destination="gSG-5S-dRH" id="gCg-Nz-65U"/>
+                        <outlet property="profileEmailLabel" destination="gkS-wF-rkY" id="6hP-M9-Fqg"/>
+                        <outlet property="profileNameLabel" destination="MeS-nJ-1Kv" id="K8b-41-7kt"/>
+                        <outlet property="profilePictureImage" destination="rJD-wE-oDx" id="LST-AI-zXS"/>
+                        <outlet property="tableView" destination="yyC-tL-Rzz" id="gwF-Be-AIM"/>
+                        <segue destination="zF3-d2-gmY" kind="modal" identifier="LoginSegue" id="JZK-8x-8wn"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4bR-Nh-gNy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="836" y="173"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="BlankProfilePicture" width="720" height="720"/>
+    </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4_7.fullscreen"/>
+    </simulatedMetricsContainer>
+</document>

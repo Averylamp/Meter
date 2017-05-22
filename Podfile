@@ -13,6 +13,9 @@ target 'Meter' do
   pod 'FBSDKCoreKit'
   pod 'FBSDKLoginKit'
   pod 'FBSDKShareKit'
+  pod 'Parse'
+  pod 'ParseFacebookUtilsV4'
+  pod 'MBProgressHUD'
 
 
   target 'MeterTests' do

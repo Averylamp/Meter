@@ -1,21 +1,66 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="kAG-qQ-2Vx">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="oOF-un-fDu">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Main View Controller-->
+        <scene sceneID="Nih-Zi-k2o">
+            <objects>
+                <viewController storyboardIdentifier="MainVC" id="oOF-un-fDu" customClass="MainViewController" customModule="Meter" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="IOC-kZ-SXD"/>
+                        <viewControllerLayoutGuide type="bottom" id="Pv4-eK-4e3"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Bt7-c2-gaf">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6GI-RP-Vv6">
+                                <rect key="frame" x="0.0" y="447" width="375" height="220"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="220" id="Q9M-7J-yyY"/>
+                                </constraints>
+                            </view>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WI5-mr-AyO">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="447"/>
+                                <connections>
+                                    <segue destination="hVj-Ci-I7I" kind="embed" id="c9T-KA-khW"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="6GI-RP-Vv6" firstAttribute="top" secondItem="WI5-mr-AyO" secondAttribute="bottom" id="0BA-EN-Q0n"/>
+                            <constraint firstItem="6GI-RP-Vv6" firstAttribute="centerX" secondItem="Bt7-c2-gaf" secondAttribute="centerX" id="196-47-Kbv"/>
+                            <constraint firstItem="WI5-mr-AyO" firstAttribute="centerX" secondItem="Bt7-c2-gaf" secondAttribute="centerX" id="KWs-9X-9B8"/>
+                            <constraint firstItem="WI5-mr-AyO" firstAttribute="top" secondItem="Bt7-c2-gaf" secondAttribute="top" id="cNH-WL-mDG"/>
+                            <constraint firstItem="Pv4-eK-4e3" firstAttribute="top" secondItem="6GI-RP-Vv6" secondAttribute="bottom" id="hJC-eY-j4G"/>
+                            <constraint firstItem="6GI-RP-Vv6" firstAttribute="width" secondItem="Bt7-c2-gaf" secondAttribute="width" id="qph-n7-heu"/>
+                            <constraint firstItem="WI5-mr-AyO" firstAttribute="width" secondItem="Bt7-c2-gaf" secondAttribute="width" id="xFi-eT-hi5"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="detailView" destination="6GI-RP-Vv6" id="7cv-O9-wzv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SoD-qa-Tyb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2296.8000000000002" y="90.404797601199405"/>
+        </scene>
         <!--Splash View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="SplashViewController" customModule="Meter" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SplashVC" id="BYZ-38-t0r" customClass="SplashViewController" customModule="Meter" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -384,7 +429,35 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KrE-eY-Z9N" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1684" y="38"/>
+            <point key="canvasLocation" x="1620" y="91"/>
+        </scene>
+        <!--Map View Controller-->
+        <scene sceneID="XNm-8Q-pfc">
+            <objects>
+                <viewController id="hVj-Ci-I7I" customClass="MapViewController" customModule="Meter" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="oGX-ax-q7w">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="447"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="LqT-UC-BXp">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="447"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="LqT-UC-BXp" firstAttribute="centerY" secondItem="oGX-ax-q7w" secondAttribute="centerY" id="IfB-iJ-8KF"/>
+                            <constraint firstItem="LqT-UC-BXp" firstAttribute="centerX" secondItem="oGX-ax-q7w" secondAttribute="centerX" id="kxk-Lj-E32"/>
+                            <constraint firstItem="LqT-UC-BXp" firstAttribute="height" secondItem="oGX-ax-q7w" secondAttribute="height" id="tCU-zk-LqA"/>
+                            <constraint firstItem="LqT-UC-BXp" firstAttribute="width" secondItem="oGX-ax-q7w" secondAttribute="width" id="wIg-sp-OMW"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="LqT-UC-BXp" id="aK5-xV-vxy"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Leg-iU-e8F" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2297" y="-511"/>
         </scene>
     </scenes>
     <resources>
