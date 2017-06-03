@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Parse
+
 
 class MapViewController: UIViewController, MKMapViewDelegate {
 
@@ -25,6 +27,16 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     }
     
     func loadCoordinates(){
+        let query = PFQuery(className: "Spot")
+        let geoPoint = PFGeoPoint(latitude: 40.744893, longitude: -73.987398)
+        query.whereKey("location", nearGeoPoint: geoPoint)
+        do{
+            let objects = try query.findObjects()
+            print(objects)
+        }
+        catch{
+            print("Failed query")
+        }
         for _ in 0...50{
             let coord = CLLocationCoordinate2DMake(40.8 + Double(arc4random_uniform(1000)) / 10000.0 - 0.05, -74.005 + Double(arc4random_uniform(1000)) / 10000.0 - 0.05)
             coordinates.append(coord)
@@ -72,10 +84,16 @@ class MapViewController: UIViewController, MKMapViewDelegate {
             }
             if annotation is SpotAnnotation {
                 spotAnnotation?.subviews.forEach{ $0.removeFromSuperview() }
-                spotAnnotation?.frame = CGRect(x: 0, y: 0, width: 40, height: 40)
-                let pinImage = UIImageView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
+                spotAnnotation?.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
+                let pinImage = UIImageView(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
                 pinImage.image = #imageLiteral(resourceName: "Map_Pin")
                 pinImage.contentMode = .scaleAspectFit
+                let priceLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 35, height: 25 ))
+                priceLabel.textAlignment  = .center
+                priceLabel.text = "\(arc4random_uniform(20) + 15)"
+                priceLabel.font = UIFont(name: "Avenir", size: 16)
+                pinImage.addSubview(priceLabel)
+                priceLabel.center = CGPoint(x: pinImage.center.x, y: pinImage.center.y - 7)
                 spotAnnotation?.addSubview(pinImage)
 //                spotAnnotation?.animatesDrop = true
             }

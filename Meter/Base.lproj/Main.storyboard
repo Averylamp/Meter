@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="oOF-un-fDu">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="oOF-un-fDu">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -15,7 +15,7 @@
         <!--Main View Controller-->
         <scene sceneID="Nih-Zi-k2o">
             <objects>
-                <viewController storyboardIdentifier="MainVC" id="oOF-un-fDu" customClass="MainViewController" customModule="Meter" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MainViewController" id="oOF-un-fDu" customClass="MainViewController" customModule="Meter" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="IOC-kZ-SXD"/>
                         <viewControllerLayoutGuide type="bottom" id="Pv4-eK-4e3"/>
@@ -357,7 +357,7 @@
                                     <action selector="continueFacebookClicked:" destination="kAG-qQ-2Vx" eventType="touchUpInside" id="PWc-DA-k82"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SkylineImage" translatesAutoresizingMaskIntoConstraints="NO" id="6c3-eK-QLD">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SkylineImage" translatesAutoresizingMaskIntoConstraints="NO" id="6c3-eK-QLD">
                                 <rect key="frame" x="0.0" y="567" width="375" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="e7J-Z7-qAE"/>
@@ -435,6 +435,10 @@
         <scene sceneID="XNm-8Q-pfc">
             <objects>
                 <viewController id="hVj-Ci-I7I" customClass="MapViewController" customModule="Meter" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="0tJ-hM-gdp"/>
+                        <viewControllerLayoutGuide type="bottom" id="lan-hV-dxe"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="oGX-ax-q7w">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="447"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

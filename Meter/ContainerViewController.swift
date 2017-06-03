@@ -9,30 +9,26 @@
 import UIKit
 
 enum SlideState{
-    case bothCollapsed
+    case mainVC
     case leftPanelExpanded
 }
 
-class ContainerViewController: UIViewController, ActiveViewControllerDelegate {
-
+class ContainerViewController: UIViewController {
+    
     var activeNavigationController: MainNavigationViewController!
     var activeViewController: UIViewController!
-    var currentState: SlideState = .bothCollapsed {
-        didSet{
-            let shouldShowShadow = currentState != .bothCollapsed
-            showShadowForActiveViewController(shouldShowShadow)
-        }
-    }
+    var currentState: SlideState = .mainVC
     
-    var leftPanelController: SidePanelViewController?
-    let centerPanelExpandedOffset: CGFloat = 100
+    var leftPanelController = SidePanelViewController()
+    let leftPanelWidth: CGFloat = 240
     var profilePicture: UIImage? = nil
+    var containerOverlay = UIButton()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         let NavStoryboard = UIStoryboard(name: "Navigation", bundle: Bundle.main)
-
+        
         
         activeNavigationController = NavStoryboard.instantiateViewController(withIdentifier: "NavigationViewController") as! MainNavigationViewController
         view.addSubview(activeNavigationController.view)
@@ -40,126 +36,72 @@ class ContainerViewController: UIViewController, ActiveViewControllerDelegate {
         
         activeNavigationController.didMove(toParentViewController: self)
         
-//        let searchVC =  UIStoryboard(name: "Search", bundle: Bundle.main).instantiateViewController(withIdentifier: "SearchViewController") as? SearchViewController
-//        activeNavigationController.searchVCS = [searchVC!]
+        let mainVC = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "MainViewController")
+        //        let searchVC =  UIStoryboard(name: "Search", bundle: Bundle.main).instantiateViewController(withIdentifier: "SearchViewController") as? SearchViewController
+        activeNavigationController.searchVCS = [mainVC]
         activeNavigationController.setViewControllers(activeNavigationController.searchVCS, animated: false)
         
+        containerOverlay = UIButton(frame: self.view.frame)
+        containerOverlay.backgroundColor = UIColor.black
+        containerOverlay.isUserInteractionEnabled = false
+        containerOverlay.layer.opacity = 0.0
+        containerOverlay.addTarget(self, action: #selector(ContainerViewController.overlayClicked(sender:)), for: .touchUpInside)
+        self.view.addSubview(containerOverlay)
+        
+        self.addLeftPanelViewController()
         
         let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(ContainerViewController.handlePanGesture(_:)))
         panGestureRecognizer.delegate = self
         activeNavigationController.view.addGestureRecognizer(panGestureRecognizer)
+        let panelPanGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(ContainerViewController.handlePanGesture(_:)))
+        panelPanGestureRecognizer.delegate = self
+        leftPanelController.view.addGestureRecognizer(panelPanGestureRecognizer)
+        let tableViewPanGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(ContainerViewController.handlePanGesture(_:)))
+        tableViewPanGestureRecognizer.delegate = self
+        leftPanelController.tableView.addGestureRecognizer(tableViewPanGestureRecognizer)
         
-//        if profilePicture == nil{
-//            if FBSDKAccessToken.current() != nil {
-//                
-//                FBSDKGraphRequest(graphPath: "me", parameters: ["fields":""]).start(completionHandler: { (connection, result, error) -> Void in
-//                    if error == nil{
-//                        if let dict = result as? Dictionary<String, AnyObject>{
-//                            let fbUserId = dict["id"]
-////                            let defaults = NSUserDefaults.standardUserDefaults()
-////                            if let picture = defaults.objectForKey(fbUserId as! String){
-////                                self.profilePicture = picture as? UIImage
-////                            }else{
-//                            
-//                            let pictureURL = "https://graph.facebook.com/\(fbUserId!)/picture?type=large&return_ssl_resources=1"
-//                            let urlRequest = URL(string: pictureURL)
-//                            let urlRequestNeeded = URLRequest(url: urlRequest!)
-//                            
-//                            NSURLConnection.sendAsynchronousRequest(urlRequestNeeded, queue: OperationQueue.main, completionHandler: { (response, data, error) in
-//                                if error == nil{
-//                                    let image = UIImage(data: data!)
-////                                    print("Image Found")
-//                                    self.profilePicture = image
-//                                    self.activeNavigationController.profilePicture = image
-////                                    defaults.setObject(image, forKey: fbUserId as! String)
-//                                }else{
-//                                    print("Error - \(error)")
-//                                }
-//                            })
-//                            
-//                        }
-//                    }
-//                })
-//            }
-//
-//        }
+        
     }
     fileprivate var toggleObserver: NSObjectProtocol?
     override func viewDidAppear(_ animated: Bool) {
         let notificationCenter = NotificationCenter.default
         toggleObserver = notificationCenter.addObserver(forName: NSNotification.Name(rawValue: "ToggleLeftMenu"), object: nil, queue: nil, using: { (notofication) in
-            self.toggleLeftPanel()
         })
     }
     
-    // MARK: - Active View Controller Delegate
-    
-    func toggleLeftPanel() {
-        let notAlreadyExpanded = currentState != .leftPanelExpanded
-        if notAlreadyExpanded{
-            addLeftPanelViewController()
-        }
-        
-        animateLeftPanel(notAlreadyExpanded)
+    func overlayClicked(sender:UIButton){
+        animateSidePanel(expand: false)
     }
     
-    func collapseSidePanels() {
-        switch (currentState) {
-        case .leftPanelExpanded:
-            toggleLeftPanel()
-        default:
-            break
+    let overlayFullOpacity:CGFloat = 0.5
+    let sidePanelAnimationDuration = 0.3
+    func animateSidePanel(expand:Bool){
+        if expand{
+            UIView.animate(withDuration: sidePanelAnimationDuration, delay: 0.0, options: .curveEaseOut, animations: {
+                self.leftPanelController.view.frame = CGRect(x:0, y: 0, width: self.leftPanelController.view.frame.width, height: self.leftPanelController.view.frame.height)
+                self.containerOverlay.layer.opacity = Float(self.overlayFullOpacity)
+            }, completion: nil)
+            currentState = .leftPanelExpanded
+            containerOverlay.isUserInteractionEnabled = true
+        }else{
+            UIView.animate(withDuration: sidePanelAnimationDuration, delay: 0.0, options: .curveEaseOut, animations: { 
+                self.leftPanelController.view.frame = CGRect(x: -self.leftPanelController.view.frame.width, y: 0, width: self.leftPanelController.view.frame.width, height: self.leftPanelController.view.frame.height)
+                self.containerOverlay.layer.opacity = 0.0
+            }, completion: nil)
+            currentState = .mainVC
+            containerOverlay.isUserInteractionEnabled = false
         }
     }
     
     func addLeftPanelViewController() {
-        if leftPanelController == nil {
-            leftPanelController = UIStoryboard(name: "Navigation", bundle: Bundle.main).instantiateViewController(withIdentifier: "LeftPanelViewController") as? SidePanelViewController
-            leftPanelController?.profilePicture = self.profilePicture
-            addChildSidePanelController(leftPanelController!)
-            leftPanelController!.view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width - centerPanelExpandedOffset, height: self.view.frame.height)
-            leftPanelController?.view.layoutIfNeeded()
-            leftPanelController!.loadViewData()
-        }
+        leftPanelController = UIStoryboard(name: "Navigation", bundle: Bundle.main).instantiateViewController(withIdentifier: "LeftPanelViewController") as! SidePanelViewController
+        leftPanelController.view.frame = CGRect(x: -leftPanelWidth, y: 0, width:leftPanelWidth, height: self.view.frame.height)
+        view.addSubview(leftPanelController.view)
+        leftPanelController.didMove(toParentViewController: self)
+        leftPanelController.view.layoutIfNeeded()
+        
     }
     
-    func addChildSidePanelController(_ sidePanelController: SidePanelViewController){
-        view.insertSubview(sidePanelController.view, at: 0)
-        addChildViewController(sidePanelController)
-        sidePanelController.didMove(toParentViewController: self)
-    }
-    
-    func animateLeftPanel(_ shouldExpand: Bool){
-        if shouldExpand {
-            currentState = .leftPanelExpanded
-            NotificationCenter.default.post(Notification(name: Notification.Name(rawValue: "leftPanelExpanded"), object: self))
-            animateCenterPanelXPosition(activeNavigationController.view.frame.width - centerPanelExpandedOffset)
-        }else {
-            animateCenterPanelXPosition(0){ finished in
-                self.currentState = .bothCollapsed
-                NotificationCenter.default.post(Notification(name: Notification.Name(rawValue: "menusCollapsed"), object: self))
-                self.leftPanelController!.view.removeFromSuperview()
-                self.leftPanelController = nil
-            }
-        }
-            
-    }
-    
-    func animateCenterPanelXPosition(_ targetPosition:CGFloat, completion: ((Bool) -> Void)! = nil) {
-        UIView.animate(withDuration: 0.5, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: UIViewAnimationOptions(), animations: {
-            self.activeNavigationController.view.frame.origin.x = targetPosition
-            }, completion: completion)
-    }
-    
-    func showShadowForActiveViewController(_ shouldShowShadow: Bool){
-        if shouldShowShadow{
-            activeNavigationController.view.layer.shadowOpacity = 0.8
-        }else{
-            activeNavigationController.view.layer.shadowOpacity = 0.0
-        }
-    }
-    
-
 }
 
 extension ContainerViewController: UIGestureRecognizerDelegate{
@@ -169,21 +111,23 @@ extension ContainerViewController: UIGestureRecognizerDelegate{
         
         switch recognizer.state {
         case .began:
-            if currentState == .bothCollapsed{
-                if gestureIsDraggingFromLeftToRight {
-                    addLeftPanelViewController()
-                }
-                showShadowForActiveViewController(true)
-            }
+            print("Began sliding VC")
         case .changed:
             let translation = recognizer.translation(in: view).x
-            if translation < 0 && currentState == .bothCollapsed {break}
-            recognizer.view?.center.x = recognizer.view!.center.x + translation
+            if translation + leftPanelController.view.frame.origin.x < 0 && translation + leftPanelController.view.frame.origin.x > -leftPanelController.view.frame.width{
+                leftPanelController.view?.center.x = leftPanelController.view!.center.x + translation
+            }
+            containerOverlay.layer.opacity = Float((leftPanelController.view.frame.origin.x + leftPanelController.view.frame.width) / leftPanelController.view.frame.width * overlayFullOpacity)
             recognizer.setTranslation(CGPoint.zero, in: view)
         case .ended:
-            if leftPanelController != nil {
-                let hasMovedGreaterThanHalfway = recognizer.view!.center.x > view.bounds.size.width
-                animateLeftPanel(hasMovedGreaterThanHalfway)
+            if leftPanelController.view.center.x > 0{
+                if recognizer.velocity(in: view).x < -100{
+                    animateSidePanel(expand: false)
+                }else{
+                    animateSidePanel(expand: true)
+                }
+            }else{
+                animateSidePanel(expand: false)
             }
         default:
             break
@@ -191,7 +135,7 @@ extension ContainerViewController: UIGestureRecognizerDelegate{
     }
     
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
-        if currentState != .bothCollapsed {
+        if currentState != .mainVC {
             return true
         }
         if touch.location(in: self.view).x < self.view.frame.width / 3{

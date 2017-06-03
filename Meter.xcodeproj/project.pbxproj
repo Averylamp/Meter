@@ -18,7 +18,6 @@
 		BB4BBAE21EA45E4600EBD13D /* GFGeoHashQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = BB4BBADC1EA45E4600EBD13D /* GFGeoHashQuery.m */; };
 		BB4BBAE31EA45E4600EBD13D /* GFQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = BB4BBADE1EA45E4600EBD13D /* GFQuery.m */; };
 		BB78A9831ED029BA004DFC4A /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB78A97E1ED029BA004DFC4A /* ContainerViewController.swift */; };
-		BB78A9841ED029BA004DFC4A /* ActiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB78A97F1ED029BA004DFC4A /* ActiveViewController.swift */; };
 		BB78A9851ED029BA004DFC4A /* MainNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB78A9801ED029BA004DFC4A /* MainNavigationViewController.swift */; };
 		BB78A9861ED029BA004DFC4A /* SidePanelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB78A9811ED029BA004DFC4A /* SidePanelViewController.swift */; };
 		BB78A9871ED029BA004DFC4A /* Navigation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB78A9821ED029BA004DFC4A /* Navigation.storyboard */; };
@@ -82,7 +81,6 @@
 		BB4BBADD1EA45E4600EBD13D /* GFQuery+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GFQuery+Private.h"; sourceTree = "<group>"; };
 		BB4BBADE1EA45E4600EBD13D /* GFQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFQuery.m; sourceTree = "<group>"; };
 		BB78A97E1ED029BA004DFC4A /* ContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
-		BB78A97F1ED029BA004DFC4A /* ActiveViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActiveViewController.swift; sourceTree = "<group>"; };
 		BB78A9801ED029BA004DFC4A /* MainNavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainNavigationViewController.swift; sourceTree = "<group>"; };
 		BB78A9811ED029BA004DFC4A /* SidePanelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SidePanelViewController.swift; sourceTree = "<group>"; };
 		BB78A9821ED029BA004DFC4A /* Navigation.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Navigation.storyboard; sourceTree = "<group>"; };
@@ -205,7 +203,6 @@
 			isa = PBXGroup;
 			children = (
 				BB78A97E1ED029BA004DFC4A /* ContainerViewController.swift */,
-				BB78A97F1ED029BA004DFC4A /* ActiveViewController.swift */,
 				BB78A9801ED029BA004DFC4A /* MainNavigationViewController.swift */,
 				BB78A9811ED029BA004DFC4A /* SidePanelViewController.swift */,
 				BB78A9821ED029BA004DFC4A /* Navigation.storyboard */,
@@ -354,7 +351,7 @@
 				TargetAttributes = {
 					BBFD9B6D1E713370009DDD20 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = R4DQ2L3FBV;
+						DevelopmentTeam = 9XWYL3K4YT;
 						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
@@ -572,7 +569,6 @@
 				BB4BBAE01EA45E4600EBD13D /* GFBase32Utils.m in Sources */,
 				BB4BBAE11EA45E4600EBD13D /* GFGeoHash.m in Sources */,
 				BBFE91B31ED260DB00F04F05 /* SpotAnnotation.swift in Sources */,
-				BB78A9841ED029BA004DFC4A /* ActiveViewController.swift in Sources */,
 				BBC9640D1E7DCFCE00E99617 /* LoginViewController.swift in Sources */,
 				BB4BBAE21EA45E4600EBD13D /* GFGeoHashQuery.m in Sources */,
 				BBFD9B741E713370009DDD20 /* ViewController.swift in Sources */,
@@ -738,7 +734,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = R4DQ2L3FBV;
+				DEVELOPMENT_TEAM = 9XWYL3K4YT;
 				INFOPLIST_FILE = Meter/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Isometric.Meter;
@@ -755,7 +751,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = R4DQ2L3FBV;
+				DEVELOPMENT_TEAM = 9XWYL3K4YT;
 				INFOPLIST_FILE = Meter/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Isometric.Meter;
