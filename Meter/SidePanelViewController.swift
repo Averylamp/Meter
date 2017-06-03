@@ -118,7 +118,7 @@ class SidePanelViewController: UIViewController, UITableViewDelegate, UITableVie
             textLabel.text = "Settings"
             imageView.image = UIImage(named: "coins")
 //        case 5:
-//            textLabel.text = "Share"
+//            textLabel.text = "Log Out"
 //            imageView.image = UIImage(named: "share")
 //        case 6:
 //            textLabel.text = "Help"

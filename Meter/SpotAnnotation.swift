@@ -9,6 +9,6 @@
 import UIKit
 
 class SpotAnnotation: MKPointAnnotation {
-    
+    var spot: Spot?
     
 }

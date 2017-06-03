@@ -10,6 +10,8 @@
 		54DDB4AC54F23FC1E67B9BE0 /* Pods_MeterUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B6F212543D75A4D588CBE08 /* Pods_MeterUITests.framework */; };
 		833DF25B6F8476292621C743 /* Pods_Meter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75B6130149CC426A45315A3D /* Pods_Meter.framework */; };
 		A3BDB869BA3F1DCFDD6CDBDB /* Pods_MeterTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32087B325328DC44E45E0D17 /* Pods_MeterTests.framework */; };
+		BB47DEF41EE273BB002368E4 /* Spot.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB47DEF31EE273BB002368E4 /* Spot.swift */; };
+		BB47DEF61EE277C4002368E4 /* SpotAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB47DEF51EE277C4002368E4 /* SpotAnnotationView.swift */; };
 		BB4BBAC11EA40D7C00EBD13D /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB4BBAC01EA40D7C00EBD13D /* SplashViewController.swift */; };
 		BB4BBAC31EA4159A00EBD13D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB4BBAC21EA4159A00EBD13D /* Constants.swift */; };
 		BB4BBADF1EA45E4600EBD13D /* GeoFire.m in Sources */ = {isa = PBXBuildFile; fileRef = BB4BBAD61EA45E4600EBD13D /* GeoFire.m */; };
@@ -24,8 +26,8 @@
 		BBC9640B1E7DCF3300E99617 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BBC9640A1E7DCF3300E99617 /* GoogleService-Info.plist */; };
 		BBC9640D1E7DCFCE00E99617 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC9640C1E7DCFCE00E99617 /* LoginViewController.swift */; };
 		BBC9640F1E7DCFED00E99617 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC9640E1E7DCFED00E99617 /* SignUpViewController.swift */; };
+		BBE2EDC91EE270F100038140 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBE2EDC81EE270F100038140 /* DetailViewController.swift */; };
 		BBFD9B721E713370009DDD20 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBFD9B711E713370009DDD20 /* AppDelegate.swift */; };
-		BBFD9B741E713370009DDD20 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBFD9B731E713370009DDD20 /* ViewController.swift */; };
 		BBFD9B771E713370009DDD20 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BBFD9B751E713370009DDD20 /* Main.storyboard */; };
 		BBFD9B791E713370009DDD20 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BBFD9B781E713370009DDD20 /* Assets.xcassets */; };
 		BBFD9B7C1E713370009DDD20 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BBFD9B7A1E713370009DDD20 /* LaunchScreen.storyboard */; };
@@ -62,6 +64,8 @@
 		58E704C1885348BD8AAC8665 /* Pods-MeterTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MeterTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MeterTests/Pods-MeterTests.debug.xcconfig"; sourceTree = "<group>"; };
 		7095FFA58E850DE1BAB146E3 /* Pods-MeterTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MeterTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MeterTests/Pods-MeterTests.release.xcconfig"; sourceTree = "<group>"; };
 		75B6130149CC426A45315A3D /* Pods_Meter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Meter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BB47DEF31EE273BB002368E4 /* Spot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Spot.swift; sourceTree = "<group>"; };
+		BB47DEF51EE277C4002368E4 /* SpotAnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotAnnotationView.swift; sourceTree = "<group>"; };
 		BB4BBAC01EA40D7C00EBD13D /* SplashViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		BB4BBAC21EA4159A00EBD13D /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		BB4BBAC91EA45D6300EBD13D /* Meter-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Meter-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -87,9 +91,9 @@
 		BBC9640A1E7DCF3300E99617 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BBC9640C1E7DCFCE00E99617 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		BBC9640E1E7DCFED00E99617 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		BBE2EDC81EE270F100038140 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		BBFD9B6E1E713370009DDD20 /* Meter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Meter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBFD9B711E713370009DDD20 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		BBFD9B731E713370009DDD20 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		BBFD9B761E713370009DDD20 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BBFD9B781E713370009DDD20 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BBFD9B7B1E713370009DDD20 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -236,10 +240,12 @@
 			isa = PBXGroup;
 			children = (
 				BBFD9B711E713370009DDD20 /* AppDelegate.swift */,
-				BBFD9B731E713370009DDD20 /* ViewController.swift */,
 				BBFD9B751E713370009DDD20 /* Main.storyboard */,
+				BBE2EDC81EE270F100038140 /* DetailViewController.swift */,
 				BBFE91B01ED24FCB00F04F05 /* MainViewController.swift */,
 				BBFE91AE1ED24E4F00F04F05 /* MapViewController.swift */,
+				BB47DEF51EE277C4002368E4 /* SpotAnnotationView.swift */,
+				BB47DEF31EE273BB002368E4 /* Spot.swift */,
 				BBFE91B21ED260DB00F04F05 /* SpotAnnotation.swift */,
 				BB4BBAC21EA4159A00EBD13D /* Constants.swift */,
 				BB4BBAC01EA40D7C00EBD13D /* SplashViewController.swift */,
@@ -571,12 +577,14 @@
 				BBFE91B31ED260DB00F04F05 /* SpotAnnotation.swift in Sources */,
 				BBC9640D1E7DCFCE00E99617 /* LoginViewController.swift in Sources */,
 				BB4BBAE21EA45E4600EBD13D /* GFGeoHashQuery.m in Sources */,
-				BBFD9B741E713370009DDD20 /* ViewController.swift in Sources */,
 				BBC9640F1E7DCFED00E99617 /* SignUpViewController.swift in Sources */,
 				BBFE91B11ED24FCB00F04F05 /* MainViewController.swift in Sources */,
+				BB47DEF41EE273BB002368E4 /* Spot.swift in Sources */,
 				BB78A9851ED029BA004DFC4A /* MainNavigationViewController.swift in Sources */,
+				BBE2EDC91EE270F100038140 /* DetailViewController.swift in Sources */,
 				BB4BBADF1EA45E4600EBD13D /* GeoFire.m in Sources */,
 				BBFD9B721E713370009DDD20 /* AppDelegate.swift in Sources */,
+				BB47DEF61EE277C4002368E4 /* SpotAnnotationView.swift in Sources */,
 				BB4BBAC11EA40D7C00EBD13D /* SplashViewController.swift in Sources */,
 				BB4BBAC31EA4159A00EBD13D /* Constants.swift in Sources */,
 				BB78A9861ED029BA004DFC4A /* SidePanelViewController.swift in Sources */,
@@ -742,6 +750,7 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "Meter/Meter-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -758,6 +767,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Meter/Meter-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

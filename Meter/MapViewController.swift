@@ -9,10 +9,16 @@
 import UIKit
 import Parse
 
+protocol  MapDelegate {
+    func pinClicked(spot:Spot)
+    func pinDeselected(spot:Spot)
+}
 
 class MapViewController: UIViewController, MKMapViewDelegate {
 
     @IBOutlet weak var mapView: MKMapView!
+    
+    var delegate: MapDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +32,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         displayCoordinates()
     }
     
+    var spotObjects = [Spot]()
     func loadCoordinates(){
         let query = PFQuery(className: "Spot")
         let geoPoint = PFGeoPoint(latitude: 40.744893, longitude: -73.987398)
@@ -37,17 +44,24 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         catch{
             print("Failed query")
         }
-        for _ in 0...50{
+        
+        for i in 0...50{
             let coord = CLLocationCoordinate2DMake(40.8 + Double(arc4random_uniform(1000)) / 10000.0 - 0.05, -74.005 + Double(arc4random_uniform(1000)) / 10000.0 - 0.05)
-            coordinates.append(coord)
+            
+            let spot = Spot()
+            spot.coordinate = coord
+            spot.number = i
+            spot.name = "Spot - \(i)"
+            spotObjects.append(spot)
         }
     }
     
     func displayCoordinates(){
         var count = 1
-        for coord in coordinates{
+        for spot in spotObjects{
             let annotation = SpotAnnotation()
-            annotation.coordinate = coord
+            annotation.spot = spot
+            annotation.coordinate = spot.coordinate
             annotation.title = "Spot \(count)"
             count += 1
             self.mapView.addAnnotation(annotation)
@@ -56,7 +70,6 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         
     }
     
-    var coordinates = [CLLocationCoordinate2D]()
     
     
     // MARK: - Map View Delegtes
@@ -75,26 +88,26 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         if annotation as! _OptionalNilComparisonType != mapView.userLocation as MKAnnotation{
             let spotIdentifier = "SpotAnnotation"
-            var spotAnnotation =  mapView.dequeueReusableAnnotationView(withIdentifier: spotIdentifier)
+            var spotAnnotation: SpotAnnotationView? =  mapView.dequeueReusableAnnotationView(withIdentifier: spotIdentifier) as? SpotAnnotationView
             if let spotAnnotation = spotAnnotation{
                 spotAnnotation.annotation = annotation
 
             }else{
-                spotAnnotation = MKAnnotationView(annotation: annotation, reuseIdentifier: spotIdentifier)
+                spotAnnotation = SpotAnnotationView(annotation: annotation, reuseIdentifier: spotIdentifier)
             }
-            if annotation is SpotAnnotation {
-                spotAnnotation?.subviews.forEach{ $0.removeFromSuperview() }
-                spotAnnotation?.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
-                let pinImage = UIImageView(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
-                pinImage.image = #imageLiteral(resourceName: "Map_Pin")
-                pinImage.contentMode = .scaleAspectFit
-                let priceLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 35, height: 25 ))
-                priceLabel.textAlignment  = .center
-                priceLabel.text = "\(arc4random_uniform(20) + 15)"
-                priceLabel.font = UIFont(name: "Avenir", size: 16)
-                pinImage.addSubview(priceLabel)
-                priceLabel.center = CGPoint(x: pinImage.center.x, y: pinImage.center.y - 7)
-                spotAnnotation?.addSubview(pinImage)
+            if annotation is SpotAnnotation, let spotAnnotation = spotAnnotation {
+                spotAnnotation.subviews.forEach{ $0.removeFromSuperview() }
+                spotAnnotation.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
+                spotAnnotation.pinImage = UIImageView(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
+                spotAnnotation.pinImage?.image = #imageLiteral(resourceName: "Map_Pin")
+                spotAnnotation.pinImage?.contentMode = .scaleAspectFit
+                spotAnnotation.priceLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 35, height: 25 ))
+                spotAnnotation.priceLabel?.textAlignment  = .center
+                spotAnnotation.priceLabel?.text = "\(arc4random_uniform(20) + 15)"
+                spotAnnotation.priceLabel?.font = UIFont(name: "Avenir", size: 16)
+                spotAnnotation.pinImage?.addSubview(spotAnnotation.priceLabel!)
+                spotAnnotation.priceLabel?.center = CGPoint(x: (spotAnnotation.pinImage?.center.x)!, y: (spotAnnotation.pinImage?.center.y)! - 7)
+                spotAnnotation.addSubview(spotAnnotation.pinImage!)
 //                spotAnnotation?.animatesDrop = true
             }
             
@@ -119,6 +132,23 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     }
     
     
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        if let delegate = delegate{
+            if let spotAnnotation = view.annotation as? SpotAnnotation, let spotAnnotationView = view as? SpotAnnotationView{
+                spotAnnotationView.pinImage?.image = #imageLiteral(resourceName: "BluePin")
+                delegate.pinClicked(spot: spotAnnotation.spot!)
+            }
+        }
+    }
+    
+    func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
+        if let delegate = delegate{
+            if let spotAnnotation = view.annotation as? SpotAnnotation, let spotAnnotationView = view as? SpotAnnotationView{
+                spotAnnotationView.pinImage?.image = #imageLiteral(resourceName: "Map_Pin")
+                delegate.pinDeselected(spot: spotAnnotation.spot!)
+            }
+        }
+    }
 
 
 }

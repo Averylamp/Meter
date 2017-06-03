@@ -24,34 +24,44 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6GI-RP-Vv6">
-                                <rect key="frame" x="0.0" y="447" width="375" height="220"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="220" id="Q9M-7J-yyY"/>
-                                </constraints>
-                            </view>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WI5-mr-AyO">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="447"/>
                                 <connections>
-                                    <segue destination="hVj-Ci-I7I" kind="embed" id="c9T-KA-khW"/>
+                                    <segue destination="hVj-Ci-I7I" kind="embed" identifier="MapVC" id="c9T-KA-khW"/>
+                                </connections>
+                            </containerView>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wIl-Mj-77Y">
+                                <rect key="frame" x="-0.5" y="447" width="375" height="220"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="220" id="9H7-A4-Bxb"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.shadowRadius">
+                                        <integer key="value" value="6"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.shadowOpacity">
+                                        <real key="value" value="0.80000000000000004"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="size" keyPath="layer.shadowOffset">
+                                        <size key="value" width="0.0" height="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="Ykv-lJ-cJo" kind="embed" identifier="DetailVC" id="VRX-4r-xmF"/>
                                 </connections>
                             </containerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="6GI-RP-Vv6" firstAttribute="top" secondItem="WI5-mr-AyO" secondAttribute="bottom" id="0BA-EN-Q0n"/>
-                            <constraint firstItem="6GI-RP-Vv6" firstAttribute="centerX" secondItem="Bt7-c2-gaf" secondAttribute="centerX" id="196-47-Kbv"/>
+                            <constraint firstItem="Pv4-eK-4e3" firstAttribute="top" secondItem="wIl-Mj-77Y" secondAttribute="bottom" id="FU3-De-T4F"/>
                             <constraint firstItem="WI5-mr-AyO" firstAttribute="centerX" secondItem="Bt7-c2-gaf" secondAttribute="centerX" id="KWs-9X-9B8"/>
                             <constraint firstItem="WI5-mr-AyO" firstAttribute="top" secondItem="Bt7-c2-gaf" secondAttribute="top" id="cNH-WL-mDG"/>
-                            <constraint firstItem="Pv4-eK-4e3" firstAttribute="top" secondItem="6GI-RP-Vv6" secondAttribute="bottom" id="hJC-eY-j4G"/>
-                            <constraint firstItem="6GI-RP-Vv6" firstAttribute="width" secondItem="Bt7-c2-gaf" secondAttribute="width" id="qph-n7-heu"/>
+                            <constraint firstItem="wIl-Mj-77Y" firstAttribute="top" secondItem="WI5-mr-AyO" secondAttribute="bottom" id="fnb-Jy-sCP"/>
+                            <constraint firstItem="wIl-Mj-77Y" firstAttribute="centerX" secondItem="Bt7-c2-gaf" secondAttribute="centerX" id="h4z-ma-iU2"/>
+                            <constraint firstItem="wIl-Mj-77Y" firstAttribute="width" secondItem="Bt7-c2-gaf" secondAttribute="width" id="nju-n9-Z7b"/>
                             <constraint firstItem="WI5-mr-AyO" firstAttribute="width" secondItem="Bt7-c2-gaf" secondAttribute="width" id="xFi-eT-hi5"/>
                         </constraints>
                     </view>
-                    <connections>
-                        <outlet property="detailView" destination="6GI-RP-Vv6" id="7cv-O9-wzv"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SoD-qa-Tyb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -461,7 +471,21 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Leg-iU-e8F" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2297" y="-511"/>
+            <point key="canvasLocation" x="3066" y="-420"/>
+        </scene>
+        <!--Detail View Controller-->
+        <scene sceneID="ssr-xT-Pst">
+            <objects>
+                <viewController id="Ykv-lJ-cJo" customClass="DetailViewController" customModule="Meter" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="BwJ-HL-pVT">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="220"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Aco-SK-CvE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2297" y="626"/>
         </scene>
     </scenes>
     <resources>

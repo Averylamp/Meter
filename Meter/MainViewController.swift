@@ -10,27 +10,42 @@ import UIKit
 
 class MainViewController: UIViewController {
 
-    @IBOutlet weak var detailView: UIView!
+    var mapVC: MapViewController?
+    var detailVC: DetailViewController?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.detailView.layer.shadowOpacity = 0.8
-        self.detailView.layer.shadowRadius = 7
-        self.detailView.layer.shadowOffset = CGSize(width: 0, height: 3)
-        
+
         // Do any additional setup after loading the view.
     }
 
     
+    func setDelegates(){
+        if let mapVC = mapVC, let detailVC = detailVC{
+            mapVC.delegate = detailVC
+        }
+        
+    }
     
-    /*
+    
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "MapVC"{
+            if let embededMapVC = segue.destination as? MapViewController{
+                mapVC = embededMapVC
+                setDelegates()
+            }
+        }
+        if segue.identifier == "DetailVC"{
+            if let embededDetailVC = segue.destination as? DetailViewController{
+                detailVC = embededDetailVC
+                setDelegates()
+            }
+        }
+        
     }
-    */
+    
 
 }
