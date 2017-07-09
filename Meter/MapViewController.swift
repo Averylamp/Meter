@@ -8,21 +8,24 @@
 
 import UIKit
 import Parse
+import GooglePlaces
 
 protocol  MapDelegate {
     func pinClicked(spot:Spot)
     func pinDeselected(spot:Spot)
+    
 }
 
 class MapViewController: UIViewController {
-
+    
     @IBOutlet weak var mapView: MKMapView!
     var locationManager = CLLocationManager()
     var delegate: MapDelegate?
     @IBOutlet weak var centerToLocationButton: UIButton!
     @IBOutlet weak var textInputContainerView: UIView!
     @IBOutlet weak var searchTextField: UITextField!
-    var searchResultsView = UIView()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupLocationAuthorization()
@@ -31,17 +34,7 @@ class MapViewController: UIViewController {
         self.mapView.delegate = self
         let span2 = MKCoordinateRegionMakeWithDistance(CLLocationCoordinate2DMake(40.8, -74.005), 8000, 8000)
         self.mapView.setRegion(span2, animated: true)
-        // Do any additional setup after loading the view.
         
-        self.loadCoordinates()
-        displayCoordinates()
-//        GeocodingHelper.sharedInstance.coordinateFrom(address: "MIT") { (coordinate) in
-//            if let coordinate = coordinate{
-//                print("Coordinate \(coordinate)")
-//            }else{
-//                print("No results found")
-//            }
-//        }
     }
     
     func setupLocationAuthorization(){
@@ -58,40 +51,43 @@ class MapViewController: UIViewController {
     
     var spotObjects = [Spot]()
     var spotPFObjects = [PFObject]()
-    func loadCoordinates(){
-//        let query = PFQuery(className: "Spot")
-//        let geoPoint = PFGeoPoint(latitude: 40.744893, longitude: -73.987398)
-//        query.whereKey("location", nearGeoPoint: geoPoint)
-//        do{
-//            let objects = try query.findObjects()
-//            print(objects)
-//        }
-//        catch{
-//            print("Failed query")
-//        }
-//        
-        for i in 0...50{
-            let coord = CLLocationCoordinate2DMake(40.8 + Double(arc4random_uniform(1000)) / 10000.0 - 0.05, -74.005 + Double(arc4random_uniform(1000)) / 10000.0 - 0.05)
-            
-            let spot = Spot()
-            spot.coordinate = coord
-            spot.number = i
-            spot.name = "Spot - \(i)"
-            spotObjects.append(spot)
-        }
-    }
+    //    func loadCoordinates(){
+    ////        let query = PFQuery(className: "Spot")
+    ////        let geoPoint = PFGeoPoint(latitude: 40.744893, longitude: -73.987398)
+    ////        query.whereKey("location", nearGeoPoint: geoPoint)
+    ////        do{
+    ////            let objects = try query.findObjects()
+    ////            print(objects)
+    ////        }
+    ////        catch{
+    ////            print("Failed query")
+    ////        }
+    ////
+    //        for i in 0...50{
+    //            let coord = CLLocationCoordinate2DMake(40.8 + Double(arc4random_uniform(1000)) / 10000.0 - 0.05, -74.005 + Double(arc4random_uniform(1000)) / 10000.0 - 0.05)
+    //
+    //            let spot = Spot()
+    //            spot.coordinate = coord
+    //            spot.number = i
+    //            spot.name = "Spot - \(i)"
+    //            spotObjects.append(spot)
+    //        }
+    //    }
+    
+    var lastSearchedLocation = CLLocationCoordinate2D()
     func loadSpotsFromLocation(coordinate: CLLocationCoordinate2D){
         print("Loading spots from new location")
+        lastSearchedLocation = coordinate
         let query = PFQuery(className: "Spot")
-//        let point = PFGeoPoint(latitude: coordinate.latitude, longitude: coordinate.longitude)
-//        query.whereKey("location", nearGeoPoint: point)
+        let point = PFGeoPoint(latitude: coordinate.latitude, longitude: coordinate.longitude)
+        query.whereKey("location", nearGeoPoint: point)
         query.findObjectsInBackground(block: { (objects, error) in
             if let error = error{
                 print("Error finding spots - \(error)")
             }else{
                 print("New location query returned")
                 if let objects = objects{
-                print("Spot objects returned")
+                    print("Spot objects returned")
                     self.spotPFObjects = objects
                     self.spotObjects = [Spot]()
                     var count = 1
@@ -100,6 +96,7 @@ class MapViewController: UIViewController {
                         if let spotCoordinate = pfSpot["location"] as? PFGeoPoint{
                             newSpot.coordinate = CLLocationCoordinate2DMake(spotCoordinate.latitude, spotCoordinate.longitude)
                         }
+                        newSpot.pfObject = pfSpot
                         newSpot.number = count
                         count += 1
                         if let spotName = pfSpot["name"] as? String{
@@ -180,7 +177,7 @@ extension MapViewController: MKMapViewDelegate{
             }else{
                 spotAnnotation = SpotAnnotationView(annotation: annotation, reuseIdentifier: spotIdentifier)
             }
-            if annotation is SpotAnnotation, let spotAnnotation = spotAnnotation {
+            if let annotation = annotation as? SpotAnnotation, let spotAnnotation = spotAnnotation {
                 spotAnnotation.subviews.forEach{ $0.removeFromSuperview() }
                 spotAnnotation.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
                 spotAnnotation.pinImage = UIImageView(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
@@ -188,7 +185,11 @@ extension MapViewController: MKMapViewDelegate{
                 spotAnnotation.pinImage?.contentMode = .scaleAspectFit
                 spotAnnotation.priceLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 35, height: 25 ))
                 spotAnnotation.priceLabel?.textAlignment  = .center
-                spotAnnotation.priceLabel?.text = "\(arc4random_uniform(20) + 15)"
+                if let pfObj =  annotation.spot?.pfObject, let spotPrice = (pfObj["dailyPrice"] as? NSNumber){
+                    spotAnnotation.priceLabel?.text = "\(spotPrice.intValue)"
+                }else{
+                    spotAnnotation.priceLabel?.text = "\(0)"
+                }
                 spotAnnotation.priceLabel?.font = UIFont(name: "Avenir", size: 16)
                 spotAnnotation.pinImage?.addSubview(spotAnnotation.priceLabel!)
                 spotAnnotation.priceLabel?.center = CGPoint(x: (spotAnnotation.pinImage?.center.x)!, y: (spotAnnotation.pinImage?.center.y)! - 7)
@@ -205,7 +206,7 @@ extension MapViewController: MKMapViewDelegate{
         var delay = 0.0
         for annotationView in views{
             let endLocation = annotationView.center
-//            let startLocation = CGPoint(x: annotationView.center.x, y: -100)// Downwards falling animation
+            //            let startLocation = CGPoint(x: annotationView.center.x, y: -100)// Downwards falling animation
             let startLocation = CGPoint(x: annotationView.center.x, y: annotationView.center.y)
             annotationView.center = startLocation
             annotationView.alpha = 0.0
@@ -238,7 +239,8 @@ extension MapViewController: MKMapViewDelegate{
 }
 
 //MARK: - Text Field Delegate
-extension MapViewController: UITextFieldDelegate{
+extension MapViewController: UITextFieldDelegate, GMSAutocompleteViewControllerDelegate{
+    
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
@@ -247,18 +249,54 @@ extension MapViewController: UITextFieldDelegate{
                 if let coordinate = coordinate{
                     self.loadSpotsFromLocation(coordinate: coordinate)
                     self.zoomToCoordinate(coordinate: coordinate, width: 1200, animationTime: 1.0)
+                    self.searchTextField.text = fullAddress
                 }
             })
         }
         return false
     }
     
-    func expandSearchResults(search: String){
-        if search == ""{
-            
-        }else{
-            
-        }
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        let autocompleteController = GMSAutocompleteViewController()
+        let currentLocation = self.mapView.centerCoordinate
+        let bounds = GMSCoordinateBounds(coordinate: currentLocation.transform(using: 50000, longitudinalMeters: 50000), coordinate: currentLocation.transform(using: -50000, longitudinalMeters: -50000))
+        print("Bounds \(bounds.isValid) \(bounds.northEast) \(bounds.southWest)")
+        autocompleteController.autocompleteBounds = bounds
+        autocompleteController.delegate = self
+        self.present(autocompleteController, animated: true, completion: nil)
+    }
+    
+    func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
+        self.searchTextField.text = place.formattedAddress
+        zoomToCoordinate(coordinate: place.coordinate, width: 1200)
+        self.loadSpotsFromLocation(coordinate: place.coordinate)
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func viewController(_ viewController: GMSAutocompleteViewController, didFailAutocompleteWithError error: Error) {
+        print("Error: ", error.localizedDescription)
+    }
+    
+    func wasCancelled(_ viewController: GMSAutocompleteViewController) {
+        dismiss(animated: true, completion: nil)
+        
+    }
+    func didRequestAutocompletePredictions(_ viewController: GMSAutocompleteViewController) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+    }
+    
+    func didUpdateAutocompletePredictions(_ viewController: GMSAutocompleteViewController) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = false
+    }
+    
+    
+}
+
+public extension CLLocationCoordinate2D {
+    
+    public func transform(using latitudinalMeters: CLLocationDistance, longitudinalMeters: CLLocationDistance) -> CLLocationCoordinate2D {
+        let region = MKCoordinateRegionMakeWithDistance(self, latitudinalMeters, longitudinalMeters)
+        return CLLocationCoordinate2D(latitude: latitude + region.span.latitudeDelta, longitude: longitude + region.span.longitudeDelta)
     }
     
 }

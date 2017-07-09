@@ -11,6 +11,8 @@
 		833DF25B6F8476292621C743 /* Pods_Meter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75B6130149CC426A45315A3D /* Pods_Meter.framework */; };
 		A3BDB869BA3F1DCFDD6CDBDB /* Pods_MeterTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32087B325328DC44E45E0D17 /* Pods_MeterTests.framework */; };
 		BB2BE2CF1F11AE4C006393B3 /* GeocodingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2BE2CE1F11AE4C006393B3 /* GeocodingHelper.swift */; };
+		BB2BE2D31F11FE0F006393B3 /* SpotPreviewView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB2BE2D21F11FE0F006393B3 /* SpotPreviewView.xib */; };
+		BB2BE2D61F11FF8C006393B3 /* SpotPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2BE2D51F11FF8C006393B3 /* SpotPreviewView.swift */; };
 		BB47DEF41EE273BB002368E4 /* Spot.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB47DEF31EE273BB002368E4 /* Spot.swift */; };
 		BB47DEF61EE277C4002368E4 /* SpotAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB47DEF51EE277C4002368E4 /* SpotAnnotationView.swift */; };
 		BB4BBAC11EA40D7C00EBD13D /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB4BBAC01EA40D7C00EBD13D /* SplashViewController.swift */; };
@@ -66,6 +68,8 @@
 		7095FFA58E850DE1BAB146E3 /* Pods-MeterTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MeterTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MeterTests/Pods-MeterTests.release.xcconfig"; sourceTree = "<group>"; };
 		75B6130149CC426A45315A3D /* Pods_Meter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Meter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB2BE2CE1F11AE4C006393B3 /* GeocodingHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeocodingHelper.swift; sourceTree = "<group>"; };
+		BB2BE2D21F11FE0F006393B3 /* SpotPreviewView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SpotPreviewView.xib; sourceTree = "<group>"; };
+		BB2BE2D51F11FF8C006393B3 /* SpotPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotPreviewView.swift; sourceTree = "<group>"; };
 		BB47DEF31EE273BB002368E4 /* Spot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Spot.swift; sourceTree = "<group>"; };
 		BB47DEF51EE277C4002368E4 /* SpotAnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotAnnotationView.swift; sourceTree = "<group>"; };
 		BB4BBAC01EA40D7C00EBD13D /* SplashViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
@@ -167,6 +171,15 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		BB2BE2D41F11FF75006393B3 /* SpotPreview */ = {
+			isa = PBXGroup;
+			children = (
+				BB2BE2D21F11FE0F006393B3 /* SpotPreviewView.xib */,
+				BB2BE2D51F11FF8C006393B3 /* SpotPreviewView.swift */,
+			);
+			path = SpotPreview;
+			sourceTree = "<group>";
+		};
 		BB4BBACD1EA45E4600EBD13D /* GeoFire */ = {
 			isa = PBXGroup;
 			children = (
@@ -245,6 +258,7 @@
 				BBFD9B751E713370009DDD20 /* Main.storyboard */,
 				BBE2EDC81EE270F100038140 /* DetailViewController.swift */,
 				BBFE91B01ED24FCB00F04F05 /* MainViewController.swift */,
+				BB2BE2D41F11FF75006393B3 /* SpotPreview */,
 				BBFE91AE1ED24E4F00F04F05 /* MapViewController.swift */,
 				BB47DEF51EE277C4002368E4 /* SpotAnnotationView.swift */,
 				BB47DEF31EE273BB002368E4 /* Spot.swift */,
@@ -411,6 +425,7 @@
 				BBFD9B7C1E713370009DDD20 /* LaunchScreen.storyboard in Resources */,
 				BBC9640B1E7DCF3300E99617 /* GoogleService-Info.plist in Resources */,
 				BB78A9871ED029BA004DFC4A /* Navigation.storyboard in Resources */,
+				BB2BE2D31F11FE0F006393B3 /* SpotPreviewView.xib in Resources */,
 				BBFD9B791E713370009DDD20 /* Assets.xcassets in Resources */,
 				BBFD9B771E713370009DDD20 /* Main.storyboard in Resources */,
 			);
@@ -579,6 +594,7 @@
 				BB4BBAE11EA45E4600EBD13D /* GFGeoHash.m in Sources */,
 				BBFE91B31ED260DB00F04F05 /* SpotAnnotation.swift in Sources */,
 				BBC9640D1E7DCFCE00E99617 /* LoginViewController.swift in Sources */,
+				BB2BE2D61F11FF8C006393B3 /* SpotPreviewView.swift in Sources */,
 				BB4BBAE21EA45E4600EBD13D /* GFGeoHashQuery.m in Sources */,
 				BBC9640F1E7DCFED00E99617 /* SignUpViewController.swift in Sources */,
 				BBFE91B11ED24FCB00F04F05 /* MainViewController.swift in Sources */,

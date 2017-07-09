@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import Parse
 class Spot: NSObject {
     var name:String = ""
     var shortDescription:String = ""
@@ -15,7 +15,7 @@ class Spot: NSObject {
     var owner:String = ""
     var coordinate:CLLocationCoordinate2D = CLLocationCoordinate2D()
     var number: Int = 0
-    
+    var pfObject: PFObject?
     
     
 }

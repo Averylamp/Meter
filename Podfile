@@ -18,7 +18,9 @@ target 'Meter' do
   pod 'MBProgressHUD'
   pod 'Alamofire'
   pod 'SwiftyJSON'
-
+  pod 'GooglePlaces'
+  pod 'GooglePlacePicker'
+  pod 'GoogleMaps'
 
 
   target 'MeterTests' do

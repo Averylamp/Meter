@@ -10,6 +10,7 @@ import UIKit
 import Firebase
 import FBSDKCoreKit
 import Parse
+import GooglePlaces
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -27,7 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         Parse.initialize(with: config)
         
-        
+        GMSPlacesClient.provideAPIKey("AIzaSyCj3uXFnTlmO0nDlaXeHKmPmsXr8CP9EHg")
         
         return true
     }

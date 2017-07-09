@@ -38,5 +38,7 @@
 	<string>https://meter-58a01.firebaseio.com</string>
 	<key>GEOCODING_API_KEY</key>
 	<string>AIzaSyATMSL39wng4rV6yd0SnCyE_VZDMA6gw_I</string>
+	<key>ADDRESS_COMPLETION_API_KEY</key>
+	<string>AIzaSyCj3uXFnTlmO0nDlaXeHKmPmsXr8CP9EHg</string>
 </dict>
 </plist>
