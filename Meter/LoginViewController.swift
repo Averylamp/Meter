@@ -17,7 +17,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
-    var ref: FIRDatabaseReference!
+    var ref: DatabaseReference!
     
     
     override func viewDidLoad() {
@@ -154,14 +154,14 @@ class LoginViewController: UIViewController {
                     })
                 })
                 
-                let credential = FIRFacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
-                FIRAuth.auth()?.signIn(with: credential, completion: { (user, error) in
+                let credential = FacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
+                Auth.auth().signIn(with: credential, completion: { (user, error) in
                     if let error = error{
                         print("Error login into Firebase")
                         print(error.localizedDescription)
                     }else{
                         print("Successfully logged into Firebase")
-                        self.ref = FIRDatabase.database().reference()
+                        self.ref = Database.database().reference()
                         
                         self.ref.child("spots").childByAutoId().setValue(["streetAddress":"362 Memorial Drive, Cambridge MA"])
                         

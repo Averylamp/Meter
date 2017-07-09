@@ -18,14 +18,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-//        FIRApp.configure()
-//        FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
-//        let config = ParseClientConfiguration{
-//            $0.applicationId = "meter-server-app"
-//            $0.server = "http://meter-server.herokuapp.com/parse"
-//        }
-//        
-//        Parse.initialize(with: config)
+        FirebaseApp.configure()
+        FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
+        let config = ParseClientConfiguration{
+            $0.applicationId = "meter-server-app"
+            $0.server = "http://meter-server.herokuapp.com/parse"
+        }
+        
+        Parse.initialize(with: config)
         
         
         

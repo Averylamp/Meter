@@ -13,6 +13,10 @@ enum SlideState{
     case leftPanelExpanded
 }
 
+struct NavigationNotification {
+    static let toggleMenu = "ToggleMenuNotification"
+}
+
 class ContainerViewController: UIViewController {
     
     var activeNavigationController: MainNavigationViewController!
@@ -23,6 +27,7 @@ class ContainerViewController: UIViewController {
     let leftPanelWidth: CGFloat = 240
     var profilePicture: UIImage? = nil
     var containerOverlay = UIButton()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,32 +65,45 @@ class ContainerViewController: UIViewController {
         tableViewPanGestureRecognizer.delegate = self
         leftPanelController.tableView.addGestureRecognizer(tableViewPanGestureRecognizer)
         
-        
-    }
-    fileprivate var toggleObserver: NSObjectProtocol?
-    override func viewDidAppear(_ animated: Bool) {
         let notificationCenter = NotificationCenter.default
-        toggleObserver = notificationCenter.addObserver(forName: NSNotification.Name(rawValue: "ToggleLeftMenu"), object: nil, queue: nil, using: { (notofication) in
+        notificationCenter.addObserver(forName: NSNotification.Name(rawValue: NavigationNotification.toggleMenu), object: nil, queue: nil, using: { (notification) in
+            self.toggleMenu()
         })
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        
     }
     
     func overlayClicked(sender:UIButton){
         animateSidePanel(expand: false)
     }
     
+    func toggleMenu() {
+        if currentState == .mainVC{
+            animateSidePanel(expand: true)
+        }else{
+            animateSidePanel(expand: false)
+        }
+    }
+    
     let overlayFullOpacity:CGFloat = 0.5
+    let fullShadowOpacity:Float = 0.7
     let sidePanelAnimationDuration = 0.3
     func animateSidePanel(expand:Bool){
         if expand{
             UIView.animate(withDuration: sidePanelAnimationDuration, delay: 0.0, options: .curveEaseOut, animations: {
                 self.leftPanelController.view.frame = CGRect(x:0, y: 0, width: self.leftPanelController.view.frame.width, height: self.leftPanelController.view.frame.height)
+                self.leftPanelController.view.layer.shadowOpacity = self.fullShadowOpacity
                 self.containerOverlay.layer.opacity = Float(self.overlayFullOpacity)
+                
             }, completion: nil)
             currentState = .leftPanelExpanded
             containerOverlay.isUserInteractionEnabled = true
         }else{
             UIView.animate(withDuration: sidePanelAnimationDuration, delay: 0.0, options: .curveEaseOut, animations: { 
                 self.leftPanelController.view.frame = CGRect(x: -self.leftPanelController.view.frame.width, y: 0, width: self.leftPanelController.view.frame.width, height: self.leftPanelController.view.frame.height)
+                self.leftPanelController.view.layer.shadowOpacity = 0.0
                 self.containerOverlay.layer.opacity = 0.0
             }, completion: nil)
             currentState = .mainVC
@@ -118,6 +136,7 @@ extension ContainerViewController: UIGestureRecognizerDelegate{
                 leftPanelController.view?.center.x = leftPanelController.view!.center.x + translation
             }
             containerOverlay.layer.opacity = Float((leftPanelController.view.frame.origin.x + leftPanelController.view.frame.width) / leftPanelController.view.frame.width * overlayFullOpacity)
+            leftPanelController.view.layer.shadowOpacity = Float(Float(leftPanelController.view.frame.origin.x + leftPanelController.view.frame.width) / Float(leftPanelController.view.frame.width) * fullShadowOpacity)
             recognizer.setTranslation(CGPoint.zero, in: view)
         case .ended:
             if leftPanelController.view.center.x > 0{

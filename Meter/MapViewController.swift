@@ -14,37 +14,62 @@ protocol  MapDelegate {
     func pinDeselected(spot:Spot)
 }
 
-class MapViewController: UIViewController, MKMapViewDelegate {
+class MapViewController: UIViewController {
 
     @IBOutlet weak var mapView: MKMapView!
-    
+    var locationManager = CLLocationManager()
     var delegate: MapDelegate?
-    
+    @IBOutlet weak var centerToLocationButton: UIButton!
+    @IBOutlet weak var textInputContainerView: UIView!
+    @IBOutlet weak var searchTextField: UITextField!
+    var searchResultsView = UIView()
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        setupLocationAuthorization()
+        self.searchTextField.delegate = self
         self.mapView.showsUserLocation = true
         self.mapView.delegate = self
         let span2 = MKCoordinateRegionMakeWithDistance(CLLocationCoordinate2DMake(40.8, -74.005), 8000, 8000)
         self.mapView.setRegion(span2, animated: true)
         // Do any additional setup after loading the view.
-        loadCoordinates()
+        
+        self.loadCoordinates()
         displayCoordinates()
+//        GeocodingHelper.sharedInstance.coordinateFrom(address: "MIT") { (coordinate) in
+//            if let coordinate = coordinate{
+//                print("Coordinate \(coordinate)")
+//            }else{
+//                print("No results found")
+//            }
+//        }
+    }
+    
+    func setupLocationAuthorization(){
+        if CLLocationManager.locationServicesEnabled(){
+            print("Location services active")
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyBest
+            locationManager.requestWhenInUseAuthorization()
+            locationManager.requestAlwaysAuthorization()
+            locationManager.startUpdatingLocation()
+            
+        }
     }
     
     var spotObjects = [Spot]()
+    var spotPFObjects = [PFObject]()
     func loadCoordinates(){
-        let query = PFQuery(className: "Spot")
-        let geoPoint = PFGeoPoint(latitude: 40.744893, longitude: -73.987398)
-        query.whereKey("location", nearGeoPoint: geoPoint)
-        do{
-            let objects = try query.findObjects()
-            print(objects)
-        }
-        catch{
-            print("Failed query")
-        }
-        
+//        let query = PFQuery(className: "Spot")
+//        let geoPoint = PFGeoPoint(latitude: 40.744893, longitude: -73.987398)
+//        query.whereKey("location", nearGeoPoint: geoPoint)
+//        do{
+//            let objects = try query.findObjects()
+//            print(objects)
+//        }
+//        catch{
+//            print("Failed query")
+//        }
+//        
         for i in 0...50{
             let coord = CLLocationCoordinate2DMake(40.8 + Double(arc4random_uniform(1000)) / 10000.0 - 0.05, -74.005 + Double(arc4random_uniform(1000)) / 10000.0 - 0.05)
             
@@ -55,9 +80,44 @@ class MapViewController: UIViewController, MKMapViewDelegate {
             spotObjects.append(spot)
         }
     }
+    func loadSpotsFromLocation(coordinate: CLLocationCoordinate2D){
+        print("Loading spots from new location")
+        let query = PFQuery(className: "Spot")
+//        let point = PFGeoPoint(latitude: coordinate.latitude, longitude: coordinate.longitude)
+//        query.whereKey("location", nearGeoPoint: point)
+        query.findObjectsInBackground(block: { (objects, error) in
+            if let error = error{
+                print("Error finding spots - \(error)")
+            }else{
+                print("New location query returned")
+                if let objects = objects{
+                print("Spot objects returned")
+                    self.spotPFObjects = objects
+                    self.spotObjects = [Spot]()
+                    var count = 1
+                    for pfSpot in self.spotPFObjects{
+                        let newSpot = Spot()
+                        if let spotCoordinate = pfSpot["location"] as? PFGeoPoint{
+                            newSpot.coordinate = CLLocationCoordinate2DMake(spotCoordinate.latitude, spotCoordinate.longitude)
+                        }
+                        newSpot.number = count
+                        count += 1
+                        if let spotName = pfSpot["name"] as? String{
+                            newSpot.name = spotName
+                        }
+                        self.spotObjects.append(newSpot)
+                    }
+                    DispatchQueue.main.async {
+                        self.displayCoordinates()
+                    }
+                }
+            }
+        })
+    }
     
     func displayCoordinates(){
         var count = 1
+        self.mapView.removeAnnotations(self.mapView.annotations)
         for spot in spotObjects{
             let annotation = SpotAnnotation()
             annotation.spot = spot
@@ -67,31 +127,56 @@ class MapViewController: UIViewController, MKMapViewDelegate {
             self.mapView.addAnnotation(annotation)
         }
         
+    }
+    @IBAction func centerToLocationClicked(_ sender: Any) {
+        if let currentLocation = locationManager.location?.coordinate{
+            self.zoomToCoordinate(coordinate: currentLocation, width: 1500, animationTime: 1.0)
+        }
         
     }
     
+    func zoomToCoordinate(coordinate:CLLocationCoordinate2D, width: CLLocationDistance, animationTime: Double = 0.6){
+        let span = MKCoordinateRegionMakeWithDistance(coordinate, width, width)
+        UIView.animate(withDuration: animationTime) {
+            self.mapView.setRegion(span, animated: true)
+        }
+    }
     
+    var firstLocationUpdate = true
     
-    // MARK: - Map View Delegtes
+    @IBAction func menuButtonClicked(_ sender: Any) {
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: NavigationNotification.toggleMenu), object: nil)
+    }
+}
+
+//MARK: - Location Manager Delegate
+extension MapViewController: CLLocationManagerDelegate{
     
-    var firstUpdate = true
+}
+
+// MARK: - Map View Delegtes
+extension MapViewController: MKMapViewDelegate{
+    
     func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
-        if firstUpdate{
-            firstUpdate = false
-            let span = MKCoordinateRegionMakeWithDistance(userLocation.coordinate, 400, 400)
-            self.mapView.setRegion(span, animated: false)
-            let span2 = MKCoordinateRegionMakeWithDistance(userLocation.coordinate, 300, 300)
-            self.mapView.setRegion(span2, animated: true)
+        if firstLocationUpdate{
+            print("First Location Updating")
+            firstLocationUpdate = false
+            let span = MKCoordinateRegionMakeWithDistance(userLocation.coordinate, 1800, 1800)
+            self.mapView.setRegion(span, animated: true)
+            self.loadSpotsFromLocation(coordinate: userLocation.coordinate)
         }
     }
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        if (annotation.isKind(of: MKUserLocation.self)){
+            return nil
+        }
         if annotation as! _OptionalNilComparisonType != mapView.userLocation as MKAnnotation{
             let spotIdentifier = "SpotAnnotation"
             var spotAnnotation: SpotAnnotationView? =  mapView.dequeueReusableAnnotationView(withIdentifier: spotIdentifier) as? SpotAnnotationView
             if let spotAnnotation = spotAnnotation{
                 spotAnnotation.annotation = annotation
-
+                
             }else{
                 spotAnnotation = SpotAnnotationView(annotation: annotation, reuseIdentifier: spotIdentifier)
             }
@@ -108,9 +193,8 @@ class MapViewController: UIViewController, MKMapViewDelegate {
                 spotAnnotation.pinImage?.addSubview(spotAnnotation.priceLabel!)
                 spotAnnotation.priceLabel?.center = CGPoint(x: (spotAnnotation.pinImage?.center.x)!, y: (spotAnnotation.pinImage?.center.y)! - 7)
                 spotAnnotation.addSubview(spotAnnotation.pinImage!)
-//                spotAnnotation?.animatesDrop = true
+                //                spotAnnotation?.animatesDrop = true
             }
-            
             return spotAnnotation
         }else{
             return nil
@@ -121,16 +205,17 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         var delay = 0.0
         for annotationView in views{
             let endLocation = annotationView.center
-            let startLocation = CGPoint(x: annotationView.center.x, y: -100)
+//            let startLocation = CGPoint(x: annotationView.center.x, y: -100)// Downwards falling animation
+            let startLocation = CGPoint(x: annotationView.center.x, y: annotationView.center.y)
             annotationView.center = startLocation
+            annotationView.alpha = 0.0
             UIView.animate(withDuration: 0.6, delay: delay, options: .curveEaseOut, animations: {
                 annotationView.center = endLocation
+                annotationView.alpha = 1.0
             }, completion: nil)
             delay += 0.1
         }
-        
     }
-    
     
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
         if let delegate = delegate{
@@ -149,6 +234,32 @@ class MapViewController: UIViewController, MKMapViewDelegate {
             }
         }
     }
-
-
+    
 }
+
+//MARK: - Text Field Delegate
+extension MapViewController: UITextFieldDelegate{
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        if let searchAddress = textField.text{
+            GeocodingHelper.sharedInstance.coordinateFrom(address: searchAddress, completion: { (coordinate, fullAddress) in
+                if let coordinate = coordinate{
+                    self.loadSpotsFromLocation(coordinate: coordinate)
+                    self.zoomToCoordinate(coordinate: coordinate, width: 1200, animationTime: 1.0)
+                }
+            })
+        }
+        return false
+    }
+    
+    func expandSearchResults(search: String){
+        if search == ""{
+            
+        }else{
+            
+        }
+    }
+    
+}
+

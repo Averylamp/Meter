@@ -16,6 +16,9 @@ target 'Meter' do
   pod 'Parse'
   pod 'ParseFacebookUtilsV4'
   pod 'MBProgressHUD'
+  pod 'Alamofire'
+  pod 'SwiftyJSON'
+
 
 
   target 'MeterTests' do

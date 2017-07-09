@@ -57,5 +57,11 @@
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>To find the closest spots to you!</string>
+	<key>NSLocationUsageDescription</key>
+	<string>To find the closest spots to you!</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>To find the closest spots to you!</string>
 </dict>
 </plist>
