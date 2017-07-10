@@ -23,7 +23,10 @@ class SpotPreviewView: UIView {
     @IBOutlet weak var restrictionsLabel: UILabel!
     @IBOutlet weak var dailyRateLabel: UILabel!
     @IBOutlet weak var monthlyRateLabel: UILabel!
+    @IBOutlet weak var distanceLabel: UILabel!
+    @IBOutlet weak var pictureActivityIndicator: UIActivityIndicatorView!
     
+    @IBOutlet weak var overlayButton: UIButton!
     
     let nibName = "SpotPreviewView"
     // MARK: - Initializers

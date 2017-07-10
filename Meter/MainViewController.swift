@@ -24,9 +24,10 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        
+        let dismissDetailViewPanGesture = UIPanGestureRecognizer(target: self, action: #selector(MainViewController.panGestureMoved(recognizer:)))
+        self.view.addGestureRecognizer(dismissDetailViewPanGesture)
     }
+    
     
     // MARK: - Navigation
     
@@ -40,6 +41,7 @@ class MainViewController: UIViewController {
         if segue.identifier == "DetailVC"{
             if let embededDetailVC = segue.destination as? DetailViewController{
                 detailVC = embededDetailVC
+                detailVC?.delegate = self
             }
         }
         
@@ -53,6 +55,7 @@ extension MainViewController{
         self.view.layoutIfNeeded()
         UIView.animate(withDuration: 0.6) {
             self.detailViewBottomConstraint.constant = -300
+            
             self.view.layoutIfNeeded()
         }
         self.spotDetailStatus = .hidden
@@ -67,6 +70,21 @@ extension MainViewController{
         self.spotDetailStatus = .visible
     }
     
+    
+}
+
+extension MainViewController: UIGestureRecognizerDelegate{
+    
+    func panGestureMoved(recognizer: UIPanGestureRecognizer){
+        print("Pan Gesture Moved \(recognizer.translation(in: self.view).y)")
+        if recognizer.velocity(in: self.view).y > 500 && self.spotDetailStatus == .visible{
+            self.hideDetailVC()
+        }
+    }
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+        
+        return true
+    }
     
 }
 
@@ -94,4 +112,14 @@ extension MainViewController: MapDelegate{
     func pinDeselected(spot: Spot) {
         
     }
+}
+
+extension MainViewController: DetailDelegate{
+    func spotHighlighted(spot: PFObject) {
+        if let mapVC = mapVC{
+            mapVC.highlightSpot(spot: spot)
+        }
+    }
+    
+    
 }

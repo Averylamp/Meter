@@ -51,28 +51,7 @@ class MapViewController: UIViewController {
     
     var spotObjects = [Spot]()
     var spotPFObjects = [PFObject]()
-    //    func loadCoordinates(){
-    ////        let query = PFQuery(className: "Spot")
-    ////        let geoPoint = PFGeoPoint(latitude: 40.744893, longitude: -73.987398)
-    ////        query.whereKey("location", nearGeoPoint: geoPoint)
-    ////        do{
-    ////            let objects = try query.findObjects()
-    ////            print(objects)
-    ////        }
-    ////        catch{
-    ////            print("Failed query")
-    ////        }
-    ////
-    //        for i in 0...50{
-    //            let coord = CLLocationCoordinate2DMake(40.8 + Double(arc4random_uniform(1000)) / 10000.0 - 0.05, -74.005 + Double(arc4random_uniform(1000)) / 10000.0 - 0.05)
-    //
-    //            let spot = Spot()
-    //            spot.coordinate = coord
-    //            spot.number = i
-    //            spot.name = "Spot - \(i)"
-    //            spotObjects.append(spot)
-    //        }
-    //    }
+    
     
     var lastSearchedLocation = CLLocationCoordinate2D()
     func loadSpotsFromLocation(coordinate: CLLocationCoordinate2D){
@@ -144,6 +123,8 @@ class MapViewController: UIViewController {
     @IBAction func menuButtonClicked(_ sender: Any) {
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: NavigationNotification.toggleMenu), object: nil)
     }
+    
+    
 }
 
 //MARK: - Location Manager Delegate
@@ -236,6 +217,20 @@ extension MapViewController: MKMapViewDelegate{
         }
     }
     
+    func highlightSpot(spot:PFObject){
+        
+        mapView.annotations.forEach{
+            if let spotAnnotation = $0 as? SpotAnnotation{
+                if let spotAnnotationView = mapView.view(for: spotAnnotation) as? SpotAnnotationView{
+                    if let pfObj = spotAnnotation.spot?.pfObject, pfObj == spot{
+                        spotAnnotationView.pinImage?.image = #imageLiteral(resourceName: "BluePin")
+                    }else{
+                        spotAnnotationView.pinImage?.image = #imageLiteral(resourceName: "Map_Pin")
+                    }
+                }
+            }
+        }
+    }
 }
 
 //MARK: - Text Field Delegate

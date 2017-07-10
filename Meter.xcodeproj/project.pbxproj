@@ -22,6 +22,16 @@
 		BB4BBAE11EA45E4600EBD13D /* GFGeoHash.m in Sources */ = {isa = PBXBuildFile; fileRef = BB4BBADA1EA45E4600EBD13D /* GFGeoHash.m */; };
 		BB4BBAE21EA45E4600EBD13D /* GFGeoHashQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = BB4BBADC1EA45E4600EBD13D /* GFGeoHashQuery.m */; };
 		BB4BBAE31EA45E4600EBD13D /* GFQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = BB4BBADE1EA45E4600EBD13D /* GFQuery.m */; };
+		BB648E681F132FBD00D2C977 /* Lato-HairlineItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BB648E5E1F132FBA00D2C977 /* Lato-HairlineItalic.ttf */; };
+		BB648E691F132FBD00D2C977 /* Lato-Hairline.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BB648E5F1F132FBA00D2C977 /* Lato-Hairline.ttf */; };
+		BB648E6A1F132FBD00D2C977 /* Lato-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BB648E601F132FBA00D2C977 /* Lato-Italic.ttf */; };
+		BB648E6B1F132FBD00D2C977 /* Lato-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BB648E611F132FBB00D2C977 /* Lato-Light.ttf */; };
+		BB648E6C1F132FBD00D2C977 /* Lato-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BB648E621F132FBB00D2C977 /* Lato-BoldItalic.ttf */; };
+		BB648E6D1F132FBD00D2C977 /* Lato-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BB648E631F132FBB00D2C977 /* Lato-Black.ttf */; };
+		BB648E6E1F132FBD00D2C977 /* Lato-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BB648E641F132FBB00D2C977 /* Lato-BlackItalic.ttf */; };
+		BB648E6F1F132FBD00D2C977 /* Lato-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BB648E651F132FBB00D2C977 /* Lato-Bold.ttf */; };
+		BB648E701F132FBD00D2C977 /* Lato-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BB648E661F132FBC00D2C977 /* Lato-LightItalic.ttf */; };
+		BB648E711F132FBD00D2C977 /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BB648E671F132FBC00D2C977 /* Lato-Regular.ttf */; };
 		BB78A9831ED029BA004DFC4A /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB78A97E1ED029BA004DFC4A /* ContainerViewController.swift */; };
 		BB78A9851ED029BA004DFC4A /* MainNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB78A9801ED029BA004DFC4A /* MainNavigationViewController.swift */; };
 		BB78A9861ED029BA004DFC4A /* SidePanelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB78A9811ED029BA004DFC4A /* SidePanelViewController.swift */; };
@@ -30,6 +40,7 @@
 		BBC9640D1E7DCFCE00E99617 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC9640C1E7DCFCE00E99617 /* LoginViewController.swift */; };
 		BBC9640F1E7DCFED00E99617 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC9640E1E7DCFED00E99617 /* SignUpViewController.swift */; };
 		BBE2EDC91EE270F100038140 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBE2EDC81EE270F100038140 /* DetailViewController.swift */; };
+		BBED51E01F12F86D00C761EB /* SpotDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBED51DF1F12F86D00C761EB /* SpotDetailViewController.swift */; };
 		BBFD9B721E713370009DDD20 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBFD9B711E713370009DDD20 /* AppDelegate.swift */; };
 		BBFD9B771E713370009DDD20 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BBFD9B751E713370009DDD20 /* Main.storyboard */; };
 		BBFD9B791E713370009DDD20 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BBFD9B781E713370009DDD20 /* Assets.xcassets */; };
@@ -90,6 +101,16 @@
 		BB4BBADC1EA45E4600EBD13D /* GFGeoHashQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFGeoHashQuery.m; sourceTree = "<group>"; };
 		BB4BBADD1EA45E4600EBD13D /* GFQuery+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GFQuery+Private.h"; sourceTree = "<group>"; };
 		BB4BBADE1EA45E4600EBD13D /* GFQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFQuery.m; sourceTree = "<group>"; };
+		BB648E5E1F132FBA00D2C977 /* Lato-HairlineItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-HairlineItalic.ttf"; sourceTree = "<group>"; };
+		BB648E5F1F132FBA00D2C977 /* Lato-Hairline.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Hairline.ttf"; sourceTree = "<group>"; };
+		BB648E601F132FBA00D2C977 /* Lato-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Italic.ttf"; sourceTree = "<group>"; };
+		BB648E611F132FBB00D2C977 /* Lato-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Light.ttf"; sourceTree = "<group>"; };
+		BB648E621F132FBB00D2C977 /* Lato-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-BoldItalic.ttf"; sourceTree = "<group>"; };
+		BB648E631F132FBB00D2C977 /* Lato-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Black.ttf"; sourceTree = "<group>"; };
+		BB648E641F132FBB00D2C977 /* Lato-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-BlackItalic.ttf"; sourceTree = "<group>"; };
+		BB648E651F132FBB00D2C977 /* Lato-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Bold.ttf"; sourceTree = "<group>"; };
+		BB648E661F132FBC00D2C977 /* Lato-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-LightItalic.ttf"; sourceTree = "<group>"; };
+		BB648E671F132FBC00D2C977 /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Regular.ttf"; sourceTree = "<group>"; };
 		BB78A97E1ED029BA004DFC4A /* ContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
 		BB78A9801ED029BA004DFC4A /* MainNavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainNavigationViewController.swift; sourceTree = "<group>"; };
 		BB78A9811ED029BA004DFC4A /* SidePanelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SidePanelViewController.swift; sourceTree = "<group>"; };
@@ -98,6 +119,7 @@
 		BBC9640C1E7DCFCE00E99617 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		BBC9640E1E7DCFED00E99617 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		BBE2EDC81EE270F100038140 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		BBED51DF1F12F86D00C761EB /* SpotDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotDetailViewController.swift; sourceTree = "<group>"; };
 		BBFD9B6E1E713370009DDD20 /* Meter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Meter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBFD9B711E713370009DDD20 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BBFD9B761E713370009DDD20 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -174,8 +196,8 @@
 		BB2BE2D41F11FF75006393B3 /* SpotPreview */ = {
 			isa = PBXGroup;
 			children = (
-				BB2BE2D21F11FE0F006393B3 /* SpotPreviewView.xib */,
 				BB2BE2D51F11FF8C006393B3 /* SpotPreviewView.swift */,
+				BB2BE2D21F11FE0F006393B3 /* SpotPreviewView.xib */,
 			);
 			path = SpotPreview;
 			sourceTree = "<group>";
@@ -229,6 +251,23 @@
 			name = Navigation;
 			sourceTree = "<group>";
 		};
+		BB648E721F132FC300D2C977 /* Lato Font */ = {
+			isa = PBXGroup;
+			children = (
+				BB648E631F132FBB00D2C977 /* Lato-Black.ttf */,
+				BB648E641F132FBB00D2C977 /* Lato-BlackItalic.ttf */,
+				BB648E651F132FBB00D2C977 /* Lato-Bold.ttf */,
+				BB648E621F132FBB00D2C977 /* Lato-BoldItalic.ttf */,
+				BB648E5F1F132FBA00D2C977 /* Lato-Hairline.ttf */,
+				BB648E5E1F132FBA00D2C977 /* Lato-HairlineItalic.ttf */,
+				BB648E601F132FBA00D2C977 /* Lato-Italic.ttf */,
+				BB648E611F132FBB00D2C977 /* Lato-Light.ttf */,
+				BB648E661F132FBC00D2C977 /* Lato-LightItalic.ttf */,
+				BB648E671F132FBC00D2C977 /* Lato-Regular.ttf */,
+			);
+			path = "Lato Font";
+			sourceTree = "<group>";
+		};
 		BBFD9B651E713370009DDD20 = {
 			isa = PBXGroup;
 			children = (
@@ -256,6 +295,7 @@
 			children = (
 				BBFD9B711E713370009DDD20 /* AppDelegate.swift */,
 				BBFD9B751E713370009DDD20 /* Main.storyboard */,
+				BBED51DF1F12F86D00C761EB /* SpotDetailViewController.swift */,
 				BBE2EDC81EE270F100038140 /* DetailViewController.swift */,
 				BBFE91B01ED24FCB00F04F05 /* MainViewController.swift */,
 				BB2BE2D41F11FF75006393B3 /* SpotPreview */,
@@ -273,6 +313,7 @@
 				BBFD9B7D1E713370009DDD20 /* Info.plist */,
 				BBC9640A1E7DCF3300E99617 /* GoogleService-Info.plist */,
 				BB2BE2CE1F11AE4C006393B3 /* GeocodingHelper.swift */,
+				BB648E721F132FC300D2C977 /* Lato Font */,
 				BB4BBACD1EA45E4600EBD13D /* GeoFire */,
 				BB4BBAC91EA45D6300EBD13D /* Meter-Bridging-Header.h */,
 			);
@@ -423,10 +464,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				BBFD9B7C1E713370009DDD20 /* LaunchScreen.storyboard in Resources */,
+				BB648E701F132FBD00D2C977 /* Lato-LightItalic.ttf in Resources */,
 				BBC9640B1E7DCF3300E99617 /* GoogleService-Info.plist in Resources */,
 				BB78A9871ED029BA004DFC4A /* Navigation.storyboard in Resources */,
 				BB2BE2D31F11FE0F006393B3 /* SpotPreviewView.xib in Resources */,
+				BB648E6D1F132FBD00D2C977 /* Lato-Black.ttf in Resources */,
+				BB648E6E1F132FBD00D2C977 /* Lato-BlackItalic.ttf in Resources */,
+				BB648E6C1F132FBD00D2C977 /* Lato-BoldItalic.ttf in Resources */,
+				BB648E6F1F132FBD00D2C977 /* Lato-Bold.ttf in Resources */,
+				BB648E681F132FBD00D2C977 /* Lato-HairlineItalic.ttf in Resources */,
+				BB648E6B1F132FBD00D2C977 /* Lato-Light.ttf in Resources */,
+				BB648E711F132FBD00D2C977 /* Lato-Regular.ttf in Resources */,
 				BBFD9B791E713370009DDD20 /* Assets.xcassets in Resources */,
+				BB648E691F132FBD00D2C977 /* Lato-Hairline.ttf in Resources */,
+				BB648E6A1F132FBD00D2C977 /* Lato-Italic.ttf in Resources */,
 				BBFD9B771E713370009DDD20 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -605,6 +656,7 @@
 				BBFD9B721E713370009DDD20 /* AppDelegate.swift in Sources */,
 				BB47DEF61EE277C4002368E4 /* SpotAnnotationView.swift in Sources */,
 				BB4BBAC11EA40D7C00EBD13D /* SplashViewController.swift in Sources */,
+				BBED51E01F12F86D00C761EB /* SpotDetailViewController.swift in Sources */,
 				BB4BBAC31EA4159A00EBD13D /* Constants.swift in Sources */,
 				BB78A9861ED029BA004DFC4A /* SidePanelViewController.swift in Sources */,
 				BB78A9831ED029BA004DFC4A /* ContainerViewController.swift in Sources */,
