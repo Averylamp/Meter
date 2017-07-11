@@ -92,15 +92,16 @@ extension MainViewController: MapDelegate{
     func pinClicked(spot: Spot) {
         if var allSpots = self.mapVC?.spotObjects{
             
-                        allSpots.sort(by: { (spot1, spot2) -> Bool in
-                            return (CLLocation(latitude: spot.coordinate.latitude, longitude: spot.coordinate.longitude)).distance(from: CLLocation(latitude: spot1.coordinate.latitude, longitude: spot1.coordinate.longitude)) < (CLLocation(latitude: spot.coordinate.latitude, longitude: spot.coordinate.longitude)).distance(from: CLLocation(latitude: spot2.coordinate.latitude, longitude: spot2.coordinate.longitude))
-                        })
+            allSpots.sort(by: { (spot1, spot2) -> Bool in
+                return (CLLocation(latitude: spot.coordinate.latitude, longitude: spot.coordinate.longitude)).distance(from: CLLocation(latitude: spot1.coordinate.latitude, longitude: spot1.coordinate.longitude)) < (CLLocation(latitude: spot.coordinate.latitude, longitude: spot.coordinate.longitude)).distance(from: CLLocation(latitude: spot2.coordinate.latitude, longitude: spot2.coordinate.longitude))
+            })
             var allPFSpots = [PFObject]()
             allSpots.forEach{
                 if let pfobj  = $0.pfObject{
                     allPFSpots.append(pfobj)
                 }
             }
+            self.detailVC?.searchLocation = spot.coordinate
             self.detailVC?.loadSpots(spots: allPFSpots)
         }
         

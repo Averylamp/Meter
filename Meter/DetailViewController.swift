@@ -27,6 +27,9 @@ class DetailViewController: UIViewController{
     
     var currentSpots = [PFObject]()
     var currentPreviewViews = [SpotPreviewView]()
+    let imageBounceStartScale:CGFloat = 0.93
+    var searchLocation = CLLocationCoordinate2D()
+    let previewViewWidth:CGFloat = 280
     
     func loadSpots(spots: [PFObject]) {
         if scrollView.subviews.count > 0{
@@ -50,9 +53,9 @@ class DetailViewController: UIViewController{
             previewView.overlayButton.addTarget(self, action: #selector(DetailViewController.previewViewClicked(sender:)), for: .touchUpInside)
             previewView.alpha = 0.0
             if lastDetailView == nil{
-                previewView.frame = CGRect(x: 0, y: 0, width: 300, height: self.view.frame.height)
+                previewView.frame = CGRect(x: 0, y: 0, width: previewViewWidth, height: self.view.frame.height)
             }else{
-                previewView.frame = CGRect(x: lastDetailView!.frame.origin.x  + lastDetailView!.frame.width, y: 0, width: 250, height: self.view.frame.height)
+                previewView.frame = CGRect(x: lastDetailView!.frame.origin.x  + lastDetailView!.frame.width, y: 0, width: previewViewWidth, height: self.view.frame.height)
             }
             scrollView.addSubview(previewView)
             scrollView.contentSize = CGSize(width: previewView.frame.width + previewView.frame.origin.x, height: previewView.frame.height)
@@ -61,6 +64,7 @@ class DetailViewController: UIViewController{
             previewView.overlayButton.tag = count
             if count == 0{
                 previewView.pinIconImageView.image = #imageLiteral(resourceName: "BluePin")
+                
             }
             count += 1
             if let spotTitle = spot["spotName"] as? String{
@@ -87,6 +91,13 @@ class DetailViewController: UIViewController{
                     previewView.ratingLabel.text = "\(numberOfRatings.intValue) rating"
                 }
             }
+            
+            if let spotCoordinate = spot["location"] as? PFGeoPoint{
+                let coord = CLLocationCoordinate2DMake(spotCoordinate.latitude, spotCoordinate.longitude)
+                let milesDistance = coord.distanceFrom(coordinate: self.searchLocation)
+                previewView.distanceLabel.text = "\(milesDistance) miles away"
+            }
+            
             if let spotPicture = spot["spotPicture"] as? PFFile{
                 spotPicture.getDataInBackground(block: { (data, error) in
                     DispatchQueue.main.async {
@@ -95,11 +106,11 @@ class DetailViewController: UIViewController{
                     if error == nil{
                         let image = UIImage(data: data!)
                         previewView.detailImageView.image = image
-                        previewView.detailImageView.transform = CGAffineTransform(scaleX: 0.2, y: 0.2)
+                        previewView.detailImageView.transform = CGAffineTransform(scaleX: 0.4, y: 0.4)
                         DispatchQueue.main.async {
                             UIView.animate(withDuration: 0.4, animations: {
                                 previewView.detailImageView.alpha = 1.0
-                                previewView.detailImageView.transform = CGAffineTransform.identity
+                                previewView.detailImageView.transform = CGAffineTransform(scaleX: self.imageBounceStartScale, y: self.imageBounceStartScale)
                             })
                         }
                     }else{
@@ -116,6 +127,7 @@ class DetailViewController: UIViewController{
             }
             
         }
+        scrollViewDidScroll(self.scrollView)
         currentPreviewViews.reverse()
         self.scrollView.subviews.forEach{subview in
             UIView.animate(withDuration: 0.2, animations: {
@@ -166,9 +178,75 @@ class DetailViewController: UIViewController{
             if let monthlyPrice = currentSpot["monthlyPrice"] as? NSNumber{
                 detailVC.monthlyPriceLabel.text = "$\(monthlyPrice.intValue)"
             }
+            if let spotCoordinate = currentSpot["location"] as? PFGeoPoint {
+                let coord = CLLocationCoordinate2D(latitude: spotCoordinate.latitude, longitude: spotCoordinate.longitude)
+                detailVC.distanceLabel.text = "\(coord.distanceFrom(coordinate: self.searchLocation)) miles away"
+            }
             
+            var count = 0
+            if let mapPicture = currentSpot["mapPicture"] as? PFFile{
+                count += 1
+                mapPicture.getDataInBackground(block: { (data, error) in
+                    count -= 1
+                    if error == nil{
+                        let image = UIImage(data: data!)
+                        detailVC.spotImages.append(image!)
+                        detailVC.imageOrder.append("map")
+                    }else{
+                        print("Error getting spot picture \(error?.localizedDescription ?? "")")
+                    }
+                    if count == 0{
+                        detailVC.setupDetailImages()
+                    }
+                })
+            }
             if let spotPicture = currentSpot["spotPicture"] as? PFFile{
-                
+                count += 1
+                spotPicture.getDataInBackground(block: { (data, error) in
+                    count -= 1
+                    if error == nil{
+                        let image = UIImage(data: data!)
+                        detailVC.spotImages.append(image!)
+                        detailVC.imageOrder.append("spot")
+                    }else{
+                        print("Error getting spot picture \(error?.localizedDescription ?? "")")
+                    }
+                    if count == 0{
+                        detailVC.setupDetailImages()
+                    }
+                })
+            }
+            if let entrancePicture = currentSpot["entrancePicture"] as? PFFile{
+                count += 1
+                entrancePicture.getDataInBackground(block: { (data, error) in
+                    count -= 1
+                    if error == nil{
+                        let image = UIImage(data: data!)
+                        detailVC.spotImages.append(image!)
+                        detailVC.imageOrder.append("entrance")
+                    }else{
+                        print("Error getting spot picture \(error?.localizedDescription ?? "")")
+                    }
+                    if count == 0{
+                        detailVC.setupDetailImages()
+                    }
+                })
+            }
+            if let additionalPicture = currentSpot["additionalPicture"] as? PFFile{
+                count += 1
+                additionalPicture.getDataInBackground(block: { (data, error) in
+                    count -= 1
+                    if error == nil{
+                        let image = UIImage(data: data!)
+                        detailVC.spotImages.append(image!)
+                        detailVC.imageOrder.append("additional")
+                    }else{
+                        print("Error getting spot picture \(error?.localizedDescription ?? "")")
+                    }
+                    if count == 0{
+                        detailVC.setupDetailImages()
+                    }
+                })
             }
             
             detailVC.fitLabelHeights()
@@ -187,17 +265,31 @@ extension DetailViewController: UIScrollViewDelegate {
         if checkIfInCenter(center: currentCenter, view: currentHighlightedPreviewView) == false{
             let currentIndex = currentHighlightedPreviewView.tag
             let animationDuration = 0.6
-            print("Started")
-            let timeStart = CACurrentMediaTime()
             for previewView in self.currentPreviewViews{
                 if checkIfInCenter(center: currentCenter, view: previewView){
                     currentHighlightedPreviewView = previewView
-                    previewView.superview?.bringSubview(toFront: previewView)
-                    UIView.animate(withDuration: animationDuration * 2, delay: animationDuration * 2, options: .curveEaseIn, animations: {
-                        previewView.layer.shadowOpacity = 0.6
-                    }, completion: nil)
-//                    UIView.animate(withDuration: animationDuration, animations: {
-//                    })
+                    delay(animationDuration / 3, closure: {
+                        previewView.superview?.bringSubview(toFront: previewView)
+                    })
+                    
+                    if previewView.layer.shadowOpacity == 0.0{
+                        let shadowAnimation = CABasicAnimation(keyPath: "shadowOpacity")
+                        shadowAnimation.fromValue = 0.0
+                        shadowAnimation.toValue = 0.6
+                        shadowAnimation.beginTime = CACurrentMediaTime() + animationDuration / 3
+                        shadowAnimation.duration = animationDuration * 2 / 3.0
+                        previewView.layer.add(shadowAnimation, forKey: "shadowOpacity")
+                        delay(animationDuration / 3, closure: {
+                            previewView.layer.shadowOpacity = 0.6
+                        })
+                    }
+                    
+                    if previewView.detailImageView.transform != CGAffineTransform.identity {
+                        UIView.animate(withDuration: animationDuration, delay: 0.0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.1, options: .curveEaseInOut, animations: {
+                            previewView.detailImageView.transform = CGAffineTransform.identity
+                        }, completion: nil)
+                    }
+                    
                     UIView.animate(withDuration: animationDuration / 2, animations: {
                         previewView.pinIconImageView.alpha = 0.0
                     }, completion: { (finished) in
@@ -206,15 +298,17 @@ extension DetailViewController: UIScrollViewDelegate {
                             previewView.pinIconImageView.alpha = 1.0
                         }, completion: nil)
                     })
-                    print("New Highlight \(currentHighlightedPreviewView.spotTitleLabel.text)")
                     if let delegate = delegate {
                         delegate.spotHighlighted(spot: self.currentSpots[previewView.tag])
                     }
                 }else{
                     if previewView.layer.shadowOpacity == 0.6{
-                        UIView.animate(withDuration: animationDuration * 2, animations: {
-                            previewView.layer.shadowOpacity = 0.0
-                        })
+                        let shadowAnimation = CABasicAnimation(keyPath: "shadowOpacity")
+                        shadowAnimation.fromValue = 0.6
+                        shadowAnimation.toValue = 0.0
+                        shadowAnimation.duration = animationDuration / 3
+                        previewView.layer.add(shadowAnimation, forKey: "shadowOpacity")
+                        previewView.layer.shadowOpacity = 0.0
                     }
                     if previewView.pinIconImageView.image == #imageLiteral(resourceName: "BluePin"){
                         UIView.animate(withDuration: animationDuration / 3, animations: {
@@ -226,30 +320,15 @@ extension DetailViewController: UIScrollViewDelegate {
                             }, completion: nil)
                         })
                     }
+                    if previewView.detailImageView.transform != CGAffineTransform(scaleX: imageBounceStartScale, y: imageBounceStartScale){
+                        UIView.animate(withDuration: animationDuration, delay: 0.0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.1, options: .curveEaseInOut, animations: {
+                            previewView.detailImageView.transform = CGAffineTransform(scaleX: self.imageBounceStartScale, y: self.imageBounceStartScale)
+                        }, completion: nil)
+                    }
                 }
             }
-            print("Ended \(CACurrentMediaTime() - timeStart)")
-            //            if currentCenter > currentHighlightedPreviewView.frame.width + currentHighlightedPreviewView.frame.origin.x{
-            //                for i in currentIndex..<currentPreviewViews.count{
-            //                    if checkIfInCenter(center: currentCenter, view: currentPreviewViews[i]){
-            //                        currentHighlightedPreviewView = currentPreviewViews[i]
-            //                        print("New Highlight \(currentHighlightedPreviewView.spotTitleLabel.text)")
-            //                        if let delegate = delegate {
-            //                            delegate.spotHighlighted(spot: currentSpots[i])
-            //                        }
-            //                    }
-            //                }
-            //            }else{
-            //                for i in stride(from: currentIndex - 1, to: 0, by: -1){
-            //                    if checkIfInCenter(center: currentCenter, view: currentPreviewViews[i]){
-            //                        currentHighlightedPreviewView = currentPreviewViews[i]
-            //                        print("New Highlight \(currentHighlightedPreviewView.spotTitleLabel.text)")
-            //                        if let delegate = delegate {
-            //                            delegate.spotHighlighted(spot: currentSpots[i])
-            //                        }
-            //                    }
-            //                }
-            //            }
+            //TODO: - May be skipping a frame due to calculations.  Do smarter search for changed view to fix
+            
         }
     }
     

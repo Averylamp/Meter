@@ -41,7 +41,7 @@ class SpotDetailViewController: UIViewController {
     @IBOutlet weak var bookButton: UIButton!
     
     var spotImages = [UIImage]()
-    
+    var imageOrder = [String]()
     @IBOutlet weak var contentViewHeightConstraint: NSLayoutConstraint!
     
     
@@ -73,6 +73,35 @@ class SpotDetailViewController: UIViewController {
         }
     }
     
+    func setupDetailImages(){
+        self.imagesScrollView.subviews.forEach{$0.removeFromSuperview()}
+        let imageOrder = ["spot", "map", "entrance", "additional"]
+        var count:CGFloat = 0
+        for imageType in imageOrder{
+            if let imageIndex = self.imageOrder.index(of: imageType){
+                let image = self.spotImages[imageIndex]
+                let imageView = UIImageView(frame:CGRect(x: count * self.imagesScrollView.frame.width + 15, y: 10, width: self.imagesScrollView.frame.width - 30, height: self.imagesScrollView.frame.height - 30))
+                imageView.image = image
+                imageView.contentMode = .scaleAspectFill
+                imageView.clipsToBounds = true
+                imageView.layer.cornerRadius = 8
+                let shadowView = UIView(frame: imageView.frame)
+                shadowView.backgroundColor = UIColor.white
+                shadowView.layer.cornerRadius = imageView.layer.cornerRadius
+                shadowView.layer.shadowRadius = 6
+                shadowView.layer.shadowOpacity = 0.5
+                shadowView.layer.shadowOffset = CGSize(width: 0, height: 2)
+                self.imagesScrollView.addSubview(shadowView)
+                self.imagesScrollView.addSubview(imageView)
+                count += 1
+            }
+        }
+        
+            
+        self.imagesScrollView.contentSize = CGSize(width: self.imagesScrollView.frame.width * count, height:  self.imagesScrollView.frame.height)
+        
+    }
+    
     @IBAction func backButtonClicked(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
@@ -80,14 +109,3 @@ class SpotDetailViewController: UIViewController {
     
 }
 
-extension UILabel{
-    
-    func heightForLabel()-> CGFloat{
-        let originalNumberOfLines = self.numberOfLines
-        self.numberOfLines = 0
-        let requiredSize = self.sizeThatFits(CGSize(width: self.frame.width, height: CGFloat.greatestFiniteMagnitude))
-        self.numberOfLines = originalNumberOfLines
-        return requiredSize.height
-    }
-    
-}
