@@ -37,6 +37,16 @@
 		BB78A9861ED029BA004DFC4A /* SidePanelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB78A9811ED029BA004DFC4A /* SidePanelViewController.swift */; };
 		BB78A9871ED029BA004DFC4A /* Navigation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB78A9821ED029BA004DFC4A /* Navigation.storyboard */; };
 		BB8E62B91F1375420014DD62 /* HelperFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8E62B81F1375420014DD62 /* HelperFunctions.swift */; };
+		BBAD6BC51F1C97B00089F896 /* MessageListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAD6BC41F1C97B00089F896 /* MessageListViewController.swift */; };
+		BBAD6BC71F1C97BB0089F896 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAD6BC61F1C97BB0089F896 /* SettingsViewController.swift */; };
+		BBAD6BC91F1C98570089F896 /* ParkingHistory.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BBAD6BC81F1C98570089F896 /* ParkingHistory.storyboard */; };
+		BBAD6BCB1F1C986B0089F896 /* Payment.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BBAD6BCA1F1C986B0089F896 /* Payment.storyboard */; };
+		BBAD6BCD1F1C987E0089F896 /* Promotion.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BBAD6BCC1F1C987E0089F896 /* Promotion.storyboard */; };
+		BBAD6BCF1F1C98900089F896 /* ParkingHistoryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAD6BCE1F1C98900089F896 /* ParkingHistoryListViewController.swift */; };
+		BBAD6BD11F1C989B0089F896 /* PaymentMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAD6BD01F1C989B0089F896 /* PaymentMainViewController.swift */; };
+		BBAD6BD31F1C98A60089F896 /* ReferralMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAD6BD21F1C98A60089F896 /* ReferralMainViewController.swift */; };
+		BBAD6BDA1F1C99290089F896 /* EditAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAD6BD91F1C99290089F896 /* EditAccountViewController.swift */; };
+		BBAD6BDE1F1C9B430089F896 /* Account.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BBAD6BDD1F1C9B430089F896 /* Account.storyboard */; };
 		BBB0DF061F15E67F002ECA73 /* SpotTypeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB0DF051F15E67F002ECA73 /* SpotTypeTableViewCell.swift */; };
 		BBC0F36B1F15DF86009C418C /* LenderSpotTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC0F36A1F15DF86009C418C /* LenderSpotTypeViewController.swift */; };
 		BBC0F36D1F15DF96009C418C /* LenderSpotRestrictionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC0F36C1F15DF96009C418C /* LenderSpotRestrictionsViewController.swift */; };
@@ -129,6 +139,16 @@
 		BB78A9811ED029BA004DFC4A /* SidePanelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SidePanelViewController.swift; sourceTree = "<group>"; };
 		BB78A9821ED029BA004DFC4A /* Navigation.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Navigation.storyboard; sourceTree = "<group>"; };
 		BB8E62B81F1375420014DD62 /* HelperFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperFunctions.swift; sourceTree = "<group>"; };
+		BBAD6BC41F1C97B00089F896 /* MessageListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageListViewController.swift; sourceTree = "<group>"; };
+		BBAD6BC61F1C97BB0089F896 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		BBAD6BC81F1C98570089F896 /* ParkingHistory.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ParkingHistory.storyboard; sourceTree = "<group>"; };
+		BBAD6BCA1F1C986B0089F896 /* Payment.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Payment.storyboard; sourceTree = "<group>"; };
+		BBAD6BCC1F1C987E0089F896 /* Promotion.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Promotion.storyboard; sourceTree = "<group>"; };
+		BBAD6BCE1F1C98900089F896 /* ParkingHistoryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingHistoryListViewController.swift; sourceTree = "<group>"; };
+		BBAD6BD01F1C989B0089F896 /* PaymentMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentMainViewController.swift; sourceTree = "<group>"; };
+		BBAD6BD21F1C98A60089F896 /* ReferralMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReferralMainViewController.swift; sourceTree = "<group>"; };
+		BBAD6BD91F1C99290089F896 /* EditAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAccountViewController.swift; sourceTree = "<group>"; };
+		BBAD6BDD1F1C9B430089F896 /* Account.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Account.storyboard; sourceTree = "<group>"; };
 		BBB0DF051F15E67F002ECA73 /* SpotTypeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotTypeTableViewCell.swift; sourceTree = "<group>"; };
 		BBC0F36A1F15DF86009C418C /* LenderSpotTypeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LenderSpotTypeViewController.swift; sourceTree = "<group>"; };
 		BBC0F36C1F15DF96009C418C /* LenderSpotRestrictionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LenderSpotRestrictionsViewController.swift; sourceTree = "<group>"; };
@@ -294,6 +314,42 @@
 			path = "Lato Font";
 			sourceTree = "<group>";
 		};
+		BBAD6BD41F1C98AC0089F896 /* Promotion */ = {
+			isa = PBXGroup;
+			children = (
+				BBAD6BCC1F1C987E0089F896 /* Promotion.storyboard */,
+				BBAD6BD21F1C98A60089F896 /* ReferralMainViewController.swift */,
+			);
+			path = Promotion;
+			sourceTree = "<group>";
+		};
+		BBAD6BD51F1C98B40089F896 /* Parking History */ = {
+			isa = PBXGroup;
+			children = (
+				BBAD6BC81F1C98570089F896 /* ParkingHistory.storyboard */,
+				BBAD6BCE1F1C98900089F896 /* ParkingHistoryListViewController.swift */,
+			);
+			path = "Parking History";
+			sourceTree = "<group>";
+		};
+		BBAD6BD61F1C98C00089F896 /* Payment */ = {
+			isa = PBXGroup;
+			children = (
+				BBAD6BCA1F1C986B0089F896 /* Payment.storyboard */,
+				BBAD6BD01F1C989B0089F896 /* PaymentMainViewController.swift */,
+			);
+			path = Payment;
+			sourceTree = "<group>";
+		};
+		BBAD6BDB1F1C992D0089F896 /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				BBAD6BDD1F1C9B430089F896 /* Account.storyboard */,
+				BBAD6BD91F1C99290089F896 /* EditAccountViewController.swift */,
+			);
+			path = Account;
+			sourceTree = "<group>";
+		};
 		BBC0F37A1F15DFF5009C418C /* Spot Lender Flow */ = {
 			isa = PBXGroup;
 			children = (
@@ -315,6 +371,7 @@
 			isa = PBXGroup;
 			children = (
 				BBC870ED1F1C91ED00D24019 /* Messages.storyboard */,
+				BBAD6BC41F1C97B00089F896 /* MessageListViewController.swift */,
 			);
 			path = Messages;
 			sourceTree = "<group>";
@@ -323,6 +380,7 @@
 			isa = PBXGroup;
 			children = (
 				BBC870EF1F1C921000D24019 /* Settings.storyboard */,
+				BBAD6BC61F1C97BB0089F896 /* SettingsViewController.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -390,6 +448,10 @@
 				BB8E62B81F1375420014DD62 /* HelperFunctions.swift */,
 				BB4BBAC21EA4159A00EBD13D /* Constants.swift */,
 				BB2BE2CE1F11AE4C006393B3 /* GeocodingHelper.swift */,
+				BBAD6BDB1F1C992D0089F896 /* Account */,
+				BBAD6BD51F1C98B40089F896 /* Parking History */,
+				BBAD6BD61F1C98C00089F896 /* Payment */,
+				BBAD6BD41F1C98AC0089F896 /* Promotion */,
 				BBC870F11F1C923900D24019 /* Messages */,
 				BBC870F21F1C924400D24019 /* Settings */,
 				BB648E721F132FC300D2C977 /* Lato Font */,
@@ -542,6 +604,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BBAD6BCD1F1C987E0089F896 /* Promotion.storyboard in Resources */,
 				BBFD9B7C1E713370009DDD20 /* LaunchScreen.storyboard in Resources */,
 				BB648E701F132FBD00D2C977 /* Lato-LightItalic.ttf in Resources */,
 				BBC9640B1E7DCF3300E99617 /* GoogleService-Info.plist in Resources */,
@@ -556,10 +619,13 @@
 				BB648E6B1F132FBD00D2C977 /* Lato-Light.ttf in Resources */,
 				BB648E711F132FBD00D2C977 /* Lato-Regular.ttf in Resources */,
 				BBFD9B791E713370009DDD20 /* Assets.xcassets in Resources */,
+				BBAD6BC91F1C98570089F896 /* ParkingHistory.storyboard in Resources */,
+				BBAD6BCB1F1C986B0089F896 /* Payment.storyboard in Resources */,
 				BB648E691F132FBD00D2C977 /* Lato-Hairline.ttf in Resources */,
 				BBC870F01F1C921000D24019 /* Settings.storyboard in Resources */,
 				BBC870F61F1C927300D24019 /* LendSpot.storyboard in Resources */,
 				BB648E6A1F132FBD00D2C977 /* Lato-Italic.ttf in Resources */,
+				BBAD6BDE1F1C9B430089F896 /* Account.storyboard in Resources */,
 				BBFD9B771E713370009DDD20 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -723,10 +789,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BBAD6BDA1F1C99290089F896 /* EditAccountViewController.swift in Sources */,
 				BB4BBAE01EA45E4600EBD13D /* GFBase32Utils.m in Sources */,
 				BB4BBAE11EA45E4600EBD13D /* GFGeoHash.m in Sources */,
 				BBFE91B31ED260DB00F04F05 /* SpotAnnotation.swift in Sources */,
 				BBC9640D1E7DCFCE00E99617 /* LoginViewController.swift in Sources */,
+				BBAD6BD11F1C989B0089F896 /* PaymentMainViewController.swift in Sources */,
 				BBC0F3711F15DFB5009C418C /* LenderSpotCoordinateViewController.swift in Sources */,
 				BB2BE2D61F11FF8C006393B3 /* SpotPreviewView.swift in Sources */,
 				BB4BBAE21EA45E4600EBD13D /* GFGeoHashQuery.m in Sources */,
@@ -734,6 +802,7 @@
 				BBC9640F1E7DCFED00E99617 /* SignUpViewController.swift in Sources */,
 				BBC0F3751F15DFCB009C418C /* LenderSpotPricingViewController.swift in Sources */,
 				BBC0F36F1F15DFAA009C418C /* LenderSpotAddressViewController.swift in Sources */,
+				BBAD6BCF1F1C98900089F896 /* ParkingHistoryListViewController.swift in Sources */,
 				BB8E62B91F1375420014DD62 /* HelperFunctions.swift in Sources */,
 				BBFE91B11ED24FCB00F04F05 /* MainViewController.swift in Sources */,
 				BB47DEF41EE273BB002368E4 /* Spot.swift in Sources */,
@@ -745,12 +814,15 @@
 				BBFD9B721E713370009DDD20 /* AppDelegate.swift in Sources */,
 				BBC0F36B1F15DF86009C418C /* LenderSpotTypeViewController.swift in Sources */,
 				BB47DEF61EE277C4002368E4 /* SpotAnnotationView.swift in Sources */,
+				BBAD6BD31F1C98A60089F896 /* ReferralMainViewController.swift in Sources */,
+				BBAD6BC51F1C97B00089F896 /* MessageListViewController.swift in Sources */,
 				BB4BBAC11EA40D7C00EBD13D /* SplashViewController.swift in Sources */,
 				BBED51E01F12F86D00C761EB /* SpotDetailViewController.swift in Sources */,
 				BB4BBAC31EA4159A00EBD13D /* Constants.swift in Sources */,
 				BB78A9861ED029BA004DFC4A /* SidePanelViewController.swift in Sources */,
 				BB78A9831ED029BA004DFC4A /* ContainerViewController.swift in Sources */,
 				BBC0F3791F15DFED009C418C /* LenderSpotCompletedViewController.swift in Sources */,
+				BBAD6BC71F1C97BB0089F896 /* SettingsViewController.swift in Sources */,
 				BB4BBAE31EA45E4600EBD13D /* GFQuery.m in Sources */,
 				BBFE91AF1ED24E4F00F04F05 /* MapViewController.swift in Sources */,
 				BB2BE2CF1F11AE4C006393B3 /* GeocodingHelper.swift in Sources */,

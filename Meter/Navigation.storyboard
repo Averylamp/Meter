@@ -130,12 +130,20 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FzW-9Z-abh">
+                                        <rect key="frame" x="0.0" y="121" width="300" height="50"/>
+                                        <connections>
+                                            <action selector="viewAccountClicked:" destination="ck7-L5-tIF" eventType="touchUpInside" id="MfM-k6-BsW"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="UOw-M6-8ie" firstAttribute="width" secondItem="oHU-1V-aVE" secondAttribute="width" id="0T4-8i-mxl"/>
+                                    <constraint firstItem="FzW-9Z-abh" firstAttribute="bottom" secondItem="JPA-je-pKI" secondAttribute="bottom" id="1kv-Bb-5hH"/>
                                     <constraint firstItem="ntX-LG-Ff6" firstAttribute="width" secondItem="IaB-H7-vPH" secondAttribute="width" constant="2" id="2lM-bN-Llx"/>
                                     <constraint firstItem="IaB-H7-vPH" firstAttribute="top" secondItem="oHU-1V-aVE" secondAttribute="top" constant="35" id="4Yl-k1-wTG"/>
+                                    <constraint firstItem="FzW-9Z-abh" firstAttribute="width" secondItem="oHU-1V-aVE" secondAttribute="width" id="8tx-37-neR"/>
                                     <constraint firstAttribute="height" constant="200" id="9u6-y3-dYy"/>
                                     <constraint firstItem="IaB-H7-vPH" firstAttribute="centerX" secondItem="oHU-1V-aVE" secondAttribute="centerX" id="AdH-Hj-qvt"/>
                                     <constraint firstItem="UOw-M6-8ie" firstAttribute="centerX" secondItem="oHU-1V-aVE" secondAttribute="centerX" id="IbM-Uc-dFl"/>
@@ -144,8 +152,10 @@
                                     <constraint firstItem="JPA-je-pKI" firstAttribute="centerX" secondItem="oHU-1V-aVE" secondAttribute="centerX" id="Nir-y8-eBJ"/>
                                     <constraint firstItem="ntX-LG-Ff6" firstAttribute="height" secondItem="IaB-H7-vPH" secondAttribute="height" constant="2" id="Qc6-bS-Yce"/>
                                     <constraint firstItem="JPA-je-pKI" firstAttribute="top" secondItem="UOw-M6-8ie" secondAttribute="bottom" id="XLZ-5v-pcT"/>
+                                    <constraint firstItem="FzW-9Z-abh" firstAttribute="centerX" secondItem="oHU-1V-aVE" secondAttribute="centerX" id="bWZ-VD-UZK"/>
                                     <constraint firstItem="UOw-M6-8ie" firstAttribute="top" secondItem="IaB-H7-vPH" secondAttribute="bottom" constant="16" id="mzy-cy-2Xh"/>
                                     <constraint firstItem="ntX-LG-Ff6" firstAttribute="centerX" secondItem="IaB-H7-vPH" secondAttribute="centerX" id="tNJ-Fr-l0m"/>
+                                    <constraint firstItem="FzW-9Z-abh" firstAttribute="top" secondItem="UOw-M6-8ie" secondAttribute="top" id="vH9-tH-qUC"/>
                                 </constraints>
                             </view>
                             <tableView contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="81" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="yyC-tL-Rzz">

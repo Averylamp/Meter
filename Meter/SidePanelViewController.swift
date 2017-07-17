@@ -182,5 +182,8 @@ class SidePanelViewController: UIViewController, UITableViewDelegate, UITableVie
         NotificationCenter.default.post(Notification(name: Notification.Name(rawValue: NavigationNotifications.LendSpotSelected), object: self))
     }
     
+    @IBAction func viewAccountClicked(_ sender: Any) {
+        NotificationCenter.default.post(Notification(name: Notification.Name(rawValue: NavigationNotifications.AccountSelected), object: self))
+    }
     
 }

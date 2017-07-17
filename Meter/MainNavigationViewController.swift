@@ -51,31 +51,43 @@ class MainNavigationViewController: UINavigationController {
         freeCreditsSelectedObserver = notificationCenter.addObserver(forName: NSNotification.Name(rawValue: NavigationNotifications.FreeCreditsSelected), object: nil, queue: nil, using: { (notification) in
             self.storeVCs()
             self.toggleSideMenu()
+            let settingsVC = UIStoryboard(name: "Promotion", bundle: nil).instantiateViewController(withIdentifier: "ReferralVC")
+            self.setViewControllers([settingsVC], animated: true)
         })
         
         messagesSelectedObserver = notificationCenter.addObserver(forName: NSNotification.Name(rawValue: NavigationNotifications.MessagesSelected), object: nil, queue: nil, using: { (notification) in
             self.storeVCs()
             self.toggleSideMenu()
+            let messageListVC = UIStoryboard(name: "Messages", bundle: nil).instantiateViewController(withIdentifier: "MessageListVC")
+            self.setViewControllers([messageListVC], animated: true)
         })
         
         parkingHistorySelectedObserver = notificationCenter.addObserver(forName: NSNotification.Name(rawValue: NavigationNotifications.ParkingHistorySelected), object: nil, queue: nil, using: { (notification) in
             self.storeVCs()
             self.toggleSideMenu()
+            let parkingHistoryVC = UIStoryboard(name: "ParkingHistory", bundle: nil).instantiateViewController(withIdentifier: "ParkingHistory")
+            self.setViewControllers([parkingHistoryVC], animated: true)
         })
         
         paymentSelectedObserver = notificationCenter.addObserver(forName: NSNotification.Name(rawValue: NavigationNotifications.PaymentSelected), object: nil, queue: nil, using: { (notification) in
             self.storeVCs()
             self.toggleSideMenu()
+            let settingsVC = UIStoryboard(name: "Payment", bundle: nil).instantiateViewController(withIdentifier: "PaymentMainVC")
+            self.setViewControllers([settingsVC], animated: true)
         })
         
         settingsSelectedObserver = notificationCenter.addObserver(forName: NSNotification.Name(rawValue: NavigationNotifications.SettingsSelected), object: nil, queue: nil, using: { (notification) in
             self.storeVCs()
             self.toggleSideMenu()
+            let settingsVC = UIStoryboard(name: "Settings", bundle: nil).instantiateViewController(withIdentifier: "SettingsVC")
+            self.setViewControllers([settingsVC], animated: true)
         })
         
         accountSelectedObserver = notificationCenter.addObserver(forName: NSNotification.Name(rawValue: NavigationNotifications.AccountSelected), object: nil, queue: nil, using: { (notification) in
             self.storeVCs()
             self.toggleSideMenu()
+            let settingsVC = UIStoryboard(name: "Account", bundle: nil).instantiateViewController(withIdentifier: "EditAccountVC")
+            self.setViewControllers([settingsVC], animated: true)
         })
         
         lendSpotSelectedObserver = notificationCenter.addObserver(forName: NSNotification.Name(rawValue: NavigationNotifications.LendSpotSelected), object: nil, queue: nil, using: { (notification) in
