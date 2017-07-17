@@ -48,15 +48,15 @@ class SpotDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.imagesScrollView.delegate = self
     }
     
     func fitLabelHeights(){
         shortDescriptionHeightConstraint.constant = shortDescriptionLabel.heightForLabel() + 6
         longDescriptionHeightConstraint.constant = longDescriptionLabel.heightForLabel() + 6
         self.view.layoutIfNeeded()
-        self.scrollView.contentSize = CGSize(width: self.view.frame.width, height: longDescriptionLabel.frame.origin.y + longDescriptionLabel.frame.height)
-        self.contentViewHeightConstraint.constant = longDescriptionLabel.frame.origin.y + longDescriptionLabel.frame.height
+        self.scrollView.contentSize = CGSize(width: self.view.frame.width, height: longDescriptionLabel.frame.origin.y + longDescriptionLabel.frame.height + 10)
+        self.contentViewHeightConstraint.constant = longDescriptionLabel.frame.origin.y + longDescriptionLabel.frame.height + 10
         self.view.layoutIfNeeded()
     }
     
@@ -73,32 +73,54 @@ class SpotDetailViewController: UIViewController {
         }
     }
     
+    var imageScrollViewPageIndicatorViews = [UIView]()
+    var lastImageScrollViewPage:Int = 0
     func setupDetailImages(){
         self.imagesScrollView.subviews.forEach{$0.removeFromSuperview()}
-        let imageOrder = ["spot", "map", "entrance", "additional"]
+        let imageOrder = ["spot", "entrance", "additional", "map"]
         var count:CGFloat = 0
         for imageType in imageOrder{
             if let imageIndex = self.imageOrder.index(of: imageType){
                 let image = self.spotImages[imageIndex]
-                let imageView = UIImageView(frame:CGRect(x: count * self.imagesScrollView.frame.width + 15, y: 10, width: self.imagesScrollView.frame.width - 30, height: self.imagesScrollView.frame.height - 30))
+                let imageView = UIImageView(frame:CGRect(x: count * self.imagesScrollView.frame.width , y: 0, width: self.imagesScrollView.frame.width, height: self.imagesScrollView.frame.height - 30))
                 imageView.image = image
                 imageView.contentMode = .scaleAspectFill
                 imageView.clipsToBounds = true
-                imageView.layer.cornerRadius = 8
+//                imageView.layer.cornerRadius = 8
                 let shadowView = UIView(frame: imageView.frame)
                 shadowView.backgroundColor = UIColor.white
                 shadowView.layer.cornerRadius = imageView.layer.cornerRadius
-                shadowView.layer.shadowRadius = 6
-                shadowView.layer.shadowOpacity = 0.5
+                shadowView.layer.shadowRadius = 4
+                shadowView.layer.shadowOpacity = 0.3
                 shadowView.layer.shadowOffset = CGSize(width: 0, height: 2)
-                self.imagesScrollView.addSubview(shadowView)
+//                self.imagesScrollView.addSubview(shadowView)
                 self.imagesScrollView.addSubview(imageView)
                 count += 1
             }
         }
         
-            
         self.imagesScrollView.contentSize = CGSize(width: self.imagesScrollView.frame.width * count, height:  self.imagesScrollView.frame.height)
+        
+        imageScrollViewPageIndicatorViews = [UIView]()
+        for i in 0..<Int(count){
+            let distanceBetweenCenters: CGFloat = 16
+            let pageIndicatorView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 10))
+            pageIndicatorView.layer.cornerRadius = 5
+            pageIndicatorView.backgroundColor = Constants.Colors.grayHighlight
+            pageIndicatorView.tag = i
+            if i == 0{
+                pageIndicatorView.backgroundColor = Constants.Colors.blueHighlight
+                pageIndicatorView.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
+            }
+            pageIndicatorView.center.y = self.imagesScrollView.frame.height + self.imagesScrollView.frame.origin.y - 16
+            if Int(count) % 2 == 0{
+                pageIndicatorView.center.x = self.view.frame.width / 2.0 + CGFloat(i - ((Int(count) - 1) / 2)) * distanceBetweenCenters - distanceBetweenCenters / 2.0
+            }else{
+                pageIndicatorView.center.x = self.view.frame.width / 2.0 + CGFloat(i - ((Int(count) - 1) / 2)) * distanceBetweenCenters
+            }
+            self.scrollView.addSubview(pageIndicatorView)
+            self.imageScrollViewPageIndicatorViews.append(pageIndicatorView)
+        }
         
     }
     
@@ -108,4 +130,27 @@ class SpotDetailViewController: UIViewController {
     
     
 }
+
+extension SpotDetailViewController: UIScrollViewDelegate{
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let imageScrollViewPage = Int((imagesScrollView.contentOffset.x + imagesScrollView.frame.width / 2.0) / imagesScrollView.frame.width)
+        if imageScrollViewPage != lastImageScrollViewPage{
+            lastImageScrollViewPage = imageScrollViewPage
+            UIView.animate(withDuration: 0.4, animations: {
+                self.imageScrollViewPageIndicatorViews.forEach{
+                    if $0.tag == imageScrollViewPage{
+                        $0.backgroundColor = Constants.Colors.blueHighlight
+                        $0.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
+                    }else{
+                        $0.backgroundColor = Constants.Colors.grayHighlight
+                        $0.transform = CGAffineTransform.identity
+                    }
+                }
+            })
+        }
+    }
+    
+}
+
 

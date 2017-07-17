@@ -10,25 +10,22 @@ import UIKit
 
 class MainNavigationViewController: UINavigationController {
     
-    fileprivate var searchSelectedObserver: NSObjectProtocol?
-    fileprivate var searchClearObserver: NSObjectProtocol?
-    fileprivate var cartSelectedObserver: NSObjectProtocol?
-    fileprivate var historySelectedObserver: NSObjectProtocol?
-    fileprivate var accountSelectedObserver: NSObjectProtocol?
+    fileprivate var findSpotSelectedObserver: NSObjectProtocol?
+    fileprivate var freeCreditsSelectedObserver: NSObjectProtocol?
+    fileprivate var messagesSelectedObserver: NSObjectProtocol?
+    fileprivate var parkingHistorySelectedObserver: NSObjectProtocol?
+    fileprivate var paymentSelectedObserver: NSObjectProtocol?
     fileprivate var settingsSelectedObserver: NSObjectProtocol?
-    fileprivate var shareSelectedObserver: NSObjectProtocol?
-    fileprivate var helpSelectedObserver: NSObjectProtocol?
+    fileprivate var accountSelectedObserver: NSObjectProtocol?
+    fileprivate var lendSpotSelectedObserver: NSObjectProtocol?
     
     var profilePicture: UIImage? = nil
+    var mainVCS = [UIViewController]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
-    
-    var searchVCS = [UIViewController]()
-    
-    
     
     override func viewWillAppear(_ animated: Bool) {
         addObservers()
@@ -36,96 +33,99 @@ class MainNavigationViewController: UINavigationController {
     override func viewWillDisappear(_ animated: Bool) {
         removeObservers()
     }
+    
     func addObservers(){
         let notificationCenter = NotificationCenter.default
-        searchSelectedObserver = notificationCenter.addObserver(forName: NSNotification.Name(rawValue: SidePanelViewController.Notifications.SearchSelected), object: nil, queue: nil, using: { (notification) in
-            self.storeCurrentVCS()
-            if self.searchVCS.count > 0 {
-                self.setViewControllers(self.searchVCS, animated: true)
+        findSpotSelectedObserver = notificationCenter.addObserver(forName: NSNotification.Name(rawValue: NavigationNotifications.FindSpotSelected), object: nil, queue: nil, using: { (notification) in
+            self.storeVCs()
+            self.toggleSideMenu()
+            if self.mainVCS.count > 0{
+                self.setViewControllers(self.mainVCS, animated: true)
             }else{
-//                let searchVC = UIStoryboard(name: "Search", bundle: Bundle.main).instantiateViewController(withIdentifier: "SearchViewController") as? SearchViewController
-//                self.searchVCS.append(searchVC!)
-                self.setViewControllers(self.searchVCS, animated: true)
+                 let mainVC = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "MainViewController")
+                self.mainVCS = [mainVC]
+                self.setViewControllers(self.mainVCS, animated: true)
             }
         })
-        searchClearObserver = notificationCenter.addObserver(forName: NSNotification.Name(rawValue: SidePanelViewController.Notifications.SearchClear), object: nil, queue: nil, using: { (notification) in
-            self.searchVCS = [UIViewController]()
-        })
-        cartSelectedObserver = notificationCenter.addObserver(forName: NSNotification.Name(rawValue: SidePanelViewController.Notifications.CartSelected), object: nil, queue: nil, using: { (notification) in
-            self.storeCurrentVCS()
-            let cartVC = UIStoryboard(name: "Cart", bundle: Bundle.main).instantiateViewController(withIdentifier: "CartViewController")
-            if notification.object as? SidePanelViewController != nil {
-                self.setViewControllers([cartVC], animated: true)
-            }else{
-                UIView.animate(withDuration: 0.8, animations: {
-                    UIView.setAnimationCurve(.easeInOut)
-                    self.setViewControllers([cartVC], animated: false)
-                    UIView.setAnimationTransition(.curlUp, for: self.view, cache: false)
-                })
-                
-            }
-            
+        
+        freeCreditsSelectedObserver = notificationCenter.addObserver(forName: NSNotification.Name(rawValue: NavigationNotifications.FreeCreditsSelected), object: nil, queue: nil, using: { (notification) in
+            self.storeVCs()
+            self.toggleSideMenu()
         })
         
-        accountSelectedObserver = notificationCenter.addObserver(forName: NSNotification.Name(rawValue: SidePanelViewController.Notifications.AccountSelected), object: nil, queue: nil, using: { (notification) in
-            self.storeCurrentVCS()
-            let accountVC = UIStoryboard(name: "Account", bundle: Bundle.main).instantiateViewController(withIdentifier: "AccountViewController")
-            self.setViewControllers([accountVC], animated: true)
+        messagesSelectedObserver = notificationCenter.addObserver(forName: NSNotification.Name(rawValue: NavigationNotifications.MessagesSelected), object: nil, queue: nil, using: { (notification) in
+            self.storeVCs()
+            self.toggleSideMenu()
         })
         
-        historySelectedObserver = notificationCenter.addObserver(forName: NSNotification.Name(rawValue: SidePanelViewController.Notifications.HistorySelected), object: nil, queue: nil, using: { (notification) in
-            let orderHistoryVC = UIStoryboard(name: "OrderHistory", bundle: nil).instantiateViewController(withIdentifier: "OrderHistoryViewController")
-            self.setViewControllers([orderHistoryVC], animated: true)
+        parkingHistorySelectedObserver = notificationCenter.addObserver(forName: NSNotification.Name(rawValue: NavigationNotifications.ParkingHistorySelected), object: nil, queue: nil, using: { (notification) in
+            self.storeVCs()
+            self.toggleSideMenu()
+        })
+        
+        paymentSelectedObserver = notificationCenter.addObserver(forName: NSNotification.Name(rawValue: NavigationNotifications.PaymentSelected), object: nil, queue: nil, using: { (notification) in
+            self.storeVCs()
+            self.toggleSideMenu()
+        })
+        
+        settingsSelectedObserver = notificationCenter.addObserver(forName: NSNotification.Name(rawValue: NavigationNotifications.SettingsSelected), object: nil, queue: nil, using: { (notification) in
+            self.storeVCs()
+            self.toggleSideMenu()
+        })
+        
+        accountSelectedObserver = notificationCenter.addObserver(forName: NSNotification.Name(rawValue: NavigationNotifications.AccountSelected), object: nil, queue: nil, using: { (notification) in
+            self.storeVCs()
+            self.toggleSideMenu()
+        })
+        
+        lendSpotSelectedObserver = notificationCenter.addObserver(forName: NSNotification.Name(rawValue: NavigationNotifications.LendSpotSelected), object: nil, queue: nil, using: { (notification) in
+            self.storeVCs()
+            self.toggleSideMenu()
+            let spotLendVC = UIStoryboard(name: "LendSpot", bundle: nil).instantiateViewController(withIdentifier: "MainLenderVC")
+            self.setViewControllers([spotLendVC], animated: true)
         })
     }
     
-    func storeCurrentVCS(){
-//        if (self.viewControllers.first as? SearchViewController) != nil {
-//            self.searchVCS = self.viewControllers
-//        }
+    func toggleSideMenu(){
+        NotificationCenter.default.post(Notification(name: Notification.Name(rawValue: NavigationNotifications.toggleMenu), object: self))
+    }
+    
+    func storeVCs(){
+        if let mainVC =  self.viewControllers.first as? MainViewController{
+            self.mainVCS = self.viewControllers
+        }
     }
     
     func removeObservers(){
         let notificationCenter = NotificationCenter.default
         
-        if searchSelectedObserver != nil{
-            notificationCenter.removeObserver(searchSelectedObserver!)
+        if findSpotSelectedObserver != nil{
+            notificationCenter.removeObserver(findSpotSelectedObserver!)
         }
-        if cartSelectedObserver != nil{
-            notificationCenter.removeObserver(cartSelectedObserver!)
+        if freeCreditsSelectedObserver != nil{
+            notificationCenter.removeObserver(freeCreditsSelectedObserver!)
         }
-        if historySelectedObserver != nil{
-            notificationCenter.removeObserver(historySelectedObserver!)
+        if messagesSelectedObserver != nil{
+            notificationCenter.removeObserver(messagesSelectedObserver!)
         }
-        if accountSelectedObserver != nil{
-            notificationCenter.removeObserver(accountSelectedObserver!)
+        if parkingHistorySelectedObserver != nil{
+            notificationCenter.removeObserver(parkingHistorySelectedObserver!)
+        }
+        if paymentSelectedObserver != nil{
+            notificationCenter.removeObserver(paymentSelectedObserver!)
         }
         if settingsSelectedObserver != nil{
             notificationCenter.removeObserver(settingsSelectedObserver!)
         }
-        if shareSelectedObserver != nil{
-            notificationCenter.removeObserver(shareSelectedObserver!)
+        if accountSelectedObserver != nil{
+            notificationCenter.removeObserver(accountSelectedObserver!)
         }
-        if helpSelectedObserver != nil{
-            notificationCenter.removeObserver(helpSelectedObserver!)
+        if lendSpotSelectedObserver != nil{
+            notificationCenter.removeObserver(lendSpotSelectedObserver!)
         }
     }
     
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
+   
     
 }

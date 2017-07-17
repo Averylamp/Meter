@@ -11,9 +11,9 @@ import UIKit
 
 struct Constants{
     struct Colors{
-        static let pinkHighlight = UIColor(red: 0.878, green: 0.573, blue: 0.741, alpha: 1.00)
-        static let blueHighlight = UIColor(red: 0.400, green: 0.627, blue: 0.945, alpha: 1.00)
-        static let grayHighlight = UIColor(red: 0.427, green: 0.490, blue: 0.584, alpha: 1.00)
+        static let pinkHighlight = UIColor(red: 0.749, green: 0.600, blue: 0.851, alpha: 1.00)
+        static let blueHighlight = UIColor(red: 0.494, green: 0.596, blue: 0.906, alpha: 1.00)
+        static let grayHighlight = UIColor(red: 0.392, green: 0.478, blue: 0.522, alpha: 1.00)
         
     }
     

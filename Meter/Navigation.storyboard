@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.19" systemVersion="16G24b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="9Oz-zk-71A">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13156.6" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="9Oz-zk-71A">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.16"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13137.5"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
         <array key="Avenir.ttc">
+            <string>Avenir-Book</string>
             <string>Avenir-Heavy</string>
             <string>Avenir-Light</string>
         </array>
@@ -74,12 +75,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="300" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="81" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="yyC-tL-Rzz">
-                                <rect key="frame" x="0.0" y="200" width="300" height="268"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </tableView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SkylineImage" translatesAutoresizingMaskIntoConstraints="NO" id="M5D-Mi-WMi">
                                 <rect key="frame" x="0.0" y="468" width="300" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="BVD-d5-Roc"/>
+                                </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oHU-1V-aVE">
                                 <rect key="frame" x="0.0" y="0.0" width="300" height="200"/>
@@ -148,12 +148,37 @@
                                     <constraint firstItem="ntX-LG-Ff6" firstAttribute="centerX" secondItem="IaB-H7-vPH" secondAttribute="centerX" id="tNJ-Fr-l0m"/>
                                 </constraints>
                             </view>
+                            <tableView contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="81" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="yyC-tL-Rzz">
+                                <rect key="frame" x="0.0" y="200" width="300" height="218"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YkK-7S-w7a">
+                                <rect key="frame" x="80" y="418" width="140" height="35"/>
+                                <color key="backgroundColor" red="0.83921568627450982" green="0.58823529411764708" blue="0.73333333333333328" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="Kik-EU-Vjb"/>
+                                    <constraint firstAttribute="width" constant="140" id="faj-6F-MPO"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="18"/>
+                                <state key="normal" title="Lend Your Spot">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="lendSpotClicked:" destination="ck7-L5-tIF" eventType="touchUpInside" id="Am9-wD-Ndp"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="YkK-7S-w7a" firstAttribute="centerX" secondItem="yNK-6j-vaO" secondAttribute="centerX" id="0UZ-YQ-2XP"/>
                             <constraint firstItem="yyC-tL-Rzz" firstAttribute="top" secondItem="oHU-1V-aVE" secondAttribute="bottom" id="4du-BV-WjD"/>
                             <constraint firstItem="yyC-tL-Rzz" firstAttribute="centerX" secondItem="yNK-6j-vaO" secondAttribute="centerX" id="6gF-9v-Xmq"/>
-                            <constraint firstItem="0nu-AF-h0s" firstAttribute="top" secondItem="yyC-tL-Rzz" secondAttribute="bottom" constant="100" id="AQ4-Dz-YxS"/>
+                            <constraint firstItem="M5D-Mi-WMi" firstAttribute="top" secondItem="YkK-7S-w7a" secondAttribute="bottom" constant="15" id="813-oL-8Ik"/>
                             <constraint firstItem="oHU-1V-aVE" firstAttribute="centerX" secondItem="yNK-6j-vaO" secondAttribute="centerX" id="BFy-Yy-Bhz"/>
                             <constraint firstItem="oHU-1V-aVE" firstAttribute="top" secondItem="yNK-6j-vaO" secondAttribute="topMargin" id="DsV-4Y-D0t"/>
                             <constraint firstItem="0nu-AF-h0s" firstAttribute="top" secondItem="M5D-Mi-WMi" secondAttribute="bottom" id="Fla-G0-Ehl"/>
@@ -161,7 +186,7 @@
                             <constraint firstItem="yyC-tL-Rzz" firstAttribute="width" secondItem="yNK-6j-vaO" secondAttribute="width" id="aVC-Sz-IzU"/>
                             <constraint firstItem="oHU-1V-aVE" firstAttribute="width" secondItem="yNK-6j-vaO" secondAttribute="width" id="aeW-bk-B8Z"/>
                             <constraint firstItem="M5D-Mi-WMi" firstAttribute="width" secondItem="yNK-6j-vaO" secondAttribute="width" id="dqe-Ro-Zxf"/>
-                            <constraint firstItem="M5D-Mi-WMi" firstAttribute="top" secondItem="yyC-tL-Rzz" secondAttribute="bottom" id="kt7-8R-JRf"/>
+                            <constraint firstItem="YkK-7S-w7a" firstAttribute="top" secondItem="yyC-tL-Rzz" secondAttribute="bottom" id="zWu-88-sKF"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="layer.shadowRadius">
@@ -178,6 +203,8 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="300" height="568"/>
                     <connections>
+                        <outlet property="currentUserLabel" destination="UOw-M6-8ie" id="ume-Jo-bIP"/>
+                        <outlet property="profilePicture" destination="IaB-H7-vPH" id="7Zv-DA-mwp"/>
                         <outlet property="tableView" destination="yyC-tL-Rzz" id="gwF-Be-AIM"/>
                         <segue destination="zF3-d2-gmY" kind="modal" identifier="LoginSegue" id="JZK-8x-8wn"/>
                     </connections>

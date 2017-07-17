@@ -13,9 +13,7 @@ enum SlideState{
     case leftPanelExpanded
 }
 
-struct NavigationNotification {
-    static let toggleMenu = "ToggleMenuNotification"
-}
+
 
 class ContainerViewController: UIViewController {
     
@@ -43,8 +41,8 @@ class ContainerViewController: UIViewController {
         
         let mainVC = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "MainViewController")
         //        let searchVC =  UIStoryboard(name: "Search", bundle: Bundle.main).instantiateViewController(withIdentifier: "SearchViewController") as? SearchViewController
-        activeNavigationController.searchVCS = [mainVC]
-        activeNavigationController.setViewControllers(activeNavigationController.searchVCS, animated: false)
+        activeNavigationController.mainVCS = [mainVC]
+        activeNavigationController.setViewControllers(activeNavigationController.mainVCS, animated: false)
         
         containerOverlay = UIButton(frame: self.view.frame)
         containerOverlay.backgroundColor = UIColor.black
@@ -66,7 +64,7 @@ class ContainerViewController: UIViewController {
         leftPanelController.tableView.addGestureRecognizer(tableViewPanGestureRecognizer)
         
         let notificationCenter = NotificationCenter.default
-        notificationCenter.addObserver(forName: NSNotification.Name(rawValue: NavigationNotification.toggleMenu), object: nil, queue: nil, using: { (notification) in
+        notificationCenter.addObserver(forName: NSNotification.Name(rawValue: NavigationNotifications.toggleMenu), object: nil, queue: nil, using: { (notification) in
             self.toggleMenu()
         })
     }

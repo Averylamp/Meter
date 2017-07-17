@@ -27,7 +27,7 @@ class DetailViewController: UIViewController{
     
     var currentSpots = [PFObject]()
     var currentPreviewViews = [SpotPreviewView]()
-    let imageBounceStartScale:CGFloat = 0.93
+    let imageBounceStartScale:CGFloat = 0.9
     var searchLocation = CLLocationCoordinate2D()
     let previewViewWidth:CGFloat = 280
     
@@ -189,8 +189,7 @@ class DetailViewController: UIViewController{
                 mapPicture.getDataInBackground(block: { (data, error) in
                     count -= 1
                     if error == nil{
-                        let image = UIImage(data: data!)
-                        detailVC.spotImages.append(image!)
+                        detailVC.spotImages.append(UIImage(data: data!)!)
                         detailVC.imageOrder.append("map")
                     }else{
                         print("Error getting spot picture \(error?.localizedDescription ?? "")")
@@ -205,8 +204,7 @@ class DetailViewController: UIViewController{
                 spotPicture.getDataInBackground(block: { (data, error) in
                     count -= 1
                     if error == nil{
-                        let image = UIImage(data: data!)
-                        detailVC.spotImages.append(image!)
+                        detailVC.spotImages.append(UIImage(data: data!)!)
                         detailVC.imageOrder.append("spot")
                     }else{
                         print("Error getting spot picture \(error?.localizedDescription ?? "")")
@@ -221,8 +219,7 @@ class DetailViewController: UIViewController{
                 entrancePicture.getDataInBackground(block: { (data, error) in
                     count -= 1
                     if error == nil{
-                        let image = UIImage(data: data!)
-                        detailVC.spotImages.append(image!)
+                        detailVC.spotImages.append(UIImage(data: data!)!)
                         detailVC.imageOrder.append("entrance")
                     }else{
                         print("Error getting spot picture \(error?.localizedDescription ?? "")")
@@ -237,8 +234,7 @@ class DetailViewController: UIViewController{
                 additionalPicture.getDataInBackground(block: { (data, error) in
                     count -= 1
                     if error == nil{
-                        let image = UIImage(data: data!)
-                        detailVC.spotImages.append(image!)
+                        detailVC.spotImages.append(UIImage(data: data!)!)
                         detailVC.imageOrder.append("additional")
                     }else{
                         print("Error getting spot picture \(error?.localizedDescription ?? "")")
@@ -248,7 +244,30 @@ class DetailViewController: UIViewController{
                     }
                 })
             }
-            
+            if let spotOwner = currentSpot["spotOwner"] as? PFUser{
+                DispatchQueue.global().async {
+                    do {
+                        try spotOwner.fetchIfNeeded()
+                    }catch{
+                        print("Spot Owner Fetch Failed \(error.localizedDescription)")
+                    }
+                    DispatchQueue.main.async {   
+                        if let ownerName = spotOwner["name"] as? String{
+                            let firstName = ownerName.characters.split{ $0 == " "}.map(String.init).first!
+                            detailVC.ownerLabel.text = "Hosted by \(firstName)"
+                        }
+                        if let proPic = spotOwner["profilePicture"] as? PFFile{
+                            proPic.getDataInBackground(block: { (data, error) in
+                                if error == nil{
+                                    detailVC.ownerImage.image = UIImage(data: data!)
+                                }else{
+                                    print("Error getting profile picture \(error?.localizedDescription ?? "")")
+                                }
+                            })
+                        }
+                    }
+                }
+            }
             detailVC.fitLabelHeights()
             self.present(detailVC, animated: true, completion: nil)
             
@@ -290,14 +309,14 @@ extension DetailViewController: UIScrollViewDelegate {
                         }, completion: nil)
                     }
                     
-                    UIView.animate(withDuration: animationDuration / 2, animations: {
-                        previewView.pinIconImageView.alpha = 0.0
-                    }, completion: { (finished) in
-                        self.currentHighlightedPreviewView.pinIconImageView.image = #imageLiteral(resourceName: "BluePin")
-                        UIView.animate(withDuration: animationDuration / 2, animations: {
-                            previewView.pinIconImageView.alpha = 1.0
-                        }, completion: nil)
-                    })
+                    self.currentHighlightedPreviewView.pinIconImageView.image = #imageLiteral(resourceName: "BluePin")
+                    previewView.pinIconImageView.alpha = 1.0
+//                    UIView.animate(withDuration: animationDuration / 2, animations: {
+//                        previewView.pinIconImageView.alpha = 0.0
+//                    }, completion: { (finished) in
+//                        UIView.animate(withDuration: animationDuration / 2, animations: {
+//                        }, completion: nil)
+//                    })
                     if let delegate = delegate {
                         delegate.spotHighlighted(spot: self.currentSpots[previewView.tag])
                     }
@@ -311,14 +330,14 @@ extension DetailViewController: UIScrollViewDelegate {
                         previewView.layer.shadowOpacity = 0.0
                     }
                     if previewView.pinIconImageView.image == #imageLiteral(resourceName: "BluePin"){
-                        UIView.animate(withDuration: animationDuration / 3, animations: {
-                            previewView.pinIconImageView.alpha = 0.0
-                        }, completion: { (finished) in
-                            previewView.pinIconImageView.image = #imageLiteral(resourceName: "Map_Pin")
-                            UIView.animate(withDuration: animationDuration / 3, animations: {
-                                previewView.pinIconImageView.alpha = 1.0
-                            }, completion: nil)
-                        })
+                        previewView.pinIconImageView.image = #imageLiteral(resourceName: "Map_Pin")
+//                        UIView.animate(withDuration: animationDuration / 3, animations: {
+//                            previewView.pinIconImageView.alpha = 0.0
+//                        }, completion: { (finished) in
+//                            UIView.animate(withDuration: animationDuration / 3, animations: {
+//                                previewView.pinIconImageView.alpha = 1.0
+//                            }, completion: nil)
+//                        })
                     }
                     if previewView.detailImageView.transform != CGAffineTransform(scaleX: imageBounceStartScale, y: imageBounceStartScale){
                         UIView.animate(withDuration: animationDuration, delay: 0.0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.1, options: .curveEaseInOut, animations: {

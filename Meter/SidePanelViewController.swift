@@ -7,40 +7,79 @@
 //
 
 import UIKit
-import MBProgressHUD
+import Parse
 
 protocol SidePanelViewControllerDelegate {
     func newPageSelected(_ index: Int)
 }
 
+struct NavigationNotifications {
+    static let toggleMenu = "ToggleMenuNotification"
+    static let AccountSelected = "AccountSelected"
+    static let LendSpotSelected = "LendSpotSelected"
+    static let FindSpotSelected = "FindSpotSelected"
+    static let FreeCreditsSelected = "FreeCreditsSelected"
+    static let ParkingHistorySelected = "ParkingHistorySelected"
+    static let PaymentSelected = "PaymentSelected"
+    static let MessagesSelected = "MessagesSelected"
+    static let SettingsSelected = "SettingsSelected"
+}
+
 class SidePanelViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
    
+    @IBOutlet weak var currentUserLabel: UILabel!
+    
     @IBOutlet weak var tableView: UITableView!
     
-    var delegate: SidePanelViewControllerDelegate?
-    var profilePicture:UIImage? = nil
+    @IBOutlet weak var profilePicture: UIImageView!
     
-    struct Notifications {
-        static let SearchSelected = "SearchSelected"
-        static let SearchClear = "SearchCleared"
-        static let CartSelected = "CartSelected"
-        static let HistorySelected = "HistorySelected"
-        static let AccountSelected = "AccountSelected"
-        static let SettingsSelected = "SettingsSelected"
-        static let ShareSelected = "ShareSelected"
-        static let HelpSelected = "HelpSelected"
-    }
+    var delegate: SidePanelViewControllerDelegate?
+    
+    
+//    Find Spot *
+//    Free Credits
+//    Messages
+//    Parking History
+//    Payment
+//    Settings
+    
+//    Lend your spot
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
         tableView.delegate = self
         tableView.separatorStyle = .none
+        updateProfilePicture()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+    }
+    
+    func updateProfilePicture(){
+        if let currentUser = PFUser.current() {
+            do{
+                try currentUser.fetchIfNeeded()
+            }catch{
+                print("Failed to fetch current user \(error.localizedDescription)")
+            }
+            if let ownerName = currentUser["name"] as? String{
+                currentUserLabel.text = ownerName
+            }
+            if let proPic = currentUser["profilePicture"] as? PFFile{
+                proPic.getDataInBackground(block: { (data, error) in
+                    if error == nil{
+                        self.profilePicture.image = UIImage(data: data!)
+                    }else{
+                        print("Error getting profile picture \(error?.localizedDescription ?? "")")
+                    }
+                })
+            }
+        }
+        
+        
     }
     
     
@@ -48,19 +87,19 @@ class SidePanelViewController: UIViewController, UITableViewDelegate, UITableVie
         let notificationCenter = NotificationCenter.default
         switch index {
         case 0:
-            notificationCenter.post(Notification(name: Notification.Name(rawValue: Notifications.SearchSelected), object: self))
+            notificationCenter.post(Notification(name: Notification.Name(rawValue: NavigationNotifications.FindSpotSelected), object: self))
         case 1:
-            notificationCenter.post(Notification(name: Notification.Name(rawValue: Notifications.CartSelected), object: self))
+            notificationCenter.post(Notification(name: Notification.Name(rawValue: NavigationNotifications.FreeCreditsSelected), object: self))
         case 2:
-            notificationCenter.post(Notification(name: Notification.Name(rawValue: Notifications.HistorySelected), object: self))
+            notificationCenter.post(Notification(name: Notification.Name(rawValue: NavigationNotifications.MessagesSelected), object: self))
         case 3:
-            notificationCenter.post(Notification(name: Notification.Name(rawValue: Notifications.AccountSelected), object: self))
+            notificationCenter.post(Notification(name: Notification.Name(rawValue: NavigationNotifications.ParkingHistorySelected), object: self))
         case 4:
-            notificationCenter.post(Notification(name: Notification.Name(rawValue: Notifications.SettingsSelected), object: self))
+            notificationCenter.post(Notification(name: Notification.Name(rawValue: NavigationNotifications.PaymentSelected), object: self))
         case 5:
-            notificationCenter.post(Notification(name: Notification.Name(rawValue: Notifications.ShareSelected), object: self))
+            notificationCenter.post(Notification(name: Notification.Name(rawValue: NavigationNotifications.SettingsSelected), object: self))
         case 6:
-            notificationCenter.post(Notification(name: Notification.Name(rawValue: Notifications.HelpSelected), object: self))
+            notificationCenter.post(Notification(name: Notification.Name(rawValue: NavigationNotifications.AccountSelected), object: self))
         default:
             break
         }
@@ -74,7 +113,7 @@ class SidePanelViewController: UIViewController, UITableViewDelegate, UITableVie
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return 6
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .default, reuseIdentifier: "pageOptionsCell")
@@ -103,23 +142,23 @@ class SidePanelViewController: UIViewController, UITableViewDelegate, UITableVie
         
         switch (indexPath as NSIndexPath).row {
         case 0:
-            textLabel.text = "Payments"
+            textLabel.text = "Find Spot"
             imageView.image = UIImage(named: "airplane")
         case 1:
             textLabel.text = "Free Credits"
             imageView.image = UIImage(named: "shopping_cart")
         case 2:
-            textLabel.text = "Parking History"
+            textLabel.text = "Messages"
             imageView.image = UIImage(named: "bulleted_list")
         case 3:
-            textLabel.text = "Help"
+            textLabel.text = "Parking History"
             imageView.image = UIImage(named: "user")
         case 4:
-            textLabel.text = "Settings"
+            textLabel.text = "Payment"
             imageView.image = UIImage(named: "coins")
-//        case 5:
-//            textLabel.text = "Log Out"
-//            imageView.image = UIImage(named: "share")
+        case 5:
+            textLabel.text = "Settings"
+            imageView.image = UIImage(named: "share")
 //        case 6:
 //            textLabel.text = "Help"
 //            imageView.image = UIImage(named: "help")
@@ -135,10 +174,12 @@ class SidePanelViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        print("Index Path \((indexPath as NSIndexPath).row) Selected")
-//        let notificationCenter = NotificationCenter.default
-//        notificationCenter.post(Notification(name: Notification.Name(rawValue: "ToggleLeftMenu"), object: self))
-//        postNotification((indexPath as NSIndexPath).row)
+        print("Index Path \((indexPath as NSIndexPath).row) Selected")        
+        postNotification((indexPath as NSIndexPath).row)
+    }
+    
+    @IBAction func lendSpotClicked(_ sender: Any) {
+        NotificationCenter.default.post(Notification(name: Notification.Name(rawValue: NavigationNotifications.LendSpotSelected), object: self))
     }
     
     

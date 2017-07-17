@@ -76,7 +76,6 @@ extension MainViewController{
 extension MainViewController: UIGestureRecognizerDelegate{
     
     func panGestureMoved(recognizer: UIPanGestureRecognizer){
-        print("Pan Gesture Moved \(recognizer.translation(in: self.view).y)")
         if recognizer.velocity(in: self.view).y > 500 && self.spotDetailStatus == .visible{
             self.hideDetailVC()
         }

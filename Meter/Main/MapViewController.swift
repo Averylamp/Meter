@@ -121,7 +121,7 @@ class MapViewController: UIViewController {
     var firstLocationUpdate = true
     
     @IBAction func menuButtonClicked(_ sender: Any) {
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: NavigationNotification.toggleMenu), object: nil)
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: NavigationNotifications.toggleMenu), object: nil)
     }
     
     
