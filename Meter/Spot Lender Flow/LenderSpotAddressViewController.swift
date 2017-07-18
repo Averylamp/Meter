@@ -52,7 +52,12 @@ class LenderSpotAddressViewController: UIViewController {
             spotPFObject!["fullAddress"] = currentFullAddress
             spotPFObject!["location"] = PFGeoPoint(latitude: currentFullCoordinate.latitude, longitude: currentFullCoordinate.longitude)
             UIView.animate(withDuration: 0.5, animations: {
-                self.continueButtonHeightConstraint.constant = 40
+                self.continueButtonHeightConstraint.constant = 50
+                self.view.layoutIfNeeded()
+            })
+        }else{
+            UIView.animate(withDuration: 0.5, animations: {
+                self.continueButtonHeightConstraint.constant = 0
                 self.view.layoutIfNeeded()
             })
         }
@@ -76,7 +81,16 @@ class LenderSpotAddressViewController: UIViewController {
             spotPFObject!["fullAddress"] = currentFullAddress
             spotPFObject!["location"] = PFGeoPoint(latitude: currentFullCoordinate.latitude, longitude: currentFullCoordinate.longitude)
             if let coordinateVC = UIStoryboard(name: "LendSpot", bundle: nil).instantiateViewController(withIdentifier: "SpotCoordinateVC") as? LenderSpotCoordinateViewController{
+                coordinateVC.view.frame = self.view.frame
                 coordinateVC.spotPFObject = self.spotPFObject
+                coordinateVC.addressLocation = currentFullCoordinate
+                coordinateVC.fullAddressText = currentFullAddress
+                coordinateVC.addressLabel.text = currentFullAddress
+                coordinateVC.zoomToCoordinate(coordinate: currentFullCoordinate, width: 200, animationTime: 0.0)
+                let pinAnnotation = MKPointAnnotation()
+                pinAnnotation.coordinate = currentFullCoordinate
+                pinAnnotation.title = "Address Location"
+                coordinateVC.mapView.addAnnotation(pinAnnotation)
                 self.navigationController?.pushViewController(coordinateVC, animated: true)
             }
         }
