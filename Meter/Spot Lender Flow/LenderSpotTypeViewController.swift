@@ -50,7 +50,7 @@ extension LenderSpotTypeViewController: UITableViewDelegate, UITableViewDataSour
         let spotPFObject = PFObject(className: "Spot")
         spotPFObject.add(spotTypes[indexPath.row], forKey: "spotType")
         if let spotAddressVC = UIStoryboard(name: "LendSpot", bundle: nil).instantiateViewController(withIdentifier: "LendSpotAddressVC") as? LenderSpotAddressViewController{
-            spotAddressVC.spotPFObejct = spotPFObject
+            spotAddressVC.spotPFObject = spotPFObject
             self.navigationController?.pushViewController(spotAddressVC, animated: true )
         }
     }

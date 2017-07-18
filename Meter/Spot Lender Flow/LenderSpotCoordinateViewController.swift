@@ -11,7 +11,7 @@ import Parse
 
 class LenderSpotCoordinateViewController: UIViewController {
     
-    var spotPFObejct: PFObject? = nil
+    var spotPFObject: PFObject? = nil
 
     
     override func viewDidLoad() {

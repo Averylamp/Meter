@@ -12,7 +12,7 @@ import GooglePlaces
 
 class LenderSpotAddressViewController: UIViewController {
 
-    var spotPFObejct: PFObject? = nil
+    var spotPFObject: PFObject? = nil
     
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var mapView: MKMapView!
@@ -48,8 +48,8 @@ class LenderSpotAddressViewController: UIViewController {
     
     func checkForContinue(){
         if let currentPlace = currentPlace {
-            spotPFObejct!["fullAddress"] = currentPlace.formattedAddress
-            spotPFObejct!["location"] = PFGeoPoint(latitude: currentPlace.coordinate.latitude, longitude: currentPlace.coordinate.longitude)
+            spotPFObject!["fullAddress"] = currentPlace.formattedAddress
+            spotPFObject!["location"] = PFGeoPoint(latitude: currentPlace.coordinate.latitude, longitude: currentPlace.coordinate.longitude)
             UIView.animate(withDuration: 0.5, animations: {
                 self.continueButtonHeightConstraint.constant = 40
                 self.view.layoutIfNeeded()
@@ -72,10 +72,10 @@ class LenderSpotAddressViewController: UIViewController {
     
     @IBAction func continueButtonClicked(_ sender: Any) {
         if let currentPlace = currentPlace {
-            spotPFObejct!["fullAddress"] = currentPlace.formattedAddress
-            spotPFObejct!["location"] = PFGeoPoint(latitude: currentPlace.coordinate.latitude, longitude: currentPlace.coordinate.longitude)
+            spotPFObject!["fullAddress"] = currentPlace.formattedAddress
+            spotPFObject!["location"] = PFGeoPoint(latitude: currentPlace.coordinate.latitude, longitude: currentPlace.coordinate.longitude)
             if let coordinateVC = UIStoryboard(name: "LendSpot", bundle: nil).instantiateViewController(withIdentifier: "SpotCoordinateVC") as? LenderSpotCoordinateViewController{
-                coordinateVC.spotPFObject = self.spotPFObejct
+                coordinateVC.spotPFObject = self.spotPFObject
                 self.navigationController?.pushViewController(coordinateVC, animated: true)
             }
         }
