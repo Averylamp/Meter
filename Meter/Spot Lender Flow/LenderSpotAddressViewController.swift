@@ -18,7 +18,8 @@ class LenderSpotAddressViewController: UIViewController {
     @IBOutlet weak var mapView: MKMapView!
     var locationManager = CLLocationManager()
     var firstLocationUpdate = true
-    var currentPlace: GMSPlace? = nil
+    var currentFullAddress: String? = nil
+    var currentFullCoordinate: CLLocationCoordinate2D? = nil
     
     
     @IBOutlet weak var continueButtonHeightConstraint: NSLayoutConstraint!
@@ -47,9 +48,9 @@ class LenderSpotAddressViewController: UIViewController {
     }
     
     func checkForContinue(){
-        if let currentPlace = currentPlace {
-            spotPFObject!["fullAddress"] = currentPlace.formattedAddress
-            spotPFObject!["location"] = PFGeoPoint(latitude: currentPlace.coordinate.latitude, longitude: currentPlace.coordinate.longitude)
+        if let currentPlace = currentFullAddress , let currentFullCoordinate = currentFullCoordinate{
+            spotPFObject!["fullAddress"] = currentFullAddress
+            spotPFObject!["location"] = PFGeoPoint(latitude: currentFullCoordinate.latitude, longitude: currentFullCoordinate.longitude)
             UIView.animate(withDuration: 0.5, animations: {
                 self.continueButtonHeightConstraint.constant = 40
                 self.view.layoutIfNeeded()
@@ -71,9 +72,9 @@ class LenderSpotAddressViewController: UIViewController {
     }
     
     @IBAction func continueButtonClicked(_ sender: Any) {
-        if let currentPlace = currentPlace {
-            spotPFObject!["fullAddress"] = currentPlace.formattedAddress
-            spotPFObject!["location"] = PFGeoPoint(latitude: currentPlace.coordinate.latitude, longitude: currentPlace.coordinate.longitude)
+        if let currentPlace = currentFullAddress , let currentFullCoordinate = currentFullCoordinate{
+            spotPFObject!["fullAddress"] = currentFullAddress
+            spotPFObject!["location"] = PFGeoPoint(latitude: currentFullCoordinate.latitude, longitude: currentFullCoordinate.longitude)
             if let coordinateVC = UIStoryboard(name: "LendSpot", bundle: nil).instantiateViewController(withIdentifier: "SpotCoordinateVC") as? LenderSpotCoordinateViewController{
                 coordinateVC.spotPFObject = self.spotPFObject
                 self.navigationController?.pushViewController(coordinateVC, animated: true)
@@ -107,8 +108,16 @@ extension LenderSpotAddressViewController: UITextFieldDelegate, GMSAutocompleteV
         if let searchAddress = textField.text{
             GeocodingHelper.sharedInstance.coordinateFrom(address: searchAddress, completion: { (coordinate, fullAddress) in
                 if let coordinate = coordinate{
+                    self.currentFullAddress = fullAddress
+                    self.currentFullCoordinate = coordinate
                     self.zoomToCoordinate(coordinate: coordinate, width: 1200, animationTime: 1.0)
                     self.textField.text = fullAddress
+                    self.mapView.removeAnnotations(self.mapView.annotations)
+                    let pinAnnotation = MKPointAnnotation()
+                    pinAnnotation.coordinate = coordinate
+                    pinAnnotation.title = "Your spot address"
+                    self.mapView.addAnnotation(pinAnnotation)
+                    self.checkForContinue()
                 }
             })
         }
@@ -116,19 +125,19 @@ extension LenderSpotAddressViewController: UITextFieldDelegate, GMSAutocompleteV
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        let autocompleteController = GMSAutocompleteViewController()
-        let currentLocation = self.mapView.centerCoordinate
-        let bounds = GMSCoordinateBounds(coordinate: currentLocation.transform(using: 50000, longitudinalMeters: 50000), coordinate: currentLocation.transform(using: -50000, longitudinalMeters: -50000))
-        print("Bounds \(bounds.isValid) \(bounds.northEast) \(bounds.southWest)")
-        autocompleteController.autocompleteBounds = bounds
-        autocompleteController.delegate = self
-        self.present(autocompleteController, animated: true, completion: nil)
+//        let autocompleteController = GMSAutocompleteViewController()
+//        let currentLocation = self.mapView.centerCoordinate
+//        let bounds = GMSCoordinateBounds(coordinate: currentLocation.transform(using: 50000, longitudinalMeters: 50000), coordinate: currentLocation.transform(using: -50000, longitudinalMeters: -50000))
+//        print("Bounds \(bounds.isValid) \(bounds.northEast) \(bounds.southWest)")
+//        autocompleteController.autocompleteBounds = bounds
+//        autocompleteController.delegate = self
+//        self.present(autocompleteController, animated: true, completion: nil)
     }
     
     func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
         self.textField.text = place.formattedAddress
         self.zoomToCoordinate(coordinate: place.coordinate, width: 1200)
-        self.currentPlace = place
+//        self.currentPlace = place
         mapView.removeAnnotations(mapView.annotations)
         let pinAnnotation = MKPointAnnotation()
         pinAnnotation.coordinate = place.coordinate
