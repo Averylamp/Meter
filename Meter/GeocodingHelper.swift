@@ -34,19 +34,35 @@ class GeocodingHelper: NSObject {
         print(geocodingKey)
     }
     
-    func coordinateFrom(address:String, completion: @escaping (CLLocationCoordinate2D?, String)->Void){
-//        https://maps.googleapis.com/maps/api/geocode/json?address=MIT&key=AIzaSyATMSL39wng4rV6yd0SnCyE_VZDMA6gw_I
+    func coordinateFrom(address:String, closestTo: CLLocationCoordinate2D? = nil, completion: @escaping (CLLocationCoordinate2D?, String)->Void){
+        //        https://maps.googleapis.com/maps/api/geocode/json?address=MIT&key=AIzaSyATMSL39wng4rV6yd0SnCyE_VZDMA6gw_I
         Alamofire.request("https://maps.googleapis.com/maps/api/geocode/json?", method: .get, parameters:["address":address, "key":geocodingKey], headers: nil).responseJSON { (response) in
             switch response.result {
             case .success(let value):
                 let json = JSON(value)
                 print("JSON: \(json["results"][0]["geometry"]["location"].dictionary)")
-                if let coordinatesDict = json["results"][0]["geometry"]["location"].dictionary, let lat = coordinatesDict["lat"]?.number, let long = coordinatesDict["lng"]?.number, let fullAddress = json["results"][0]["formatted_address"].string{
-                        
-                        let coord = CLLocationCoordinate2DMake(lat.doubleValue, long.doubleValue)
-                        completion(coord, fullAddress)
-                    
-                    print(coordinatesDict)
+                if let resultsArr = json["results"].array, resultsArr.count > 0{
+                    if closestTo == nil{
+                        if let coordinatesDict = resultsArr.first!["geometry"]["location"].dictionary, let lat = coordinatesDict["lat"]?.number, let long = coordinatesDict["lng"]?.number, let fullAddress = json["results"][0]["formatted_address"].string{
+                            let coord = CLLocationCoordinate2DMake(lat.doubleValue, long.doubleValue)
+                            completion(coord, fullAddress)
+                            print(coordinatesDict)
+                        }
+                    }else{
+                        var closestDict: [String:JSON] = resultsArr.first!["geometry"]["location"].dictionary!
+                        var closestCoord: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: (closestDict["lat"]?.numberValue.doubleValue)!, longitude: (closestDict["lng"]?.numberValue.doubleValue)!)
+                        for item in resultsArr{
+                            if let coordinatesDict = item["geometry"]["location"].dictionary, let lat = coordinatesDict["lat"]?.number, let long = coordinatesDict["lng"]?.number, let fullAddress = json["results"][0]["formatted_address"].string{
+                                let coord = CLLocationCoordinate2DMake(lat.doubleValue, long.doubleValue)
+                                if coord.distanceFrom(coordinate: closestTo!) < closestCoord.distanceFrom(coordinate: closestTo!){
+                                    closestCoord = coord
+                                    closestDict = coordinatesDict
+                                }
+                            }
+                        }
+                        let fullAddress = closestDict["formatted_address"]?.stringValue
+                        completion(closestCoord, fullAddress!)
+                    }
                 }else{
                     completion(nil, "")
                 }
