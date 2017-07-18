@@ -108,7 +108,6 @@ class MapViewController: UIViewController {
         if let currentLocation = locationManager.location?.coordinate{
             self.zoomToCoordinate(coordinate: currentLocation, width: 1500, animationTime: 1.0)
         }
-        
     }
     
     func zoomToCoordinate(coordinate:CLLocationCoordinate2D, width: CLLocationDistance, animationTime: Double = 0.6){
@@ -287,12 +286,5 @@ extension MapViewController: UITextFieldDelegate, GMSAutocompleteViewControllerD
     
 }
 
-public extension CLLocationCoordinate2D {
-    
-    public func transform(using latitudinalMeters: CLLocationDistance, longitudinalMeters: CLLocationDistance) -> CLLocationCoordinate2D {
-        let region = MKCoordinateRegionMakeWithDistance(self, latitudinalMeters, longitudinalMeters)
-        return CLLocationCoordinate2D(latitude: latitude + region.span.latitudeDelta, longitude: longitude + region.span.longitudeDelta)
-    }
-    
-}
+
 

@@ -44,6 +44,9 @@ extension CLLocationCoordinate2D{
         let roundedMilesDistance = round(milesDistance * 100) / 100.0
         return roundedMilesDistance
     }
+    
+    func transform(using latitudinalMeters: CLLocationDistance, longitudinalMeters: CLLocationDistance) -> CLLocationCoordinate2D {
+        let region = MKCoordinateRegionMakeWithDistance(self, latitudinalMeters, longitudinalMeters)
+        return CLLocationCoordinate2D(latitude: latitude + region.span.latitudeDelta, longitude: longitude + region.span.longitudeDelta)
+    }
 }
-
-

@@ -183,7 +183,7 @@
         <!--Lender Spot Address View Controller-->
         <scene sceneID="7ni-lZ-U4q">
             <objects>
-                <viewController id="y8a-x4-8fY" customClass="LenderSpotAddressViewController" customModule="Meter" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LendSpotAddressVC" id="y8a-x4-8fY" customClass="LenderSpotAddressViewController" customModule="Meter" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="0Sd-a4-Pkg"/>
                         <viewControllerLayoutGuide type="bottom" id="ucC-Y6-3v3"/>
@@ -195,21 +195,6 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QrN-vu-jOu">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="120"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HZF-ag-UiQ">
-                                        <rect key="frame" x="66" y="20" width="243.5" height="40"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="40" id="NQO-4G-8UO"/>
-                                        </constraints>
-                                        <attributedString key="attributedText">
-                                            <fragment content="Where is your spot?">
-                                                <attributes>
-                                                    <font key="NSFont" size="21" name="Avenir-Roman"/>
-                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                </attributes>
-                                            </fragment>
-                                        </attributedString>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Ln-D7-riX">
                                         <rect key="frame" x="29.5" y="68" width="315" height="35"/>
                                         <subviews>
@@ -243,6 +228,21 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HZF-ag-UiQ">
+                                        <rect key="frame" x="66" y="20" width="243.5" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="NQO-4G-8UO"/>
+                                        </constraints>
+                                        <attributedString key="attributedText">
+                                            <fragment content="Where is your spot?">
+                                                <attributes>
+                                                    <font key="NSFont" size="21" name="Avenir-Roman"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" red="0.94509803920000002" green="0.94509803920000002" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -261,6 +261,9 @@
                                     <constraint firstAttribute="width" secondItem="akz-cg-d8j" secondAttribute="height" multiplier="1:1" id="TjD-YY-TUa"/>
                                 </constraints>
                                 <state key="normal" title="Button" image="BackButton"/>
+                                <connections>
+                                    <action selector="backButtonClicked:" destination="y8a-x4-8fY" eventType="touchUpInside" id="s3Y-mk-APS"/>
+                                </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ColorLine" translatesAutoresizingMaskIntoConstraints="NO" id="FZt-IA-7KE">
                                 <rect key="frame" x="0.0" y="120" width="375" height="10"/>
@@ -268,22 +271,59 @@
                                     <constraint firstAttribute="height" constant="10" id="E11-G5-dAD"/>
                                 </constraints>
                             </imageView>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Sef-K1-yr5">
+                                <rect key="frame" x="0.0" y="130" width="375" height="537"/>
+                            </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a4B-MQ-b4b">
+                                <rect key="frame" x="312" y="589" width="47" height="30"/>
+                                <state key="normal" title="Center"/>
+                                <connections>
+                                    <action selector="centerLocationClicked:" destination="y8a-x4-8fY" eventType="touchUpInside" id="6dY-J7-yNk"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Sp-Kb-fgl">
+                                <rect key="frame" x="-0.5" y="667" width="375" height="0.0"/>
+                                <color key="backgroundColor" red="0.4823529411764706" green="0.62352941176470589" blue="0.89803921568627454" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" id="Imr-PP-FmL"/>
+                                </constraints>
+                                <state key="normal" title="Continue">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="continueButtonClicked:" destination="y8a-x4-8fY" eventType="touchUpInside" id="PrN-p2-Odc"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="N66-ud-iIY" firstAttribute="top" secondItem="QrN-vu-jOu" secondAttribute="bottom" constant="-100" id="2Lj-9x-nhc"/>
+                            <constraint firstItem="1Sp-Kb-fgl" firstAttribute="width" secondItem="Er2-zc-EFh" secondAttribute="width" id="3it-S9-LB6"/>
+                            <constraint firstItem="Sef-K1-yr5" firstAttribute="width" secondItem="Er2-zc-EFh" secondAttribute="width" id="5xl-w7-dlu"/>
                             <constraint firstItem="FZt-IA-7KE" firstAttribute="width" secondItem="Er2-zc-EFh" secondAttribute="width" id="80Z-tj-USA"/>
+                            <constraint firstItem="1Sp-Kb-fgl" firstAttribute="centerX" secondItem="N66-ud-iIY" secondAttribute="centerX" id="8DZ-d2-iVI"/>
+                            <constraint firstItem="a4B-MQ-b4b" firstAttribute="trailing" secondItem="Sef-K1-yr5" secondAttribute="trailing" constant="-10" id="Ezk-Wi-rk5"/>
+                            <constraint firstItem="Sef-K1-yr5" firstAttribute="centerX" secondItem="N66-ud-iIY" secondAttribute="centerX" id="HtN-OE-ouA"/>
                             <constraint firstItem="QrN-vu-jOu" firstAttribute="centerX" secondItem="Er2-zc-EFh" secondAttribute="centerX" id="KkK-Ik-qyZ"/>
+                            <constraint firstItem="a4B-MQ-b4b" firstAttribute="bottom" secondItem="Sef-K1-yr5" secondAttribute="bottom" constant="-15" id="PCk-ZP-h6E"/>
+                            <constraint firstItem="1Sp-Kb-fgl" firstAttribute="top" secondItem="Sef-K1-yr5" secondAttribute="bottom" id="PiE-6M-Wy6"/>
                             <constraint firstItem="HZF-ag-UiQ" firstAttribute="leading" secondItem="akz-cg-d8j" secondAttribute="trailing" constant="20" id="UNC-uZ-udx"/>
+                            <constraint firstItem="Sef-K1-yr5" firstAttribute="top" secondItem="FZt-IA-7KE" secondAttribute="bottom" id="ZKu-Bs-NqC"/>
                             <constraint firstItem="QrN-vu-jOu" firstAttribute="width" secondItem="Er2-zc-EFh" secondAttribute="width" id="ZV9-10-Rpc"/>
                             <constraint firstItem="akz-cg-d8j" firstAttribute="top" secondItem="0Sd-a4-Pkg" secondAttribute="bottom" id="aAM-WF-9US"/>
                             <constraint firstItem="FZt-IA-7KE" firstAttribute="top" secondItem="QrN-vu-jOu" secondAttribute="bottom" id="cpP-Tt-G4I"/>
                             <constraint firstItem="FZt-IA-7KE" firstAttribute="centerX" secondItem="Er2-zc-EFh" secondAttribute="centerX" id="fe0-Gq-Pgu"/>
-                            <constraint firstItem="QrN-vu-jOu" firstAttribute="top" secondItem="Er2-zc-EFh" secondAttribute="top" id="pMk-bG-Ec5"/>
+                            <constraint firstItem="ucC-Y6-3v3" firstAttribute="top" secondItem="1Sp-Kb-fgl" secondAttribute="bottom" id="s7p-BH-tYN"/>
                             <constraint firstItem="FZt-IA-7KE" firstAttribute="top" secondItem="QrN-vu-jOu" secondAttribute="bottom" id="t88-Jb-iRZ"/>
                             <constraint firstItem="akz-cg-d8j" firstAttribute="leading" secondItem="Er2-zc-EFh" secondAttribute="leadingMargin" id="y5v-45-S7w"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="N66-ud-iIY"/>
                     </view>
+                    <connections>
+                        <outlet property="continueButtonHeightConstraint" destination="Imr-PP-FmL" id="Re7-X7-4Hx"/>
+                        <outlet property="mapView" destination="Sef-K1-yr5" id="T8C-FH-vfx"/>
+                        <outlet property="textField" destination="z5h-Da-wHu" id="0BW-Ua-eWk"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UdL-7G-TVc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -292,7 +332,7 @@
         <!--Lender Spot Coordinate View Controller-->
         <scene sceneID="WD7-zy-EYS">
             <objects>
-                <viewController id="Atm-lv-NTU" customClass="LenderSpotCoordinateViewController" customModule="Meter" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SpotCoordinateVC" id="Atm-lv-NTU" customClass="LenderSpotCoordinateViewController" customModule="Meter" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="b3p-pm-jC1"/>
                         <viewControllerLayoutGuide type="bottom" id="ek6-Vp-A8L"/>
