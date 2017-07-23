@@ -248,23 +248,23 @@ class DetailViewController: UIViewController{
                 DispatchQueue.global().async {
                     do {
                         try spotOwner.fetchIfNeeded()
+                        DispatchQueue.main.async {
+                            if let ownerName = spotOwner["name"] as? String{
+                                let firstName = ownerName.characters.split{ $0 == " "}.map(String.init).first!
+                                detailVC.ownerLabel.text = "Hosted by \(firstName)"
+                            }
+                            if let proPic = spotOwner["profilePicture"] as? PFFile{
+                                proPic.getDataInBackground(block: { (data, error) in
+                                    if error == nil{
+                                        detailVC.ownerImage.image = UIImage(data: data!)
+                                    }else{
+                                        print("Error getting profile picture \(error?.localizedDescription ?? "")")
+                                    }
+                                })
+                            }
+                        }
                     }catch{
                         print("Spot Owner Fetch Failed \(error.localizedDescription)")
-                    }
-                    DispatchQueue.main.async {   
-                        if let ownerName = spotOwner["name"] as? String{
-                            let firstName = ownerName.characters.split{ $0 == " "}.map(String.init).first!
-                            detailVC.ownerLabel.text = "Hosted by \(firstName)"
-                        }
-                        if let proPic = spotOwner["profilePicture"] as? PFFile{
-                            proPic.getDataInBackground(block: { (data, error) in
-                                if error == nil{
-                                    detailVC.ownerImage.image = UIImage(data: data!)
-                                }else{
-                                    print("Error getting profile picture \(error?.localizedDescription ?? "")")
-                                }
-                            })
-                        }
                     }
                 }
             }

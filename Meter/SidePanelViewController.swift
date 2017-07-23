@@ -64,24 +64,24 @@ class SidePanelViewController: UIViewController, UITableViewDelegate, UITableVie
         if let currentUser = PFUser.current() {
             do{
                 try currentUser.fetchIfNeeded()
+                if let ownerName = currentUser["name"] as? String{
+                    self.delay(0.0, closure: {
+                        self.currentUserLabel.text = ownerName
+                    })
+                }
+                if let proPic = currentUser["profilePicture"] as? PFFile{
+                    proPic.getDataInBackground(block: { (data, error) in
+                        if error == nil{
+                            self.delay(0.0, closure: {
+                                self.profilePicture.image = UIImage(data: data!)
+                            })
+                        }else{
+                            print("Error getting profile picture \(error?.localizedDescription ?? "")")
+                        }
+                    })
+                }
             }catch{
                 print("Failed to fetch current user \(error.localizedDescription)")
-            }
-            if let ownerName = currentUser["name"] as? String{
-                self.delay(0.0, closure: {
-                    self.currentUserLabel.text = ownerName
-                })
-            }
-            if let proPic = currentUser["profilePicture"] as? PFFile{
-                proPic.getDataInBackground(block: { (data, error) in
-                    if error == nil{
-                        self.delay(0.0, closure: {
-                            self.profilePicture.image = UIImage(data: data!)
-                        })
-                    }else{
-                        print("Error getting profile picture \(error?.localizedDescription ?? "")")
-                    }
-                })
             }
         }
         

@@ -35,7 +35,30 @@ class MapViewController: UIViewController {
         self.mapView.delegate = self
         let span2 = MKCoordinateRegionMakeWithDistance(CLLocationCoordinate2DMake(40.8, -74.005), 8000, 8000)
         self.mapView.setRegion(span2, animated: true)
+        NotificationCenter.default.addObserver(self, selector: #selector(MapViewController.saveLastReportedLocation), name: Notification.Name.UIApplicationWillResignActive, object: nil)
         
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.saveLastReportedLocation()
+    }
+    
+    func saveLastReportedLocation(){
+        let coord = locationManager.location?.coordinate
+        if let coord = coord, let currentUser = PFUser.current(){
+            currentUser["lastReportedLocation"] = PFGeoPoint(latitude: coord.latitude, longitude: coord.longitude)
+            GeocodingHelper.sharedInstance.addressFrom(coordinate: coord, completion: { (_, address) in
+                currentUser["lastReportedLocationAddress"] = address
+                DispatchQueue.global().async {
+                    do{
+                        try currentUser.save()
+                    }catch{
+                        print("Unable to save")
+                    }
+                }
+            })
+        }
     }
     
     func setupLocationAuthorization(){
@@ -142,6 +165,7 @@ extension MapViewController: MKMapViewDelegate{
             let span = MKCoordinateRegionMakeWithDistance(userLocation.coordinate, 1800, 1800)
             self.mapView.setRegion(span, animated: true)
             self.loadSpotsFromLocation(coordinate: userLocation.coordinate)
+            self.saveLastReportedLocation()
         }
     }
     
