@@ -32,7 +32,6 @@ class GeocodingHelper: NSObject {
     }
     override private init(){
         super.init()
-        print(geocodingKey)
     }
     
     func coordinateFrom(address:String, closestTo: CLLocationCoordinate2D? = nil, completion: @escaping (CLLocationCoordinate2D?, String)->Void){
@@ -41,7 +40,6 @@ class GeocodingHelper: NSObject {
             switch response.result {
             case .success(let value):
                 let json = JSON(value)
-                print("JSON: \(json["results"][0]["geometry"]["location"].dictionary)")
                 if let resultsArr = json["results"].array, resultsArr.count > 0{
                     if closestTo == nil{
                         if let coordinatesDict = resultsArr.first!["geometry"]["location"].dictionary, let lat = coordinatesDict["lat"]?.number, let long = coordinatesDict["lng"]?.number, let fullAddress = json["results"][0]["formatted_address"].string{
@@ -80,7 +78,6 @@ class GeocodingHelper: NSObject {
             switch response.result {
             case .success(let value):
                 let json = JSON(value)
-                print("JSON: \(json["results"][0]["geometry"]["location"].dictionary)")
                 if let coordinatesDict = json["results"][0]["geometry"]["location"].dictionary, let lat = coordinatesDict["lat"]?.number, let long = coordinatesDict["lng"]?.number, let fullAddress = json["results"][0]["formatted_address"].string{
                     
                     let coord = CLLocationCoordinate2DMake(lat.doubleValue, long.doubleValue)

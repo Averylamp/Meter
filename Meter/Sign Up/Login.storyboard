@@ -181,6 +181,7 @@
                         <outletCollection property="indicatorViews" destination="Gxf-8E-6Yx" collectionClass="NSMutableArray" id="5uv-cJ-aao"/>
                         <outletCollection property="indicatorViews" destination="5a2-nh-DIy" collectionClass="NSMutableArray" id="v6j-o4-0UH"/>
                         <outletCollection property="indicatorViews" destination="zKV-aC-JAt" collectionClass="NSMutableArray" id="Wsi-of-00Y"/>
+                        <segue destination="Esj-Qe-2up" kind="show" identifier="SplashToMainVCSegue" animates="NO" id="pfF-PK-95I"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VDO-nP-Bic" sceneMemberID="firstResponder"/>
@@ -395,7 +396,7 @@
                     <connections>
                         <outlet property="emailTextField" destination="7U8-Me-KeT" id="RxL-ud-1cU"/>
                         <outlet property="passwordTextField" destination="Zxb-JE-Gfc" id="4o1-Ay-Yr1"/>
-                        <segue destination="Esj-Qe-2up" kind="show" identifier="MainMenuSegue" id="wWO-ys-EDQ"/>
+                        <segue destination="Esj-Qe-2up" kind="show" identifier="LoginToMainVCSegue" id="wWO-ys-EDQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jg8-Qu-Gc8" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -479,4 +480,7 @@
         <image name="Register" width="342" height="108"/>
         <image name="SkylineImage" width="1125" height="276"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="wWO-ys-EDQ"/>
+    </inferredMetricsTieBreakers>
 </document>

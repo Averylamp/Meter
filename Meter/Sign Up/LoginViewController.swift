@@ -17,17 +17,21 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
+        checkForLogin()
     }
     
     @IBAction func continueFacebookClicked(_ sender: Any) {
         facebookParseLogin()
     }
     
+    func checkForLogin(){
+        if  PFUser.current() != nil, FBSDKAccessToken.current() != nil{
+            print("Already logged in")
+            self.goToMainVC()
+        }
+    }
     
     func facebookParseLogin(){
         PFFacebookUtils.logInInBackground(withReadPermissions: ["email", "public_profile", "user_location"]) { (user, error) in
@@ -41,10 +45,10 @@ class LoginViewController: UIViewController {
                     if error == nil{
                         if let result = result as? [String:Any]{
                             print(result)
-//                            if user["profilePicture"] as? PFFile != nil{
-//                                self.goToMainVC()
-//                                return
-//                            }
+                            if user["profilePicture"] as? PFFile != nil{
+                                self.goToMainVC()
+                                return
+                            }
                             if let email = result["email"] as? String{
                                 user.email = email
                                 user.username = email
@@ -101,46 +105,12 @@ class LoginViewController: UIViewController {
     }
     
     func goToMainVC(){
-        self.performSegue(withIdentifier: "MainMenuSegue", sender: self)
-    }
-    
-    func getProfilePicture(){
-        if let currentUser = PFUser.current() {
-            DispatchQueue.global().async {
-                do{
-                    try currentUser.fetchIfNeeded()
-                }catch{
-                    print("Failed to fetch current user \(error.localizedDescription)")
-                }
-            }
-            if currentUser["profilePicture"] == nil{
-                let pictureRequest = FBSDKGraphRequest(graphPath: "me/picture?type=large&redirect=false", parameters: nil)
-                pictureRequest?.start(completionHandler: { (connection, result, error) in
-                    if error == nil, let resultDict = result as? [String: Any], let innerDict = resultDict["data"] as? [String:Any],  let imageURLStr = innerDict["url"] as? String, let imageURL = URL(string:imageURLStr){
-                        do {
-                            let imageData = try Data(contentsOf: imageURL)
-                            if let imagePFFile = PFFile(data: imageData){
-                                currentUser["profilePicture"] = imagePFFile
-                                currentUser.saveInBackground()
-                            }
-                        }catch{
-                            print("Error retrieving Profile Picture \(error)")
-                        }
-                        
-                        print("\(result)")
-                    } else {
-                        print("\(error)")
-                    }
-                })
-            }
-            
-        }
+        self.performSegue(withIdentifier: "LoginToMainVCSegue", sender: self)
     }
     
     @IBAction func signUpClicked(_ sender: Any) {
         if let registerVC = UIStoryboard(name: "Login", bundle: nil).instantiateViewController(withIdentifier: "RegisterVC") as? SignUpViewController{
             self.navigationController?.setViewControllers([registerVC], animated: true)
-            
         }
     }
     

@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Parse
+import FBSDKCoreKit
 
 class SplashViewController: UIViewController, UIScrollViewDelegate {
     
@@ -28,6 +30,7 @@ class SplashViewController: UIViewController, UIScrollViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        checkForLogin()
         scrollView.delegate = self
         scrollView.isPagingEnabled = true
         scrollView.contentSize = CGSize(width: self.view.frame.width * CGFloat(subtext.count), height: self.scrollView.frame.height)
@@ -36,7 +39,13 @@ class SplashViewController: UIViewController, UIScrollViewDelegate {
         pageImageView.contentMode = .scaleAspectFit
         
         initializeScrollView()
-        
+    }
+    
+    func checkForLogin(){
+        if  PFUser.current() != nil, FBSDKAccessToken.current() != nil{
+            print("Already logged in")
+            self.performSegue(withIdentifier: "SplashToMainVCSegue", sender: nil)
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
