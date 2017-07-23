@@ -9,6 +9,7 @@
 import UIKit
 import Parse
 import GooglePlaces
+import MapKit
 
 protocol  MapDelegate {
     func pinClicked(spot:Spot)

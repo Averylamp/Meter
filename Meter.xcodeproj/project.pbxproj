@@ -17,11 +17,6 @@
 		BB47DEF61EE277C4002368E4 /* SpotAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB47DEF51EE277C4002368E4 /* SpotAnnotationView.swift */; };
 		BB4BBAC11EA40D7C00EBD13D /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB4BBAC01EA40D7C00EBD13D /* SplashViewController.swift */; };
 		BB4BBAC31EA4159A00EBD13D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB4BBAC21EA4159A00EBD13D /* Constants.swift */; };
-		BB4BBADF1EA45E4600EBD13D /* GeoFire.m in Sources */ = {isa = PBXBuildFile; fileRef = BB4BBAD61EA45E4600EBD13D /* GeoFire.m */; };
-		BB4BBAE01EA45E4600EBD13D /* GFBase32Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = BB4BBAD81EA45E4600EBD13D /* GFBase32Utils.m */; };
-		BB4BBAE11EA45E4600EBD13D /* GFGeoHash.m in Sources */ = {isa = PBXBuildFile; fileRef = BB4BBADA1EA45E4600EBD13D /* GFGeoHash.m */; };
-		BB4BBAE21EA45E4600EBD13D /* GFGeoHashQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = BB4BBADC1EA45E4600EBD13D /* GFGeoHashQuery.m */; };
-		BB4BBAE31EA45E4600EBD13D /* GFQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = BB4BBADE1EA45E4600EBD13D /* GFQuery.m */; };
 		BB648E681F132FBD00D2C977 /* Lato-HairlineItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BB648E5E1F132FBA00D2C977 /* Lato-HairlineItalic.ttf */; };
 		BB648E691F132FBD00D2C977 /* Lato-Hairline.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BB648E5F1F132FBA00D2C977 /* Lato-Hairline.ttf */; };
 		BB648E6A1F132FBD00D2C977 /* Lato-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BB648E601F132FBA00D2C977 /* Lato-Italic.ttf */; };
@@ -63,6 +58,7 @@
 		BBC9640D1E7DCFCE00E99617 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC9640C1E7DCFCE00E99617 /* LoginViewController.swift */; };
 		BBC9640F1E7DCFED00E99617 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC9640E1E7DCFED00E99617 /* SignUpViewController.swift */; };
 		BBE2EDC91EE270F100038140 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBE2EDC81EE270F100038140 /* DetailViewController.swift */; };
+		BBE6D7851F23EED2004D0A3A /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BBE6D7841F23EED2004D0A3A /* Login.storyboard */; };
 		BBED51E01F12F86D00C761EB /* SpotDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBED51DF1F12F86D00C761EB /* SpotDetailViewController.swift */; };
 		BBFD9B721E713370009DDD20 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBFD9B711E713370009DDD20 /* AppDelegate.swift */; };
 		BBFD9B771E713370009DDD20 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BBFD9B751E713370009DDD20 /* Main.storyboard */; };
@@ -109,21 +105,6 @@
 		BB4BBAC01EA40D7C00EBD13D /* SplashViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		BB4BBAC21EA4159A00EBD13D /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		BB4BBAC91EA45D6300EBD13D /* Meter-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Meter-Bridging-Header.h"; sourceTree = "<group>"; };
-		BB4BBACF1EA45E4600EBD13D /* GeoFire.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeoFire.h; sourceTree = "<group>"; };
-		BB4BBAD01EA45E4600EBD13D /* GFCircleQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFCircleQuery.h; sourceTree = "<group>"; };
-		BB4BBAD11EA45E4600EBD13D /* GFQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFQuery.h; sourceTree = "<group>"; };
-		BB4BBAD21EA45E4600EBD13D /* GFRegionQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFRegionQuery.h; sourceTree = "<group>"; };
-		BB4BBAD31EA45E4600EBD13D /* GeoFire-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GeoFire-Prefix.pch"; sourceTree = "<group>"; };
-		BB4BBAD51EA45E4600EBD13D /* GeoFire+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GeoFire+Private.h"; sourceTree = "<group>"; };
-		BB4BBAD61EA45E4600EBD13D /* GeoFire.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeoFire.m; sourceTree = "<group>"; };
-		BB4BBAD71EA45E4600EBD13D /* GFBase32Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFBase32Utils.h; sourceTree = "<group>"; };
-		BB4BBAD81EA45E4600EBD13D /* GFBase32Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFBase32Utils.m; sourceTree = "<group>"; };
-		BB4BBAD91EA45E4600EBD13D /* GFGeoHash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFGeoHash.h; sourceTree = "<group>"; };
-		BB4BBADA1EA45E4600EBD13D /* GFGeoHash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFGeoHash.m; sourceTree = "<group>"; };
-		BB4BBADB1EA45E4600EBD13D /* GFGeoHashQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFGeoHashQuery.h; sourceTree = "<group>"; };
-		BB4BBADC1EA45E4600EBD13D /* GFGeoHashQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFGeoHashQuery.m; sourceTree = "<group>"; };
-		BB4BBADD1EA45E4600EBD13D /* GFQuery+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GFQuery+Private.h"; sourceTree = "<group>"; };
-		BB4BBADE1EA45E4600EBD13D /* GFQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFQuery.m; sourceTree = "<group>"; };
 		BB648E5E1F132FBA00D2C977 /* Lato-HairlineItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-HairlineItalic.ttf"; sourceTree = "<group>"; };
 		BB648E5F1F132FBA00D2C977 /* Lato-Hairline.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Hairline.ttf"; sourceTree = "<group>"; };
 		BB648E601F132FBA00D2C977 /* Lato-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Italic.ttf"; sourceTree = "<group>"; };
@@ -165,6 +146,7 @@
 		BBC9640C1E7DCFCE00E99617 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		BBC9640E1E7DCFED00E99617 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		BBE2EDC81EE270F100038140 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		BBE6D7841F23EED2004D0A3A /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Login.storyboard; path = "Meter/Sign Up/Login.storyboard"; sourceTree = SOURCE_ROOT; };
 		BBED51DF1F12F86D00C761EB /* SpotDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotDetailViewController.swift; sourceTree = "<group>"; };
 		BBFD9B6E1E713370009DDD20 /* Meter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Meter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBFD9B711E713370009DDD20 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -246,44 +228,6 @@
 				BB2BE2D21F11FE0F006393B3 /* SpotPreviewView.xib */,
 			);
 			path = SpotPreview;
-			sourceTree = "<group>";
-		};
-		BB4BBACD1EA45E4600EBD13D /* GeoFire */ = {
-			isa = PBXGroup;
-			children = (
-				BB4BBACE1EA45E4600EBD13D /* API */,
-				BB4BBAD31EA45E4600EBD13D /* GeoFire-Prefix.pch */,
-				BB4BBAD41EA45E4600EBD13D /* Implementation */,
-			);
-			path = GeoFire;
-			sourceTree = "<group>";
-		};
-		BB4BBACE1EA45E4600EBD13D /* API */ = {
-			isa = PBXGroup;
-			children = (
-				BB4BBACF1EA45E4600EBD13D /* GeoFire.h */,
-				BB4BBAD01EA45E4600EBD13D /* GFCircleQuery.h */,
-				BB4BBAD11EA45E4600EBD13D /* GFQuery.h */,
-				BB4BBAD21EA45E4600EBD13D /* GFRegionQuery.h */,
-			);
-			path = API;
-			sourceTree = "<group>";
-		};
-		BB4BBAD41EA45E4600EBD13D /* Implementation */ = {
-			isa = PBXGroup;
-			children = (
-				BB4BBAD51EA45E4600EBD13D /* GeoFire+Private.h */,
-				BB4BBAD61EA45E4600EBD13D /* GeoFire.m */,
-				BB4BBAD71EA45E4600EBD13D /* GFBase32Utils.h */,
-				BB4BBAD81EA45E4600EBD13D /* GFBase32Utils.m */,
-				BB4BBAD91EA45E4600EBD13D /* GFGeoHash.h */,
-				BB4BBADA1EA45E4600EBD13D /* GFGeoHash.m */,
-				BB4BBADB1EA45E4600EBD13D /* GFGeoHashQuery.h */,
-				BB4BBADC1EA45E4600EBD13D /* GFGeoHashQuery.m */,
-				BB4BBADD1EA45E4600EBD13D /* GFQuery+Private.h */,
-				BB4BBADE1EA45E4600EBD13D /* GFQuery.m */,
-			);
-			path = Implementation;
 			sourceTree = "<group>";
 		};
 		BB4BBAEE1EA4B21C00EBD13D /* Navigation */ = {
@@ -404,6 +348,7 @@
 		BBC870F81F1C930400D24019 /* Sign Up */ = {
 			isa = PBXGroup;
 			children = (
+				BBE6D7841F23EED2004D0A3A /* Login.storyboard */,
 				BB4BBAC01EA40D7C00EBD13D /* SplashViewController.swift */,
 				BBC9640E1E7DCFED00E99617 /* SignUpViewController.swift */,
 				BBC9640C1E7DCFCE00E99617 /* LoginViewController.swift */,
@@ -455,7 +400,6 @@
 				BBC870F11F1C923900D24019 /* Messages */,
 				BBC870F21F1C924400D24019 /* Settings */,
 				BB648E721F132FC300D2C977 /* Lato Font */,
-				BB4BBACD1EA45E4600EBD13D /* GeoFire */,
 				BB4BBAC91EA45D6300EBD13D /* Meter-Bridging-Header.h */,
 			);
 			path = Meter;
@@ -612,6 +556,7 @@
 				BB2BE2D31F11FE0F006393B3 /* SpotPreviewView.xib in Resources */,
 				BB648E6D1F132FBD00D2C977 /* Lato-Black.ttf in Resources */,
 				BB648E6E1F132FBD00D2C977 /* Lato-BlackItalic.ttf in Resources */,
+				BBE6D7851F23EED2004D0A3A /* Login.storyboard in Resources */,
 				BB648E6C1F132FBD00D2C977 /* Lato-BoldItalic.ttf in Resources */,
 				BB648E6F1F132FBD00D2C977 /* Lato-Bold.ttf in Resources */,
 				BB648E681F132FBD00D2C977 /* Lato-HairlineItalic.ttf in Resources */,
@@ -790,14 +735,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				BBAD6BDA1F1C99290089F896 /* EditAccountViewController.swift in Sources */,
-				BB4BBAE01EA45E4600EBD13D /* GFBase32Utils.m in Sources */,
-				BB4BBAE11EA45E4600EBD13D /* GFGeoHash.m in Sources */,
 				BBFE91B31ED260DB00F04F05 /* SpotAnnotation.swift in Sources */,
 				BBC9640D1E7DCFCE00E99617 /* LoginViewController.swift in Sources */,
 				BBAD6BD11F1C989B0089F896 /* PaymentMainViewController.swift in Sources */,
 				BBC0F3711F15DFB5009C418C /* LenderSpotCoordinateViewController.swift in Sources */,
 				BB2BE2D61F11FF8C006393B3 /* SpotPreviewView.swift in Sources */,
-				BB4BBAE21EA45E4600EBD13D /* GFGeoHashQuery.m in Sources */,
 				BBC0F3771F15DFD7009C418C /* LenderSpotDetailsViewController.swift in Sources */,
 				BBC9640F1E7DCFED00E99617 /* SignUpViewController.swift in Sources */,
 				BBC0F3751F15DFCB009C418C /* LenderSpotPricingViewController.swift in Sources */,
@@ -810,7 +752,6 @@
 				BBB0DF061F15E67F002ECA73 /* SpotTypeTableViewCell.swift in Sources */,
 				BBC0F36D1F15DF96009C418C /* LenderSpotRestrictionsViewController.swift in Sources */,
 				BBE2EDC91EE270F100038140 /* DetailViewController.swift in Sources */,
-				BB4BBADF1EA45E4600EBD13D /* GeoFire.m in Sources */,
 				BBFD9B721E713370009DDD20 /* AppDelegate.swift in Sources */,
 				BBC0F36B1F15DF86009C418C /* LenderSpotTypeViewController.swift in Sources */,
 				BB47DEF61EE277C4002368E4 /* SpotAnnotationView.swift in Sources */,
@@ -823,7 +764,6 @@
 				BB78A9831ED029BA004DFC4A /* ContainerViewController.swift in Sources */,
 				BBC0F3791F15DFED009C418C /* LenderSpotCompletedViewController.swift in Sources */,
 				BBAD6BC71F1C97BB0089F896 /* SettingsViewController.swift in Sources */,
-				BB4BBAE31EA45E4600EBD13D /* GFQuery.m in Sources */,
 				BBFE91AF1ED24E4F00F04F05 /* MapViewController.swift in Sources */,
 				BB2BE2CF1F11AE4C006393B3 /* GeocodingHelper.swift in Sources */,
 				BBC0F3731F15DFC2009C418C /* LenderSpotPhotosViewController.swift in Sources */,

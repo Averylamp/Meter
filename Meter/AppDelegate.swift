@@ -7,10 +7,10 @@
 //
 
 import UIKit
-import Firebase
 import FBSDKCoreKit
 import Parse
 import GooglePlaces
+import ParseFacebookUtilsV4
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -19,7 +19,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        FirebaseApp.configure()
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         let config = ParseClientConfiguration{
             $0.applicationId = "meter-server-app"
@@ -27,6 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         Parse.initialize(with: config)
+        PFFacebookUtils.initializeFacebook(applicationLaunchOptions: launchOptions)
         
         GMSPlacesClient.provideAPIKey("AIzaSyCj3uXFnTlmO0nDlaXeHKmPmsXr8CP9EHg")
         

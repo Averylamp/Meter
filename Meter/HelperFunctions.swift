@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import MapKit
 class HelperFunctions: NSObject {
 
 }

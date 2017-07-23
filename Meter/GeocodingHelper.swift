@@ -9,6 +9,7 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
+import MapKit
 
 class GeocodingHelper: NSObject {
     static let sharedInstance = GeocodingHelper()

@@ -16,11 +16,13 @@ class SignUpViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    @IBAction func logInClicked(_ sender: Any) {
+        if let loginVC = UIStoryboard(name: "Login", bundle: nil).instantiateViewController(withIdentifier: "LoginVC") as? LoginViewController{
+            self.navigationController?.setViewControllers([loginVC], animated: true)
+            
+        }
     }
     
-
   
 }

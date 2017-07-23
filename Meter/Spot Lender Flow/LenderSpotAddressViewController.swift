@@ -9,6 +9,7 @@
 import UIKit
 import Parse
 import GooglePlaces
+import MapKit
 
 class LenderSpotAddressViewController: UIViewController {
 
@@ -86,7 +87,7 @@ class LenderSpotAddressViewController: UIViewController {
                 coordinateVC.addressLocation = currentFullCoordinate
                 coordinateVC.fullAddressText = currentFullAddress
                 coordinateVC.addressLabel.text = currentFullAddress
-                coordinateVC.zoomToCoordinate(coordinate: currentFullCoordinate, width: 200, animationTime: 0.0)
+                coordinateVC.zoomToCoordinate(coordinate: currentFullCoordinate, width: 140, animationTime: 0.0)
                 let pinAnnotation = MKPointAnnotation()
                 pinAnnotation.coordinate = currentFullCoordinate
                 pinAnnotation.title = "Address Location"

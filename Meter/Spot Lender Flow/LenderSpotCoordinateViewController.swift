@@ -8,6 +8,7 @@
 
 import UIKit
 import Parse
+import MapKit
 
 class LenderSpotCoordinateViewController: UIViewController {
     

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MapKit
 
 class SpotAnnotationView: MKAnnotationView {
     var pinImage: UIImageView?

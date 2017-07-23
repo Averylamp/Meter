@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import MapKit
 class SpotAnnotation: MKPointAnnotation {
     var spot: Spot?
     

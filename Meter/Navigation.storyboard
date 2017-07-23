@@ -35,16 +35,6 @@
             </objects>
             <point key="canvasLocation" x="36" y="124"/>
         </scene>
-        <!--SplashVC-->
-        <scene sceneID="3De-kL-c3L">
-            <objects>
-                <viewControllerPlaceholder storyboardIdentifier="SplashVC" storyboardName="Main" referencedIdentifier="SplashVC" id="zF3-d2-gmY" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="2Na-WV-WnG"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="K0B-WS-QKz" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="796" y="123"/>
-        </scene>
         <!--Container View Controller-->
         <scene sceneID="rbk-vE-b7S">
             <objects>
@@ -216,7 +206,6 @@
                         <outlet property="currentUserLabel" destination="UOw-M6-8ie" id="ume-Jo-bIP"/>
                         <outlet property="profilePicture" destination="IaB-H7-vPH" id="7Zv-DA-mwp"/>
                         <outlet property="tableView" destination="yyC-tL-Rzz" id="gwF-Be-AIM"/>
-                        <segue destination="zF3-d2-gmY" kind="modal" identifier="LoginSegue" id="JZK-8x-8wn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4bR-Nh-gNy" userLabel="First Responder" sceneMemberID="firstResponder"/>

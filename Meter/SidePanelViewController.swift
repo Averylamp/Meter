@@ -59,6 +59,8 @@ class SidePanelViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     func updateProfilePicture(){
+        DispatchQueue.global().async {
+            
         if let currentUser = PFUser.current() {
             do{
                 try currentUser.fetchIfNeeded()
@@ -66,12 +68,16 @@ class SidePanelViewController: UIViewController, UITableViewDelegate, UITableVie
                 print("Failed to fetch current user \(error.localizedDescription)")
             }
             if let ownerName = currentUser["name"] as? String{
-                currentUserLabel.text = ownerName
+                self.delay(0.0, closure: {
+                    self.currentUserLabel.text = ownerName
+                })
             }
             if let proPic = currentUser["profilePicture"] as? PFFile{
                 proPic.getDataInBackground(block: { (data, error) in
                     if error == nil{
-                        self.profilePicture.image = UIImage(data: data!)
+                        self.delay(0.0, closure: {
+                            self.profilePicture.image = UIImage(data: data!)
+                        })
                     }else{
                         print("Error getting profile picture \(error?.localizedDescription ?? "")")
                     }
@@ -79,6 +85,7 @@ class SidePanelViewController: UIViewController, UITableViewDelegate, UITableVie
             }
         }
         
+        }
         
     }
     

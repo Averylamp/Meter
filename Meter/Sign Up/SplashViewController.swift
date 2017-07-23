@@ -30,17 +30,22 @@ class SplashViewController: UIViewController, UIScrollViewDelegate {
         super.viewDidLoad()
         scrollView.delegate = self
         scrollView.isPagingEnabled = true
-        scrollView.contentSize = CGSize(width: self.view.frame.width * CGFloat(subtext.count), height: self.view.frame.height)
+        scrollView.contentSize = CGSize(width: self.view.frame.width * CGFloat(subtext.count), height: self.scrollView.frame.height)
         scrollView.showsHorizontalScrollIndicator = false
         pageImageView.image = images.first
         pageImageView.contentMode = .scaleAspectFit
         
         initializeScrollView()
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
     }
     
     func initializeScrollView(){
         for i in 0..<subtext.count{
-            let textLabel = UILabel(frame: CGRect(x: 0, y: self.meterLabel.frame.origin.y + self.meterLabel.frame.height + 10, width: self.view.frame.width * 0.7, height: self.indicatorView.frame.origin.y - (self.meterLabel.frame.origin.y + self.meterLabel.frame.height + 10)))
+            let textLabel = UILabel(frame: CGRect(x: 0, y:  10, width: self.view.frame.width * 0.7, height:  self.scrollView.frame.height - 20))
             textLabel.textAlignment = .center
             textLabel.numberOfLines = 0
             textLabel.font = UIFont(name: "Avenir-Light", size: 16)
@@ -107,6 +112,20 @@ class SplashViewController: UIViewController, UIScrollViewDelegate {
         
     }
     
+    @IBAction func loginClicked(_ sender: Any) {
+        if let loginVC = UIStoryboard(name: "Login", bundle: nil).instantiateViewController(withIdentifier: "LoginVC") as? LoginViewController{
+            self.navigationController?.setViewControllers([loginVC], animated: true)
+            
+        }
+    }
+    
+    
+    @IBAction func registerClicked(_ sender: Any) {
+        if let registerVC = UIStoryboard(name: "Login", bundle: nil).instantiateViewController(withIdentifier: "RegisterVC") as? LoginViewController{
+            self.navigationController?.setViewControllers([registerVC], animated: true)
+            
+        }
+    }
     
     
 }

@@ -8,7 +8,6 @@
 
 import UIKit
 import FBSDKLoginKit
-import Firebase
 import ParseFacebookUtilsV4
 import MBProgressHUD
 
@@ -17,7 +16,6 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
-    var ref: DatabaseReference!
     
     
     override func viewDidLoad() {
@@ -27,7 +25,8 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func continueFacebookClicked(_ sender: Any) {
-        facebookFirebaseLogin()
+        facebookParseLogin()
+//        facebookFirebaseLogin()
     }
     
     var progressHUD = MBProgressHUD()
@@ -99,75 +98,119 @@ class LoginViewController: UIViewController {
     //    }
     //
     
+    func facebookParseLogin(){
+        let token = FBSDKAccessToken.current()
+        PFFacebookUtils.logInInBackground(withReadPermissions: ["email", "public_profile",]) { (user, error) in
+            if error == nil{
+                print("Logged in successfully \(user)")
+            }else{
+                print("Error logging in \(error)")
+            }
+        }
+//        PFFacebookUtils.logInInBackground(with: FBSDKAccessToken.current()) { (user, error) in
+//            print("User logged in ")
+//            if error == nil{
+//                print(user)
+//            }else{
+//                print("Error loggin in \(error)")
+//            }
+//        }
+        
+        
+    }
+    
     
     func facebookFirebaseLogin(){
-        let loginManager = FBSDKLoginManager()
-        loginManager.logIn(withReadPermissions: ["email", "public_profile"], from: self) { (result, error) in
-            if let error = error {
-                print("Facebook Login Error")
-                print(error.localizedDescription)
-                return
-            }else if (result?.isCancelled)!{
-                print("Login Cancled")
-            }else{
-                print("Facebook Login Successful")
-                print("PFUser - \(PFUser.current())")
-                let fbRequest = FBSDKGraphRequest(graphPath: "me", parameters: ["fields":"id, name, email"])
-                fbRequest?.start(completionHandler: { (connection, result, error) in
-                    print(result)
-                    let email = (result as! [String:String]) ["email"]!
-                    let username = email
-                    let name = (result as! [String:String]) ["name"]!
-                    let password = "\((result as! [String:String]) ["id"]!)"
-                    //                    let password = FBSDKAccessToken.current().tokenString
-                    print("Password - \(password)")
-                    PFUser.logInWithUsername(inBackground: username  , password: password, block: { (user, error) in
-                        print("RESULTS")
-                        if let error = error{
-                            let newUser = PFUser()
-                            newUser.username = username
-                            newUser.email = email
-                            newUser.setValue(name, forKey: "name")
-                            newUser.password = password
-                            newUser.signUpInBackground(block: { (succeededSignUp, error) in
-                                if let error = error{
-                                    print("Sign up error - \(error)")
-                                }else{
-                                    print("Sign up complete - \(succeededSignUp)")
-                                }
-                            })
-                            print(error)
-                        }else{
-                            let query = PFQuery(className: "Spot")
-                            let point = PFGeoPoint(latitude: 42, longitude: -71)
-                            query.whereKey("location", nearGeoPoint: point)
-                            query.findObjectsInBackground(block: { (objects, error) in
-                                if let error = error{
-                                    print("Error finding spots - \(error)")
-                                }else{
-                                    print("Spots - \(objects)")
-                                }
-                            })
-                            print("Successfully logged into Facebook")
-                            print(user)
+//
+//        let loginManager = FBSDKLoginManager()
+//        loginManager.logIn(withReadPermissions: ["email", "public_profile"], from: self) { (result, error) in
+//            if let error = error {
+//                print("Facebook Login Error")
+//                print(error.localizedDescription)
+//                return
+//            }else if (result?.isCancelled)!{
+//                print("Login Cancled")
+//            }else{
+//                print("Facebook Login Successful")
+//                print("PFUser - \(PFUser.current())")
+//                let fbRequest = FBSDKGraphRequest(graphPath: "me", parameters: ["fields":"id, name, email"])
+//                fbRequest?.start(completionHandler: { (connection, result, error) in
+//                    print(result)
+//                    let email = (result as! [String:String]) ["email"]!
+//                    let username = email
+//                    let name = (result as! [String:String]) ["name"]!
+//                    let password = "\((result as! [String:String]) ["id"]!)"
+//                    //                    let password = FBSDKAccessToken.current().tokenString
+//                    print("Password - \(password)")
+//                    PFUser.logInWithUsername(inBackground: username  , password: password, block: { (user, error) in
+//                        print("RESULTS")
+//                        if let error = error{
+//                            let newUser = PFUser()
+//                            newUser.username = username
+//                            newUser.email = email
+//                            newUser.setValue(name, forKey: "name")
+//                            newUser.password = password
+//                            newUser.signUpInBackground(block: { (succeededSignUp, error) in
+//                                if let error = error{
+//                                    print("Sign up error - \(error)")
+//                                }else{
+//                                    print("Sign up complete - \(succeededSignUp)")
+//                                }
+//                            })
+//                            self.getProfilePicture()
+//                            print(error)
+//                        }else{
+//                            self.getProfilePicture()
+//                            print("Successfully logged into Facebook")
+//                            print(user)
+//                        }
+//                    })
+//                })
+//
+//                let credential = FacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
+//                Auth.auth().signIn(with: credential, completion: { (user, error) in
+//                    if let error = error{
+//                        print("Error login into Firebase")
+//                        print(error.localizedDescription)
+//                    }else{
+//                        print("Successfully logged into Firebase")
+//                        self.performSegue(withIdentifier: "MainMenuSegue", sender: self)
+//                        print(user)
+//
+//
+//                    }
+//                })
+//            }
+//
+//        }
+    }
+    
+    func getProfilePicture(){
+        if let currentUser = PFUser.current() {
+            DispatchQueue.global().async {
+                do{
+                        try currentUser.fetchIfNeeded()
+                }catch{
+                    print("Failed to fetch current user \(error.localizedDescription)")
+                }
+            }
+            if currentUser["profilePicture"] == nil{
+                let pictureRequest = FBSDKGraphRequest(graphPath: "me/picture?type=large&redirect=false", parameters: nil)
+                pictureRequest?.start(completionHandler: { (connection, result, error) in
+                    if error == nil, let resultDict = result as? [String: Any], let innerDict = resultDict["data"] as? [String:Any],  let imageURLStr = innerDict["url"] as? String, let imageURL = URL(string:imageURLStr){
+                        do {
+                            let imageData = try Data(contentsOf: imageURL)
+                            if let imagePFFile = PFFile(data: imageData){
+                                currentUser["profilePicture"] = imagePFFile
+                                currentUser.saveInBackground()
+                            }
+                        }catch{
+                            print("Error retrieving Profile Picture \(error)")
                         }
-                    })
-                })
-                
-                let credential = FacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
-                Auth.auth().signIn(with: credential, completion: { (user, error) in
-                    if let error = error{
-                        print("Error login into Firebase")
-                        print(error.localizedDescription)
-                    }else{
-                        print("Successfully logged into Firebase")
-                        self.ref = Database.database().reference()
-                        
-                        self.ref.child("spots").childByAutoId().setValue(["streetAddress":"362 Memorial Drive, Cambridge MA"])
-                        
-                        print(user)
-                        
-                        
+                    
+                        print("\(result)")
+                    } else {
+                        print("\(error)")
                     }
                 })
             }
@@ -175,5 +218,11 @@ class LoginViewController: UIViewController {
         }
     }
     
+    @IBAction func signUpClicked(_ sender: Any) {
+        if let registerVC = UIStoryboard(name: "Login", bundle: nil).instantiateViewController(withIdentifier: "RegisterVC") as? SignUpViewController{
+            self.navigationController?.setViewControllers([registerVC], animated: true)
+            
+        }
+    }
     
 }
