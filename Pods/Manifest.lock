@@ -12,29 +12,6 @@ PODS:
     - FBSDKCoreKit
   - FBSDKShareKit (4.24.0):
     - FBSDKCoreKit
-  - Firebase/Auth (4.0.3):
-    - Firebase/Core
-    - FirebaseAuth (= 4.0.0)
-  - Firebase/Core (4.0.3):
-    - FirebaseAnalytics (= 4.0.2)
-    - FirebaseCore (= 4.0.3)
-  - Firebase/Database (4.0.3):
-    - Firebase/Core
-    - FirebaseDatabase (= 4.0.0)
-  - FirebaseAnalytics (4.0.2):
-    - FirebaseCore (~> 4.0)
-    - FirebaseInstanceID (~> 2.0)
-    - GoogleToolboxForMac/NSData+zlib (~> 2.1)
-  - FirebaseAuth (4.0.0):
-    - FirebaseAnalytics (~> 4.0)
-    - GoogleToolboxForMac/NSDictionary+URLArguments (~> 2.1)
-    - GTMSessionFetcher/Core (~> 1.1)
-  - FirebaseCore (4.0.3):
-    - GoogleToolboxForMac/NSData+zlib (~> 2.1)
-  - FirebaseDatabase (4.0.0):
-    - FirebaseAnalytics (~> 4.0)
-  - FirebaseInstanceID (2.0.0):
-    - FirebaseCore (~> 4.0)
   - GoogleMaps (2.3.1):
     - GoogleMaps/Maps (= 2.3.1)
   - GoogleMaps/Base (2.3.1)
@@ -45,17 +22,6 @@ PODS:
     - GooglePlaces (= 2.3.1)
   - GooglePlaces (2.3.1):
     - GoogleMaps/Base (= 2.3.1)
-  - GoogleToolboxForMac/DebugUtils (2.1.1):
-    - GoogleToolboxForMac/Defines (= 2.1.1)
-  - GoogleToolboxForMac/Defines (2.1.1)
-  - GoogleToolboxForMac/NSData+zlib (2.1.1):
-    - GoogleToolboxForMac/Defines (= 2.1.1)
-  - GoogleToolboxForMac/NSDictionary+URLArguments (2.1.1):
-    - GoogleToolboxForMac/DebugUtils (= 2.1.1)
-    - GoogleToolboxForMac/Defines (= 2.1.1)
-    - GoogleToolboxForMac/NSString+URLArguments (= 2.1.1)
-  - GoogleToolboxForMac/NSString+URLArguments (2.1.1)
-  - GTMSessionFetcher/Core (1.1.10)
   - MBProgressHUD (1.0.0)
   - Parse (1.15.0):
     - Bolts/Tasks (~> 1.8)
@@ -73,9 +39,6 @@ DEPENDENCIES:
   - FBSDKCoreKit
   - FBSDKLoginKit
   - FBSDKShareKit
-  - Firebase/Auth
-  - Firebase/Core
-  - Firebase/Database
   - GoogleMaps
   - GooglePlacePicker
   - GooglePlaces
@@ -90,22 +53,14 @@ SPEC CHECKSUMS:
   FBSDKCoreKit: f8c9eb0dd34a9cd277c7b60da4b32226d142502d
   FBSDKLoginKit: 1214c6d5a1c4995b694d8db8a9ba6910c6028acf
   FBSDKShareKit: a2ed9d7781a4eda9ac20d7404305e795b10251ac
-  Firebase: 9e33fdfbca37cab635c693883caa90a4475b842b
-  FirebaseAnalytics: ad41720e3e67fc63fbe3d2948d3e26932a8de311
-  FirebaseAuth: ebb6abcbabae00fc47446d690c19ce68d8484fde
-  FirebaseCore: c709067051de07bdaffdc4e735cd7299a23c463a
-  FirebaseDatabase: d829b3a8c3e2ac7a16773c5df226966b0805dfc2
-  FirebaseInstanceID: 9fbf536668f4d3f0880e7438456dabd1376e294b
   GoogleMaps: c66a71058b9b1294bcdd5463a68e357fa50c079f
   GooglePlacePicker: fc3564ac7a2ce314e78e42bfc1e16822ad1e5488
   GooglePlaces: 4a7b22debfa1af65017b82943431822607e45201
-  GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
-  GTMSessionFetcher: 30d874b96d0d76028f61fbd122801e3f030d47db
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
   Parse: c0519f8fbf57bd0334f75cd22ac032d86ee55464
   ParseFacebookUtilsV4: 2f30c2b7021c8005d3042781da7ef87d06589421
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
-PODFILE CHECKSUM: 845df049a1b91b6c46bfa5369064163683eccd8e
+PODFILE CHECKSUM: 1bdcd9e59522279efe9b8c530f72a0133335391d
 
 COCOAPODS: 1.2.0

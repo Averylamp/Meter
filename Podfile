@@ -6,9 +6,6 @@ target 'Meter' do
   use_frameworks!
 
   # Pods for Meter
-  pod 'Firebase/Core'
-  pod 'Firebase/Auth'
-  pod 'Firebase/Database'
   pod 'Bolts'
   pod 'FBSDKCoreKit'
   pod 'FBSDKLoginKit'
