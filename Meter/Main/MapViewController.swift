@@ -189,7 +189,7 @@ extension MapViewController: MKMapViewDelegate{
                 spotAnnotation.pinImage = UIImageView(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
                 spotAnnotation.pinImage?.image = #imageLiteral(resourceName: "Map_Pin")
                 spotAnnotation.pinImage?.contentMode = .scaleAspectFit
-                spotAnnotation.priceLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 35, height: 25 ))
+                spotAnnotation.priceLabel = UILabel(frame: CGRect(x: 0, y: 5, width: 50, height: 25 ))
                 spotAnnotation.priceLabel?.textAlignment  = .center
                 if let pfObj =  annotation.spot?.pfObject, let spotPrice = (pfObj["dailyPrice"] as? NSNumber){
                     spotAnnotation.priceLabel?.text = "\(spotPrice.intValue)"
@@ -198,9 +198,8 @@ extension MapViewController: MKMapViewDelegate{
                 }
                 spotAnnotation.priceLabel?.font = UIFont(name: "Avenir", size: 16)
                 spotAnnotation.pinImage?.addSubview(spotAnnotation.priceLabel!)
-                spotAnnotation.priceLabel?.center = CGPoint(x: (spotAnnotation.pinImage?.center.x)!, y: (spotAnnotation.pinImage?.center.y)! - 7)
+                spotAnnotation.centerOffset = CGPoint(x: 0, y: -spotAnnotation.frame.height / 2)
                 spotAnnotation.addSubview(spotAnnotation.pinImage!)
-                //                spotAnnotation?.animatesDrop = true
             }
             return spotAnnotation
         }else{
