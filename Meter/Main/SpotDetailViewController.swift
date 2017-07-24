@@ -125,9 +125,12 @@ class SpotDetailViewController: UIViewController {
     }
     
     @IBAction func backButtonClicked(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+        self.navigationController?.popViewController(animated: true)
     }
     
+    @IBAction func ownerButtonClicked(_ sender: Any) {
+        NotificationCenter.default.post(Notification(name: Notification.Name(rawValue: NavigationNotifications.AccountSelected), object: self))
+    }
     
 }
 

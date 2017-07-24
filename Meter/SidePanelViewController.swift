@@ -181,11 +181,13 @@ class SidePanelViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("Index Path \((indexPath as NSIndexPath).row) Selected")        
+        print("Index Path \((indexPath as NSIndexPath).row) Selected")
+         NotificationCenter.default.post(Notification(name: Notification.Name(rawValue: NavigationNotifications.toggleMenu), object: self))
         postNotification((indexPath as NSIndexPath).row)
     }
     
     @IBAction func lendSpotClicked(_ sender: Any) {
+        NotificationCenter.default.post(Notification(name: Notification.Name(rawValue: NavigationNotifications.toggleMenu), object: self))
         NotificationCenter.default.post(Notification(name: Notification.Name(rawValue: NavigationNotifications.LendSpotSelected), object: self))
     }
     

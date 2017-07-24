@@ -40,9 +40,12 @@ class ContainerViewController: UIViewController {
         activeNavigationController.didMove(toParentViewController: self)
         
         let mainVC = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "MainViewController")
+        let lenderVC = UIStoryboard(name: "LendSpot", bundle: Bundle.main).instantiateViewController(withIdentifier: "MainLenderVC")
+        
         //        let searchVC =  UIStoryboard(name: "Search", bundle: Bundle.main).instantiateViewController(withIdentifier: "SearchViewController") as? SearchViewController
         activeNavigationController.mainVCS = [mainVC]
-        activeNavigationController.setViewControllers(activeNavigationController.mainVCS, animated: false)
+//        activeNavigationController.setViewControllers(activeNavigationController.mainVCS, animated: false)
+        activeNavigationController.setViewControllers([lenderVC], animated: false)
         
         containerOverlay = UIButton(frame: self.view.frame)
         containerOverlay.backgroundColor = UIColor.black

@@ -269,13 +269,10 @@ class DetailViewController: UIViewController{
                 }
             }
             detailVC.fitLabelHeights()
-            self.present(detailVC, animated: true, completion: nil)
-            
+            self.navigationController?.pushViewController(detailVC, animated: true)
+//            self.present(detailVC, animated: true, completion: nil)
         }
-        
-        
     }
-    
 }
 
 extension DetailViewController: UIScrollViewDelegate {
