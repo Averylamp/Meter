@@ -113,6 +113,19 @@ extension LenderSpotAddressViewController: MKMapViewDelegate, CLLocationManagerD
             self.mapView.setRegion(span, animated: true)
         }
     }
+//    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+//        if annotation is MKUserLocation{
+//            return nil
+//        }
+//        let reuseID = "pin"
+//        var pinView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseID) as? MKPinAnnotationView
+//        if pinView == nil{
+//            pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseID)
+//            pinView?.canShowCallout = true
+//            pinView?.animatesDrop = true
+//        }
+//        return pinView
+//    }
 }
 
 extension LenderSpotAddressViewController: UITextFieldDelegate, GMSAutocompleteViewControllerDelegate{
@@ -130,6 +143,7 @@ extension LenderSpotAddressViewController: UITextFieldDelegate, GMSAutocompleteV
                     self.mapView.removeAnnotations(self.mapView.annotations)
                     let pinAnnotation = MKPointAnnotation()
                     pinAnnotation.coordinate = coordinate
+                    
                     pinAnnotation.title = "Your spot address"
                     self.mapView.addAnnotation(pinAnnotation)
                     self.checkForContinue()
@@ -138,6 +152,7 @@ extension LenderSpotAddressViewController: UITextFieldDelegate, GMSAutocompleteV
         }
         return false
     }
+    
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
 //        let autocompleteController = GMSAutocompleteViewController()

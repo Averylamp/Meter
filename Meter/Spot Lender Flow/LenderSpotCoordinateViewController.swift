@@ -18,16 +18,21 @@ class LenderSpotCoordinateViewController: UIViewController {
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var mapTypeButton: UIButton!
+    @IBOutlet weak var overlayPin: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.mapView.mapType = .satellite
         self.addressLabel.text = fullAddressText
         // Do any additional setup after loading the view.
+//        self.view.bringSubview(toFront: self.overlayPin)
     }
     
     @IBAction func confirmButtonClicked(_ sender: Any) {
-        
+        if let addImageVC = UIStoryboard(name: "LendSpot", bundle: nil).instantiateViewController(withIdentifier: "LenderAddImageVC") as? LenderSpotPhotosViewController{
+            addImageVC.spotPFObject = self.spotPFObject
+            self.navigationController?.pushViewController(addImageVC, animated: true)
+        }
     }
     
     func zoomToCoordinate(coordinate:CLLocationCoordinate2D, width: CLLocationDistance, animationTime: Double = 0.6){
