@@ -24,7 +24,7 @@ class LenderSpotPhotosViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.checkForRequiredImages()
         // Do any additional setup after loading the view.
     }
 
@@ -173,17 +173,17 @@ extension LenderSpotPhotosViewController: UIImagePickerControllerDelegate, UINav
     }
     
     func checkForRequiredImages(){
-        if closeUpImageView.image != #imageLiteral(resourceName: "addImageTemporary") && self.surroundingsImageView.image != #imageLiteral(resourceName: "addImageTemporary"){
+//        if closeUpImageView.image != #imageLiteral(resourceName: "addImageTemporary") && self.surroundingsImageView.image != #imageLiteral(resourceName: "addImageTemporary"){
             UIView.animate(withDuration: 0.5, animations: {
                 self.continueButtonHeightConstraint.constant = 50
                 self.view.layoutIfNeeded()
             })
-        }else{
-            UIView.animate(withDuration: 0.5, animations: {
-                self.continueButtonHeightConstraint.constant = 0
-                self.view.layoutIfNeeded()
-            })
-        }
+//        }else{
+//            UIView.animate(withDuration: 0.5, animations: {
+//                self.continueButtonHeightConstraint.constant = 0
+//                self.view.layoutIfNeeded()
+//            })
+//        }
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
