@@ -97,7 +97,7 @@ class MapViewController: UIViewController {
                     var count = 1
                     for pfSpot in self.spotPFObjects{
                         let newSpot = Spot()
-                        if let spotCoordinate = pfSpot["location"] as? PFGeoPoint{
+                        if let spotCoordinate = pfSpot[SpotKeys.Location] as? PFGeoPoint{
                             newSpot.coordinate = CLLocationCoordinate2DMake(spotCoordinate.latitude, spotCoordinate.longitude)
                         }
                         newSpot.pfObject = pfSpot
@@ -191,7 +191,7 @@ extension MapViewController: MKMapViewDelegate{
                 spotAnnotation.pinImage?.contentMode = .scaleAspectFit
                 spotAnnotation.priceLabel = UILabel(frame: CGRect(x: 0, y: 5, width: 50, height: 25 ))
                 spotAnnotation.priceLabel?.textAlignment  = .center
-                if let pfObj =  annotation.spot?.pfObject, let spotPrice = (pfObj["dailyPrice"] as? NSNumber){
+                if let pfObj =  annotation.spot?.pfObject, let spotPrice = (pfObj[SpotKeys.DailyPrice] as? NSNumber){
                     spotAnnotation.priceLabel?.text = "\(spotPrice.intValue)"
                 }else{
                     spotAnnotation.priceLabel?.text = "\(0)"

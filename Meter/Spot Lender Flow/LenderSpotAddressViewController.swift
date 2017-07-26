@@ -50,8 +50,8 @@ class LenderSpotAddressViewController: UIViewController {
     
     func checkForContinue(){
         if let currentPlace = currentFullAddress , let currentFullCoordinate = currentFullCoordinate{
-            spotPFObject!["fullAddress"] = currentFullAddress
-            spotPFObject!["location"] = PFGeoPoint(latitude: currentFullCoordinate.latitude, longitude: currentFullCoordinate.longitude)
+            spotPFObject![SpotKeys.FullAddress] = currentFullAddress
+            spotPFObject![SpotKeys.Location] = PFGeoPoint(latitude: currentFullCoordinate.latitude, longitude: currentFullCoordinate.longitude)
             UIView.animate(withDuration: 0.5, animations: {
                 self.continueButtonHeightConstraint.constant = 50
                 self.view.layoutIfNeeded()
@@ -79,8 +79,8 @@ class LenderSpotAddressViewController: UIViewController {
     
     @IBAction func continueButtonClicked(_ sender: Any) {
         if let currentPlace = currentFullAddress , let currentFullCoordinate = currentFullCoordinate{
-            spotPFObject!["fullAddress"] = currentFullAddress
-            spotPFObject!["location"] = PFGeoPoint(latitude: currentFullCoordinate.latitude, longitude: currentFullCoordinate.longitude)
+            spotPFObject![SpotKeys.FullAddress] = currentFullAddress
+            spotPFObject![SpotKeys.Location] = PFGeoPoint(latitude: currentFullCoordinate.latitude, longitude: currentFullCoordinate.longitude)
             if let coordinateVC = UIStoryboard(name: "LendSpot", bundle: nil).instantiateViewController(withIdentifier: "SpotCoordinateVC") as? LenderSpotCoordinateViewController{
                 coordinateVC.view.frame = self.view.frame
                 coordinateVC.spotPFObject = self.spotPFObject

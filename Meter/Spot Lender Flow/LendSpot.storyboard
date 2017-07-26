@@ -717,6 +717,7 @@
                                 <connections>
                                     <action selector="continueButtonClicked:" destination="x4S-pT-R2M" eventType="touchUpInside" id="BA9-Nj-CgY"/>
                                     <action selector="continueButtonClicked:" destination="y8a-x4-8fY" eventType="touchUpInside" id="WB1-XI-r1y"/>
+                                    <action selector="continueClicked:" destination="agM-eW-NET" eventType="touchUpInside" id="wT5-dh-u6o"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dKR-Yw-iNB">
@@ -1101,7 +1102,7 @@
         <!--Lender Spot Details View Controller-->
         <scene sceneID="Xjy-sU-hXv">
             <objects>
-                <viewController id="ap3-5h-wCt" customClass="LenderSpotDetailsViewController" customModule="Meter" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LenderSpotDetailsVC" id="ap3-5h-wCt" customClass="LenderSpotDetailsViewController" customModule="Meter" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="gBE-m1-HjE"/>
                         <viewControllerLayoutGuide type="bottom" id="Cfv-d8-UZ0"/>

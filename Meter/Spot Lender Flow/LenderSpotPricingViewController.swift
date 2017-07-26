@@ -74,6 +74,14 @@ var spotPFObject: PFObject? = nil
         self.navigationController?.popViewController(animated: true)
     }
     
+    @IBAction func continueClicked(_ sender: Any) {
+        if let lenderSpotDetailsVC = UIStoryboard(name: "LendSpot", bundle: nil).instantiateViewController(withIdentifier: "LenderSpotDetailsVC") as? LenderSpotDetailsViewController{
+            lenderSpotDetailsVC.spotPFObject = self.spotPFObject
+            self.navigationController?.pushViewController(lenderSpotDetailsVC, animated: true)
+        }
+        
+        
+    }
 }
 
 extension LenderSpotPricingViewController: UITextFieldDelegate{

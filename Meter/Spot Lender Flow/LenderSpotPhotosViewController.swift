@@ -84,14 +84,14 @@ class LenderSpotPhotosViewController: UIViewController {
         if self.closeUpImageView.image != #imageLiteral(resourceName: "addImageTemporary"), let closeUpImage = self.closeUpImageView.image, self.surroundingsImageView != #imageLiteral(resourceName: "addImageTemporary"), let surroundingsImage = self.surroundingsImageView.image, self.spotPFObject != nil{
             DispatchQueue.global().async {
                 if let closeUpData = UIImagePNGRepresentation(closeUpImage), let closeUpPFFile = PFFile(data: closeUpData){
-                    self.spotPFObject!["spotPicture"] = closeUpPFFile
+                    self.spotPFObject![SpotKeys.SpotPicture] = closeUpPFFile
                 }
                 if let surroundingImageData = UIImagePNGRepresentation(surroundingsImage), let surroundingImagePFFile = PFFile(data: surroundingImageData){
-                    self.spotPFObject!["entrancePicture"] = surroundingImagePFFile
+                    self.spotPFObject![SpotKeys.EntrancePicture] = surroundingImagePFFile
                 }
                 DispatchQueue.main.sync {
                     if self.additionalImageView.image != #imageLiteral(resourceName: "addImageTemporary"), let additionalImage = self.additionalImageView.image, let additionalImageData = UIImagePNGRepresentation(additionalImage), let addionalImagePFFile = PFFile(data: additionalImageData){
-                        self.spotPFObject!["additionalPicture"] = addionalImagePFFile
+                        self.spotPFObject![SpotKeys.AdditionalPicture] = addionalImagePFFile
                     }
                 }
                 DispatchQueue.main.async {

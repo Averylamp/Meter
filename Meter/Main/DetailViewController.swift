@@ -67,13 +67,13 @@ class DetailViewController: UIViewController{
                 
             }
             count += 1
-            if let spotTitle = spot["spotName"] as? String{
+            if let spotTitle = spot[SpotKeys.Name] as? String{
                 previewView.spotTitleLabel.text = spotTitle
             }
-            if let monthlyRate = spot["monthlyPrice"] as? NSNumber{
+            if let monthlyRate = spot[SpotKeys.MonthlyPrice] as? NSNumber{
                 previewView.monthlyRateLabel.text = "Monthly Rate: $\(monthlyRate.intValue)"
             }
-            if let dailyRate = spot["dailyPrice"] as? NSNumber{
+            if let dailyRate = spot[SpotKeys.DailyPrice] as? NSNumber{
                 if dailyRate.doubleValue == floor(dailyRate.doubleValue){
                     previewView.dailyRateLabel.text = "Daily Rate: $\(dailyRate.intValue)"
                 }else{
@@ -81,10 +81,10 @@ class DetailViewController: UIViewController{
                 }
                 previewView.spotNumberLabel.text = "\(dailyRate.intValue)"
             }
-            if let averageRating = spot["averageRating"] as? NSNumber{
+            if let averageRating = spot[SpotKeys.AverageRating] as? NSNumber{
                 previewView.setRating(rating: averageRating.doubleValue)
             }
-            if let numberOfRatings = spot["numberOfRatings"] as? NSNumber{
+            if let numberOfRatings = spot[SpotKeys.NumberOfRatings] as? NSNumber{
                 if numberOfRatings.intValue != 1{
                     previewView.ratingLabel.text = "\(numberOfRatings.intValue) ratings"
                 }else{
@@ -92,13 +92,13 @@ class DetailViewController: UIViewController{
                 }
             }
             
-            if let spotCoordinate = spot["location"] as? PFGeoPoint{
+            if let spotCoordinate = spot[SpotKeys.Location] as? PFGeoPoint{
                 let coord = CLLocationCoordinate2DMake(spotCoordinate.latitude, spotCoordinate.longitude)
                 let milesDistance = coord.distanceFrom(coordinate: self.searchLocation)
                 previewView.distanceLabel.text = "\(milesDistance) miles away"
             }
             
-            if let spotPicture = spot["spotPicture"] as? PFFile{
+            if let spotPicture = spot[SpotKeys.SpotPicture] as? PFFile{
                 spotPicture.getDataInBackground(block: { (data, error) in
                     DispatchQueue.main.async {
                         previewView.pictureActivityIndicator.stopAnimating()
@@ -141,50 +141,50 @@ class DetailViewController: UIViewController{
         if let detailVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SpotDetailVC") as? SpotDetailViewController {
             detailVC.view.frame = UIScreen.main.bounds
             let currentSpot = self.currentSpots[sender.tag]
-            if let spotName = currentSpot["spotName"] as? String{
+            if let spotName = currentSpot[SpotKeys.Name] as? String{
                 detailVC.spotTitleLabel.text = spotName
             }
-            if let shortDescription = currentSpot["shortDescription"] as? String{
+            if let shortDescription = currentSpot[SpotKeys.ShortDescription] as? String{
                 detailVC.shortDescriptionLabel.text = shortDescription
             }
-            if let longDescription = currentSpot["longDescription"] as? String{
+            if let longDescription = currentSpot[SpotKeys.LongDescription] as? String{
                 detailVC.longDescriptionLabel.text = longDescription
             }
-            if let address = currentSpot["fullAddress"] as? String{
+            if let address = currentSpot[SpotKeys.FullAddress] as? String{
                 detailVC.addressLabel.text = address
             }
-            if let spotType = currentSpot["spotType"] as? String{
+            if let spotType = currentSpot[SpotKeys.SpotType] as? String{
                 detailVC.spotTypeLabel.text = "Type: \(spotType)"
             }
-            if let restrictions = currentSpot["spotRestrictions"] as? String{
+            if let restrictions = currentSpot[SpotKeys.Restrictions] as? String{
                 detailVC.restrictionsLabel.text = "Restrictions: \(restrictions)"
             }
-            if let averageRating = currentSpot["averageRating"] as? NSNumber{
+            if let averageRating = currentSpot[SpotKeys.AverageRating] as? NSNumber{
                 detailVC.setRating(rating: averageRating.doubleValue)
             }
-            if let numberOfRatings = currentSpot["numberOfRatings"] as? NSNumber{
+            if let numberOfRatings = currentSpot[SpotKeys.NumberOfRatings] as? NSNumber{
                 if numberOfRatings.intValue != 1{
                     detailVC.ratingsLabel.text = "\(numberOfRatings.intValue) ratings"
                 }else{
                     detailVC.ratingsLabel.text = "\(numberOfRatings.intValue) rating"
                 }
             }
-            if let dailyPrice = currentSpot["dailyPrice"] as? NSNumber{
+            if let dailyPrice = currentSpot[SpotKeys.DailyPrice] as? NSNumber{
                 detailVC.dailyPriceLabel.text = "$\(dailyPrice.intValue)"
             }
             if let weeklyPrice = currentSpot["weeklyPrice"] as? NSNumber{
                 detailVC.weeklyPriceLabel.text = "$\(weeklyPrice.intValue)"
             }
-            if let monthlyPrice = currentSpot["monthlyPrice"] as? NSNumber{
+            if let monthlyPrice = currentSpot[SpotKeys.MonthlyPrice] as? NSNumber{
                 detailVC.monthlyPriceLabel.text = "$\(monthlyPrice.intValue)"
             }
-            if let spotCoordinate = currentSpot["location"] as? PFGeoPoint {
+            if let spotCoordinate = currentSpot[SpotKeys.Location] as? PFGeoPoint {
                 let coord = CLLocationCoordinate2D(latitude: spotCoordinate.latitude, longitude: spotCoordinate.longitude)
                 detailVC.distanceLabel.text = "\(coord.distanceFrom(coordinate: self.searchLocation)) miles away"
             }
             
             var count = 0
-            if let mapPicture = currentSpot["mapPicture"] as? PFFile{
+            if let mapPicture = currentSpot[SpotKeys.MapPicture] as? PFFile{
                 count += 1
                 mapPicture.getDataInBackground(block: { (data, error) in
                     count -= 1
@@ -199,7 +199,7 @@ class DetailViewController: UIViewController{
                     }
                 })
             }
-            if let spotPicture = currentSpot["spotPicture"] as? PFFile{
+            if let spotPicture = currentSpot[SpotKeys.SpotPicture] as? PFFile{
                 count += 1
                 spotPicture.getDataInBackground(block: { (data, error) in
                     count -= 1
@@ -214,7 +214,7 @@ class DetailViewController: UIViewController{
                     }
                 })
             }
-            if let entrancePicture = currentSpot["entrancePicture"] as? PFFile{
+            if let entrancePicture = currentSpot[SpotKeys.EntrancePicture] as? PFFile{
                 count += 1
                 entrancePicture.getDataInBackground(block: { (data, error) in
                     count -= 1
@@ -229,7 +229,7 @@ class DetailViewController: UIViewController{
                     }
                 })
             }
-            if let additionalPicture = currentSpot["additionalPicture"] as? PFFile{
+            if let additionalPicture = currentSpot[SpotKeys.AdditionalPicture] as? PFFile{
                 count += 1
                 additionalPicture.getDataInBackground(block: { (data, error) in
                     count -= 1
@@ -244,7 +244,7 @@ class DetailViewController: UIViewController{
                     }
                 })
             }
-            if let spotOwner = currentSpot["spotOwner"] as? PFUser{
+            if let spotOwner = currentSpot[SpotKeys.Owner] as? PFUser{
                 DispatchQueue.global().async {
                     do {
                         try spotOwner.fetchIfNeeded()
