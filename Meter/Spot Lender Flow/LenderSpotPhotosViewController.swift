@@ -20,7 +20,7 @@ class LenderSpotPhotosViewController: UIViewController {
     @IBOutlet weak var surroundingsImageView: UIImageView!
     @IBOutlet weak var additionalImageView: UIImageView!
     
-    
+    let picturesRequired = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -81,7 +81,7 @@ class LenderSpotPhotosViewController: UIViewController {
     }
 
     @IBAction func continueButtonClicked(_ sender: Any) {
-        if self.closeUpImageView.image != #imageLiteral(resourceName: "addImageTemporary"), let closeUpImage = self.closeUpImageView.image, self.surroundingsImageView != #imageLiteral(resourceName: "addImageTemporary"), let surroundingsImage = self.surroundingsImageView.image, self.spotPFObject != nil{
+        if self.closeUpImageView.image != #imageLiteral(resourceName: "addImageTemporary") || picturesRequired == false, let closeUpImage = self.closeUpImageView.image, self.surroundingsImageView != #imageLiteral(resourceName: "addImageTemporary") || picturesRequired == false, let surroundingsImage = self.surroundingsImageView.image, self.spotPFObject != nil || picturesRequired == false{
             DispatchQueue.global().async {
                 if let closeUpData = UIImagePNGRepresentation(closeUpImage), let closeUpPFFile = PFFile(data: closeUpData){
                     self.spotPFObject![SpotKeys.SpotPicture] = closeUpPFFile
@@ -173,17 +173,17 @@ extension LenderSpotPhotosViewController: UIImagePickerControllerDelegate, UINav
     }
     
     func checkForRequiredImages(){
-//        if closeUpImageView.image != #imageLiteral(resourceName: "addImageTemporary") && self.surroundingsImageView.image != #imageLiteral(resourceName: "addImageTemporary"){
+        if (closeUpImageView.image != #imageLiteral(resourceName: "addImageTemporary") && self.surroundingsImageView.image != #imageLiteral(resourceName: "addImageTemporary")) || picturesRequired == false {
             UIView.animate(withDuration: 0.5, animations: {
                 self.continueButtonHeightConstraint.constant = 50
                 self.view.layoutIfNeeded()
             })
-//        }else{
-//            UIView.animate(withDuration: 0.5, animations: {
-//                self.continueButtonHeightConstraint.constant = 0
-//                self.view.layoutIfNeeded()
-//            })
-//        }
+        }else{
+            UIView.animate(withDuration: 0.5, animations: {
+                self.continueButtonHeightConstraint.constant = 0
+                self.view.layoutIfNeeded()
+            })
+        }
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {

@@ -34,22 +34,25 @@ var spotPFObject: PFObject? = nil
         self.view.addGestureRecognizer(dismissKeyboardTapGestureRecognizer)
     }
     
+    var keyboardHeight: CGFloat = 0
     func keyboardWillShow(notification: NSNotification) {
         print("Keyboard will show")
         if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
-            print(keyboardSize)
-            if self.view.frame.origin.y == 0{
-                self.view.frame.origin.y -= keyboardSize.height
-            }
+            keyboardHeight = keyboardSize.height
+        }
+        
+    }
+    
+    func shiftUp(height: CGFloat){
+        UIView.animate(withDuration: 0.5) {
+            self.view.frame.origin.y = -height
         }
     }
     
     func keyboardWillHide(notification: NSNotification) {
-        print("Keyboard will hide")
         if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
-            print(keyboardSize)
             if self.view.frame.origin.y != 0{
-                self.view.frame.origin.y += keyboardSize.height
+                self.view.frame.origin.y = 0
             }
         }
     }
@@ -93,6 +96,35 @@ extension LenderSpotPricingViewController: UITextFieldDelegate{
             textField.resignFirstResponder()
         }
         return false
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        switch textField {
+        case monthlyTextField:
+            print("Monthly Text Field Selected")
+        case weeklyTextField:
+            print("Weekly Text Field Selected")
+            if keyboardHeight > 0{
+                self.shiftUp(height: keyboardHeight)
+            }else{
+                self.shiftUp(height: 216)
+            }
+        case dailyTextField:
+            print("Daily Text Field Selected")
+            if keyboardHeight > 0{
+                self.shiftUp(height: keyboardHeight)
+            }else{
+                self.shiftUp(height: 216)
+            }
+        default:
+            print("Unknown Text field selected")
+        }
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if  Double(textField.text!) == nil{
+            textField.text = ""
+        }
     }
     
     
