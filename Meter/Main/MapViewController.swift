@@ -84,7 +84,9 @@ class MapViewController: UIViewController {
         lastSearchedLocation = coordinate
         let query = PFQuery(className: "Spot")
         let point = PFGeoPoint(latitude: coordinate.latitude, longitude: coordinate.longitude)
-        query.whereKey("location", nearGeoPoint: point)
+        query.whereKey(SpotKeys.Location, nearGeoPoint: point)
+        query.whereKey(SpotKeys.Available, equalTo: true)
+        
         query.findObjectsInBackground(block: { (objects, error) in
             if let error = error{
                 print("Error finding spots - \(error)")

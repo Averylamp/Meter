@@ -57,6 +57,7 @@
 		BBC9640B1E7DCF3300E99617 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BBC9640A1E7DCF3300E99617 /* GoogleService-Info.plist */; };
 		BBC9640D1E7DCFCE00E99617 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC9640C1E7DCFCE00E99617 /* LoginViewController.swift */; };
 		BBC9640F1E7DCFED00E99617 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC9640E1E7DCFED00E99617 /* SignUpViewController.swift */; };
+		BBD2A4741F2F1B6A007A4DFA /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD2A4731F2F1B6A007A4DFA /* Keys.swift */; };
 		BBE2EDC91EE270F100038140 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBE2EDC81EE270F100038140 /* DetailViewController.swift */; };
 		BBE6D7851F23EED2004D0A3A /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BBE6D7841F23EED2004D0A3A /* Login.storyboard */; };
 		BBED51E01F12F86D00C761EB /* SpotDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBED51DF1F12F86D00C761EB /* SpotDetailViewController.swift */; };
@@ -145,6 +146,7 @@
 		BBC9640A1E7DCF3300E99617 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BBC9640C1E7DCFCE00E99617 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		BBC9640E1E7DCFED00E99617 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		BBD2A4731F2F1B6A007A4DFA /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
 		BBE2EDC81EE270F100038140 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		BBE6D7841F23EED2004D0A3A /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Login.storyboard; path = "Meter/Sign Up/Login.storyboard"; sourceTree = SOURCE_ROOT; };
 		BBED51DF1F12F86D00C761EB /* SpotDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotDetailViewController.swift; sourceTree = "<group>"; };
@@ -392,6 +394,7 @@
 				BBC9640A1E7DCF3300E99617 /* GoogleService-Info.plist */,
 				BB8E62B81F1375420014DD62 /* HelperFunctions.swift */,
 				BB4BBAC21EA4159A00EBD13D /* Constants.swift */,
+				BBD2A4731F2F1B6A007A4DFA /* Keys.swift */,
 				BB2BE2CE1F11AE4C006393B3 /* GeocodingHelper.swift */,
 				BBAD6BDB1F1C992D0089F896 /* Account */,
 				BBAD6BD51F1C98B40089F896 /* Parking History */,
@@ -735,6 +738,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BBAD6BDA1F1C99290089F896 /* EditAccountViewController.swift in Sources */,
+				BBD2A4741F2F1B6A007A4DFA /* Keys.swift in Sources */,
 				BBFE91B31ED260DB00F04F05 /* SpotAnnotation.swift in Sources */,
 				BBC9640D1E7DCFCE00E99617 /* LoginViewController.swift in Sources */,
 				BBAD6BD11F1C989B0089F896 /* PaymentMainViewController.swift in Sources */,
