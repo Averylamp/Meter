@@ -184,19 +184,20 @@ extension MapViewController: MKMapViewDelegate{
                 spotAnnotation = SpotAnnotationView(annotation: annotation, reuseIdentifier: spotIdentifier)
             }
             if let annotation = annotation as? SpotAnnotation, let spotAnnotation = spotAnnotation {
+                let annotationSize: CGFloat = 40
                 spotAnnotation.subviews.forEach{ $0.removeFromSuperview() }
-                spotAnnotation.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
-                spotAnnotation.pinImage = UIImageView(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
+                spotAnnotation.frame = CGRect(x: 0, y: 0, width: annotationSize, height: annotationSize)
+                spotAnnotation.pinImage = UIImageView(frame: CGRect(x: 0, y: 0, width: annotationSize, height: annotationSize))
                 spotAnnotation.pinImage?.image = #imageLiteral(resourceName: "Map_Pin")
                 spotAnnotation.pinImage?.contentMode = .scaleAspectFit
-                spotAnnotation.priceLabel = UILabel(frame: CGRect(x: 0, y: 5, width: 50, height: 25 ))
+                spotAnnotation.priceLabel = UILabel(frame: CGRect(x: 0, y: 5, width: annotationSize, height: annotationSize / 2.0 ))
                 spotAnnotation.priceLabel?.textAlignment  = .center
                 if let pfObj =  annotation.spot?.pfObject, let spotPrice = (pfObj[SpotKeys.DailyPrice] as? NSNumber){
                     spotAnnotation.priceLabel?.text = "\(spotPrice.intValue)"
                 }else{
                     spotAnnotation.priceLabel?.text = "\(0)"
                 }
-                spotAnnotation.priceLabel?.font = UIFont(name: "Avenir", size: 16)
+                spotAnnotation.priceLabel?.font = UIFont(name: "Avenir", size: 13)
                 spotAnnotation.pinImage?.addSubview(spotAnnotation.priceLabel!)
                 spotAnnotation.centerOffset = CGPoint(x: 0, y: -spotAnnotation.frame.height / 2)
                 spotAnnotation.addSubview(spotAnnotation.pinImage!)

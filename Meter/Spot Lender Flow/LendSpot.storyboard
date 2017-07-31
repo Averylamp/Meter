@@ -727,13 +727,16 @@
                                     <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="YES" translatesAutoresizingMaskIntoConstraints="NO" id="725-4d-37B">
                                         <rect key="frame" x="0.0" y="4" width="375" height="156"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="srp-lS-C6g">
-                                                <rect key="frame" x="15" y="26.5" width="35" height="35"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="srp-lS-C6g">
+                                                <rect key="frame" x="15" y="27" width="35" height="35"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="srp-lS-C6g" secondAttribute="height" multiplier="1:1" id="4Ws-a6-0xb"/>
                                                     <constraint firstAttribute="width" constant="35" id="6Bi-fe-wra"/>
                                                 </constraints>
-                                                <state key="normal" title="C"/>
+                                                <state key="normal" title="C" image="checkboxUnchecked"/>
+                                                <connections>
+                                                    <action selector="checkboxClicked:" destination="agM-eW-NET" eventType="touchUpInside" id="lgW-7a-36a"/>
+                                                </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Monthly" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YIH-mK-8cv">
                                                 <rect key="frame" x="65" y="30" width="270" height="28"/>
@@ -836,13 +839,16 @@
                                     <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="YES" translatesAutoresizingMaskIntoConstraints="NO" id="t9O-Xs-IbB">
                                         <rect key="frame" x="0.0" y="168" width="375" height="156"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0xF-Rm-Y9f">
-                                                <rect key="frame" x="15" y="26.5" width="35" height="35"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0xF-Rm-Y9f">
+                                                <rect key="frame" x="15" y="27" width="35" height="35"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="0xF-Rm-Y9f" secondAttribute="height" multiplier="1:1" id="dwk-le-6x9"/>
                                                     <constraint firstAttribute="width" constant="35" id="qSB-eE-rJA"/>
                                                 </constraints>
-                                                <state key="normal" title="C"/>
+                                                <state key="normal" title="C" image="checkboxUnchecked"/>
+                                                <connections>
+                                                    <action selector="checkboxClicked:" destination="agM-eW-NET" eventType="touchUpInside" id="qCd-vp-1dg"/>
+                                                </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weekly" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4YL-L9-Uvo">
                                                 <rect key="frame" x="65" y="30" width="270" height="28"/>
@@ -942,13 +948,16 @@
                                     <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="YES" translatesAutoresizingMaskIntoConstraints="NO" id="X3N-YI-5Qu">
                                         <rect key="frame" x="0.0" y="332" width="375" height="156"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LSR-Xs-0Dl">
-                                                <rect key="frame" x="15" y="26.5" width="35" height="35"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LSR-Xs-0Dl">
+                                                <rect key="frame" x="15" y="27" width="35" height="35"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="35" id="1RP-ha-ecC"/>
                                                     <constraint firstAttribute="width" secondItem="LSR-Xs-0Dl" secondAttribute="height" multiplier="1:1" id="Jdc-eq-3E3"/>
                                                 </constraints>
-                                                <state key="normal" title="C"/>
+                                                <state key="normal" title="C" image="checkboxUnchecked"/>
+                                                <connections>
+                                                    <action selector="checkboxClicked:" destination="agM-eW-NET" eventType="touchUpInside" id="4EL-pV-TwJ"/>
+                                                </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Daily" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SUj-hQ-Fdu">
                                                 <rect key="frame" x="65" y="30" width="270" height="28"/>
@@ -1088,10 +1097,13 @@
                         <viewLayoutGuide key="safeArea" id="2zU-IA-I8s"/>
                     </view>
                     <connections>
+                        <outlet property="dailyCheckboxButton" destination="LSR-Xs-0Dl" id="gxy-LR-2I2"/>
                         <outlet property="dailySuggestRateLabel" destination="d7m-Oi-NdH" id="CMq-SV-yhy"/>
                         <outlet property="dailyTextField" destination="BcW-Q5-2aZ" id="wRb-Zm-X3L"/>
+                        <outlet property="monthlyCheckboxButton" destination="srp-lS-C6g" id="Ow4-MD-nx6"/>
                         <outlet property="monthlySuggestedRateLabel" destination="JIS-az-b2h" id="lfw-gq-y2k"/>
                         <outlet property="monthlyTextField" destination="bRe-8x-n4s" id="j8v-Xj-F8v"/>
+                        <outlet property="weeklyCheckboxButton" destination="0xF-Rm-Y9f" id="Qvh-Pa-rWi"/>
                         <outlet property="weeklySuggestedRateLabel" destination="IG3-XG-t8h" id="cNS-jL-JH1"/>
                         <outlet property="weeklyTextField" destination="1va-N4-kvd" id="58n-rH-mLU"/>
                     </connections>
@@ -1499,5 +1511,6 @@
         <image name="Map_Pin" width="111" height="156"/>
         <image name="SateliteLenderPin" width="123" height="168"/>
         <image name="addImageTemporary" width="350" height="220"/>
+        <image name="checkboxUnchecked" width="100" height="100"/>
     </resources>
 </document>

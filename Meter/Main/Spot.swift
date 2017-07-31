@@ -13,6 +13,7 @@ struct SpotKeys {
     static let Name = "spotName"
     static let ShortDescription = "shortDescription"
     static let LongDescription = "longDescription"
+    static let ParkingInstructions = "parkingInstructions"
     static let Location = "location"
     static let Owner = "spotOwner"
     static let AverageRating = "averageRating"

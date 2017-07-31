@@ -20,6 +20,9 @@ var spotPFObject: PFObject? = nil
     @IBOutlet weak var monthlySuggestedRateLabel: UILabel!
     @IBOutlet weak var weeklySuggestedRateLabel: UILabel!
     @IBOutlet weak var dailySuggestRateLabel: UILabel!
+    @IBOutlet weak var monthlyCheckboxButton: UIButton!
+    @IBOutlet weak var weeklyCheckboxButton: UIButton!
+    @IBOutlet weak var dailyCheckboxButton: UIButton!
     
     
     override func viewDidLoad() {
@@ -73,12 +76,69 @@ var spotPFObject: PFObject? = nil
         print("Info button Clicked")
     }
     
+    @IBAction func checkboxClicked(_ sender: UIButton) {
+        if sender.currentImage == #imageLiteral(resourceName: "checkboxUnchecked"){
+            UIView.transition(with: sender, duration: 0.3, options: .transitionCrossDissolve, animations: {
+                sender.setImage(#imageLiteral(resourceName: "checkboxChecked"), for: .normal)
+            }, completion: nil)
+        }else{
+            UIView.transition(with: sender, duration: 0.3, options: .transitionCrossDissolve, animations: {
+                sender.setImage(#imageLiteral(resourceName: "checkboxUnchecked"), for: .normal)
+            }, completion: nil)
+        }
+        self.saveInformation()
+    }
+    
     @IBAction func backButtonClicked(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }
     
+    func saveInformation(){
+        if let monthlyPrice = Double(self.monthlyTextField.text!) {
+            self.spotPFObject![SpotKeys.MonthlyPrice] = monthlyPrice
+        }else if let placeholderPrice = Double(self.monthlyTextField.placeholder!){
+            self.spotPFObject![SpotKeys.MonthlyPrice] = placeholderPrice
+        }else{
+            self.spotPFObject![SpotKeys.MonthlyPrice] = 0
+        }
+        if let weeklyPrice = Double(self.weeklyTextField.text!) {
+            self.spotPFObject![SpotKeys.WeeklyPrice] = weeklyPrice
+        }else if let placeholderPrice = Double(self.weeklyTextField.placeholder!){
+            self.spotPFObject![SpotKeys.WeeklyPrice] = placeholderPrice
+        }else{
+            self.spotPFObject![SpotKeys.WeeklyPrice] = 0
+        }
+        if let dailyPrice = Double(self.dailyTextField.text!) {
+            self.spotPFObject![SpotKeys.DailyPrice] = dailyPrice
+        }else if let placeholderPrice = Double(self.dailyTextField.placeholder!){
+            self.spotPFObject![SpotKeys.DailyPrice] = placeholderPrice
+        }else{
+            self.spotPFObject![SpotKeys.DailyPrice] = 0
+        }
+        if monthlyCheckboxButton.currentImage == #imageLiteral(resourceName: "checkboxChecked"){
+            self.spotPFObject![SpotKeys.AvailableMonthly] = true
+        }else{
+            self.spotPFObject![SpotKeys.AvailableMonthly] = false
+        }
+        if weeklyCheckboxButton.currentImage == #imageLiteral(resourceName: "checkboxChecked"){
+            self.spotPFObject![SpotKeys.AvailableWeekly] = true
+        }else{
+            self.spotPFObject![SpotKeys.AvailableWeekly] = false
+        }
+        if dailyCheckboxButton.currentImage == #imageLiteral(resourceName: "checkboxChecked"){
+            self.spotPFObject![SpotKeys.AvailableDaily] = true
+        }else{
+            self.spotPFObject![SpotKeys.AvailableDaily] = false
+        }
+        
+        
+    }
+    
     @IBAction func continueClicked(_ sender: Any) {
         if let lenderSpotDetailsVC = UIStoryboard(name: "LendSpot", bundle: nil).instantiateViewController(withIdentifier: "LenderSpotDetailsVC") as? LenderSpotDetailsViewController{
+            saveInformation()
+            
+            
             lenderSpotDetailsVC.spotPFObject = self.spotPFObject
             self.navigationController?.pushViewController(lenderSpotDetailsVC, animated: true)
         }
@@ -124,6 +184,8 @@ extension LenderSpotPricingViewController: UITextFieldDelegate{
     func textFieldDidEndEditing(_ textField: UITextField) {
         if  Double(textField.text!) == nil{
             textField.text = ""
+        }else{
+            saveInformation()
         }
     }
     

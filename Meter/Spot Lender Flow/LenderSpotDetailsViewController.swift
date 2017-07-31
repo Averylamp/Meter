@@ -29,6 +29,12 @@ class LenderSpotDetailsViewController: UIViewController {
         self.view.addGestureRecognizer(dismissKeyboardTapGestureRecognizer)
     }
     
+    func saveInformation(){
+        self.spotPFObject![SpotKeys.ShortDescription] = self.shortDescriptionTextView.text
+        self.spotPFObject![SpotKeys.LongDescription] = self.aboutSpotTextView.text
+        self.spotPFObject![SpotKeys.ParkingInstructions] = self.parkingInstructionsTextView.text
+    }
+    
     var keyboardHeight: CGFloat = 0
     func keyboardWillShow(notification: NSNotification) {
         print("Keyboard will show")
@@ -71,7 +77,9 @@ class LenderSpotDetailsViewController: UIViewController {
     
     @IBAction func submitButtonClicked(_ sender: Any) {
         if let spotListedVC = UIStoryboard(name: "LendSpot", bundle: nil).instantiateViewController(withIdentifier: "SpotListingCompleteVC") as? LenderSpotCompletedViewController{
-            
+            self.saveInformation()
+            self.spotPFObject![SpotKeys.Owner] = PFUser.current()
+            self.spotPFObject?.saveInBackground()
             self.navigationController?.pushViewController(spotListedVC, animated: true)
         }
     }
@@ -100,6 +108,10 @@ extension LenderSpotDetailsViewController: UITextViewDelegate{
         default:
             print("Some text view selected")
         }
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        self.saveInformation()
     }
     
 }

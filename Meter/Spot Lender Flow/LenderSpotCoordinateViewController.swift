@@ -30,6 +30,7 @@ class LenderSpotCoordinateViewController: UIViewController {
     
     @IBAction func confirmButtonClicked(_ sender: Any) {
         if let addImageVC = UIStoryboard(name: "LendSpot", bundle: nil).instantiateViewController(withIdentifier: "LenderAddImageVC") as? LenderSpotPhotosViewController{
+            spotPFObject![SpotKeys.Location] = PFGeoPoint(latitude: self.mapView.centerCoordinate.latitude, longitude: self.mapView.centerCoordinate.longitude)
             addImageVC.spotPFObject = self.spotPFObject
             self.navigationController?.pushViewController(addImageVC, animated: true)
         }

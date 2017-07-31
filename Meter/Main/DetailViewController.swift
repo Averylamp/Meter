@@ -53,9 +53,9 @@ class DetailViewController: UIViewController{
             previewView.overlayButton.addTarget(self, action: #selector(DetailViewController.previewViewClicked(sender:)), for: .touchUpInside)
             previewView.alpha = 0.0
             if lastDetailView == nil{
-                previewView.frame = CGRect(x: 0, y: 0, width: previewViewWidth, height: self.view.frame.height)
+                previewView.frame = CGRect(x: 0, y: 0, width: previewViewWidth, height: self.scrollView.frame.height)
             }else{
-                previewView.frame = CGRect(x: lastDetailView!.frame.origin.x  + lastDetailView!.frame.width, y: 0, width: previewViewWidth, height: self.view.frame.height)
+                previewView.frame = CGRect(x: lastDetailView!.frame.origin.x  + lastDetailView!.frame.width, y: 0, width: previewViewWidth, height: self.scrollView.frame.height)
             }
             scrollView.addSubview(previewView)
             scrollView.contentSize = CGSize(width: previewView.frame.width + previewView.frame.origin.x, height: previewView.frame.height)

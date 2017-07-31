@@ -54,7 +54,7 @@ extension MainViewController{
     func hideDetailVC(){
         self.view.layoutIfNeeded()
         UIView.animate(withDuration: 0.6) {
-            self.detailViewBottomConstraint.constant = -300
+            self.detailViewBottomConstraint.constant = -350
             
             self.view.layoutIfNeeded()
         }

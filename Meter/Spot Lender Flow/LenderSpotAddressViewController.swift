@@ -50,7 +50,10 @@ class LenderSpotAddressViewController: UIViewController {
     
     func checkForContinue(){
         if let currentPlace = currentFullAddress , let currentFullCoordinate = currentFullCoordinate{
-            spotPFObject![SpotKeys.FullAddress] = currentFullAddress
+            spotPFObject![SpotKeys.FullAddress] = currentPlace
+            if currentPlace.split(separator: ",").count > 1{
+                spotPFObject![SpotKeys.Name] = currentPlace.split(separator: ",")[0]
+            }
             spotPFObject![SpotKeys.Location] = PFGeoPoint(latitude: currentFullCoordinate.latitude, longitude: currentFullCoordinate.longitude)
             UIView.animate(withDuration: 0.5, animations: {
                 self.continueButtonHeightConstraint.constant = 50
