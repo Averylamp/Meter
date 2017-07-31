@@ -20,6 +20,18 @@ class DetailViewController: UIViewController{
     var currentHighlightedPreviewView = SpotPreviewView()
     @IBOutlet weak var scrollView: UIScrollView!
     
+    
+    @IBOutlet weak var filterHighlightView: UIView!
+    @IBOutlet weak var allFilterButton: UIButton!
+    @IBOutlet weak var dailyFilterButton: UIButton!
+    @IBOutlet weak var weeklyFilterButton: UIButton!
+    @IBOutlet weak var monthlyFilterButton: UIButton!
+    
+    @IBOutlet var allFilterButtons: [UIButton]!
+    
+    @IBOutlet weak var calendarLabel: UILabel!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         scrollView.delegate = self
@@ -52,6 +64,9 @@ class DetailViewController: UIViewController{
             currentPreviewViews.append(previewView)
             previewView.overlayButton.addTarget(self, action: #selector(DetailViewController.previewViewClicked(sender:)), for: .touchUpInside)
             previewView.alpha = 0.0
+            previewView.layer.shadowOpacity = 0.2
+            previewView.layer.shadowRadius = 3
+            previewView.layer.shadowOffset = CGSize(width: 0, height: 0)
             if lastDetailView == nil{
                 previewView.frame = CGRect(x: 0, y: 0, width: previewViewWidth, height: self.scrollView.frame.height)
             }else{
@@ -273,6 +288,30 @@ class DetailViewController: UIViewController{
 //            self.present(detailVC, animated: true, completion: nil)
         }
     }
+    
+    //MARK: - Handle filter Button Animations
+    
+    @IBAction func filterButtonClicked(_ sender: UIButton) {
+        UIView.animate(withDuration: 0.4) {
+            sender.backgroundColor = UIColor(white: 0.97, alpha: 1.0)
+            sender.setTitleColor(Constants.Colors.blueHighlight, for: .normal)
+            self.filterHighlightView.center.x = sender.center.x
+            self.allFilterButtons.forEach{
+                if $0 != sender{
+                    $0.backgroundColor = UIColor(white: 0.95, alpha: 1.0)
+                    $0.setTitleColor(UIColor.gray, for: .normal)
+                }
+            }
+            
+            
+            
+        }
+    }
+    
+    
+    @IBAction func calendarButtonClicked(_ sender: Any) {
+    }
+    
 }
 
 extension DetailViewController: UIScrollViewDelegate {
@@ -281,6 +320,8 @@ extension DetailViewController: UIScrollViewDelegate {
         if checkIfInCenter(center: currentCenter, view: currentHighlightedPreviewView) == false{
             let currentIndex = currentHighlightedPreviewView.tag
             let animationDuration = 0.6
+            let shadowOpacityLow: Float = 0.2
+            let shadowOpacityHigh: Float = 0.4
             for previewView in self.currentPreviewViews{
                 if checkIfInCenter(center: currentCenter, view: previewView){
                     currentHighlightedPreviewView = previewView
@@ -288,15 +329,15 @@ extension DetailViewController: UIScrollViewDelegate {
                         previewView.superview?.bringSubview(toFront: previewView)
                     })
                     
-                    if previewView.layer.shadowOpacity == 0.0{
+                    if previewView.layer.shadowOpacity == shadowOpacityLow{
                         let shadowAnimation = CABasicAnimation(keyPath: "shadowOpacity")
-                        shadowAnimation.fromValue = 0.0
-                        shadowAnimation.toValue = 0.6
+                        shadowAnimation.fromValue = shadowOpacityLow
+                        shadowAnimation.toValue = shadowOpacityHigh
                         shadowAnimation.beginTime = CACurrentMediaTime() + animationDuration / 3
                         shadowAnimation.duration = animationDuration * 2 / 3.0
                         previewView.layer.add(shadowAnimation, forKey: "shadowOpacity")
                         delay(animationDuration / 3, closure: {
-                            previewView.layer.shadowOpacity = 0.6
+                            previewView.layer.shadowOpacity = shadowOpacityHigh
                         })
                     }
                     
@@ -318,13 +359,13 @@ extension DetailViewController: UIScrollViewDelegate {
                         delegate.spotHighlighted(spot: self.currentSpots[previewView.tag])
                     }
                 }else{
-                    if previewView.layer.shadowOpacity == 0.6{
+                    if previewView.layer.shadowOpacity == shadowOpacityHigh{
                         let shadowAnimation = CABasicAnimation(keyPath: "shadowOpacity")
-                        shadowAnimation.fromValue = 0.6
-                        shadowAnimation.toValue = 0.0
+                        shadowAnimation.fromValue = shadowOpacityHigh
+                        shadowAnimation.toValue = shadowOpacityLow
                         shadowAnimation.duration = animationDuration / 3
                         previewView.layer.add(shadowAnimation, forKey: "shadowOpacity")
-                        previewView.layer.shadowOpacity = 0.0
+                        previewView.layer.shadowOpacity = shadowOpacityLow
                     }
                     if previewView.pinIconImageView.image == #imageLiteral(resourceName: "BluePin"){
                         previewView.pinIconImageView.image = #imageLiteral(resourceName: "Map_Pin")

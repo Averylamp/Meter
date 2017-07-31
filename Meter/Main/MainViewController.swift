@@ -17,6 +17,8 @@ enum SpotDetailStatus {
 
 class MainViewController: UIViewController {
     
+    @IBOutlet weak var detailViewOverlapConstraint: NSLayoutConstraint!
+    
     @IBOutlet weak var detailViewBottomConstraint: NSLayoutConstraint!
     var mapVC: MapViewController?
     var detailVC: DetailViewController?
@@ -55,7 +57,7 @@ extension MainViewController{
         self.view.layoutIfNeeded()
         UIView.animate(withDuration: 0.6) {
             self.detailViewBottomConstraint.constant = -350
-            
+            self.detailViewOverlapConstraint.constant = 0
             self.view.layoutIfNeeded()
         }
         self.spotDetailStatus = .hidden
@@ -64,6 +66,7 @@ extension MainViewController{
     func showDetailVC(){
         self.view.layoutIfNeeded()
         UIView.animate(withDuration: 0.6) {
+         self.detailViewOverlapConstraint.constant = -40
             self.detailViewBottomConstraint.constant = 0
             self.view.layoutIfNeeded()
         }

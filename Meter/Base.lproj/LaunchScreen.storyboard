@@ -7,7 +7,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13137.5"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -24,9 +23,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LoadingScreenLogo" translatesAutoresizingMaskIntoConstraints="NO" id="rFL-lR-aDT">
-                                <rect key="frame" x="132" y="278" width="112.5" height="112.5"/>
+                                <rect key="frame" x="147.5" y="293.5" width="80" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="rFL-lR-aDT" secondAttribute="height" multiplier="1:1" id="bxx-If-Llh"/>
+                                    <constraint firstAttribute="width" constant="80" id="sGO-bM-z7C"/>
                                 </constraints>
                             </imageView>
                         </subviews>
@@ -34,7 +34,6 @@
                         <constraints>
                             <constraint firstItem="rFL-lR-aDT" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="LNU-xX-sUv"/>
                             <constraint firstItem="rFL-lR-aDT" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="NxA-8J-ess"/>
-                            <constraint firstItem="rFL-lR-aDT" firstAttribute="width" secondItem="Ze5-6b-2t3" secondAttribute="width" multiplier="0.3" id="ian-10-Jne"/>
                         </constraints>
                     </view>
                 </viewController>
