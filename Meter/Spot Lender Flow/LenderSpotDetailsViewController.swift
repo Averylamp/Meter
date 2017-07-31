@@ -79,12 +79,16 @@ class LenderSpotDetailsViewController: UIViewController {
         if let spotListedVC = UIStoryboard(name: "LendSpot", bundle: nil).instantiateViewController(withIdentifier: "SpotListingCompleteVC") as? LenderSpotCompletedViewController{
             self.saveInformation()
             self.spotPFObject![SpotKeys.Owner] = PFUser.current()
-            
             self.spotPFObject![SpotKeys.Available] = true
             self.spotPFObject![SpotKeys.AvailableHourly] = false
             self.spotPFObject![SpotKeys.HourlyPrice] = 0.0
             self.spotPFObject![SpotKeys.IsCraigslist] = false
             self.spotPFObject?.saveInBackground()
+            
+            if let ownedSpots = PFUser.current()![UserKeys.OwnedSpots] as? PFRelation{
+                ownedSpots.add(self.spotPFObject!)
+                PFUser.current()!.saveInBackground()
+            }
             self.navigationController?.pushViewController(spotListedVC, animated: true)
         }
     }

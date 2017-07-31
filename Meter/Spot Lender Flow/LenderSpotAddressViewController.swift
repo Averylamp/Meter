@@ -137,8 +137,8 @@ extension LenderSpotAddressViewController: UITextFieldDelegate, GMSAutocompleteV
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         if let searchAddress = textField.text{
-            GeocodingHelper.sharedInstance.coordinateFrom(address: searchAddress, completion: { (coordinate, fullAddress) in
-                if let coordinate = coordinate{
+            GeocodingHelper.sharedInstance.searchFor(keyword: searchAddress, fromCoordinate: self.mapView.centerCoordinate, completion: { (coord, fullAddress) in
+                if let coordinate = coord{
                     self.currentFullAddress = fullAddress
                     self.currentFullCoordinate = coordinate
                     self.zoomToCoordinate(coordinate: coordinate, width: 1200, animationTime: 1.0)
@@ -146,7 +146,6 @@ extension LenderSpotAddressViewController: UITextFieldDelegate, GMSAutocompleteV
                     self.mapView.removeAnnotations(self.mapView.annotations)
                     let pinAnnotation = MKPointAnnotation()
                     pinAnnotation.coordinate = coordinate
-                    
                     pinAnnotation.title = "Your spot address"
                     self.mapView.addAnnotation(pinAnnotation)
                     self.checkForContinue()

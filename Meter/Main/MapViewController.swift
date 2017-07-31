@@ -105,7 +105,7 @@ class MapViewController: UIViewController {
                         newSpot.pfObject = pfSpot
                         newSpot.number = count
                         count += 1
-                        if let spotName = pfSpot["name"] as? String{
+                        if let spotName = pfSpot[SpotKeys.Name] as? String{
                             newSpot.name = spotName
                         }
                         self.spotObjects.append(newSpot)
@@ -168,6 +168,8 @@ extension MapViewController: MKMapViewDelegate{
             let span = MKCoordinateRegionMakeWithDistance(userLocation.coordinate, 1800, 1800)
             self.mapView.setRegion(span, animated: true)
             self.loadSpotsFromLocation(coordinate: userLocation.coordinate)
+
+            
             self.saveLastReportedLocation()
         }
     }

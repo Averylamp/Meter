@@ -40,5 +40,7 @@
 	<string>AIzaSyATMSL39wng4rV6yd0SnCyE_VZDMA6gw_I</string>
 	<key>ADDRESS_COMPLETION_API_KEY</key>
 	<string>AIzaSyCj3uXFnTlmO0nDlaXeHKmPmsXr8CP9EHg</string>
+	<key>GOOGLE_PLACES_API_KEY</key>
+	<string>AIzaSyCwX00dcAjk61Fj4bDSybQU3Dj-LM17FEA</string>
 </dict>
 </plist>
