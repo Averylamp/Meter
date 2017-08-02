@@ -150,6 +150,7 @@ class MapViewController: UIViewController {
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: NavigationNotifications.toggleMenu), object: nil)
     }
     
+    var searchAnnotation: MKPointAnnotation? = nil
     
 }
 
@@ -177,6 +178,16 @@ extension MapViewController: MKMapViewDelegate{
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         if (annotation.isKind(of: MKUserLocation.self)){
             return nil
+        }
+        if annotation as? MKPointAnnotation == self.searchAnnotation{        
+            var searchPinView = mapView.dequeueReusableAnnotationView(withIdentifier: "SearchLocationAnnotation")
+            if searchPinView == nil{
+                searchPinView = MKAnnotationView(annotation: annotation, reuseIdentifier: "SearchLocationAnnotation")
+            }
+            searchPinView?.annotation = annotation
+            searchPinView?.image = #imageLiteral(resourceName: "SearchLocationPinkStar")
+            searchPinView?.frame = CGRect(x: 0, y: 0, width: 20, height: 20)
+            return searchPinView
         }
         if annotation as! _OptionalNilComparisonType != mapView.userLocation as MKAnnotation{
             let spotIdentifier = "SpotAnnotation"
@@ -219,16 +230,18 @@ extension MapViewController: MKMapViewDelegate{
     func mapView(_ mapView: MKMapView, didAdd views: [MKAnnotationView]) {
         var delay = 0.0
         for annotationView in views{
-            let endLocation = annotationView.center
-            //            let startLocation = CGPoint(x: annotationView.center.x, y: -100)// Downwards falling animation
-            let startLocation = CGPoint(x: annotationView.center.x, y: annotationView.center.y)
-            annotationView.center = startLocation
-            annotationView.alpha = 0.0
-            UIView.animate(withDuration: 0.6, delay: delay, options: .curveEaseOut, animations: {
-                annotationView.center = endLocation
-                annotationView.alpha = 1.0
-            }, completion: nil)
-            delay += 0.1
+//            if annotationView.annotation as? MKPointAnnotation != searchAnnotation{
+                let endLocation = annotationView.center
+                //            let startLocation = CGPoint(x: annotationView.center.x, y: -100)// Downwards falling animation
+                let startLocation = CGPoint(x: annotationView.center.x, y: annotationView.center.y)
+                annotationView.center = startLocation
+                annotationView.alpha = 0.0
+                UIView.animate(withDuration: 0.6, delay: delay, options: .curveEaseOut, animations: {
+                    annotationView.center = endLocation
+                    annotationView.alpha = 1.0
+                }, completion: nil)
+                delay += 0.1
+//            }
         }
     }
     
@@ -278,7 +291,15 @@ extension MapViewController: UITextFieldDelegate, GMSAutocompleteViewControllerD
                     self.loadSpotsFromLocation(coordinate: coordinate)
                     self.zoomToCoordinate(coordinate: coordinate, width: 1200, animationTime: 1.0)
                     self.searchTextField.text = fullAddress
+                    if self.searchAnnotation != nil{
+                        self.mapView.removeAnnotation(self.searchAnnotation!)
+                    }
+                    self.searchAnnotation = MKPointAnnotation()
+                    self.searchAnnotation?.coordinate = coordinate
+                    self.searchAnnotation?.title = "Search Address"
+                    self.mapView.addAnnotation(self.searchAnnotation!)
                 }
+                
             })
         }
         return false
@@ -287,7 +308,8 @@ extension MapViewController: UITextFieldDelegate, GMSAutocompleteViewControllerD
     func textFieldDidBeginEditing(_ textField: UITextField) {
         let autocompleteController = GMSAutocompleteViewController()
         let currentLocation = self.mapView.centerCoordinate
-        let bounds = GMSCoordinateBounds(coordinate: currentLocation.transform(using: 50000, longitudinalMeters: 50000), coordinate: currentLocation.transform(using: -50000, longitudinalMeters: -50000))
+        let boundDistance:Double = 20000
+        let bounds = GMSCoordinateBounds(coordinate: currentLocation.transform(using: boundDistance, longitudinalMeters: boundDistance), coordinate: currentLocation.transform(using: -boundDistance, longitudinalMeters: -boundDistance))
         print("Bounds \(bounds.isValid) \(bounds.northEast) \(bounds.southWest)")
         autocompleteController.autocompleteBounds = bounds
         autocompleteController.delegate = self
@@ -298,6 +320,13 @@ extension MapViewController: UITextFieldDelegate, GMSAutocompleteViewControllerD
         self.searchTextField.text = place.formattedAddress
         zoomToCoordinate(coordinate: place.coordinate, width: 1200)
         self.loadSpotsFromLocation(coordinate: place.coordinate)
+        if self.searchAnnotation != nil{
+            self.mapView.removeAnnotation(self.searchAnnotation!)
+        }
+        self.searchAnnotation = MKPointAnnotation()
+        self.searchAnnotation?.coordinate = place.coordinate
+        self.searchAnnotation?.title = "Search Address"
+        self.mapView.addAnnotation(self.searchAnnotation!)
         dismiss(animated: true, completion: nil)
     }
     
