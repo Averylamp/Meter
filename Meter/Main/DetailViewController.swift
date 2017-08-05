@@ -156,6 +156,7 @@ class DetailViewController: UIViewController{
         if let detailVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SpotDetailVC") as? SpotDetailViewController {
             detailVC.view.frame = UIScreen.main.bounds
             let currentSpot = self.currentSpots[sender.tag]
+            detailVC.spotPFObj = currentSpot
             if let spotName = currentSpot[SpotKeys.Name] as? String{
                 detailVC.spotTitleLabel.text = spotName
             }

@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import Parse
 class SpotDetailViewController: UIViewController {
 
     @IBOutlet weak var scrollView: UIScrollView!
@@ -44,6 +44,7 @@ class SpotDetailViewController: UIViewController {
     var imageOrder = [String]()
     @IBOutlet weak var contentViewHeightConstraint: NSLayoutConstraint!
     
+    var spotPFObj: PFObject?
     
     
     override func viewDidLoad() {
@@ -130,6 +131,30 @@ class SpotDetailViewController: UIViewController {
     
     @IBAction func ownerButtonClicked(_ sender: Any) {
         NotificationCenter.default.post(Notification(name: Notification.Name(rawValue: NavigationNotifications.AccountSelected), object: self))
+    }
+    
+    @IBAction func bookNowClicked(_ sender: Any) {
+        DispatchQueue.global().async {
+            do {
+                try self.spotPFObj?.fetchIfNeeded()
+            }catch{
+                print("Failed fetching spot")
+            }
+            if let spotPFObj = self.spotPFObj{
+                if let isCraigslist =  spotPFObj[SpotKeys.IsCraigslist] as? Bool, isCraigslist == true{
+                    print("Craigslist Contact Info")
+                    if let hasPhone = spotPFObj[SpotKeys.CraigslistPhoneNumber] as? String{
+                        
+                    }else if let hasEmail = spotPFObj[SpotKeys.CraigslistEmail] as? String{
+                        
+                    }
+                }else{
+                    print("Finding User contact info")
+                    
+                }
+            }
+            
+        }
     }
     
 }
