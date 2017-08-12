@@ -20,12 +20,12 @@
                   moduleName = "Bolts"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/avery/Developer/iOS/Meter/Pods/Bolts/Bolts/Common/BFTask.m"
-                  timestampString = "524263545.082107"
+                  timestampString = "524267103.419187"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "21"
                   endingLineNumber = "21"
-                  offsetFromSymbolStart = "8">
+                  offsetFromSymbolStart = "11">
                </Location>
             </Locations>
          </BreakpointContent>

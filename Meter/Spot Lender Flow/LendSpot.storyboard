@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13156.6" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13156.6" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
+        <development version="8000" identifier="xcode"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13137.5"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -26,8 +26,8 @@
             <objects>
                 <viewController storyboardIdentifier="MainLenderVC" id="bNx-cP-RHZ" customClass="LenderSpotTypeViewController" customModule="Meter" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="TEK-8n-eZW"/>
-                        <viewControllerLayoutGuide type="bottom" id="yQy-py-ygV"/>
+                        <viewControllerLayoutGuide type="top" id="ToQ-oo-alO"/>
+                        <viewControllerLayoutGuide type="bottom" id="XHf-zr-3qG"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="KI2-ym-MAr">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -163,7 +163,7 @@
                             <constraint firstItem="o4y-84-75k" firstAttribute="top" secondItem="duT-rC-TTF" secondAttribute="bottom" constant="10" id="CGw-Xv-KY5"/>
                             <constraint firstItem="duT-rC-TTF" firstAttribute="leading" secondItem="KI2-ym-MAr" secondAttribute="leadingMargin" constant="40" id="JSf-TD-IAo"/>
                             <constraint firstItem="MKA-b7-pg1" firstAttribute="width" secondItem="KI2-ym-MAr" secondAttribute="width" id="P1N-iw-BAq"/>
-                            <constraint firstItem="yQy-py-ygV" firstAttribute="top" secondItem="o4y-84-75k" secondAttribute="bottom" id="SVO-SI-bVt"/>
+                            <constraint firstItem="XHf-zr-3qG" firstAttribute="top" secondItem="o4y-84-75k" secondAttribute="bottom" id="SVO-SI-bVt"/>
                             <constraint firstItem="sTd-Oo-DzQ" firstAttribute="centerX" secondItem="KI2-ym-MAr" secondAttribute="centerX" id="UXo-0U-xev"/>
                             <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="duT-rC-TTF" secondAttribute="trailing" constant="30" id="agq-a0-uxJ"/>
                             <constraint firstItem="sTd-Oo-DzQ" firstAttribute="top" secondItem="KI2-ym-MAr" secondAttribute="top" id="bHa-WY-aoS"/>
@@ -173,7 +173,6 @@
                             <constraint firstItem="duT-rC-TTF" firstAttribute="top" secondItem="MKA-b7-pg1" secondAttribute="bottom" constant="15" id="ma6-Ap-pPB"/>
                             <constraint firstItem="MKA-b7-pg1" firstAttribute="centerX" secondItem="KI2-ym-MAr" secondAttribute="centerX" id="vuH-Jf-KgQ"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="4KP-aZ-60e"/>
                     </view>
                     <navigationItem key="navigationItem" id="xWK-hw-prQ"/>
                     <connections>
@@ -189,8 +188,8 @@
             <objects>
                 <viewController storyboardIdentifier="LendSpotAddressVC" id="y8a-x4-8fY" customClass="LenderSpotAddressViewController" customModule="Meter" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="0Sd-a4-Pkg"/>
-                        <viewControllerLayoutGuide type="bottom" id="ucC-Y6-3v3"/>
+                        <viewControllerLayoutGuide type="top" id="Dpp-tp-SF9"/>
+                        <viewControllerLayoutGuide type="bottom" id="FJq-dc-6iX"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Er2-zc-EFh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -318,10 +317,9 @@
                             <constraint firstItem="QrN-vu-jOu" firstAttribute="width" secondItem="Er2-zc-EFh" secondAttribute="width" id="ZV9-10-Rpc"/>
                             <constraint firstItem="FZt-IA-7KE" firstAttribute="top" secondItem="QrN-vu-jOu" secondAttribute="bottom" id="cpP-Tt-G4I"/>
                             <constraint firstItem="FZt-IA-7KE" firstAttribute="centerX" secondItem="Er2-zc-EFh" secondAttribute="centerX" id="fe0-Gq-Pgu"/>
-                            <constraint firstItem="ucC-Y6-3v3" firstAttribute="top" secondItem="1Sp-Kb-fgl" secondAttribute="bottom" id="s7p-BH-tYN"/>
+                            <constraint firstItem="FJq-dc-6iX" firstAttribute="top" secondItem="1Sp-Kb-fgl" secondAttribute="bottom" id="s7p-BH-tYN"/>
                             <constraint firstItem="akz-cg-d8j" firstAttribute="leading" secondItem="Er2-zc-EFh" secondAttribute="leadingMargin" id="y5v-45-S7w"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="aa1-nE-L3r"/>
                     </view>
                     <connections>
                         <outlet property="continueButtonHeightConstraint" destination="Imr-PP-FmL" id="Re7-X7-4Hx"/>
@@ -338,8 +336,8 @@
             <objects>
                 <viewController storyboardIdentifier="LenderAddImageVC" id="x4S-pT-R2M" customClass="LenderSpotPhotosViewController" customModule="Meter" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="0Wq-LO-KQD"/>
-                        <viewControllerLayoutGuide type="bottom" id="4P2-YT-Dkj"/>
+                        <viewControllerLayoutGuide type="top" id="lWO-vH-Jji"/>
+                        <viewControllerLayoutGuide type="bottom" id="W9V-pc-Qp8"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="RwQ-eu-Q6z">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -393,7 +391,7 @@
                                     <action selector="backButtonClicked:" destination="x4S-pT-R2M" eventType="touchUpInside" id="6fm-MK-RqL"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="YES" translatesAutoresizingMaskIntoConstraints="NO" id="D01-PS-fuJ">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D01-PS-fuJ">
                                 <rect key="frame" x="0.0" y="95" width="375" height="5"/>
                                 <color key="backgroundColor" red="0.44705882352941173" green="0.62745098039215685" blue="0.92156862745098034" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -415,7 +413,7 @@
                                     <action selector="continueButtonClicked:" destination="y8a-x4-8fY" eventType="touchUpInside" id="kkM-zj-dKR"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zeb-K7-pee">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zeb-K7-pee">
                                 <rect key="frame" x="0.0" y="100" width="375" height="567"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Photos" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zgi-o3-BsC">
@@ -427,7 +425,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="YES" translatesAutoresizingMaskIntoConstraints="NO" id="l8s-im-Dfv">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l8s-im-Dfv">
                                         <rect key="frame" x="20" y="50" width="335" height="155"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="addImageTemporary" translatesAutoresizingMaskIntoConstraints="NO" id="Zfl-De-BOQ">
@@ -469,14 +467,14 @@
                                             <constraint firstItem="aJB-ME-gZK" firstAttribute="height" secondItem="l8s-im-Dfv" secondAttribute="height" multiplier="0.5" constant="-20" id="zHT-b3-X9L"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="YES" translatesAutoresizingMaskIntoConstraints="NO" id="f2J-on-l8P">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f2J-on-l8P">
                                         <rect key="frame" x="25" y="213" width="325" height="2"/>
                                         <color key="backgroundColor" red="0.73725490196078436" green="0.73725490196078436" blue="0.73725490196078436" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="2" id="RRB-eA-6Lr"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ge8-gp-gg8">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ge8-gp-gg8">
                                         <rect key="frame" x="20" y="222.5" width="335" height="155"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="addImageTemporary" translatesAutoresizingMaskIntoConstraints="NO" id="CRo-0v-LSw">
@@ -518,14 +516,14 @@
                                             <constraint firstItem="1yY-42-PwE" firstAttribute="width" secondItem="CRo-0v-LSw" secondAttribute="width" id="wpU-IH-VnU"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="YES" translatesAutoresizingMaskIntoConstraints="NO" id="M5f-aQ-qq3">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M5f-aQ-qq3">
                                         <rect key="frame" x="25" y="385.5" width="325" height="2"/>
                                         <color key="backgroundColor" red="0.73725490196078436" green="0.73725490196078436" blue="0.73725490196078436" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="2" id="2F6-VU-xS2"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QlF-dL-Cep">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QlF-dL-Cep">
                                         <rect key="frame" x="20" y="395.5" width="335" height="155.5"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="addImageTemporary" translatesAutoresizingMaskIntoConstraints="NO" id="1It-gt-Mlp">
@@ -603,7 +601,7 @@
                             <constraint firstItem="4vJ-zx-VYc" firstAttribute="top" secondItem="Zeb-K7-pee" secondAttribute="bottom" id="IWS-0o-xs8"/>
                             <constraint firstItem="dEI-hH-VgL" firstAttribute="leading" secondItem="RwQ-eu-Q6z" secondAttribute="leading" constant="16" id="Jlc-Ty-8Ah"/>
                             <constraint firstItem="Zeb-K7-pee" firstAttribute="top" secondItem="D01-PS-fuJ" secondAttribute="bottom" id="Uid-6z-h1M"/>
-                            <constraint firstItem="4P2-YT-Dkj" firstAttribute="top" secondItem="4vJ-zx-VYc" secondAttribute="bottom" id="Z0J-yn-cLb"/>
+                            <constraint firstItem="W9V-pc-Qp8" firstAttribute="top" secondItem="4vJ-zx-VYc" secondAttribute="bottom" id="Z0J-yn-cLb"/>
                             <constraint firstItem="D01-PS-fuJ" firstAttribute="width" secondItem="RwQ-eu-Q6z" secondAttribute="width" id="bBS-85-f1r"/>
                             <constraint firstItem="2AP-Tn-9bs" firstAttribute="centerX" secondItem="RwQ-eu-Q6z" secondAttribute="centerX" id="fHE-oO-7bJ"/>
                             <constraint firstItem="D01-PS-fuJ" firstAttribute="top" secondItem="2AP-Tn-9bs" secondAttribute="bottom" id="hzv-TJ-GXf"/>
@@ -612,7 +610,6 @@
                             <constraint firstItem="4vJ-zx-VYc" firstAttribute="centerX" secondItem="RwQ-eu-Q6z" secondAttribute="centerX" id="laf-9c-eOZ"/>
                             <constraint firstItem="4vJ-zx-VYc" firstAttribute="width" secondItem="RwQ-eu-Q6z" secondAttribute="width" id="ulm-cP-8cC"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="uo9-Dz-gsh"/>
                     </view>
                     <connections>
                         <outlet property="additionalImageView" destination="1It-gt-Mlp" id="Y1I-Ky-3f7"/>
@@ -630,8 +627,8 @@
             <objects>
                 <viewController storyboardIdentifier="LenderSpotPricingVC" id="agM-eW-NET" customClass="LenderSpotPricingViewController" customModule="Meter" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="xhc-yk-gqG"/>
-                        <viewControllerLayoutGuide type="bottom" id="14S-bv-qy2"/>
+                        <viewControllerLayoutGuide type="top" id="EZ2-Zy-xkT"/>
+                        <viewControllerLayoutGuide type="bottom" id="cBn-Sa-pYt"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="7hN-e7-xT5">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -698,7 +695,7 @@
                                     <action selector="backButtonClicked:" destination="agM-eW-NET" eventType="touchUpInside" id="lcr-nb-cdM"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VCn-RV-Oyf">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VCn-RV-Oyf">
                                 <rect key="frame" x="0.0" y="120" width="375" height="5"/>
                                 <color key="backgroundColor" red="0.44705882349999998" green="0.62745098040000002" blue="0.92156862750000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -721,10 +718,10 @@
                                     <action selector="continueClicked:" destination="agM-eW-NET" eventType="touchUpInside" id="wT5-dh-u6o"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dKR-Yw-iNB">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dKR-Yw-iNB">
                                 <rect key="frame" x="0.0" y="125" width="375" height="492"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="YES" translatesAutoresizingMaskIntoConstraints="NO" id="725-4d-37B">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="725-4d-37B">
                                         <rect key="frame" x="0.0" y="4" width="375" height="156"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="srp-lS-C6g">
@@ -759,10 +756,10 @@
                                                 </attributedString>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PWA-7o-5tE">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PWA-7o-5tE">
                                                 <rect key="frame" x="137.5" y="93.5" width="100" height="35"/>
                                                 <subviews>
-                                                    <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bgr-lV-MMu">
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bgr-lV-MMu">
                                                         <rect key="frame" x="0.0" y="0.0" width="35" height="35"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FlP-xc-qY7">
@@ -781,7 +778,7 @@
                                                             <constraint firstItem="FlP-xc-qY7" firstAttribute="centerY" secondItem="Bgr-lV-MMu" secondAttribute="centerY" id="pbk-HI-UN5"/>
                                                         </constraints>
                                                     </view>
-                                                    <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Rr9-lG-Fbf">
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rr9-lG-Fbf">
                                                         <rect key="frame" x="35" y="0.0" width="65" height="35"/>
                                                         <subviews>
                                                             <textField opaque="NO" tag="100" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="360" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bRe-8x-n4s">
@@ -829,14 +826,14 @@
                                             <constraint firstItem="PWA-7o-5tE" firstAttribute="top" secondItem="JIS-az-b2h" secondAttribute="bottom" constant="14" id="xtp-gR-1Cl"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0uf-3Y-m3s">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0uf-3Y-m3s">
                                         <rect key="frame" x="37.5" y="163" width="300" height="2"/>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="2" id="JcG-SA-Aub"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="YES" translatesAutoresizingMaskIntoConstraints="NO" id="t9O-Xs-IbB">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t9O-Xs-IbB">
                                         <rect key="frame" x="0.0" y="168" width="375" height="156"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0xF-Rm-Y9f">
@@ -871,10 +868,10 @@
                                                 </attributedString>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lWe-5h-5lt">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lWe-5h-5lt">
                                                 <rect key="frame" x="137.5" y="93.5" width="100" height="35"/>
                                                 <subviews>
-                                                    <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qrf-fj-X4n">
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qrf-fj-X4n">
                                                         <rect key="frame" x="0.0" y="0.0" width="35" height="35"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qhn-a2-uez">
@@ -893,7 +890,7 @@
                                                             <constraint firstItem="Qhn-a2-uez" firstAttribute="width" secondItem="qrf-fj-X4n" secondAttribute="width" id="wc8-yj-cUI"/>
                                                         </constraints>
                                                     </view>
-                                                    <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="YES" translatesAutoresizingMaskIntoConstraints="NO" id="czV-br-VED">
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="czV-br-VED">
                                                         <rect key="frame" x="35" y="0.0" width="65" height="35"/>
                                                         <subviews>
                                                             <textField opaque="NO" tag="101" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="130" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1va-N4-kvd">
@@ -941,11 +938,11 @@
                                             <constraint firstItem="0xF-Rm-Y9f" firstAttribute="leading" secondItem="t9O-Xs-IbB" secondAttribute="leading" constant="15" id="rId-6F-k9R"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="YES" translatesAutoresizingMaskIntoConstraints="NO" id="34K-qa-pXq">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="34K-qa-pXq">
                                         <rect key="frame" x="37.5" y="327" width="300" height="2"/>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
-                                    <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="YES" translatesAutoresizingMaskIntoConstraints="NO" id="X3N-YI-5Qu">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X3N-YI-5Qu">
                                         <rect key="frame" x="0.0" y="332" width="375" height="156"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LSR-Xs-0Dl">
@@ -980,10 +977,10 @@
                                                 </attributedString>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3DT-Bx-BPb">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3DT-Bx-BPb">
                                                 <rect key="frame" x="137.5" y="93.5" width="100" height="35"/>
                                                 <subviews>
-                                                    <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JBQ-ye-Juj">
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JBQ-ye-Juj">
                                                         <rect key="frame" x="0.0" y="0.0" width="35" height="35"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lvo-JV-60y">
@@ -1002,7 +999,7 @@
                                                             <constraint firstItem="lvo-JV-60y" firstAttribute="height" secondItem="JBQ-ye-Juj" secondAttribute="height" id="yjd-5K-fBh"/>
                                                         </constraints>
                                                     </view>
-                                                    <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KBb-Kg-pNP">
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KBb-Kg-pNP">
                                                         <rect key="frame" x="35" y="0.0" width="65" height="35"/>
                                                         <subviews>
                                                             <textField opaque="NO" tag="102" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="18" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BcW-Q5-2aZ">
@@ -1084,7 +1081,7 @@
                             <constraint firstItem="43s-IM-S97" firstAttribute="centerX" secondItem="7hN-e7-xT5" secondAttribute="centerX" id="B8G-FR-fw8"/>
                             <constraint firstItem="dmp-Pu-Xhd" firstAttribute="centerY" secondItem="sNa-Nl-vbn" secondAttribute="centerY" id="GtG-H0-JZl"/>
                             <constraint firstItem="dKR-Yw-iNB" firstAttribute="centerX" secondItem="7hN-e7-xT5" secondAttribute="centerX" id="H6d-KR-fQ5"/>
-                            <constraint firstItem="14S-bv-qy2" firstAttribute="top" secondItem="43s-IM-S97" secondAttribute="bottom" id="MPT-vD-Bxv"/>
+                            <constraint firstItem="cBn-Sa-pYt" firstAttribute="top" secondItem="43s-IM-S97" secondAttribute="bottom" id="MPT-vD-Bxv"/>
                             <constraint firstItem="VCn-RV-Oyf" firstAttribute="width" secondItem="7hN-e7-xT5" secondAttribute="width" id="SL1-FU-Tln"/>
                             <constraint firstItem="dmp-Pu-Xhd" firstAttribute="width" secondItem="dmp-Pu-Xhd" secondAttribute="height" multiplier="1:1" id="U2k-tS-0T9"/>
                             <constraint firstItem="dKR-Yw-iNB" firstAttribute="width" secondItem="7hN-e7-xT5" secondAttribute="width" id="Vgz-J9-qql"/>
@@ -1094,7 +1091,6 @@
                             <constraint firstItem="pNU-Jg-9PM" firstAttribute="top" secondItem="7hN-e7-xT5" secondAttribute="top" id="kZY-HB-DRF"/>
                             <constraint firstItem="pNU-Jg-9PM" firstAttribute="width" secondItem="7hN-e7-xT5" secondAttribute="width" id="o7X-Cz-7Yr"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="2Xb-ca-ZeI"/>
                     </view>
                     <connections>
                         <outlet property="dailyCheckboxButton" destination="LSR-Xs-0Dl" id="gxy-LR-2I2"/>
@@ -1117,8 +1113,8 @@
             <objects>
                 <viewController storyboardIdentifier="LenderSpotDetailsVC" id="ap3-5h-wCt" customClass="LenderSpotDetailsViewController" customModule="Meter" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="gBE-m1-HjE"/>
-                        <viewControllerLayoutGuide type="bottom" id="Cfv-d8-UZ0"/>
+                        <viewControllerLayoutGuide type="top" id="74Q-pA-vdO"/>
+                        <viewControllerLayoutGuide type="bottom" id="G1d-HT-5MT"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="eRw-32-fy8">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -1286,7 +1282,7 @@
                             <constraint firstItem="UcD-vB-U22" firstAttribute="leading" secondItem="vVN-Y2-49O" secondAttribute="leading" id="b3a-oz-Ag3"/>
                             <constraint firstItem="vHt-c9-k2T" firstAttribute="leading" secondItem="eRw-32-fy8" secondAttribute="leading" constant="30" id="cmt-hQ-VLN"/>
                             <constraint firstItem="EGy-db-wG2" firstAttribute="leading" secondItem="jmd-1B-4Dr" secondAttribute="leading" id="cxK-mE-w6A"/>
-                            <constraint firstItem="Cfv-d8-UZ0" firstAttribute="top" secondItem="8ep-Nz-RGQ" secondAttribute="bottom" constant="20" id="eze-Vc-g3G"/>
+                            <constraint firstItem="G1d-HT-5MT" firstAttribute="top" secondItem="8ep-Nz-RGQ" secondAttribute="bottom" constant="20" id="eze-Vc-g3G"/>
                             <constraint firstItem="4UU-Tb-csT" firstAttribute="leading" secondItem="jmd-1B-4Dr" secondAttribute="leading" id="fQg-aG-CRe"/>
                             <constraint firstItem="jmd-1B-4Dr" firstAttribute="leading" secondItem="eRw-32-fy8" secondAttribute="leading" constant="30" id="hQa-5Q-lM9"/>
                             <constraint firstItem="UcD-vB-U22" firstAttribute="width" secondItem="vVN-Y2-49O" secondAttribute="width" id="kZE-Tn-3zI"/>
@@ -1301,7 +1297,6 @@
                             <constraint firstAttribute="trailing" secondItem="EGy-db-wG2" secondAttribute="trailing" constant="30" id="yUb-Nd-IzR"/>
                             <constraint firstItem="tgE-3j-bMM" firstAttribute="centerX" secondItem="eRw-32-fy8" secondAttribute="centerX" id="yhc-Q5-kQs"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="eah-KG-NBl"/>
                     </view>
                     <connections>
                         <outlet property="aboutSpotTextView" destination="UcD-vB-U22" id="D8x-8h-Gcg"/>
@@ -1318,14 +1313,13 @@
             <objects>
                 <viewController storyboardIdentifier="SpotListingCompleteVC" id="bqN-nq-sGY" customClass="LenderSpotCompletedViewController" customModule="Meter" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="zxS-iw-1hb"/>
-                        <viewControllerLayoutGuide type="bottom" id="49F-R5-Dik"/>
+                        <viewControllerLayoutGuide type="top" id="XhS-Kg-ESj"/>
+                        <viewControllerLayoutGuide type="bottom" id="fEM-JF-rtb"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="cCc-St-xqJ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <viewLayoutGuide key="safeArea" id="lFC-XO-tJa"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jcl-lP-Q6p" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1337,8 +1331,8 @@
             <objects>
                 <viewController storyboardIdentifier="SpotCoordinateVC" id="bIh-Sj-jvX" customClass="LenderSpotCoordinateViewController" customModule="Meter" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="hFv-qf-kMu"/>
-                        <viewControllerLayoutGuide type="bottom" id="vcy-Jc-V6K"/>
+                        <viewControllerLayoutGuide type="top" id="XTb-h5-x7F"/>
+                        <viewControllerLayoutGuide type="bottom" id="zca-iI-UFb"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="ZJa-aj-o9j">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -1415,7 +1409,7 @@
                                     <action selector="centerButtonClicked:" destination="bIh-Sj-jvX" eventType="touchUpInside" id="0KA-xL-UhM"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pXf-0Q-M5p">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pXf-0Q-M5p">
                                 <rect key="frame" x="0.0" y="587" width="375" height="80"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z0X-Pg-1LT">
@@ -1488,9 +1482,8 @@
                             <constraint firstItem="pXf-0Q-M5p" firstAttribute="width" secondItem="ZJa-aj-o9j" secondAttribute="width" id="bhV-wm-fPN"/>
                             <constraint firstItem="qv1-Ti-Ccu" firstAttribute="width" secondItem="ZJa-aj-o9j" secondAttribute="width" id="gnN-uW-sqP"/>
                             <constraint firstItem="bec-A5-UDj" firstAttribute="bottom" secondItem="qv1-Ti-Ccu" secondAttribute="bottom" constant="-15" id="loU-1R-ZgC"/>
-                            <constraint firstItem="vcy-Jc-V6K" firstAttribute="top" secondItem="pXf-0Q-M5p" secondAttribute="bottom" id="sv1-i4-tIL"/>
+                            <constraint firstItem="zca-iI-UFb" firstAttribute="top" secondItem="pXf-0Q-M5p" secondAttribute="bottom" id="sv1-i4-tIL"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="ni6-eV-1B4"/>
                     </view>
                     <connections>
                         <outlet property="addressLabel" destination="g8t-Ac-xQb" id="gdU-ls-0jJ"/>
