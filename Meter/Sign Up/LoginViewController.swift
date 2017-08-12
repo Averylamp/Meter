@@ -12,6 +12,12 @@ import ParseFacebookUtilsV4
 import MBProgressHUD
 
 class LoginViewController: UIViewController {
+    enum State {
+        case Login
+        case Signup
+    }
+    
+    var state: State = .Login
     
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -19,7 +25,7 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        checkForLogin()
+//        checkForLogin()
     }
     
     @IBAction func continueFacebookClicked(_ sender: Any) {
@@ -106,6 +112,10 @@ class LoginViewController: UIViewController {
     
     func goToMainVC(){
         self.performSegue(withIdentifier: "LoginToMainVCSegue", sender: self)
+    }
+    
+    func stateChanged(){
+        
     }
     
     @IBAction func signUpClicked(_ sender: Any) {

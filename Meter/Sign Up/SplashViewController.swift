@@ -15,12 +15,13 @@ class SplashViewController: UIViewController, UIScrollViewDelegate {
     
     @IBOutlet weak var scrollView: UIScrollView!
     
+    @IBOutlet weak var skipButton: UIButton!
     let images:[UIImage] = [#imageLiteral(resourceName: "IntroPage1Image"), #imageLiteral(resourceName: "IntroPage2Image"), #imageLiteral(resourceName: "IntroPage3Image")]
     
     @IBOutlet weak var pageImageView: UIImageView!
     
     @IBOutlet var indicatorViews: [UIView]!
-    let subtext = ["We connect drivers like you to privately owned, unused parking spaces so you can enjoy cheaper more reliable parking", "Meter provides options for monthly and daily parking. Simply select where you would like to park, and choose the duration you would like to book the spot!", "More text that describes how awesome our service is! Maybe something that addresses security or legal concerns"]
+    let subtext = ["Your one stop for all your parking needs. Meter helps you save time and money on parking so that you can focus on what is most important to you.", "Right in your driveway. Listing is simple. Simply list your spot, set prices, select available days, and you’re all set to go! Make over $200 a month from your underutilized space.", "Save up to 50% in parking costs, spend 15 minutes less each day looking for parking. Commuting? Need a consistent place for your car? Use Meter."]
     
     let colors = [Constants.Colors.blueHighlight, Constants.Colors.grayHighlight, Constants.Colors.pinkHighlight]
     @IBOutlet weak var indicatorView: UIView!
@@ -30,13 +31,13 @@ class SplashViewController: UIViewController, UIScrollViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        checkForLogin()
+//        checkForLogin()
         scrollView.delegate = self
         scrollView.isPagingEnabled = true
         scrollView.contentSize = CGSize(width: self.view.frame.width * CGFloat(subtext.count), height: self.scrollView.frame.height)
         scrollView.showsHorizontalScrollIndicator = false
         pageImageView.image = images.first
-        pageImageView.contentMode = .scaleAspectFit
+//        pageImageView.contentMode = .scaleAspectFit
         
         initializeScrollView()
     }
@@ -118,7 +119,24 @@ class SplashViewController: UIViewController, UIScrollViewDelegate {
             }, completion: nil)
         }
         
+        if page == 2{
+            UIView.transition(with: self.skipButton, duration: 0.4, options: .transitionCrossDissolve, animations: {
+                self.skipButton.setImage(#imageLiteral(resourceName: "introStart"), for: .normal)
+                self.skipButton.setImage(#imageLiteral(resourceName: "introStart"), for: .selected)
+                self.skipButton.setImage(#imageLiteral(resourceName: "introStart"), for: .highlighted)
+            }, completion: nil)
+        }else{
+            UIView.transition(with: self.skipButton, duration: 0.4, options: .transitionCrossDissolve, animations: {
+                self.skipButton.setImage(#imageLiteral(resourceName: "introSkip"), for: .normal)
+                self.skipButton.setImage(#imageLiteral(resourceName: "introSkip"), for: .selected)
+                self.skipButton.setImage(#imageLiteral(resourceName: "introSkip"), for: .highlighted)
+            }, completion: nil)
+        }
         
+    }
+    
+    @IBAction func skipButtonClicked(_ sender: Any) {
+        loginClicked(sender)
     }
     
     @IBAction func loginClicked(_ sender: Any) {
