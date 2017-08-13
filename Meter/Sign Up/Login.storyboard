@@ -244,7 +244,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zt3-vk-gUz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1989.5999999999999" y="91.304347826086968"/>
+            <point key="canvasLocation" x="1959" y="90"/>
         </scene>
         <!--Splash View Controller-->
         <scene sceneID="nLb-T3-0ja">
@@ -259,17 +259,17 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R2U-EC-nmx">
-                                <rect key="frame" x="0.0" y="354" width="375" height="203"/>
+                                <rect key="frame" x="0.0" y="334" width="375" height="223"/>
                             </scrollView>
                             <imageView userInteractionEnabled="NO" contentMode="bottom" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MlZ-Yw-FrD">
-                                <rect key="frame" x="117.5" y="60" width="140" height="210"/>
+                                <rect key="frame" x="117.5" y="40" width="140" height="210"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="MlZ-Yw-FrD" secondAttribute="height" multiplier="1:1.5" id="a1Z-Ab-Qpy"/>
                                     <constraint firstAttribute="width" constant="140" id="ka0-nt-yQN"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="welcome to" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nkV-PN-am2" customClass="LTMorphingLabel" customModule="LTMorphingLabel">
-                                <rect key="frame" x="117" y="290" width="140" height="24"/>
+                                <rect key="frame" x="117" y="270" width="140" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="24" id="6A6-X9-enw"/>
                                 </constraints>
@@ -278,7 +278,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="meter" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3qv-rh-b9c" customClass="LTMorphingLabel" customModule="LTMorphingLabel">
-                                <rect key="frame" x="117" y="314" width="140" height="40"/>
+                                <rect key="frame" x="117" y="294" width="140" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="RWe-i6-c5U"/>
                                 </constraints>
@@ -367,7 +367,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sgz-12-VlN">
-                                <rect key="frame" x="272" y="60" width="78" height="25"/>
+                                <rect key="frame" x="272" y="40" width="78" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="25" id="Axz-a8-rSp"/>
                                     <constraint firstAttribute="width" secondItem="sgz-12-VlN" secondAttribute="height" multiplier="78:25" id="oy6-qa-GH3"/>
@@ -377,6 +377,14 @@
                                     <action selector="skipButtonClicked:" destination="GpQ-6b-0MF" eventType="touchUpInside" id="fj4-XI-dZE"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MeterPinLogo" translatesAutoresizingMaskIntoConstraints="NO" id="341-Yi-RFi">
+                                <rect key="frame" x="32" y="32.5" width="40" height="40"/>
+                                <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="341-Yi-RFi" secondAttribute="height" multiplier="1:1" id="cz6-7D-Ga2"/>
+                                    <constraint firstAttribute="width" constant="40" id="vqS-GT-6ki"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -391,9 +399,11 @@
                             <constraint firstAttribute="trailing" secondItem="sgz-12-VlN" secondAttribute="trailing" constant="25" id="OwM-aD-ByR"/>
                             <constraint firstItem="R2U-EC-nmx" firstAttribute="width" secondItem="G7F-Sc-nGy" secondAttribute="width" id="WcC-kp-cSp"/>
                             <constraint firstItem="MlZ-Yw-FrD" firstAttribute="centerX" secondItem="G7F-Sc-nGy" secondAttribute="centerX" id="deJ-AY-Gvg"/>
+                            <constraint firstItem="341-Yi-RFi" firstAttribute="centerY" secondItem="sgz-12-VlN" secondAttribute="centerY" id="dve-g1-qaV"/>
                             <constraint firstItem="MlZ-Yw-FrD" firstAttribute="top" secondItem="rbm-gm-Oxz" secondAttribute="bottom" constant="20" id="g23-Ws-m7l"/>
                             <constraint firstItem="3qv-rh-b9c" firstAttribute="top" secondItem="nkV-PN-am2" secondAttribute="bottom" id="gZ2-99-caB"/>
                             <constraint firstItem="nkV-PN-am2" firstAttribute="centerX" secondItem="MlZ-Yw-FrD" secondAttribute="centerX" id="qjI-da-aJP"/>
+                            <constraint firstItem="341-Yi-RFi" firstAttribute="leading" secondItem="G7F-Sc-nGy" secondAttribute="leadingMargin" constant="16" id="uab-aa-qEq"/>
                             <constraint firstItem="3qv-rh-b9c" firstAttribute="centerX" secondItem="nkV-PN-am2" secondAttribute="centerX" id="vIJ-pl-1ch"/>
                             <constraint firstItem="KhS-kj-PeN" firstAttribute="top" secondItem="6u6-DZ-jXu" secondAttribute="bottom" constant="40" id="yND-a2-8Se"/>
                         </constraints>
@@ -478,13 +488,6 @@
                                     <action selector="toggleStateClicked:" destination="zgn-hT-4Vs" eventType="touchUpInside" id="O0K-Ji-MAG"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BluePin" translatesAutoresizingMaskIntoConstraints="NO" id="Zmq-9g-u8P">
-                                <rect key="frame" x="46" y="30" width="60" height="100"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="60" id="kka-uP-GZn"/>
-                                    <constraint firstAttribute="height" constant="100" id="t8f-50-CcC"/>
-                                </constraints>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Log in to Meter" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5sa-H8-Kn5">
                                 <rect key="frame" x="40" y="130" width="200" height="40"/>
                                 <constraints>
@@ -625,6 +628,13 @@
                                     <action selector="skipLoginClicked:" destination="zgn-hT-4Vs" eventType="touchUpInside" id="el3-5P-nPg"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MeterPinLogo" translatesAutoresizingMaskIntoConstraints="NO" id="Zmq-9g-u8P">
+                                <rect key="frame" x="46" y="30" width="60" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="kka-uP-GZn"/>
+                                    <constraint firstAttribute="height" constant="100" id="t8f-50-CcC"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -693,7 +703,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jg8-Qu-Gc8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1264.8" y="92.203898050974516"/>
+            <point key="canvasLocation" x="1247" y="90"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="SsS-84-Efs">
@@ -777,7 +787,7 @@
                                 </constraints>
                                 <state key="normal" title="Button" image="SubmitButton"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XJW-CX-gtx" customClass="FaveButton" customModule="FaveButton">
+                            <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XJW-CX-gtx" customClass="FaveButton" customModule="FaveButton">
                                 <rect key="frame" x="257.5" y="313.5" width="40" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="OJw-tQ-qFy"/>
@@ -834,7 +844,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="snE-bi-BDU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2678" y="90"/>
+            <point key="canvasLocation" x="2670" y="90"/>
         </scene>
         <!--Sign Up Completed View Controller-->
         <scene sceneID="uho-et-Dnj">
@@ -928,28 +938,10 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TcK-Vs-DGb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3344.8000000000002" y="89.505247376311857"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="IIi-8k-BtZ">
-            <objects>
-                <viewController id="2pp-C2-Va7" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="DTC-Y7-KXe"/>
-                        <viewControllerLayoutGuide type="bottom" id="Wr7-mE-INt"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="YES" id="srP-Td-59N">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="HgE-YD-cn8" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
+            <point key="canvasLocation" x="3354" y="90"/>
         </scene>
     </scenes>
     <resources>
-        <image name="BluePin" width="162" height="225"/>
         <image name="ContinueButton" width="500" height="160"/>
         <image name="MeterPinLogo" width="625" height="822"/>
         <image name="SubmitButton" width="500" height="160"/>
@@ -959,6 +951,6 @@
         <image name="loginSkyline" width="1125" height="318"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="wmo-oX-G4G"/>
+        <segue reference="wWO-ys-EDQ"/>
     </inferredMetricsTieBreakers>
 </document>

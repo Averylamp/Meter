@@ -20,6 +20,7 @@ class SignUpExtraInfoViewController: UIViewController {
     @IBOutlet weak var lastNameTextField: UITextField!
     @IBOutlet weak var phoneNumberTextField: UITextField!
     
+    var phoneNumberChanged = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -80,6 +81,7 @@ class SignUpExtraInfoViewController: UIViewController {
             }
             if let phoneNumber = phoneNumberTextField.text, phoneNumber != "", user[UserKeys.PhoneNumber] as? String != phoneNumber{
                 user[UserKeys.PhoneNumber] = phoneNumber
+                phoneNumberChanged = true
                 changed = true
             }
             if let firstName = firstNameTextField.text, firstName != "", let lastName = lastNameTextField.text, lastName != "", user[UserKeys.Name] as? String != "\(firstName) \(lastName)" {
@@ -117,31 +119,33 @@ class SignUpExtraInfoViewController: UIViewController {
             self.showAlert(alert: "Please fill out your phone number", alertTitle: "Phone Number Missing")
             return false
         }else{
-            let parameters = ["api_key": "ZG9ZjlvdmFNM6j2N6QDxHVWEDddYPeZv",
-                              "via":"sms",
-                              "country_code":"1",
-                              "phone_number":self.phoneNumberTextField.text!,
-                              "code_length":"4"]
-            Alamofire.request("https://api.authy.com/protected/json/phones/verification/start", method: .post, parameters: parameters).responseJSON{ (response) in
-                switch response.result{
-                case .success(let value):
-                    let json = JSON(value)
-                    if let sentMessage = json["success"].bool {
-                        if sentMessage{
-                            DispatchQueue.main.async {
-                                if let phoneConfirmationVC = UIStoryboard(name: "Login", bundle: nil).instantiateViewController(withIdentifier: "SignUpPhoneConfirmationVC") as? SignUpPhoneConfirmationViewController{
-                                    phoneConfirmationVC.user = self.user
-                                    self.navigationController?.pushViewController(phoneConfirmationVC, animated: true)
+                let parameters = ["api_key": "ZG9ZjlvdmFNM6j2N6QDxHVWEDddYPeZv",
+                               "via":"sms",
+                               "country_code":"1",
+                               "phone_number":self.phoneNumberTextField.text!,
+                               "code_length":"4"]
+                Alamofire.request("https://api.authy.com/protected/json/phones/verification/start", method: .post, parameters: parameters).responseJSON{ (response) in
+                    switch response.result{
+                    case .success(let value):
+                        let json = JSON(value)
+                        if let sentMessage = json["success"].bool {
+                            if sentMessage{
+                                DispatchQueue.main.async {
+                                    if let phoneConfirmationVC = UIStoryboard(name: "Login", bundle: nil).instantiateViewController(withIdentifier: "SignUpPhoneConfirmationVC") as? SignUpPhoneConfirmationViewController{
+                                        phoneConfirmationVC.user = self.user
+                                        self.navigationController?.pushViewController(phoneConfirmationVC, animated: true)
+                                    }
                                 }
+                            }else{
+                                self.showAlert(alert: "Failed to send confirmation code to \(self.phoneNumberTextField.text!)", alertTitle: "Invalid Phone Number")
                             }
-                        }else{
-                            self.showAlert(alert: "Failed to send confirmation code to \(self.phoneNumberTextField.text!)", alertTitle: "Invalid Phone Number")
                         }
+                        print("Sent SMS \(json)")
+                    case .failure(let error):
+                        print("Error sending Text message\(error)")
                     }
-                    print("Sent SMS \(json)")
-                case .failure(let error):
-                    print("Error sending Text message\(error)")
-                }
+                
+                
             }
         }
         return true

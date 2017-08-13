@@ -37,7 +37,7 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.stateChanged()
-//        checkForLogin()
+        checkForLogin()
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(LoginViewController.dismissKeyboards))
         self.view.addGestureRecognizer(tapGestureRecognizer)
         

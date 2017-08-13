@@ -57,7 +57,7 @@ class SignUpPhoneConfirmationViewController: UIViewController {
                             user.saveInBackground()
                             DispatchQueue.main.async {
                                 self.checkMark.isSelected = true
-                                self.delay(2.5, closure: {
+                                self.delay(2.0, closure: {
                                     if let completedVC = UIStoryboard(name: "Login", bundle: nil).instantiateViewController(withIdentifier: "SignUpCompletedVC") as? SignUpCompletedViewController{
                                         self.navigationController?.pushViewController(completedVC, animated: true)
                                     }
