@@ -18,6 +18,7 @@ class MainNavigationViewController: UINavigationController {
     fileprivate var settingsSelectedObserver: NSObjectProtocol?
     fileprivate var accountSelectedObserver: NSObjectProtocol?
     fileprivate var lendSpotSelectedObserver: NSObjectProtocol?
+    fileprivate var mySpotsSelectedObserver: NSObjectProtocol?
     
     var profilePicture: UIImage? = nil
     var mainVCS = [UIViewController]()
@@ -88,6 +89,12 @@ class MainNavigationViewController: UINavigationController {
             let spotLendVC = UIStoryboard(name: "LendSpot", bundle: nil).instantiateViewController(withIdentifier: "MainLenderVC")
             self.setViewControllers([spotLendVC], animated: true)
         })
+        
+        mySpotsSelectedObserver = notificationCenter.addObserver(forName: NSNotification.Name(rawValue: NavigationNotifications.MySpotsSelected), object: nil, queue: nil, using: { (notification) in
+            self.storeVCs()
+            let mySpotVC = UIStoryboard(name: "Account", bundle: nil).instantiateViewController(withIdentifier: "MySpotsVC")
+            self.setViewControllers([mySpotVC], animated: true)
+        })
     }
     
     func storeVCs(){
@@ -122,6 +129,9 @@ class MainNavigationViewController: UINavigationController {
         }
         if lendSpotSelectedObserver != nil{
             notificationCenter.removeObserver(lendSpotSelectedObserver!)
+        }
+        if mySpotsSelectedObserver != nil{
+            notificationCenter.removeObserver(mySpotsSelectedObserver!)
         }
     }
     

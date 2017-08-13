@@ -41,17 +41,17 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R2U-EC-nmx">
-                                <rect key="frame" x="0.0" y="354" width="375" height="203"/>
+                                <rect key="frame" x="0.0" y="334" width="375" height="223"/>
                             </scrollView>
                             <imageView userInteractionEnabled="NO" contentMode="bottom" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MlZ-Yw-FrD">
-                                <rect key="frame" x="117.5" y="60" width="140" height="210"/>
+                                <rect key="frame" x="117.5" y="40" width="140" height="210"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="MlZ-Yw-FrD" secondAttribute="height" multiplier="1:1.5" id="a1Z-Ab-Qpy"/>
                                     <constraint firstAttribute="width" constant="140" id="ka0-nt-yQN"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="welcome to" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nkV-PN-am2" customClass="LTMorphingLabel" customModule="LTMorphingLabel">
-                                <rect key="frame" x="117" y="290" width="140" height="24"/>
+                                <rect key="frame" x="117" y="270" width="140" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="24" id="6A6-X9-enw"/>
                                 </constraints>
@@ -60,7 +60,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="meter" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3qv-rh-b9c" customClass="LTMorphingLabel" customModule="LTMorphingLabel">
-                                <rect key="frame" x="117" y="314" width="140" height="40"/>
+                                <rect key="frame" x="117" y="294" width="140" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="RWe-i6-c5U"/>
                                 </constraints>
@@ -149,7 +149,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sgz-12-VlN">
-                                <rect key="frame" x="272" y="60" width="78" height="25"/>
+                                <rect key="frame" x="272" y="40" width="78" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="25" id="Axz-a8-rSp"/>
                                     <constraint firstAttribute="width" secondItem="sgz-12-VlN" secondAttribute="height" multiplier="78:25" id="oy6-qa-GH3"/>
@@ -499,7 +499,7 @@
     <resources>
         <image name="BluePin" width="162" height="225"/>
         <image name="introSkip" width="234" height="75"/>
-        <image name="loginSkyline" width="375" height="106"/>
+        <image name="loginSkyline" width="1125" height="318"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="wWO-ys-EDQ"/>

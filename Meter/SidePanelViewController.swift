@@ -22,12 +22,14 @@ struct NavigationNotifications {
     static let ParkingHistorySelected = "ParkingHistorySelected"
     static let PaymentSelected = "PaymentSelected"
     static let MessagesSelected = "MessagesSelected"
+    static let MySpotsSelected = "MySpotsSelected"
     static let SettingsSelected = "SettingsSelected"
 }
 
 class SidePanelViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
    
+    @IBOutlet weak var lendNowButton: UIButton!
     @IBOutlet weak var currentUserLabel: UILabel!
     
     @IBOutlet weak var tableView: UITableView!
@@ -50,6 +52,7 @@ class SidePanelViewController: UIViewController, UITableViewDelegate, UITableVie
         super.viewDidLoad()
         tableView.dataSource = self
         tableView.delegate = self
+        lendNowButton.layer.borderColor = Constants.Colors.blueHighlight.cgColor
         tableView.separatorStyle = .none
         updateProfilePicture()
     }
@@ -96,20 +99,33 @@ class SidePanelViewController: UIViewController, UITableViewDelegate, UITableVie
         case 0:
             notificationCenter.post(Notification(name: Notification.Name(rawValue: NavigationNotifications.FindSpotSelected), object: self))
         case 1:
-            notificationCenter.post(Notification(name: Notification.Name(rawValue: NavigationNotifications.FreeCreditsSelected), object: self))
+            notificationCenter.post(Notification(name: Notification.Name(rawValue: NavigationNotifications.LendSpotSelected), object: self))
         case 2:
-            notificationCenter.post(Notification(name: Notification.Name(rawValue: NavigationNotifications.MessagesSelected), object: self))
+            notificationCenter.post(Notification(name: Notification.Name(rawValue: NavigationNotifications.MySpotsSelected), object: self))
         case 3:
-            notificationCenter.post(Notification(name: Notification.Name(rawValue: NavigationNotifications.ParkingHistorySelected), object: self))
-        case 4:
-            notificationCenter.post(Notification(name: Notification.Name(rawValue: NavigationNotifications.PaymentSelected), object: self))
-        case 5:
             notificationCenter.post(Notification(name: Notification.Name(rawValue: NavigationNotifications.SettingsSelected), object: self))
-        case 6:
-            notificationCenter.post(Notification(name: Notification.Name(rawValue: NavigationNotifications.AccountSelected), object: self))
+
         default:
             break
         }
+//        switch index {
+//        case 0:
+//            notificationCenter.post(Notification(name: Notification.Name(rawValue: NavigationNotifications.FindSpotSelected), object: self))
+//        case 1:
+//            notificationCenter.post(Notification(name: Notification.Name(rawValue: NavigationNotifications.FreeCreditsSelected), object: self))
+//        case 2:
+//            notificationCenter.post(Notification(name: Notification.Name(rawValue: NavigationNotifications.MessagesSelected), object: self))
+//        case 3:
+//            notificationCenter.post(Notification(name: Notification.Name(rawValue: NavigationNotifications.ParkingHistorySelected), object: self))
+//        case 4:
+//            notificationCenter.post(Notification(name: Notification.Name(rawValue: NavigationNotifications.PaymentSelected), object: self))
+//        case 5:
+//            notificationCenter.post(Notification(name: Notification.Name(rawValue: NavigationNotifications.SettingsSelected), object: self))
+//        case 6:
+//            notificationCenter.post(Notification(name: Notification.Name(rawValue: NavigationNotifications.AccountSelected), object: self))
+//        default:
+//            break
+//        }
     }
 
 
@@ -120,7 +136,7 @@ class SidePanelViewController: UIViewController, UITableViewDelegate, UITableVie
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 6
+        return 4
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .default, reuseIdentifier: "pageOptionsCell")
@@ -132,7 +148,6 @@ class SidePanelViewController: UIViewController, UITableViewDelegate, UITableVie
         seperator.translatesAutoresizingMaskIntoConstraints = false
         seperator.backgroundColor = UIColor(red: 0.816, green: 0.816, blue: 0.816, alpha: 1.00)
         cell.addSubview(seperator)
-        
         cell.addConstraints([
         NSLayoutConstraint(item: seperator, attribute: .width, relatedBy: .equal, toItem: cell, attribute: .width, multiplier: 1.0, constant: 0.0),
         NSLayoutConstraint(item: seperator, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 1.0),
@@ -141,43 +156,68 @@ class SidePanelViewController: UIViewController, UITableViewDelegate, UITableVie
         )
         
         
+        let footer = UIView(frame: CGRect(x: 0, y: 0, width: cell.frame.width, height: 1))
+        footer.backgroundColor = UIColor(red: 0.816, green: 0.816, blue: 0.816, alpha: 1.00)
+        tableView.tableFooterView = footer
         
-        let textLabel = UILabel(frame: CGRect(x: 40,y: 10,width: cell.frame.width - 50, height: 30))
+        let textLabel = UILabel(frame: CGRect(x: 40,y: 0,width: cell.frame.width - 50, height: 30))
         textLabel.font = UIFont(name: "Avenir-Roman", size: 16)
         textLabel.center.y = cell.center.y
         cell.addSubview(textLabel)
-        
+
         switch (indexPath as NSIndexPath).row {
         case 0:
             textLabel.text = "Find Spot"
             imageView.image = UIImage(named: "airplane")
         case 1:
-            textLabel.text = "Free Credits"
+            textLabel.text = "Lend your spot"
             imageView.image = UIImage(named: "shopping_cart")
         case 2:
-            textLabel.text = "Messages"
+            textLabel.text = "My Spots"
             imageView.image = UIImage(named: "bulleted_list")
         case 3:
-            textLabel.text = "Parking History"
-            imageView.image = UIImage(named: "user")
-        case 4:
-            textLabel.text = "Payment"
-            imageView.image = UIImage(named: "coins")
-        case 5:
             textLabel.text = "Settings"
-            imageView.image = UIImage(named: "share")
-//        case 6:
-//            textLabel.text = "Help"
-//            imageView.image = UIImage(named: "help")
+            imageView.image = UIImage(named: "user")
+        
+            //        case 6:
+            //            textLabel.text = "Help"
+        //            imageView.image = UIImage(named: "help")
         default:
             textLabel.text = "Search"
             imageView.image = UIImage(named: "search")
         }
+        
+//        switch (indexPath as NSIndexPath).row {
+//        case 0:
+//            textLabel.text = "Find Spot"
+//            imageView.image = UIImage(named: "airplane")
+//        case 1:
+//            textLabel.text = "Free Credits"
+//            imageView.image = UIImage(named: "shopping_cart")
+//        case 2:
+//            textLabel.text = "Messages"
+//            imageView.image = UIImage(named: "bulleted_list")
+//        case 3:
+//            textLabel.text = "Parking History"
+//            imageView.image = UIImage(named: "user")
+//        case 4:
+//            textLabel.text = "Payment"
+//            imageView.image = UIImage(named: "coins")
+//        case 5:
+//            textLabel.text = "Settings"
+//            imageView.image = UIImage(named: "share")
+////        case 6:
+////            textLabel.text = "Help"
+////            imageView.image = UIImage(named: "help")
+//        default:
+//            textLabel.text = "Search"
+//            imageView.image = UIImage(named: "search")
+//        }
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 50
+        return 40
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

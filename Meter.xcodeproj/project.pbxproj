@@ -51,6 +51,7 @@
 		BBC0F3751F15DFCB009C418C /* LenderSpotPricingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC0F3741F15DFCB009C418C /* LenderSpotPricingViewController.swift */; };
 		BBC0F3771F15DFD7009C418C /* LenderSpotDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC0F3761F15DFD7009C418C /* LenderSpotDetailsViewController.swift */; };
 		BBC0F3791F15DFED009C418C /* LenderSpotCompletedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC0F3781F15DFED009C418C /* LenderSpotCompletedViewController.swift */; };
+		BBC843D71F4018B60020D527 /* MySpotsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC843D61F4018B60020D527 /* MySpotsViewController.swift */; };
 		BBC870EE1F1C91EE00D24019 /* Messages.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BBC870ED1F1C91ED00D24019 /* Messages.storyboard */; };
 		BBC870F01F1C921000D24019 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BBC870EF1F1C921000D24019 /* Settings.storyboard */; };
 		BBC870F61F1C927300D24019 /* LendSpot.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BBC870F51F1C927300D24019 /* LendSpot.storyboard */; };
@@ -140,6 +141,7 @@
 		BBC0F3741F15DFCB009C418C /* LenderSpotPricingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LenderSpotPricingViewController.swift; sourceTree = "<group>"; };
 		BBC0F3761F15DFD7009C418C /* LenderSpotDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LenderSpotDetailsViewController.swift; sourceTree = "<group>"; };
 		BBC0F3781F15DFED009C418C /* LenderSpotCompletedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LenderSpotCompletedViewController.swift; sourceTree = "<group>"; };
+		BBC843D61F4018B60020D527 /* MySpotsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySpotsViewController.swift; sourceTree = "<group>"; };
 		BBC870ED1F1C91ED00D24019 /* Messages.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Messages.storyboard; sourceTree = "<group>"; };
 		BBC870EF1F1C921000D24019 /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		BBC870F51F1C927300D24019 /* LendSpot.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LendSpot.storyboard; sourceTree = "<group>"; };
@@ -291,6 +293,7 @@
 			isa = PBXGroup;
 			children = (
 				BBAD6BDD1F1C9B430089F896 /* Account.storyboard */,
+				BBC843D61F4018B60020D527 /* MySpotsViewController.swift */,
 				BBAD6BD91F1C99290089F896 /* EditAccountViewController.swift */,
 			);
 			path = Account;
@@ -787,6 +790,7 @@
 				BB8E62B91F1375420014DD62 /* HelperFunctions.swift in Sources */,
 				BBFE91B11ED24FCB00F04F05 /* MainViewController.swift in Sources */,
 				BB47DEF41EE273BB002368E4 /* Spot.swift in Sources */,
+				BBC843D71F4018B60020D527 /* MySpotsViewController.swift in Sources */,
 				BB78A9851ED029BA004DFC4A /* MainNavigationViewController.swift in Sources */,
 				BBB0DF061F15E67F002ECA73 /* SpotTypeTableViewCell.swift in Sources */,
 				BBC0F36D1F15DF96009C418C /* LenderSpotRestrictionsViewController.swift in Sources */,
