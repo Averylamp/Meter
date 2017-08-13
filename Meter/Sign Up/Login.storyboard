@@ -28,6 +28,47 @@
             </objects>
             <point key="canvasLocation" x="1737" y="-357"/>
         </scene>
+        <!--Sign Up Extra Info View Controller-->
+        <scene sceneID="VO3-Sf-8jp">
+            <objects>
+                <viewController storyboardIdentifier="SignUpExtraInfoVC" id="0Nm-qJ-5tZ" customClass="SignUpExtraInfoViewController" customModule="Meter" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="d7y-ll-jbe"/>
+                        <viewControllerLayoutGuide type="bottom" id="TWn-qn-gdB"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="YES" id="b7T-OE-Y5X">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loginSkyline" translatesAutoresizingMaskIntoConstraints="NO" id="8lC-QD-ggA">
+                                <rect key="frame" x="0.0" y="567" width="375" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="ynQ-cg-ACT"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rkU-Z9-m9S">
+                                <rect key="frame" x="36" y="50" width="40" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="8Vr-fR-nxO"/>
+                                    <constraint firstAttribute="width" constant="40" id="u1f-8r-mKO"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="backArrowIcon"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="rkU-Z9-m9S" firstAttribute="leading" secondItem="b7T-OE-Y5X" secondAttribute="leadingMargin" constant="20" id="8hz-Tf-bL7"/>
+                            <constraint firstItem="rkU-Z9-m9S" firstAttribute="top" secondItem="d7y-ll-jbe" secondAttribute="bottom" constant="30" id="H1q-7Y-wK4"/>
+                            <constraint firstItem="8lC-QD-ggA" firstAttribute="centerX" secondItem="b7T-OE-Y5X" secondAttribute="centerX" id="NZt-le-0ty"/>
+                            <constraint firstItem="8lC-QD-ggA" firstAttribute="width" secondItem="b7T-OE-Y5X" secondAttribute="width" id="ndi-4T-eOg"/>
+                            <constraint firstItem="TWn-qn-gdB" firstAttribute="top" secondItem="8lC-QD-ggA" secondAttribute="bottom" id="o5z-7x-2xi"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zt3-vk-gUz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1991" y="92"/>
+        </scene>
         <!--Splash View Controller-->
         <scene sceneID="nLb-T3-0ja">
             <objects>
@@ -40,18 +81,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R2U-EC-nmx">
-                                <rect key="frame" x="0.0" y="334" width="375" height="223"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R2U-EC-nmx">
+                                <rect key="frame" x="0.0" y="354" width="375" height="203"/>
                             </scrollView>
                             <imageView userInteractionEnabled="NO" contentMode="bottom" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MlZ-Yw-FrD">
-                                <rect key="frame" x="117.5" y="40" width="140" height="210"/>
+                                <rect key="frame" x="117.5" y="60" width="140" height="210"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="MlZ-Yw-FrD" secondAttribute="height" multiplier="1:1.5" id="a1Z-Ab-Qpy"/>
                                     <constraint firstAttribute="width" constant="140" id="ka0-nt-yQN"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="welcome to" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nkV-PN-am2" customClass="LTMorphingLabel" customModule="LTMorphingLabel">
-                                <rect key="frame" x="117" y="270" width="140" height="24"/>
+                                <rect key="frame" x="117" y="290" width="140" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="24" id="6A6-X9-enw"/>
                                 </constraints>
@@ -60,7 +101,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="meter" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3qv-rh-b9c" customClass="LTMorphingLabel" customModule="LTMorphingLabel">
-                                <rect key="frame" x="117" y="294" width="140" height="40"/>
+                                <rect key="frame" x="117" y="314" width="140" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="RWe-i6-c5U"/>
                                 </constraints>
@@ -149,7 +190,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sgz-12-VlN">
-                                <rect key="frame" x="272" y="40" width="78" height="25"/>
+                                <rect key="frame" x="272" y="60" width="78" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="25" id="Axz-a8-rSp"/>
                                     <constraint firstAttribute="width" secondItem="sgz-12-VlN" secondAttribute="height" multiplier="78:25" id="oy6-qa-GH3"/>
@@ -495,9 +536,89 @@
             </objects>
             <point key="canvasLocation" x="-170" y="91"/>
         </scene>
+        <!--Sign Up Phone Confirmation View Controller-->
+        <scene sceneID="3Vc-gS-ZoF">
+            <objects>
+                <viewController storyboardIdentifier="SignUpPhoneConfirmationVC" id="uoV-rN-3Pj" customClass="SignUpPhoneConfirmationViewController" customModule="Meter" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="fEB-F0-q50"/>
+                        <viewControllerLayoutGuide type="bottom" id="5Eh-d3-Swk"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="YES" id="xDE-Wd-tu1">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loginSkyline" translatesAutoresizingMaskIntoConstraints="NO" id="Zvc-Cc-RSm">
+                                <rect key="frame" x="0.0" y="567" width="375" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="kmV-Uc-5p8"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Zvc-Cc-RSm" firstAttribute="width" secondItem="xDE-Wd-tu1" secondAttribute="width" id="3Zw-SM-TLi"/>
+                            <constraint firstItem="Zvc-Cc-RSm" firstAttribute="centerX" secondItem="xDE-Wd-tu1" secondAttribute="centerX" id="9gb-rE-8tS"/>
+                            <constraint firstItem="5Eh-d3-Swk" firstAttribute="top" secondItem="Zvc-Cc-RSm" secondAttribute="bottom" id="tSl-Bo-0Qb"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="snE-bi-BDU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2678" y="90"/>
+        </scene>
+        <!--Sign Up Completed View Controller-->
+        <scene sceneID="uho-et-Dnj">
+            <objects>
+                <viewController storyboardIdentifier="SignUpCompletedVC" id="x02-gi-fGW" customClass="SignUpCompletedViewController" customModule="Meter" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="BFb-X3-B4w"/>
+                        <viewControllerLayoutGuide type="bottom" id="5fP-y5-koX"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="YES" id="5C7-7T-QSh">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loginSkyline" translatesAutoresizingMaskIntoConstraints="NO" id="nL1-aU-AIZ">
+                                <rect key="frame" x="0.0" y="567" width="375" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="PS0-7U-2UG"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="nL1-aU-AIZ" firstAttribute="width" secondItem="5C7-7T-QSh" secondAttribute="width" id="H4N-XD-0EH"/>
+                            <constraint firstItem="nL1-aU-AIZ" firstAttribute="centerX" secondItem="5C7-7T-QSh" secondAttribute="centerX" id="bw4-mf-5OH"/>
+                            <constraint firstItem="5fP-y5-koX" firstAttribute="top" secondItem="nL1-aU-AIZ" secondAttribute="bottom" id="hRd-8P-kh7"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TcK-Vs-DGb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3346" y="90"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="IIi-8k-BtZ">
+            <objects>
+                <viewController id="2pp-C2-Va7" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="DTC-Y7-KXe"/>
+                        <viewControllerLayoutGuide type="bottom" id="Wr7-mE-INt"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="YES" id="srP-Td-59N">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HgE-YD-cn8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
     </scenes>
     <resources>
         <image name="BluePin" width="162" height="225"/>
+        <image name="backArrowIcon" width="100" height="100"/>
         <image name="introSkip" width="234" height="75"/>
         <image name="loginSkyline" width="1125" height="318"/>
     </resources>

@@ -14,6 +14,9 @@
 		BB2BE2D31F11FE0F006393B3 /* SpotPreviewView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB2BE2D21F11FE0F006393B3 /* SpotPreviewView.xib */; };
 		BB2BE2D61F11FF8C006393B3 /* SpotPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2BE2D51F11FF8C006393B3 /* SpotPreviewView.swift */; };
 		BB3376761F4023790089D344 /* LenderSpotIntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3376751F4023790089D344 /* LenderSpotIntroViewController.swift */; };
+		BB3376781F4061530089D344 /* SignUpExtraInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3376771F4061530089D344 /* SignUpExtraInfoViewController.swift */; };
+		BB33767A1F4061610089D344 /* SignUpPhoneConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3376791F4061610089D344 /* SignUpPhoneConfirmationViewController.swift */; };
+		BB33767C1F40616A0089D344 /* SignUpCompletedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB33767B1F40616A0089D344 /* SignUpCompletedViewController.swift */; };
 		BB47DEF41EE273BB002368E4 /* Spot.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB47DEF31EE273BB002368E4 /* Spot.swift */; };
 		BB47DEF61EE277C4002368E4 /* SpotAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB47DEF51EE277C4002368E4 /* SpotAnnotationView.swift */; };
 		BB4BBAC11EA40D7C00EBD13D /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB4BBAC01EA40D7C00EBD13D /* SplashViewController.swift */; };
@@ -104,6 +107,9 @@
 		BB2BE2D21F11FE0F006393B3 /* SpotPreviewView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SpotPreviewView.xib; sourceTree = "<group>"; };
 		BB2BE2D51F11FF8C006393B3 /* SpotPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotPreviewView.swift; sourceTree = "<group>"; };
 		BB3376751F4023790089D344 /* LenderSpotIntroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LenderSpotIntroViewController.swift; sourceTree = "<group>"; };
+		BB3376771F4061530089D344 /* SignUpExtraInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpExtraInfoViewController.swift; sourceTree = "<group>"; };
+		BB3376791F4061610089D344 /* SignUpPhoneConfirmationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpPhoneConfirmationViewController.swift; sourceTree = "<group>"; };
+		BB33767B1F40616A0089D344 /* SignUpCompletedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpCompletedViewController.swift; sourceTree = "<group>"; };
 		BB47DEF31EE273BB002368E4 /* Spot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Spot.swift; sourceTree = "<group>"; };
 		BB47DEF51EE277C4002368E4 /* SpotAnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotAnnotationView.swift; sourceTree = "<group>"; };
 		BB4BBAC01EA40D7C00EBD13D /* SplashViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
@@ -357,6 +363,9 @@
 			isa = PBXGroup;
 			children = (
 				BBE6D7841F23EED2004D0A3A /* Login.storyboard */,
+				BB3376771F4061530089D344 /* SignUpExtraInfoViewController.swift */,
+				BB3376791F4061610089D344 /* SignUpPhoneConfirmationViewController.swift */,
+				BB33767B1F40616A0089D344 /* SignUpCompletedViewController.swift */,
 				BB4BBAC01EA40D7C00EBD13D /* SplashViewController.swift */,
 				BBC9640E1E7DCFED00E99617 /* SignUpViewController.swift */,
 				BBC9640C1E7DCFCE00E99617 /* LoginViewController.swift */,
@@ -784,8 +793,10 @@
 				BBFE91B31ED260DB00F04F05 /* SpotAnnotation.swift in Sources */,
 				BBC9640D1E7DCFCE00E99617 /* LoginViewController.swift in Sources */,
 				BBAD6BD11F1C989B0089F896 /* PaymentMainViewController.swift in Sources */,
+				BB33767C1F40616A0089D344 /* SignUpCompletedViewController.swift in Sources */,
 				BBC0F3711F15DFB5009C418C /* LenderSpotCoordinateViewController.swift in Sources */,
 				BB2BE2D61F11FF8C006393B3 /* SpotPreviewView.swift in Sources */,
+				BB3376781F4061530089D344 /* SignUpExtraInfoViewController.swift in Sources */,
 				BBC0F3771F15DFD7009C418C /* LenderSpotDetailsViewController.swift in Sources */,
 				BBC9640F1E7DCFED00E99617 /* SignUpViewController.swift in Sources */,
 				BBC0F3751F15DFCB009C418C /* LenderSpotPricingViewController.swift in Sources */,
@@ -801,6 +812,7 @@
 				BBE2EDC91EE270F100038140 /* DetailViewController.swift in Sources */,
 				BBFD9B721E713370009DDD20 /* AppDelegate.swift in Sources */,
 				BBC0F36B1F15DF86009C418C /* LenderSpotTypeViewController.swift in Sources */,
+				BB33767A1F4061610089D344 /* SignUpPhoneConfirmationViewController.swift in Sources */,
 				BB47DEF61EE277C4002368E4 /* SpotAnnotationView.swift in Sources */,
 				BBAD6BD31F1C98A60089F896 /* ReferralMainViewController.swift in Sources */,
 				BBAD6BC51F1C97B00089F896 /* MessageListViewController.swift in Sources */,

@@ -94,9 +94,13 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="LqT-UC-BXp">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </mapView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vmr-7w-scp">
-                                <rect key="frame" x="305" y="629" width="62" height="30"/>
-                                <state key="normal" title="Recenter"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vmr-7w-scp">
+                                <rect key="frame" x="315" y="607" width="60" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="8vA-hD-OBe"/>
+                                    <constraint firstAttribute="width" secondItem="vmr-7w-scp" secondAttribute="height" multiplier="1:1" id="lk0-xh-efE"/>
+                                </constraints>
+                                <state key="normal" image="CurrentLocationIcon"/>
                                 <connections>
                                     <action selector="centerToLocationClicked:" destination="hVj-Ci-I7I" eventType="touchUpInside" id="4hu-JQ-xBb"/>
                                 </connections>
@@ -168,15 +172,14 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="vmr-7w-scp" firstAttribute="trailing" secondItem="oGX-ax-q7w" secondAttribute="trailingMargin" constant="8" id="5Yg-u8-ULf"/>
                             <constraint firstItem="Kj3-ra-wdo" firstAttribute="centerY" secondItem="Xyp-w4-gkp" secondAttribute="centerY" id="78Z-8L-9po"/>
                             <constraint firstItem="Xyp-w4-gkp" firstAttribute="top" secondItem="0tJ-hM-gdp" secondAttribute="bottom" constant="24" id="7g9-28-BFI"/>
-                            <constraint firstItem="vmr-7w-scp" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="oGX-ax-q7w" secondAttribute="leadingMargin" id="CTa-pM-DnR"/>
+                            <constraint firstItem="lan-hV-dxe" firstAttribute="top" secondItem="vmr-7w-scp" secondAttribute="bottom" id="8sC-eQ-laN"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Kj3-ra-wdo" secondAttribute="trailing" constant="8" id="Gta-jE-gHg"/>
                             <constraint firstItem="LqT-UC-BXp" firstAttribute="centerY" secondItem="oGX-ax-q7w" secondAttribute="centerY" id="IfB-iJ-8KF"/>
-                            <constraint firstItem="lan-hV-dxe" firstAttribute="top" secondItem="vmr-7w-scp" secondAttribute="bottom" constant="8" id="KxB-ba-Ndr"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Xyp-w4-gkp" secondAttribute="trailing" constant="20" symbolic="YES" id="QwL-B2-0to"/>
                             <constraint firstItem="Kj3-ra-wdo" firstAttribute="leading" secondItem="Xyp-w4-gkp" secondAttribute="trailing" constant="12" id="ZEe-c7-Ss5"/>
+                            <constraint firstAttribute="trailing" secondItem="vmr-7w-scp" secondAttribute="trailing" id="hbX-9Q-EGK"/>
                             <constraint firstItem="LqT-UC-BXp" firstAttribute="centerX" secondItem="oGX-ax-q7w" secondAttribute="centerX" id="kxk-Lj-E32"/>
                             <constraint firstItem="LqT-UC-BXp" firstAttribute="height" secondItem="oGX-ax-q7w" secondAttribute="height" id="tCU-zk-LqA"/>
                             <constraint firstItem="LqT-UC-BXp" firstAttribute="width" secondItem="oGX-ax-q7w" secondAttribute="width" id="wIg-sp-OMW"/>
@@ -192,7 +195,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Leg-iU-e8F" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3063" y="90"/>
+            <point key="canvasLocation" x="3061.5999999999999" y="89.505247376311857"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="ssr-xT-Pst">
@@ -780,6 +783,7 @@
         <image name="BackButton" width="100" height="100"/>
         <image name="CalendarTrapezoid" width="313" height="43"/>
         <image name="CarIcon" width="30" height="18"/>
+        <image name="CurrentLocationIcon" width="219" height="192"/>
         <image name="TempProfilePic" width="100" height="100"/>
         <image name="menu_Icon" width="74" height="74"/>
         <image name="star_unfilled" width="282" height="279"/>

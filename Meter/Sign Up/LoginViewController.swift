@@ -10,6 +10,8 @@ import UIKit
 import FBSDKLoginKit
 import ParseFacebookUtilsV4
 import MBProgressHUD
+import Parse
+
 
 class LoginViewController: UIViewController {
     enum State {
@@ -187,6 +189,60 @@ class LoginViewController: UIViewController {
     
     @IBAction func actionButtonClicked(_ sender: Any) {
         print("Login/Signup Clicked")
+        switch self.state {
+        case .Login:
+            loginUser()
+        case .Signup:
+            signUpUser()
+        default:
+            break
+        }
+    }
+    
+    func signUpUser(){
+        let validation = self.validateSignup()
+        if validation.0 {
+            let user = PFUser()
+            user.username = self.emailTextField.text!
+            user.email = self.emailTextField.text!
+            user.password = self.passwordTextField.text!
+            user.signUpInBackground(block: { (success, error) in
+                if let error = error {
+                    
+                    let errorString = error.localizedDescription
+                    self.showError(error: errorString)
+                }else{
+                    self.continueSignUp()
+                }
+            })
+        }else{
+            showError(error: validation.1)
+        }
+    }
+    
+    func continueSignUp(){
+        if let extraInfoVC = UIStoryboard(name: "Login", bundle: nil).instantiateViewController(withIdentifier: "SignUpExtraInfoVC") as? SignUpExtraInfoViewController{
+            
+            self.navigationController?.pushViewController(extraInfoVC, animated: true)
+            
+        }
+        
+    }
+    
+    func validateSignup() -> (Bool, String){
+        
+        
+        
+        return (true, "")
+    }
+    
+    func showError(error:String){
+        print("Error Recieved \n\(error)")
+        
+    }
+    
+    func loginUser(){
+        
     }
     
     @IBAction func skipLoginClicked(_ sender: Any) {

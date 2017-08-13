@@ -42,15 +42,18 @@ class SplashViewController: UIViewController, UIScrollViewDelegate {
 //        checkForLogin()
         scrollView.delegate = self
         scrollView.isPagingEnabled = true
-        scrollView.contentSize = CGSize(width: self.view.frame.width * CGFloat(subtext.count), height: self.scrollView.frame.height)
         scrollView.showsHorizontalScrollIndicator = false
         pageImageView.image = images.first
         
         titleLabel.morphingEffect = .scale
         subtitleLabel.morphingEffect = .scale
         
+        self.view.layoutIfNeeded()
         initializeScrollView()
+        scrollView.contentSize = CGSize(width: self.view.frame.width * CGFloat(subtext.count), height: self.scrollView.frame.height)
     }
+    
+    
     
     func checkForLogin(){
         if  PFUser.current() != nil, FBSDKAccessToken.current() != nil{
@@ -61,6 +64,7 @@ class SplashViewController: UIViewController, UIScrollViewDelegate {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        scrollView.contentSize = CGSize(width: self.view.frame.width * CGFloat(subtext.count), height: self.scrollView.frame.height)
     }
     
     func initializeScrollView(){

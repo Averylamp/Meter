@@ -31,6 +31,7 @@ class SidePanelViewController: UIViewController, UITableViewDelegate, UITableVie
    
     @IBOutlet weak var lendNowButton: UIButton!
     @IBOutlet weak var currentUserLabel: UILabel!
+    @IBOutlet weak var userSubtitleLabel: UILabel!
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -70,6 +71,7 @@ class SidePanelViewController: UIViewController, UITableViewDelegate, UITableVie
                 if let ownerName = currentUser["name"] as? String{
                     self.delay(0.0, closure: {
                         self.currentUserLabel.text = ownerName
+                        self.userSubtitleLabel.text = "View Profile"
                     })
                 }
                 if let proPic = currentUser["profilePicture"] as? PFFile{
