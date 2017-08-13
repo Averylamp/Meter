@@ -19,6 +19,7 @@ target 'Meter' do
   pod 'GooglePlacePicker'
   pod 'GoogleMaps'
   pod 'LTMorphingLabel'
+  pod 'SCLAlertView'
 
 
   target 'MeterTests' do

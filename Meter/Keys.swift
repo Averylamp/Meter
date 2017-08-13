@@ -55,5 +55,6 @@ struct UserKeys {
     static let LendRatings = "lendRatings"
     static let OwnedSpots = "ownedSpots"
     static let PhoneNumber = "phoneNumber"
+    static let PhoneValidated = "phoneValidated"
     static let ProfilePicture = "profilePicture"
 }

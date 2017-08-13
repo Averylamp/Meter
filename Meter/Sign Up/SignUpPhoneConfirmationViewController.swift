@@ -7,9 +7,10 @@
 //
 
 import UIKit
-
+import Parse
 class SignUpPhoneConfirmationViewController: UIViewController {
 
+    var user: PFUser?
     override func viewDidLoad() {
         super.viewDidLoad()
 

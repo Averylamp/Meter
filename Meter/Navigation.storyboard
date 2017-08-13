@@ -36,6 +36,16 @@
             </objects>
             <point key="canvasLocation" x="36" y="124"/>
         </scene>
+        <!--LoginNavController-->
+        <scene sceneID="gId-rF-aUG">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Login" referencedIdentifier="LoginNavController" id="836-Ee-lir" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="zM9-mT-cpl"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5XJ-NV-ido" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-111" y="-320"/>
+        </scene>
         <!--Container View Controller-->
         <scene sceneID="rbk-vE-b7S">
             <objects>
@@ -49,10 +59,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
+                    <connections>
+                        <segue destination="836-Ee-lir" kind="modal" identifier="LoginSegue" id="oAv-0X-PrA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vRA-kj-Yqv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-381" y="124"/>
+            <point key="canvasLocation" x="-480" y="124"/>
         </scene>
         <!--Side Panel View Controller-->
         <scene sceneID="5SZ-sz-G50">

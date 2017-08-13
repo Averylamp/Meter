@@ -13,7 +13,7 @@ enum SlideState{
     case leftPanelExpanded
 }
 
-
+let ReturnToLoginNotificationName = NSNotification.Name(rawValue: "ReturnToLoginNotification")
 
 class ContainerViewController: UIViewController {
     
@@ -70,6 +70,10 @@ class ContainerViewController: UIViewController {
         notificationCenter.addObserver(forName: NSNotification.Name(rawValue: NavigationNotifications.toggleMenu), object: nil, queue: nil, using: { (notification) in
             self.toggleMenu()
         })
+        
+        notificationCenter.addObserver(forName: ReturnToLoginNotificationName, object: nil, queue: nil) { (notification) in
+            self.performSegue(withIdentifier: "LoginSegue", sender: nil)
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {

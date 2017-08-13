@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import Parse
 class SettingsViewController: UIViewController {
 
     override func viewDidLoad() {
@@ -32,4 +32,14 @@ class SettingsViewController: UIViewController {
     }
     */
 
+    @IBOutlet weak var signOutButton: UIButton!
+    
+    @IBAction func signOutButtonClicked(_ sender: Any) {
+        if PFUser.current() != nil{
+            PFUser.logOut()
+            NotificationCenter.default.post(name: ReturnToLoginNotificationName, object: nil)
+            
+        }
+    }
+    
 }

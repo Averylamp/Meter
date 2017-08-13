@@ -11,7 +11,7 @@ import FBSDKLoginKit
 import ParseFacebookUtilsV4
 import MBProgressHUD
 import Parse
-
+import SCLAlertView
 
 class LoginViewController: UIViewController {
     enum State {
@@ -143,8 +143,25 @@ class LoginViewController: UIViewController {
     }
     
     func goToMainVC(){
-        self.performSegue(withIdentifier: "LoginToMainVCSegue", sender: self)
+        if isModal(){
+            print("Is Modal Presentation")
+            self.navigationController?.dismiss(animated: true, completion: nil)
+        }else{
+            self.performSegue(withIdentifier: "LoginToMainVCSegue", sender: self)
+        }
     }
+    func isModal() -> Bool {
+        if self.presentingViewController != nil {
+            return true
+        } else if self.navigationController?.presentingViewController?.presentedViewController == self.navigationController  {
+            return true
+        } else if self.tabBarController?.presentingViewController is UITabBarController {
+            return true
+        }
+        
+        return false
+    }
+
     
     func stateChanged(){
         if self.state == .Signup{
@@ -194,55 +211,69 @@ class LoginViewController: UIViewController {
             loginUser()
         case .Signup:
             signUpUser()
-        default:
-            break
         }
     }
     
     func signUpUser(){
-        let validation = self.validateSignup()
-        if validation.0 {
+        if self.validateSignup(){
             let user = PFUser()
             user.username = self.emailTextField.text!
             user.email = self.emailTextField.text!
             user.password = self.passwordTextField.text!
             user.signUpInBackground(block: { (success, error) in
                 if let error = error {
-                    
                     let errorString = error.localizedDescription
                     self.showError(error: errorString)
                 }else{
-                    self.continueSignUp()
+                    self.continueSignUp(user: user)
                 }
             })
-        }else{
-            showError(error: validation.1)
         }
     }
     
-    func continueSignUp(){
+    func continueSignUp(user: PFUser){
         if let extraInfoVC = UIStoryboard(name: "Login", bundle: nil).instantiateViewController(withIdentifier: "SignUpExtraInfoVC") as? SignUpExtraInfoViewController{
-            
+            extraInfoVC.user = user
             self.navigationController?.pushViewController(extraInfoVC, animated: true)
             
         }
         
     }
     
-    func validateSignup() -> (Bool, String){
-        
-        
-        
-        return (true, "")
+    func validateSignup() -> Bool{
+        if self.passwordTextField.text != self.confirmPasswordTextField.text {
+            self.showError(error: "Your passwords do not match", errorTitle: "Password Mismatch")
+            return false
+        }
+        return true
     }
     
-    func showError(error:String){
+    func showError(error:String, errorTitle: String = "Sign Up Error"){
         print("Error Recieved \n\(error)")
-        
+        let appearance = SCLAlertView.SCLAppearance(
+            kTitleFont: UIFont(name: "Avenir-Medium", size: 20)!,
+            kTextFont: UIFont(name: "Avenir-Roman", size: 14)!,
+            kButtonFont: UIFont(name: "Avenir-Heavy", size: 14)!,
+            showCloseButton: true
+        )
+        let alertView = SCLAlertView(appearance: appearance)
+        alertView.showError(errorTitle, subTitle: error)
     }
     
     func loginUser(){
-        
+        PFUser.logInWithUsername(inBackground: self.emailTextField.text!, password: self.passwordTextField.text!) { (user, error) in
+            if let error = error {
+                print("Error \(error)")
+                let description = error.localizedDescription
+                self.showError(error: description, errorTitle: "Login Error")
+            }else{
+                if let user = user,  user["name"] == nil || user["firstName"] == nil || user["lastName"] == nil || user["phoneNumber"] == nil{
+                    self.continueSignUp(user: user)
+                }else{
+                    self.goToMainVC()
+                }
+            }
+        }
     }
     
     @IBAction func skipLoginClicked(_ sender: Any) {
@@ -266,7 +297,5 @@ extension LoginViewController: UITextFieldDelegate{
         }
         return true
     }
-    
-    
     
 }

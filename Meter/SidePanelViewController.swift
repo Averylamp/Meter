@@ -60,6 +60,7 @@ class SidePanelViewController: UIViewController, UITableViewDelegate, UITableVie
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        updateProfilePicture()
     }
     
     func updateProfilePicture(){
@@ -234,7 +235,12 @@ class SidePanelViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     @IBAction func viewAccountClicked(_ sender: Any) {
-        NotificationCenter.default.post(Notification(name: Notification.Name(rawValue: NavigationNotifications.AccountSelected), object: self))
+        NotificationCenter.default.post(Notification(name: Notification.Name(rawValue: NavigationNotifications.toggleMenu), object: self))
+        if PFUser.current() == nil{
+            NotificationCenter.default.post(name: ReturnToLoginNotificationName, object: nil)
+        }else{
+            NotificationCenter.default.post(Notification(name: Notification.Name(rawValue: NavigationNotifications.AccountSelected), object: self))
+        }
     }
     
 }

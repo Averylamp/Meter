@@ -32,6 +32,7 @@ PODS:
     - FBSDKLoginKit (~> 4.10)
     - FBSDKTVOSKit (~> 4.10)
     - Parse (~> 1.12)
+  - SCLAlertView (0.7.0)
   - SwiftyJSON (3.1.4)
 
 DEPENDENCIES:
@@ -47,6 +48,7 @@ DEPENDENCIES:
   - MBProgressHUD
   - Parse
   - ParseFacebookUtilsV4
+  - SCLAlertView
   - SwiftyJSON
 
 SPEC CHECKSUMS:
@@ -62,8 +64,9 @@ SPEC CHECKSUMS:
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
   Parse: c0519f8fbf57bd0334f75cd22ac032d86ee55464
   ParseFacebookUtilsV4: 2f30c2b7021c8005d3042781da7ef87d06589421
+  SCLAlertView: 8a14ffc40590c619e183eed2298b854385f30be1
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
-PODFILE CHECKSUM: a3b002f325f5b03b5be96f1c39390adaf36f8841
+PODFILE CHECKSUM: d8c610d09b9110408dce8936165078452b2b7203
 
 COCOAPODS: 1.3.1

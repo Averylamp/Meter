@@ -64,6 +64,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>SCLAlertView.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>SwiftyJSON.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -72,11 +77,6 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>00A78DB5AE5C8108CB2F1D991DB4A91C</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>22FF354D90CE5CFA4AD5417B2EB8807C</key>
 		<dict>
 			<key>primary</key>
@@ -102,7 +102,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6381815F28B97C0AC31154987FE7BE66</key>
+		<key>7A7971840019944757CD3FE8E3EAF8EB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>871CD7D747E888D3EC1341219FFC9A37</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -118,6 +123,11 @@
 			<true/>
 		</dict>
 		<key>BEF7E6E85DB5CDE5D7A18F4F2EB8494B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C955A094AE37DA19A629B90054A92506</key>
 		<dict>
 			<key>primary</key>
 			<true/>
