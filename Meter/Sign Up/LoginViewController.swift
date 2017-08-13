@@ -71,6 +71,7 @@ class LoginViewController: UIViewController {
         }
     }
     
+    
     func facebookParseLogin(){
         PFFacebookUtils.logInInBackground(withReadPermissions: ["email", "public_profile", "user_location"]) { (user, error) in
             if error == nil, let user = user{
@@ -214,13 +215,17 @@ class LoginViewController: UIViewController {
         }
     }
     
+    var signUpInProgress = false
+    
     func signUpUser(){
-        if self.validateSignup(){
+        if self.validateSignup(), signUpInProgress == false{
+            signUpInProgress = true
             let user = PFUser()
             user.username = self.emailTextField.text!
             user.email = self.emailTextField.text!
             user.password = self.passwordTextField.text!
             user.signUpInBackground(block: { (success, error) in
+                self.signUpInProgress = false
                 if let error = error {
                     let errorString = error.localizedDescription
                     self.showError(error: errorString)

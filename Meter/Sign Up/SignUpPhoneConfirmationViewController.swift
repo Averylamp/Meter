@@ -8,29 +8,103 @@
 
 import UIKit
 import Parse
-class SignUpPhoneConfirmationViewController: UIViewController {
+import Alamofire
+import SwiftyJSON
+import SCLAlertView
 
+class SignUpPhoneConfirmationViewController: UIViewController {
+    
+    
+    @IBOutlet weak var confirmationTextField: UITextField!
+    
     var user: PFUser?
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        self.confirmationTextField.delegate = self
+        self.confirmationTextField.addTarget(self, action: #selector(SignUpPhoneConfirmationViewController.confirmPhoneNumber), for: .editingChanged)
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(SignUpPhoneConfirmationViewController.dismissKeyboard))
+        self.view.addGestureRecognizer(tapGesture)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func dismissKeyboard(){
+        if confirmationTextField.isFirstResponder {
+            confirmationTextField.resignFirstResponder()
+        }
     }
-    */
+    
+    var confirmingPhoneNumber = false
+    
+    func confirmPhoneNumber(){
+        let confirmationCode = confirmationTextField.text!
+        if confirmationCode.characters.count == 4, let user = user, let phoneNumber = user[UserKeys.PhoneNumber] as? String, confirmingPhoneNumber == false{
+            confirmingPhoneNumber = true
+            let parameters = ["api_key": "ZG9ZjlvdmFNM6j2N6QDxHVWEDddYPeZv",
+                              "country_code":"1",
+                              "phone_number": phoneNumber,
+                              "verification_code":confirmationCode]
+            Alamofire.request("https://api.authy.com/protected/json/phones/verification/check", method: .get, parameters: parameters ).responseJSON{ (response) in
+                self.confirmingPhoneNumber = false
+                switch response.result{
+                case .success(let value):
+                    let json = JSON(value)
+                    if let sentMessage = json["success"].bool {
+                        if sentMessage{
+                            user[UserKeys.PhoneVerified] = true
+                            user.saveInBackground()
+                            DispatchQueue.main.async {
+                                if let completedVC = UIStoryboard(name: "Login", bundle: nil).instantiateViewController(withIdentifier: "SignUpCompletedVC") as? SignUpCompletedViewController{
+                                    self.navigationController?.pushViewController(completedVC, animated: true)
+                                }
+                            }
+                        }else{
+                            if let errorMessage = json["message"].string{
+                                self.showAlert(alert: errorMessage, alertTitle: "Verification Failed")
+                            }
+                        }
+                    }
+                    print("Sent SMS \(json)")
+                case .failure(let error):
+                    print("Error sending Text message\(error)")
+                }
+            }
+        }
+    }
+    
+    func showAlert(alert:String, alertTitle: String = "Field Missing"){
+        print("Alert Recieved \n\(alert)")
+        let appearance = SCLAlertView.SCLAppearance(
+            kTitleFont: UIFont(name: "Avenir-Medium", size: 20)!,
+            kTextFont: UIFont(name: "Avenir-Roman", size: 14)!,
+            kButtonFont: UIFont(name: "Avenir-Heavy", size: 14)!,
+            showCloseButton: true
+        )
+        let alertView = SCLAlertView(appearance: appearance)
+        alertView.showNotice(alertTitle, subTitle: alert)
+    }
+    
+    func finishedSignUp(){
+        if let allSetVC = UIStoryboard(name: "Login", bundle: nil).instantiateViewController(withIdentifier: "SignUpCompletedVC") as? SignUpCompletedViewController{
+            self.user?.saveInBackground()
+            self.navigationController?.pushViewController(allSetVC, animated: true)
+        }
+    }
+    
+    
+    @IBAction func backButtonClicked(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
+    }
+}
 
+extension SignUpPhoneConfirmationViewController: UITextFieldDelegate{
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let fullCode = NSString(string: textField.text!).replacingCharacters(in: range, with: string)
+        print(fullCode)
+        if fullCode.characters.count > 4{
+            return false
+        }
+        return true
+    }
+    
 }

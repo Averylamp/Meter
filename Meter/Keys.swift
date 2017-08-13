@@ -55,6 +55,10 @@ struct UserKeys {
     static let LendRatings = "lendRatings"
     static let OwnedSpots = "ownedSpots"
     static let PhoneNumber = "phoneNumber"
-    static let PhoneValidated = "phoneValidated"
+    static let PhoneVerified = "phoneNumberVerified"
     static let ProfilePicture = "profilePicture"
+}
+
+struct DefaultsKeys{
+    static let FirstOpen = "FirstOpen"
 }

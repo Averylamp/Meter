@@ -739,6 +739,7 @@
                                 </constraints>
                                 <state key="normal" title="Button" image="backArrowIcon"/>
                                 <connections>
+                                    <action selector="backButtonClicked:" destination="uoV-rN-3Pj" eventType="touchUpInside" id="Zuv-FQ-cxS"/>
                                     <action selector="backButtonClicked:" destination="0Nm-qJ-5tZ" eventType="touchUpInside" id="poI-Ra-8Ih"/>
                                 </connections>
                             </button>
@@ -796,6 +797,9 @@
                             <constraint firstItem="5Eh-d3-Swk" firstAttribute="top" secondItem="Zvc-Cc-RSm" secondAttribute="bottom" id="tSl-Bo-0Qb"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="confirmationTextField" destination="Slx-iH-B1L" id="IS8-MM-U1g"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="snE-bi-BDU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -860,6 +864,9 @@
                                 <state key="normal" title="GET STARTED">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="getStartedClicked:" destination="x02-gi-fGW" eventType="touchUpInside" id="g8h-tn-66e"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -884,6 +891,9 @@
                             <constraint firstItem="70n-Ux-5ut" firstAttribute="centerX" secondItem="5C7-7T-QSh" secondAttribute="centerX" id="xfe-72-twR"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <segue destination="Esj-Qe-2up" kind="show" identifier="MainVCSegue" id="wmo-oX-G4G"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TcK-Vs-DGb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -917,6 +927,6 @@
         <image name="loginSkyline" width="1125" height="318"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="wWO-ys-EDQ"/>
+        <segue reference="wmo-oX-G4G"/>
     </inferredMetricsTieBreakers>
 </document>
