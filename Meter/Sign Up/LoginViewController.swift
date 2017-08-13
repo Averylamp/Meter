@@ -17,15 +17,45 @@ class LoginViewController: UIViewController {
         case Signup
     }
     
-    var state: State = .Login
+    var state: State = .Signup
     
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
+    @IBOutlet weak var pinTopLayoutConstraint: NSLayoutConstraint!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var confirmPasswordTextField: UITextField!
+    @IBOutlet weak var confirmPasswordFieldHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var switchStateButton: UIButton!
+    @IBOutlet weak var switchStateSubtitleLabel: UILabel!
+    
+    @IBOutlet weak var loginSignupButton: UIButton!
+    @IBOutlet weak var facebookLoginButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.stateChanged()
 //        checkForLogin()
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(LoginViewController.dismissKeyboards))
+        self.view.addGestureRecognizer(tapGestureRecognizer)
+        
+        self.emailTextField.delegate = self        
+        self.passwordTextField.delegate = self
+        self.confirmPasswordTextField.delegate = self
+        
+        facebookLoginButton.layer.borderColor = Constants.Colors.blueHighlight.cgColor
+    }
+    
+    func dismissKeyboards(){
+        if self.emailTextField.isFirstResponder{
+            self.emailTextField.resignFirstResponder()
+        }
+        if self.passwordTextField.isFirstResponder{
+            self.passwordTextField.resignFirstResponder()
+        }
+        if self.confirmPasswordTextField.isFirstResponder{
+            self.confirmPasswordTextField.resignFirstResponder()
+        }
     }
     
     @IBAction func continueFacebookClicked(_ sender: Any) {
@@ -115,13 +145,72 @@ class LoginViewController: UIViewController {
     }
     
     func stateChanged(){
-        
-    }
-    
-    @IBAction func signUpClicked(_ sender: Any) {
-        if let registerVC = UIStoryboard(name: "Login", bundle: nil).instantiateViewController(withIdentifier: "RegisterVC") as? SignUpViewController{
-            self.navigationController?.setViewControllers([registerVC], animated: true)
+        if self.state == .Signup{
+            self.switchStateButton.setTitle("Log In", for: .normal)
+            self.loginSignupButton.setTitle("SIGN UP", for: .normal)
+            UIView.transition(with: self.switchStateSubtitleLabel, duration: 0.3, options: .transitionCrossDissolve, animations: {
+                self.switchStateSubtitleLabel.text = "Already a member"
+            }, completion: nil)
+            UIView.transition(with: self.titleLabel, duration: 0.3, options: .transitionCrossDissolve, animations: {
+                self.titleLabel.text = "Sign up for Meter"
+            }, completion: nil)
+            UIView.animate(withDuration: 0.4, animations: {
+                self.confirmPasswordFieldHeightConstraint.constant = 80
+                self.pinTopLayoutConstraint.constant = 10
+                self.view.layoutIfNeeded()
+            })
+        }else{
+            self.switchStateButton.setTitle("Sign Up", for: .normal)
+            self.loginSignupButton.setTitle("LOG IN", for: .normal)
+            UIView.transition(with: self.switchStateSubtitleLabel, duration: 0.3, options: .transitionCrossDissolve, animations: {
+                self.switchStateSubtitleLabel.text = "Not a member"
+            }, completion: nil)
+            UIView.transition(with: self.titleLabel, duration: 0.3, options: .transitionCrossDissolve, animations: {
+                self.titleLabel.text = "Log in to Meter"
+            }, completion: nil)
+            UIView.animate(withDuration: 0.4, animations: {
+                self.confirmPasswordFieldHeightConstraint.constant = 0
+                self.pinTopLayoutConstraint.constant = 50
+                self.view.layoutIfNeeded()
+            })
         }
     }
+    
+    @IBAction func toggleStateClicked(_ sender: Any) {
+        if self.state == .Login{
+            self.state = .Signup
+        }else{
+            self.state = .Login
+        }
+        self.stateChanged()
+    }
+    
+    @IBAction func actionButtonClicked(_ sender: Any) {
+        print("Login/Signup Clicked")
+    }
+    
+    @IBAction func skipLoginClicked(_ sender: Any) {
+        self.goToMainVC()
+    }
+}
+
+extension LoginViewController: UITextFieldDelegate{
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if let nextResponder = self.view.viewWithTag(textField.tag + 1) as? UITextField{
+            if self.state == .Login && nextResponder == self.confirmPasswordTextField{
+                textField.resignFirstResponder()
+                self.actionButtonClicked(self.loginSignupButton)
+            }else{
+                nextResponder.becomeFirstResponder()
+            }
+        }else{
+            textField.resignFirstResponder()
+            self.actionButtonClicked(self.loginSignupButton)
+        }
+        return true
+    }
+    
+    
     
 }

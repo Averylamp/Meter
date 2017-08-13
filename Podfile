@@ -18,6 +18,7 @@ target 'Meter' do
   pod 'GooglePlaces'
   pod 'GooglePlacePicker'
   pod 'GoogleMaps'
+  pod 'LTMorphingLabel'
 
 
   target 'MeterTests' do

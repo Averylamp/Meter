@@ -22,6 +22,7 @@ PODS:
     - GooglePlaces (= 2.3.1)
   - GooglePlaces (2.3.1):
     - GoogleMaps/Base (= 2.3.1)
+  - LTMorphingLabel (0.5.0)
   - MBProgressHUD (1.0.0)
   - Parse (1.15.0):
     - Bolts/Tasks (~> 1.8)
@@ -42,6 +43,7 @@ DEPENDENCIES:
   - GoogleMaps
   - GooglePlacePicker
   - GooglePlaces
+  - LTMorphingLabel
   - MBProgressHUD
   - Parse
   - ParseFacebookUtilsV4
@@ -56,11 +58,12 @@ SPEC CHECKSUMS:
   GoogleMaps: c66a71058b9b1294bcdd5463a68e357fa50c079f
   GooglePlacePicker: fc3564ac7a2ce314e78e42bfc1e16822ad1e5488
   GooglePlaces: 4a7b22debfa1af65017b82943431822607e45201
+  LTMorphingLabel: bc170be74b219b7dae0e5543a44676d16da70ff7
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
   Parse: c0519f8fbf57bd0334f75cd22ac032d86ee55464
   ParseFacebookUtilsV4: 2f30c2b7021c8005d3042781da7ef87d06589421
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
-PODFILE CHECKSUM: 1bdcd9e59522279efe9b8c530f72a0133335391d
+PODFILE CHECKSUM: a3b002f325f5b03b5be96f1c39390adaf36f8841
 
-COCOAPODS: 1.2.0
+COCOAPODS: 1.3.1

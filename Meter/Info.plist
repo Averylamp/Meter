@@ -45,6 +45,8 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
+	<key>NSCameraUsageDescription</key>
+	<string>To take a picture of your spot!</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
 	<string>To find the closest spots to you!</string>
 	<key>NSLocationAlwaysUsageDescription</key>
@@ -53,8 +55,6 @@
 	<string>To find the closest spots to you!</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>To find the closest spots to you!</string>
-	<key>NSCameraUsageDescription</key>
-	<string>To take a picture of your spot!</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Lato-Regular.ttf</string>

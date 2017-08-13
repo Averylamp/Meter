@@ -9,6 +9,8 @@
 import UIKit
 import Parse
 import FBSDKCoreKit
+import LTMorphingLabel
+
 
 class SplashViewController: UIViewController, UIScrollViewDelegate {
     
@@ -23,10 +25,16 @@ class SplashViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet var indicatorViews: [UIView]!
     let subtext = ["Your one stop for all your parking needs. Meter helps you save time and money on parking so that you can focus on what is most important to you.", "Right in your driveway. Listing is simple. Simply list your spot, set prices, select available days, and you’re all set to go! Make over $200 a month from your underutilized space.", "Save up to 50% in parking costs, spend 15 minutes less each day looking for parking. Commuting? Need a consistent place for your car? Use Meter."]
     
+    let subtitles = ["welcome to", "passive", "park"]
+    let titles = ["meter", "income", "smarter"]
+    
+    
     let colors = [Constants.Colors.blueHighlight, Constants.Colors.grayHighlight, Constants.Colors.pinkHighlight]
     @IBOutlet weak var indicatorView: UIView!
     
-    @IBOutlet weak var meterLabel: UILabel!
+    @IBOutlet weak var subtitleLabel: LTMorphingLabel!
+    @IBOutlet weak var titleLabel: LTMorphingLabel!
+    
     
     
     override func viewDidLoad() {
@@ -37,7 +45,9 @@ class SplashViewController: UIViewController, UIScrollViewDelegate {
         scrollView.contentSize = CGSize(width: self.view.frame.width * CGFloat(subtext.count), height: self.scrollView.frame.height)
         scrollView.showsHorizontalScrollIndicator = false
         pageImageView.image = images.first
-//        pageImageView.contentMode = .scaleAspectFit
+        
+        titleLabel.morphingEffect = .scale
+        subtitleLabel.morphingEffect = .scale
         
         initializeScrollView()
     }
@@ -55,7 +65,7 @@ class SplashViewController: UIViewController, UIScrollViewDelegate {
     
     func initializeScrollView(){
         for i in 0..<subtext.count{
-            let textLabel = UILabel(frame: CGRect(x: 0, y:  10, width: self.view.frame.width * 0.7, height:  self.scrollView.frame.height - 20))
+            let textLabel = UILabel(frame: CGRect(x: 0, y:  10, width: self.view.frame.width * 0.75, height:  self.scrollView.frame.height - 20))
             textLabel.textAlignment = .center
             textLabel.numberOfLines = 0
             textLabel.font = UIFont(name: "Avenir-Light", size: 16)
@@ -83,10 +93,14 @@ class SplashViewController: UIViewController, UIScrollViewDelegate {
             animatePageChange(page: page)
             currentPage = page
         }
-        
+    }
+    
+    @IBAction func indicatorSpaceClicked(_ sender: UIButton) {
+        indicatorClicked(sender: sender)
     }
     
     func indicatorClicked(sender:UIView){
+        print("Indicator Clicked")
         let nextPage = CGRect(x: self.view.frame.width * CGFloat(sender.tag), y: 0, width: self.view.frame.width, height: self.view.frame.height)
         scrollView.scrollRectToVisible(nextPage, animated: true)
     }
@@ -107,12 +121,12 @@ class SplashViewController: UIViewController, UIScrollViewDelegate {
         }
         self.pageImageView.alpha = 1.0
         self.pageImageView.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
-        UIView.animate(withDuration: 0.3, delay: 0.0, options: .curveEaseOut, animations: {
+        UIView.animate(withDuration: 0.2, delay: 0.0, options: .curveEaseOut, animations: {
 //            self.pageImageView.transform = CGAffineTransform(scaleX: 0.0, y: 0.0)
             self.pageImageView.alpha = 0.0
         }) { (finished) in
             self.pageImageView.image = self.images[page]
-            self.pageImageView.transform = CGAffineTransform(scaleX: 0.4, y: 0.4)
+//            self.pageImageView.transform = CGAffineTransform(scaleX: 0.4, y: 0.4)
             UIView.animate(withDuration: 0.3, delay: 0.0, options: .curveEaseInOut, animations: {
                 self.pageImageView.alpha = 1.0
                 self.pageImageView.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
@@ -132,6 +146,9 @@ class SplashViewController: UIViewController, UIScrollViewDelegate {
                 self.skipButton.setImage(#imageLiteral(resourceName: "introSkip"), for: .highlighted)
             }, completion: nil)
         }
+        
+        self.titleLabel.text = titles[page]
+        self.subtitleLabel.text = subtitles[page]
         
     }
     
