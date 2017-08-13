@@ -40,7 +40,7 @@ class ContainerViewController: UIViewController {
         activeNavigationController.didMove(toParentViewController: self)
         
         let mainVC = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "MainViewController")
-//        let lenderVC = UIStoryboard(name: "LendSpot", bundle: Bundle.main).instantiateViewController(withIdentifier: "MainLenderVC")
+//        let lenderVC = UIStoryboard(name: "LendSpot", bundle: Bundle.main).instantiateViewController(withIdentifier: "LenderIntroVC")
         
         //        let searchVC =  UIStoryboard(name: "Search", bundle: Bundle.main).instantiateViewController(withIdentifier: "SearchViewController") as? SearchViewController
         activeNavigationController.mainVCS = [mainVC]

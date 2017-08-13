@@ -5,7 +5,6 @@
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <development version="8000" identifier="xcode"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13137.5"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -15,16 +14,217 @@
     <customFonts key="customFonts">
         <array key="Avenir.ttc">
             <string>Avenir-Book</string>
+            <string>Avenir-Heavy</string>
             <string>Avenir-Light</string>
             <string>Avenir-Medium</string>
             <string>Avenir-Roman</string>
         </array>
     </customFonts>
     <scenes>
+        <!--Lender Spot Intro View Controller-->
+        <scene sceneID="Dqw-JW-a6L">
+            <objects>
+                <viewController storyboardIdentifier="LenderIntroVC" id="sBF-bh-Gg6" customClass="LenderSpotIntroViewController" customModule="Meter" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="J3F-lZ-Wel"/>
+                        <viewControllerLayoutGuide type="bottom" id="gIR-Ou-LWT"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="YES" id="CjT-BM-Byv">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M61-ha-JuK">
+                                <rect key="frame" x="32" y="40" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="cBZ-ik-Dyn"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="menuDotsIcon"/>
+                                <connections>
+                                    <action selector="backButtonClicked:" destination="ap3-5h-wCt" eventType="touchUpInside" id="OQb-tt-DIc"/>
+                                    <action selector="backButtonClicked:" destination="bIh-Sj-jvX" eventType="touchUpInside" id="dEj-sA-1UX"/>
+                                    <action selector="menuButtonClicked:" destination="sBF-bh-Gg6" eventType="touchUpInside" id="YSe-ys-XX8"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LendSpotIntroIcon" translatesAutoresizingMaskIntoConstraints="NO" id="JgI-SN-A4M">
+                                <rect key="frame" x="127.5" y="90" width="120" height="120"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="JgI-SN-A4M" secondAttribute="height" multiplier="1:1" id="5g2-9p-OqM"/>
+                                    <constraint firstAttribute="height" constant="120" id="FIE-FP-1eD"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$250/month" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K0z-JH-qbB">
+                                <rect key="frame" x="-0.5" y="240" width="375" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="2nA-Pt-5ZL"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="right in your driveway" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="an0-lk-mmk">
+                                <rect key="frame" x="0.0" y="270" width="375" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="TPD-ds-89r"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jzo-RG-OLY">
+                                <rect key="frame" x="47" y="340" width="281" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="g1B-hM-sri"/>
+                                </constraints>
+                                <attributedString key="attributedText">
+                                    <fragment content="1.">
+                                        <attributes>
+                                            <font key="NSFont" size="26" name="Avenir-Heavy"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="  ">
+                                        <attributes>
+                                            <font key="NSFont" size="20" name="Avenir-Medium"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="List">
+                                        <attributes>
+                                            <font key="NSFont" size="20" name="Avenir-Heavy"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content=" ">
+                                        <attributes>
+                                            <font key="NSFont" size="20" name="Avenir-Medium"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="details about your spot">
+                                        <attributes>
+                                            <font key="NSFont" size="19" name="Avenir-Medium"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eg2-zR-hsp">
+                                <rect key="frame" x="47.5" y="380" width="281" height="70"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="N8i-ZU-Fnb"/>
+                                </constraints>
+                                <attributedString key="attributedText">
+                                    <fragment content="2.">
+                                        <attributes>
+                                            <font key="NSFont" size="26" name="Avenir-Heavy"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="  ">
+                                        <attributes>
+                                            <font key="NSFont" size="20" name="Avenir-Medium"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="Respond">
+                                        <attributes>
+                                            <font key="NSFont" size="20" name="Avenir-Heavy"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content=" to people who contact you">
+                                        <attributes>
+                                            <font key="NSFont" size="20" name="Avenir-Medium"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YL9-cN-jLG">
+                                <rect key="frame" x="47.5" y="455" width="281" height="70"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="Nkw-ql-OQI"/>
+                                </constraints>
+                                <attributedString key="attributedText">
+                                    <fragment content="3.">
+                                        <attributes>
+                                            <font key="NSFont" size="26" name="Avenir-Heavy"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="  ">
+                                        <attributes>
+                                            <font key="NSFont" size="20" name="Avenir-Medium"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="Profit!">
+                                        <attributes>
+                                            <font key="NSFont" size="20" name="Avenir-Heavy"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content=" Treat yourself with your passive income">
+                                        <attributes>
+                                            <font key="NSFont" size="20" name="Avenir-Medium"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cd5-x6-sek">
+                                <rect key="frame" x="47" y="582" width="281" height="45"/>
+                                <color key="backgroundColor" red="0.38823529410000002" green="0.48627450979999998" blue="0.91764705879999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="Xke-Db-elH"/>
+                                </constraints>
+                                <state key="normal" title="LIST YOUR SPOT">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="continueButtonClicked:" destination="sBF-bh-Gg6" eventType="touchUpInside" id="3C8-KT-ypr"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="an0-lk-mmk" firstAttribute="top" secondItem="K0z-JH-qbB" secondAttribute="bottom" id="28d-Aw-slN"/>
+                            <constraint firstItem="an0-lk-mmk" firstAttribute="centerX" secondItem="CjT-BM-Byv" secondAttribute="centerX" id="3d1-rk-gv0"/>
+                            <constraint firstItem="an0-lk-mmk" firstAttribute="width" secondItem="CjT-BM-Byv" secondAttribute="width" id="5iS-yO-7ge"/>
+                            <constraint firstItem="Eg2-zR-hsp" firstAttribute="top" secondItem="jzo-RG-OLY" secondAttribute="bottom" constant="10" id="E7g-nC-5lJ"/>
+                            <constraint firstItem="cd5-x6-sek" firstAttribute="centerX" secondItem="CjT-BM-Byv" secondAttribute="centerX" id="KOx-Nc-bXw"/>
+                            <constraint firstItem="YL9-cN-jLG" firstAttribute="top" secondItem="Eg2-zR-hsp" secondAttribute="bottom" constant="5" id="PPF-Me-t0Y"/>
+                            <constraint firstItem="K0z-JH-qbB" firstAttribute="centerX" secondItem="CjT-BM-Byv" secondAttribute="centerX" id="QpR-7B-54i"/>
+                            <constraint firstItem="M61-ha-JuK" firstAttribute="width" secondItem="M61-ha-JuK" secondAttribute="height" multiplier="1:1" id="T39-0x-pzh"/>
+                            <constraint firstItem="jzo-RG-OLY" firstAttribute="centerX" secondItem="CjT-BM-Byv" secondAttribute="centerX" id="U33-0N-7Xb"/>
+                            <constraint firstItem="gIR-Ou-LWT" firstAttribute="top" secondItem="cd5-x6-sek" secondAttribute="bottom" constant="40" id="VkZ-5O-Old"/>
+                            <constraint firstItem="Eg2-zR-hsp" firstAttribute="centerX" secondItem="jzo-RG-OLY" secondAttribute="centerX" id="YBa-uj-S1i"/>
+                            <constraint firstItem="jzo-RG-OLY" firstAttribute="width" secondItem="CjT-BM-Byv" secondAttribute="width" multiplier="0.75" id="Zts-ar-XUg"/>
+                            <constraint firstItem="jzo-RG-OLY" firstAttribute="top" secondItem="an0-lk-mmk" secondAttribute="bottom" constant="40" id="eQd-ge-1Vk"/>
+                            <constraint firstItem="M61-ha-JuK" firstAttribute="leading" secondItem="CjT-BM-Byv" secondAttribute="leadingMargin" constant="16" id="ewz-Zn-GUe"/>
+                            <constraint firstItem="JgI-SN-A4M" firstAttribute="centerX" secondItem="CjT-BM-Byv" secondAttribute="centerX" id="fgj-iE-pAK"/>
+                            <constraint firstItem="K0z-JH-qbB" firstAttribute="width" secondItem="CjT-BM-Byv" secondAttribute="width" id="hAH-KO-elf"/>
+                            <constraint firstItem="cd5-x6-sek" firstAttribute="width" secondItem="jzo-RG-OLY" secondAttribute="width" id="hrM-0q-wkA"/>
+                            <constraint firstItem="JgI-SN-A4M" firstAttribute="top" secondItem="M61-ha-JuK" secondAttribute="bottom" constant="20" id="ifl-p0-FRN"/>
+                            <constraint firstItem="K0z-JH-qbB" firstAttribute="top" secondItem="JgI-SN-A4M" secondAttribute="bottom" constant="30" id="n45-wU-I0c"/>
+                            <constraint firstItem="YL9-cN-jLG" firstAttribute="width" secondItem="jzo-RG-OLY" secondAttribute="width" id="nw9-Qa-CCa"/>
+                            <constraint firstItem="YL9-cN-jLG" firstAttribute="centerX" secondItem="jzo-RG-OLY" secondAttribute="centerX" id="qwZ-qg-Juf"/>
+                            <constraint firstItem="Eg2-zR-hsp" firstAttribute="width" secondItem="jzo-RG-OLY" secondAttribute="width" id="vUO-nh-HJE"/>
+                            <constraint firstItem="M61-ha-JuK" firstAttribute="top" secondItem="J3F-lZ-Wel" secondAttribute="bottom" constant="20" id="wiw-QK-9AN"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4bA-xK-Kcb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4671" y="-294"/>
+        </scene>
         <!--Lender Spot Type View Controller-->
         <scene sceneID="Blg-u1-Omo">
             <objects>
-                <viewController storyboardIdentifier="MainLenderVC" id="bNx-cP-RHZ" customClass="LenderSpotTypeViewController" customModule="Meter" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SpotTypeVC" id="bNx-cP-RHZ" customClass="LenderSpotTypeViewController" customModule="Meter" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ToQ-oo-alO"/>
                         <viewControllerLayoutGuide type="bottom" id="XHf-zr-3qG"/>
@@ -92,13 +292,27 @@
                                             <action selector="learnMoreClicked:" destination="bNx-cP-RHZ" eventType="touchUpInside" id="6hJ-nn-bC0"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Seu-dM-CLg">
+                                        <rect key="frame" x="20" y="20" width="30" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="1hU-jN-Pu5"/>
+                                            <constraint firstAttribute="width" secondItem="Seu-dM-CLg" secondAttribute="height" multiplier="1:1" id="Eaa-dm-l6r"/>
+                                        </constraints>
+                                        <state key="normal" title="Button" image="BackButton"/>
+                                        <connections>
+                                            <action selector="backButtonClicked:" destination="bNx-cP-RHZ" eventType="touchUpInside" id="0kF-Yb-s1F"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.94509803920000002" green="0.94509803920000002" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="HlG-AX-N14" firstAttribute="centerX" secondItem="sTd-Oo-DzQ" secondAttribute="centerX" id="2HD-5L-IcM"/>
                                     <constraint firstItem="4KB-ri-pzu" firstAttribute="centerX" secondItem="sTd-Oo-DzQ" secondAttribute="centerX" id="3lc-dC-NaS"/>
                                     <constraint firstAttribute="height" constant="170" id="CPE-2X-V0z"/>
+                                    <constraint firstItem="Seu-dM-CLg" firstAttribute="top" secondItem="sTd-Oo-DzQ" secondAttribute="top" constant="20" id="DDO-5t-Hy5"/>
+                                    <constraint firstItem="Seu-dM-CLg" firstAttribute="leading" secondItem="sTd-Oo-DzQ" secondAttribute="leading" constant="20" id="Sod-pv-E1h"/>
                                     <constraint firstItem="HlG-AX-N14" firstAttribute="top" secondItem="4KB-ri-pzu" secondAttribute="bottom" constant="10" id="WUI-Sh-aqx"/>
+                                    <constraint firstItem="Seu-dM-CLg" firstAttribute="width" secondItem="Seu-dM-CLg" secondAttribute="height" multiplier="1:1" id="Wmp-5m-v7K"/>
                                     <constraint firstItem="4KB-ri-pzu" firstAttribute="top" secondItem="sTd-Oo-DzQ" secondAttribute="top" constant="40" id="cIL-7E-NkA"/>
                                 </constraints>
                             </view>
@@ -1501,9 +1715,11 @@
         <image name="BackButton" width="100" height="100"/>
         <image name="ColorLine" width="1125" height="30"/>
         <image name="ForwardButton" width="100" height="100"/>
+        <image name="LendSpotIntroIcon" width="375" height="354"/>
         <image name="Map_Pin" width="111" height="156"/>
         <image name="SateliteLenderPin" width="123" height="168"/>
         <image name="addImageTemporary" width="350" height="220"/>
         <image name="checkboxUnchecked" width="100" height="100"/>
+        <image name="menuDotsIcon" width="100" height="100"/>
     </resources>
 </document>

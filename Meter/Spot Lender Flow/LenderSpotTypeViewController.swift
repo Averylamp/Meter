@@ -26,6 +26,9 @@ class LenderSpotTypeViewController: UIViewController {
         
     }
     
+    @IBAction func backButtonClicked(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
+    }
     
 }
 
@@ -54,5 +57,7 @@ extension LenderSpotTypeViewController: UITableViewDelegate, UITableViewDataSour
             self.navigationController?.pushViewController(spotAddressVC, animated: true )
         }
     }
+    
+    
     
 }

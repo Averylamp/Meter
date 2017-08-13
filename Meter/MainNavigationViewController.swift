@@ -86,7 +86,7 @@ class MainNavigationViewController: UINavigationController {
         
         lendSpotSelectedObserver = notificationCenter.addObserver(forName: NSNotification.Name(rawValue: NavigationNotifications.LendSpotSelected), object: nil, queue: nil, using: { (notification) in
             self.storeVCs()
-            let spotLendVC = UIStoryboard(name: "LendSpot", bundle: nil).instantiateViewController(withIdentifier: "MainLenderVC")
+            let spotLendVC = UIStoryboard(name: "LendSpot", bundle: nil).instantiateViewController(withIdentifier: "LenderIntroVC")
             self.setViewControllers([spotLendVC], animated: true)
         })
         

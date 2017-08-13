@@ -212,16 +212,9 @@
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CalendarTrapezoid" translatesAutoresizingMaskIntoConstraints="NO" id="JYu-Tw-10h">
                                         <rect key="frame" x="0.0" y="0.0" width="281" height="40"/>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CalendarIcon" translatesAutoresizingMaskIntoConstraints="NO" id="xTd-qc-qCS">
-                                        <rect key="frame" x="37" y="11" width="18" height="18"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="xTd-qc-qCS" secondAttribute="height" multiplier="1:1" id="WTv-39-oAF"/>
-                                            <constraint firstAttribute="height" constant="18" id="aco-ES-Bcv"/>
-                                        </constraints>
-                                    </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="When: Anytime" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="QUN-uN-rSv">
-                                        <rect key="frame" x="63" y="0.5" width="206" height="40"/>
-                                        <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="16"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SORT BY: Distance" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="QUN-uN-rSv">
+                                        <rect key="frame" x="133.5" y="0.5" width="135.5" height="40"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="16"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -233,16 +226,13 @@
                                     </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="QUN-uN-rSv" firstAttribute="leading" secondItem="xTd-qc-qCS" secondAttribute="trailing" constant="8" id="8uk-mf-HWP"/>
                                     <constraint firstItem="uu0-wz-Tw2" firstAttribute="centerX" secondItem="aCT-LK-LJc" secondAttribute="centerX" id="9fY-Xk-wvL"/>
                                     <constraint firstItem="JYu-Tw-10h" firstAttribute="centerX" secondItem="aCT-LK-LJc" secondAttribute="centerX" id="HA2-SH-9tc"/>
                                     <constraint firstItem="QUN-uN-rSv" firstAttribute="height" secondItem="aCT-LK-LJc" secondAttribute="height" id="IeM-ZT-odh"/>
-                                    <constraint firstItem="xTd-qc-qCS" firstAttribute="centerY" secondItem="aCT-LK-LJc" secondAttribute="centerY" id="LI5-cu-dRi"/>
                                     <constraint firstItem="uu0-wz-Tw2" firstAttribute="height" secondItem="aCT-LK-LJc" secondAttribute="height" id="MpN-El-6BR"/>
                                     <constraint firstItem="uu0-wz-Tw2" firstAttribute="width" secondItem="aCT-LK-LJc" secondAttribute="width" id="OXY-2W-56D"/>
                                     <constraint firstItem="uu0-wz-Tw2" firstAttribute="centerY" secondItem="aCT-LK-LJc" secondAttribute="centerY" id="UoO-Fm-L5Z"/>
                                     <constraint firstItem="JYu-Tw-10h" firstAttribute="centerY" secondItem="aCT-LK-LJc" secondAttribute="centerY" id="ZkM-k0-8CE"/>
-                                    <constraint firstItem="xTd-qc-qCS" firstAttribute="leading" secondItem="aCT-LK-LJc" secondAttribute="leading" constant="37" id="aMG-OW-6Kh"/>
                                     <constraint firstItem="QUN-uN-rSv" firstAttribute="centerY" secondItem="JYu-Tw-10h" secondAttribute="centerY" id="hVo-lc-C3R"/>
                                     <constraint firstItem="JYu-Tw-10h" firstAttribute="width" secondItem="aCT-LK-LJc" secondAttribute="width" id="ovY-h0-lQy"/>
                                     <constraint firstAttribute="trailing" secondItem="QUN-uN-rSv" secondAttribute="trailing" constant="12" id="qV6-m4-Uh0"/>
@@ -788,7 +778,6 @@
     </scenes>
     <resources>
         <image name="BackButton" width="100" height="100"/>
-        <image name="CalendarIcon" width="100" height="100"/>
         <image name="CalendarTrapezoid" width="313" height="43"/>
         <image name="CarIcon" width="30" height="18"/>
         <image name="TempProfilePic" width="100" height="100"/>
