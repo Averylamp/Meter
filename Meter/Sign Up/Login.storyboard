@@ -777,10 +777,39 @@
                                 </constraints>
                                 <state key="normal" title="Button" image="SubmitButton"/>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XJW-CX-gtx" customClass="FaveButton" customModule="FaveButton">
+                                <rect key="frame" x="257.5" y="313.5" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="OJw-tQ-qFy"/>
+                                    <constraint firstAttribute="width" constant="40" id="aQA-Bf-xP8"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="check_Checked"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="dotFirstColor">
+                                        <color key="value" red="0.50099846339315468" green="0.8703701938901629" blue="0.32982619804088248" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="dotSecondColor">
+                                        <color key="value" red="0.39625059900626503" green="0.68839474746159146" blue="0.26086672533184541" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="circleFromColor">
+                                        <color key="value" red="0.27058823529411763" green="0.51764705882352935" blue="0.16078431372549018" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="circleToColor">
+                                        <color key="value" red="0.51119422627005362" green="0.98795955882352937" blue="0.30686622660427809" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="normalColor">
+                                        <color key="value" white="0.5" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="selectedColor">
+                                        <color key="value" red="0.33333333333333331" green="0.74117647058823533" blue="0.42745098039215684" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Zvc-Cc-RSm" firstAttribute="width" secondItem="xDE-Wd-tu1" secondAttribute="width" id="3Zw-SM-TLi"/>
+                            <constraint firstItem="XJW-CX-gtx" firstAttribute="leading" secondItem="Slx-iH-B1L" secondAttribute="trailing" id="4cE-09-7Um"/>
                             <constraint firstItem="pTX-n9-0dc" firstAttribute="top" secondItem="Slx-iH-B1L" secondAttribute="bottom" id="5UF-7k-8vs"/>
                             <constraint firstItem="Zvc-Cc-RSm" firstAttribute="centerX" secondItem="xDE-Wd-tu1" secondAttribute="centerX" id="9gb-rE-8tS"/>
                             <constraint firstItem="4My-Pb-rON" firstAttribute="top" secondItem="fEB-F0-q50" secondAttribute="bottom" constant="30" id="FMl-M8-red"/>
@@ -792,12 +821,14 @@
                             <constraint firstItem="4My-Pb-rON" firstAttribute="leading" secondItem="xDE-Wd-tu1" secondAttribute="leadingMargin" constant="20" id="kge-Ir-Rm7"/>
                             <constraint firstItem="Slx-iH-B1L" firstAttribute="centerY" secondItem="xDE-Wd-tu1" secondAttribute="centerY" id="lDe-UY-WLS"/>
                             <constraint firstItem="pTX-n9-0dc" firstAttribute="centerX" secondItem="Slx-iH-B1L" secondAttribute="centerX" id="mIX-Bv-bYJ"/>
+                            <constraint firstItem="XJW-CX-gtx" firstAttribute="centerY" secondItem="Slx-iH-B1L" secondAttribute="centerY" id="qrQ-wi-jVd"/>
                             <constraint firstItem="LvV-kb-q7U" firstAttribute="top" secondItem="4My-Pb-rON" secondAttribute="bottom" constant="20" id="sL7-b3-gio"/>
                             <constraint firstAttribute="trailingMargin" secondItem="PXT-fX-VJ1" secondAttribute="trailing" constant="20" id="shi-SV-X3P"/>
                             <constraint firstItem="5Eh-d3-Swk" firstAttribute="top" secondItem="Zvc-Cc-RSm" secondAttribute="bottom" id="tSl-Bo-0Qb"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="checkMark" destination="XJW-CX-gtx" id="XcV-iL-e90"/>
                         <outlet property="confirmationTextField" destination="Slx-iH-B1L" id="IS8-MM-U1g"/>
                     </connections>
                 </viewController>
@@ -923,6 +954,7 @@
         <image name="MeterPinLogo" width="625" height="822"/>
         <image name="SubmitButton" width="500" height="160"/>
         <image name="backArrowIcon" width="100" height="100"/>
+        <image name="check_Checked" width="100" height="100"/>
         <image name="introSkip" width="234" height="75"/>
         <image name="loginSkyline" width="1125" height="318"/>
     </resources>

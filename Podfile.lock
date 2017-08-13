@@ -6,6 +6,7 @@ PODS:
   - Bolts/AppLinks (1.8.4):
     - Bolts/Tasks
   - Bolts/Tasks (1.8.4)
+  - FaveButton (2.0.3)
   - FBSDKCoreKit (4.24.0):
     - Bolts (~> 1.7)
   - FBSDKLoginKit (4.24.0):
@@ -38,6 +39,7 @@ PODS:
 DEPENDENCIES:
   - Alamofire
   - Bolts
+  - FaveButton
   - FBSDKCoreKit
   - FBSDKLoginKit
   - FBSDKShareKit
@@ -54,6 +56,7 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   Alamofire: f28cdffd29de33a7bfa022cbd63ae95a27fae140
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
+  FaveButton: cfcbc5e73da159c4f916613da5687357b5bb4783
   FBSDKCoreKit: f8c9eb0dd34a9cd277c7b60da4b32226d142502d
   FBSDKLoginKit: 1214c6d5a1c4995b694d8db8a9ba6910c6028acf
   FBSDKShareKit: a2ed9d7781a4eda9ac20d7404305e795b10251ac
@@ -67,6 +70,6 @@ SPEC CHECKSUMS:
   SCLAlertView: 8a14ffc40590c619e183eed2298b854385f30be1
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
-PODFILE CHECKSUM: d8c610d09b9110408dce8936165078452b2b7203
+PODFILE CHECKSUM: b191287d6d40aac19b2ec102f2bb0fb27556d55b
 
 COCOAPODS: 1.3.1

@@ -11,9 +11,12 @@ import Parse
 import Alamofire
 import SwiftyJSON
 import SCLAlertView
+import FaveButton
+
 
 class SignUpPhoneConfirmationViewController: UIViewController {
     
+    @IBOutlet weak var checkMark: FaveButton!
     
     @IBOutlet weak var confirmationTextField: UITextField!
     
@@ -53,9 +56,13 @@ class SignUpPhoneConfirmationViewController: UIViewController {
                             user[UserKeys.PhoneVerified] = true
                             user.saveInBackground()
                             DispatchQueue.main.async {
-                                if let completedVC = UIStoryboard(name: "Login", bundle: nil).instantiateViewController(withIdentifier: "SignUpCompletedVC") as? SignUpCompletedViewController{
-                                    self.navigationController?.pushViewController(completedVC, animated: true)
-                                }
+                                self.checkMark.isSelected = true
+                                self.delay(2.5, closure: {
+                                    if let completedVC = UIStoryboard(name: "Login", bundle: nil).instantiateViewController(withIdentifier: "SignUpCompletedVC") as? SignUpCompletedViewController{
+                                        self.navigationController?.pushViewController(completedVC, animated: true)
+                                    }
+                                })
+                                
                             }
                         }else{
                             if let errorMessage = json["message"].string{

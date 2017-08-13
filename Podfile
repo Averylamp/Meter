@@ -20,6 +20,7 @@ target 'Meter' do
   pod 'GoogleMaps'
   pod 'LTMorphingLabel'
   pod 'SCLAlertView'
+  pod 'FaveButton'
 
 
   target 'MeterTests' do
