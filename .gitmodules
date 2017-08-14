@@ -1,4 +1,0 @@
-[submodule "Website/meterwebsite"]
-	path = Website/meterwebsite
-	url = https://github.com/arlenesiswanto/meterwebsite.git
-	branch = master

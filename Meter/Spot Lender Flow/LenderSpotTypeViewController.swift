@@ -22,9 +22,6 @@ class LenderSpotTypeViewController: UIViewController {
     }
     
     let spotTypes:[String] = ["Driveway", "Curbside", "Garage", "Parking Lot", "Alley", "Tandem"]
-    @IBAction func learnMoreClicked(_ sender: Any) {
-        
-    }
     
     @IBAction func backButtonClicked(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
@@ -33,6 +30,10 @@ class LenderSpotTypeViewController: UIViewController {
 }
 
 extension LenderSpotTypeViewController: UITableViewDelegate, UITableViewDataSource{
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 60
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return spotTypes.count
